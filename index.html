@@ -789,6 +789,19 @@ section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
 }
 .mentor-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
 .mentor-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.mentor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.mentor-link:hover { border-bottom-color: var(--accent); }
 
 /* ---------- CTA ---------- */
 .cta {
@@ -1200,11 +1213,12 @@ footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40
         </p>
         <div class="mentor-block">
           <div class="mentor-label">Mentor</div>
-          <div class="mentor-name">うさねこ社長（酒井 聖）</div>
+          <div class="mentor-name">うさねこ社長（酒井 聖 様）</div>
           <div class="mentor-desc">
             6社を立ち上げてきた連続起業家。<br>
             事業設計・営業戦略について継続的に壁打ちをいただいています。
           </div>
+          <a class="mentor-link" href="https://memorynator.com/company#white2" target="_blank" rel="noopener">→ memorynator.com</a>
         </div>
       </div>
     </div>
