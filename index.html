@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="NexusGuild — 中小企業の「面倒」をAIで消す、完全カスタム業務自動化サービス。" />
+<title>NexusGuild — 面倒を、AIで消す。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #f4f1ec;
+  --bg-white:  #ffffff;
+  --bg-dark:   #0f0f0f;
+  --ink:       #0f0f0f;
+  --paper:     #3d3d3d;
+  --muted:     #9a9a9a;
+  --line:      rgba(0, 0, 0, 0.10);
+  --line-2:    rgba(0, 0, 0, 0.16);
+  --accent:    #d93a1c;
+  --accent-soft: rgba(217, 58, 28, 0.08);
+  --sans:  "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:  "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --maxw:  1240px;
+  --gutter: clamp(24px, 5vw, 80px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: #fff; }
+
+/* ---------- Header ---------- */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 var(--gutter);
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(244, 241, 236, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+.logo .mark { color: var(--accent); }
+
+.nav-meta {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper);
+}
+.nav-meta a:not(.nav-cta):hover { color: var(--accent); }
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--ink);
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent) !important; }
+@media (max-width: 680px) {
+  .nav-meta a:not(.nav-cta) { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px var(--gutter) 110px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+/* Japanese landscape photo (Mt. Fuji + Chureito Pagoda, Unsplash) with slow zoom */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=2000&q=80&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  animation: heroZoom 22s ease-in-out infinite alternate;
+}
+/* Warm off-white overlay so text stays readable; photo shows through top-right */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(215deg,
+    rgba(244, 241, 236, 0.58) 0%,
+    rgba(244, 241, 236, 0.90) 50%,
+    rgba(244, 241, 236, 0.99) 100%);
+}
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.hero-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+}
+@media (min-width: 920px) {
+  .hero-bottom { grid-template-columns: 1.5fr 1fr; gap: 72px; align-items: start; }
+}
+
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.hero-meta span { display: flex; align-items: center; gap: 8px; }
+.hero-meta span::before {
+  content: "";
+  width: 5px; height: 5px;
+  background: var(--accent);
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.hero-title {
+  font-weight: 900;
+  font-size: clamp(52px, 8.5vw, 124px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  margin-bottom: 52px;
+}
+.hero-title .accent { color: var(--accent); }
+.hero-title .block { display: block; white-space: nowrap; }
+
+.hero-sub {
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.9;
+  color: var(--paper);
+  max-width: 44ch;
+  margin-bottom: 44px;
+  font-weight: 500;
+}
+.hero-sub .hl {
+  position: relative;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.hero-sub .hl::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 1px;
+  height: 8px;
+  background: var(--accent-soft);
+  z-index: -1;
+}
+
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary, .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 17px 38px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: all 0.22s ease;
+}
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--line-2); }
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+/* Hero side panel */
+.hero-side {
+  border-left: 2px solid var(--accent);
+  padding-left: 28px;
+}
+.hero-side p {
+  font-size: 15px;
+  line-height: 2.0;
+  color: var(--paper);
+}
+.hero-side .em { color: var(--ink); font-weight: 700; }
+
+.hero-footer {
+  position: absolute;
+  bottom: 36px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+@media (max-width: 680px) { .hero-footer { display: none; } }
+
+/* Giant background mark */
+.hero-bgmark {
+  position: absolute;
+  right: -4vw;
+  bottom: -8vw;
+  font-weight: 900;
+  font-size: 40vw;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+}
+.hero-inner, .hero-footer { position: relative; z-index: 2; }
+
+/* ---------- Section common ---------- */
+section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
+.section-inner { max-width: var(--maxw); margin: 0 auto; }
+
+.section-header { margin-bottom: 60px; }
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-eyebrow::before {
+  content: "";
+  width: 28px; height: 1.5px;
+  background: var(--accent);
+}
+.section-title {
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 62px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* ---------- Manifesto (仕事 vs 作業) ---------- */
+.manifesto { background: var(--bg-white); }
+.manifesto-lead {
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.85;
+  color: var(--paper);
+  max-width: 62ch;
+  margin-bottom: 64px;
+  font-weight: 500;
+}
+.manifesto-lead strong { color: var(--ink); font-weight: 700; }
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1.5px solid var(--line-2);
+  margin-bottom: 56px;
+}
+@media (min-width: 820px) { .compare { grid-template-columns: 1fr 1fr; } }
+
+.compare-col { padding: 44px clamp(28px, 4vw, 52px); }
+.compare-col + .compare-col { border-top: 1.5px solid var(--line-2); }
+@media (min-width: 820px) {
+  .compare-col + .compare-col { border-top: none; border-left: 1.5px solid var(--line-2); }
+}
+.compare-keep { background: var(--bg-white); }
+.compare-kill { background: var(--bg-dark); color: #fff; }
+
+.compare-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.compare-keep .compare-tag { color: var(--muted); }
+.compare-kill .compare-tag { color: var(--accent); }
+
+.compare-h {
+  font-weight: 900;
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+.compare-sub {
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+.compare-keep .compare-sub { color: var(--muted); }
+.compare-kill .compare-sub { color: rgba(255,255,255,0.55); }
+
+.compare-list { list-style: none; }
+.compare-list li {
+  font-size: 16px;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.compare-keep .compare-list li { border-bottom: 1px solid var(--line); color: var(--paper); }
+.compare-kill .compare-list li { border-bottom: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.92); }
+.compare-list li:last-child { border-bottom: none; }
+.compare-keep .compare-list li::before {
+  content: "保";
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 700;
+  color: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+}
+.compare-kill .compare-list li::before {
+  content: "消";
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.manifesto-close {
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+.manifesto-close .accent { color: var(--accent); }
+
+/* ---------- Demo (AI at work) ---------- */
+.demo { background: var(--bg); position: relative; overflow: hidden; }
+.demo .section-inner { position: relative; z-index: 2; }
+.demo .section-header { margin-bottom: 44px; }
+
+/* Faded faux-inbox watermark (dummy data only — no real PII) */
+.demo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 96px var(--gutter) 0;
+  opacity: 0.11;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 72%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 72%, transparent);
+}
+.demo-bg .inbox {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  border-top: 1px solid var(--ink);
+}
+.mail-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 6px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 14px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.mail-star { flex: none; }
+.mail-from { width: 150px; flex: none; font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+.mail-chips { display: flex; gap: 6px; flex: none; }
+.mail-chip {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--ink);
+}
+.mail-subject { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+.mail-time { flex: none; font-size: 12px; }
+@media (max-width: 700px) { .demo-bg { display: none; } }
+.window {
+  border: 1px solid var(--line-2);
+  background: #0d0d0d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px -45px rgba(0, 0, 0, 0.5);
+}
+.window-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: #1a1a1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.window-bar .dot { width: 12px; height: 12px; border-radius: 50%; }
+.window-bar .dot:nth-child(1) { background: #ff5f56; }
+.window-bar .dot:nth-child(2) { background: #ffbd2e; }
+.window-bar .dot:nth-child(3) { background: #27c93f; }
+.window-title {
+  margin-left: 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.window-status {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #27c93f;
+}
+.window-status .pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #27c93f;
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0.6); }
+  70%  { box-shadow: 0 0 0 9px rgba(39, 201, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0); }
+}
+.window-body { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .window-body { grid-template-columns: 1fr 1.35fr; } }
+
+.panel { padding: 26px 24px; }
+.panel-tasks { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+@media (min-width: 760px) {
+  .panel-tasks { border-bottom: none; border-right: 1px solid rgba(255, 255, 255, 0.08); }
+}
+.panel-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 18px;
+}
+.task-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.task {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 7px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: border-color 0.4s ease;
+}
+.task-check {
+  flex: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: grid; place-items: center;
+  font-size: 10px; color: transparent;
+  transition: all 0.4s ease;
+}
+.task-state {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #ffbd2e;
+}
+.task.done { border-color: rgba(39, 201, 63, 0.35); }
+.task.done .task-check { background: #27c93f; border-color: #27c93f; color: #0d0d0d; }
+.task.done .task-state { color: #27c93f; }
+
+.panel-term {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.82);
+  min-height: 300px;
+}
+.term-line { white-space: pre-wrap; word-break: break-word; }
+.term-line .prompt { color: #27c93f; }
+.term-line .accent { color: #ff7a5c; font-weight: 700; }
+.term-line .dim { color: rgba(255, 255, 255, 0.4); }
+.term-cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: #27c93f;
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- Tiers (松竹梅) — showpiece ---------- */
+.tiers { background: var(--bg); }
+.tiers .section-header { margin-bottom: 20px; }
+.tiers-lead {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--paper);
+  max-width: 60ch;
+  margin-bottom: 56px;
+}
+.tier-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 920px) { .tier-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; } }
+
+.tier {
+  position: relative;
+  background: var(--bg-white);
+  border: 1.5px solid var(--line-2);
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.tier:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -24px rgba(0,0,0,0.30);
+  border-color: var(--ink);
+}
+
+.tier-glyph {
+  position: absolute;
+  top: 8px; right: 18px;
+  font-weight: 900;
+  font-size: 150px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.10;
+  pointer-events: none;
+}
+.tier-step {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.tier-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px; height: 64px;
+  font-size: 34px;
+  font-weight: 900;
+  color: #fff;
+  background: var(--accent);
+  margin-bottom: 24px;
+}
+.tier-title {
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.tier-price {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.tier-desc {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--paper);
+  margin-bottom: 30px;
+  flex: 1;
+}
+.tier-examples {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.tier-examples-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.tier-examples ul { list-style: none; }
+.tier-examples li {
+  font-size: 13px;
+  padding: 6px 0 6px 18px;
+  position: relative;
+  color: var(--paper);
+}
+.tier-examples li::before {
+  content: "→";
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-size: 11px;
+}
+
+/* Featured tier (松) */
+.tier--featured {
+  background: var(--bg-dark);
+  border-color: var(--bg-dark);
+}
+.tier--featured .tier-step { color: rgba(255,255,255,0.5); }
+.tier--featured .tier-title { color: #fff; }
+.tier--featured .tier-desc { color: rgba(255,255,255,0.72); }
+.tier--featured .tier-examples { border-top-color: rgba(255,255,255,0.15); }
+.tier--featured .tier-examples li { color: rgba(255,255,255,0.85); }
+.tier--featured .tier-glyph { color: #fff; opacity: 0.07; }
+.tier-badge {
+  position: absolute;
+  top: 0; left: 0;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+}
+.tier--featured { padding-top: 52px; }
+
+/* ---------- Method (手順) — strong horizontal flow ---------- */
+.method { background: var(--bg-dark); color: #fff; }
+.method .section-eyebrow { color: var(--accent); }
+.method .section-eyebrow::before { background: var(--accent); }
+.method .section-title { color: #fff; }
+.method-lead {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.62);
+  max-width: 62ch;
+  margin-bottom: 64px;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 920px) { .method-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.method-step {
+  position: relative;
+  padding: 36px 28px 36px 0;
+  border-top: 2px solid rgba(255,255,255,0.18);
+}
+@media (max-width: 919px) {
+  .method-step { padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.14); }
+  .method-step:first-child { border-top: 2px solid rgba(255,255,255,0.18); }
+}
+@media (min-width: 920px) {
+  .method-step:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.10); padding-right: 28px; }
+  .method-step:not(:first-child) { padding-left: 28px; }
+}
+.method-num {
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.method-step-title {
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.method-step-desc {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.6);
+}
+.method-note {
+  margin-top: 56px;
+  padding: 34px 38px;
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--accent);
+  font-size: 15px;
+  line-height: 1.95;
+  color: rgba(255,255,255,0.78);
+}
+.method-note strong { color: #fff; font-weight: 700; }
+
+/* ---------- About ---------- */
+.about { background: var(--bg); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+@media (min-width: 920px) { .about-grid { grid-template-columns: 5fr 7fr; gap: 80px; } }
+
+.about-card {
+  border: 1.5px solid var(--line-2);
+  padding: 40px;
+  background: var(--bg-white);
+}
+.about-card-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.about-card dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px 28px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.about-card dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-top: 3px;
+  white-space: nowrap;
+}
+.about-card dd { color: var(--paper); }
+.about-card dd .accent { color: var(--accent); font-weight: 700; }
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.95;
+  margin-bottom: 20px;
+  color: var(--paper);
+}
+.about-text p:first-child {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.7;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+.about-text strong { color: var(--ink); font-weight: 700; }
+
+.mentor-block {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.mentor-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.mentor-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.mentor-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ---------- CTA ---------- */
+.cta {
+  position: relative;
+  background: var(--accent);
+  padding: 150px var(--gutter);
+  text-align: center;
+  border-bottom: none;
+  overflow: hidden;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.cta-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.cta h2 {
+  font-weight: 900;
+  font-size: clamp(38px, 6.2vw, 80px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  color: #fff;
+}
+.cta-lead { font-size: 16px; line-height: 1.95; color: rgba(255,255,255,0.85); margin-bottom: 48px; }
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 52px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1.5px solid #fff;
+  transition: all 0.25s ease;
+}
+.cta-button:hover { background: var(--bg-dark); color: #fff; border-color: var(--bg-dark); transform: translateY(-2px); }
+.cta-sub {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.cta-bgmark {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 900;
+  font-size: 32vw;
+  color: rgba(255,255,255,0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+
+/* ---------- Footer ---------- */
+footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40px; }
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 920px) { .footer-inner { grid-template-columns: 2fr 1fr 1fr; } }
+.footer-brand .logo { font-size: 26px; margin-bottom: 16px; color: #fff; }
+.footer-tagline { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { font-size: 14px; color: rgba(255,255,255,0.72); padding: 5px 0; }
+.footer-col li a:hover { color: #fff; }
+.footer-bottom {
+  max-width: var(--maxw);
+  margin: 64px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.27s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.38s; opacity: 1; transform: translateY(0); }
+
+/* ---------- Hero load animation ---------- */
+.hero-title .block { animation: slideUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.hero-title .block:nth-child(1) { animation-delay: 0.1s; }
+.hero-title .block:nth-child(2) { animation-delay: 0.26s; }
+.hero-sub     { animation: fadeIn 1s ease 0.6s backwards; }
+.hero-meta    { animation: fadeIn 0.8s ease 0.05s backwards; }
+.hero-buttons { animation: fadeIn 1s ease 0.85s backwards; }
+.hero-side    { animation: fadeIn 1s ease 0.95s backwards; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="logo">NexusGuild<span class="mark">.</span></div>
+  <nav class="nav-meta">
+    <a href="#manifesto">考え方</a>
+    <a href="#tiers">プラン</a>
+    <a href="#method">進め方</a>
+    <a href="#about">運営</a>
+    <a href="#contact" class="nav-cta">連絡する</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span>Saitama, Japan</span>
+      <span>Est. 2026</span>
+      <span>AI Automation Agency</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="block">面倒を、</span>
+      <span class="block"><span class="accent">AI</span>で消す。</span>
+    </h1>
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-sub">
+          ChatGPT のような汎用ツールでは、届かない。<br>
+          <span class="hl">その会社にしかない「作業」</span>を、<br>
+          完全カスタムのAIで自動化するエージェンシーです。
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">無料ヒアリングを申し込む →</a>
+          <a href="#tiers" class="btn-outline">プランを見る</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <p>
+          中小企業の現場には、<span class="em">「人にしかできない仕事」</span>と<span class="em">「ただ面倒なだけの作業」</span>が混ざっている。<br><br>
+          私たちは、後者だけを静かに消す。
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-footer">
+    <span>↓ Scroll to read</span>
+    <span>NexusGuild / 2026</span>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO (仕事 vs 作業) ============ -->
+<section class="manifesto" id="manifesto">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">02 — Manifesto</div>
+      <h2 class="section-title">「仕事」と「作業」を、<br>分けて考える。</h2>
+    </div>
+    <p class="manifesto-lead reveal">
+      ヒアリングを重ねて見えてきたのは、経営者が「AIに任せたいもの」と「絶対に任せたくないもの」の境界線が、<strong>「仕事」と「作業」の違い</strong>にきれいに沿っている、ということでした。
+    </p>
+
+    <div class="compare reveal">
+      <div class="compare-col compare-keep">
+        <div class="compare-tag">Keep — 人がやる</div>
+        <div class="compare-h">仕事</div>
+        <div class="compare-sub">経営者の手から、離してはいけないもの。</div>
+        <ul class="compare-list">
+          <li>人を育てる</li>
+          <li>関係をつくる</li>
+          <li>最後の判断を下す</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-kill">
+        <div class="compare-tag">Kill — AIに任せる</div>
+        <div class="compare-h">作業</div>
+        <div class="compare-sub">本来やりたい仕事の時間を、奪っているもの。</div>
+        <ul class="compare-list">
+          <li>ゴミメールの仕分け</li>
+          <li>毎日同じ書式の受発注処理</li>
+          <li>SNS投稿の運用</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="manifesto-close reveal">
+      NexusGuild は、<span class="accent">作業だけ</span>を、AIで静かに引き取る。
+    </p>
+  </div>
+</section>
+
+<!-- ============ DEMO (AI at work) ============ -->
+<section class="demo" id="demo">
+  <!-- Faded watermark: dummy inbox (fictional data, no personal info) -->
+  <div class="demo-bg" aria-hidden="true">
+    <div class="inbox">
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">通販モール</span><span class="mail-chips"><span class="mail-chip">営業・スパム</span></span><span class="mail-subject">【初回50%OFF】プレミアムプラン体験はお早めに</span><span class="mail-time">9:14</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">○○商事</span><span class="mail-chips"><span class="mail-chip">AI処理済み</span><span class="mail-chip">請求書・契約</span></span><span class="mail-subject">4月度の請求書を送付します（PDF添付）</span><span class="mail-time">8:02</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">仕入先システム</span><span class="mail-chips"><span class="mail-chip">重要・緊急</span></span><span class="mail-subject">在庫切れのお知らせ：型番 A-203 ／ 要発注</span><span class="mail-time">7:48</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">クラウド管理</span><span class="mail-chips"><span class="mail-chip">AI処理済み</span></span><span class="mail-subject">定期メンテナンスのご案内（影響なし）</span><span class="mail-time">昨日</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">お問い合わせ</span><span class="mail-chips"><span class="mail-chip">返信必要</span></span><span class="mail-subject">見積もりのご相談（外構工事の自動化について）</span><span class="mail-time">昨日</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">マーケ代理店</span><span class="mail-chips"><span class="mail-chip">営業・スパム</span></span><span class="mail-subject">＼今だけ／ SEO無料診断キャンペーン実施中</span><span class="mail-time">月曜</span></div>
+      <div class="mail-row"><span class="mail-star">★</span><span class="mail-from">NexusGuild AI</span><span class="mail-chips"><span class="mail-chip">AI処理済み</span><span class="mail-chip">確認のみ</span></span><span class="mail-subject">受発注データ 47 件を基幹システムへ取り込みました</span><span class="mail-time">月曜</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">経理システム</span><span class="mail-chips"><span class="mail-chip">重要・緊急</span></span><span class="mail-subject">支払期日リマインド：4/30 締め分</span><span class="mail-time">先週</span></div>
+      <div class="mail-row"><span class="mail-star">☆</span><span class="mail-from">予約管理Bot</span><span class="mail-chips"><span class="mail-chip">AI処理済み</span></span><span class="mail-subject">本日の予約 12 件を確定し、リマインドを送信</span><span class="mail-time">先週</span></div>
+    </div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">— In Action</div>
+      <h2 class="section-title">AIが、作業を<br>消していく。</h2>
+    </div>
+    <div class="window reveal">
+      <div class="window-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="window-title">NexusGuild AI Engine — work.log</span>
+        <span class="window-status"><i class="pulse"></i> 稼働中</span>
+      </div>
+      <div class="window-body">
+        <div class="panel panel-tasks">
+          <div class="panel-label">今日の作業キュー</div>
+          <ul class="task-list" id="demo-tasks">
+            <li class="task"><span class="task-check">✓</span>ゴミメールの仕分け<span class="task-state">待機中</span></li>
+            <li class="task"><span class="task-check">✓</span>受発注の処理<span class="task-state">待機中</span></li>
+            <li class="task"><span class="task-check">✓</span>SNS投稿の運用<span class="task-state">待機中</span></li>
+          </ul>
+        </div>
+        <div class="panel panel-term" id="demo-term"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIERS (松竹梅) ============ -->
+<section class="tiers" id="tiers">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">03 — Plans</div>
+      <h2 class="section-title">梅・竹・松の、<br>三段構え。</h2>
+    </div>
+    <p class="tiers-lead reveal">
+      業種ごとに「最初に消したい作業」は違う。だから固定パッケージではなく、最初の一手から段階的に積み上げる構造で設計しています。小さく始めて、効果を確かめながら育てられます。
+    </p>
+    <div class="tier-grid reveal-stagger">
+
+      <article class="tier">
+        <span class="tier-glyph">梅</span>
+        <div class="tier-step">Plan 01 / Entry</div>
+        <div class="tier-rank">梅</div>
+        <h3 class="tier-title">最初の一作業を、<br>消す。</h3>
+        <div class="tier-price">まずは小さく、確実に</div>
+        <p class="tier-desc">
+          ヒアリングで特定した「一番痛い作業」を、AIで1つだけ自動化。3〜5日でプロトタイプを納品し、現場で検証します。
+        </p>
+        <div class="tier-examples">
+          <span class="tier-examples-label">業種別 / 想定例</span>
+          <ul>
+            <li>BtoB営業 — ゴミメール除去</li>
+            <li>飲食店 — 予約管理の自動化</li>
+            <li>製造業 — 受発注の処理</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tier">
+        <span class="tier-glyph">竹</span>
+        <div class="tier-step">Plan 02 / Expand</div>
+        <div class="tier-rank">竹</div>
+        <h3 class="tier-title">業務全体を、<br>つなぐ。</h3>
+        <div class="tier-price">点を、線にする</div>
+        <p class="tier-desc">
+          梅で検証できた自動化を起点に、関連する作業へ展開。複数のAIモジュールを組み合わせ、業務フロー全体を最適化します。
+        </p>
+        <div class="tier-examples">
+          <span class="tier-examples-label">想定アウトプット</span>
+          <ul>
+            <li>業務横断のAIワークフロー</li>
+            <li>月次レポートの自動生成</li>
+            <li>定型対応の代替</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tier tier--featured">
+        <span class="tier-badge">Recommended</span>
+        <span class="tier-glyph">松</span>
+        <div class="tier-step">Plan 03 / Embed</div>
+        <div class="tier-rank">松</div>
+        <h3 class="tier-title">経営に、<br>埋め込む。</h3>
+        <div class="tier-price">いちばん深く、効く</div>
+        <p class="tier-desc">
+          自動化を運用に組み込み、社内の意思決定支援まで踏み込む。経営者の判断材料を、AIがリアルタイムで揃える状態をつくります。
+        </p>
+        <div class="tier-examples">
+          <span class="tier-examples-label">想定領域</span>
+          <ul>
+            <li>意思決定ダッシュボード</li>
+            <li>顧客対応AIエージェント</li>
+            <li>社内ナレッジ統合</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD (進め方) ============ -->
+<section class="method" id="method">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">04 — Method</div>
+      <h2 class="section-title">完全カスタムを、<br>速く作る。</h2>
+    </div>
+    <p class="method-lead reveal">
+      汎用ツールでは届かない領域だけを取りに行く。そのために Palantir の Forward Deployed Engineer モデルを参考に、現場へ深く入り込む進め方を採用しています。
+    </p>
+    <div class="method-grid reveal-stagger">
+      <div class="method-step">
+        <div class="method-num">01</div>
+        <h3 class="method-step-title">ヒアリング</h3>
+        <p class="method-step-desc">現場に入り、痛みを言語化する。何が「仕事」で何が「作業」かを、経営者と一緒に切り分ける。</p>
+      </div>
+      <div class="method-step">
+        <div class="method-num">02</div>
+        <h3 class="method-step-title">プロトタイプ</h3>
+        <p class="method-step-desc">3〜5日で動くものを作って持っていく。提案書ではなく、現物で会話する。</p>
+      </div>
+      <div class="method-step">
+        <div class="method-num">03</div>
+        <h3 class="method-step-title">検証</h3>
+        <p class="method-step-desc">実際の業務に乗せて、痛みが消えたか確認する。ダメなら、その場で作り直す。</p>
+      </div>
+      <div class="method-step">
+        <div class="method-num">04</div>
+        <h3 class="method-step-title">運用へ</h3>
+        <p class="method-step-desc">動いたものを運用に組み込む。次の作業を消しに行く。竹・松へ育てる。</p>
+      </div>
+    </div>
+    <div class="method-note reveal">
+      最初のクライアントは <strong>原価で受ける</strong>。目的は、最初の1社で「本当に使えるもの」を作りきること。Palantir の初期にならった、意図的な loss-leader 戦略です。
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">05 — About</div>
+      <h2 class="section-title">運営者について。</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-card-label">Profile</div>
+        <dl>
+          <dt>Name</dt><dd>野呂田 あいはる</dd>
+          <dt>Born</dt><dd>2007 / Saitama</dd>
+          <dt>Status</dt><dd>尚美学園大学 1年<br>ゲーム制作コース</dd>
+          <dt>Domain</dt><dd>AI / Software / Design</dd>
+          <dt>Sport</dt><dd>Boxing — <span class="accent">北信越優勝</span></dd>
+          <dt>Contact</dt><dd><a href="#contact" style="color:var(--accent);">下記のフォームより</a></dd>
+        </dl>
+      </div>
+      <div class="about-text reveal">
+        <p>18歳の学生起業家が、なぜ AI自動化エージェンシーを立ち上げたのか。</p>
+        <p>
+          きっかけは単純で、「面倒なものは消したい」という感覚です。ボクシングで<strong>北信越優勝</strong>まで勝ち上がる過程で身につけた、目標設定と失敗分析のサイクルを、そのまま事業に持ち込んでいます。
+        </p>
+        <p>
+          NexusGuild が大切にしているのは、「汎用ツールの隙間に残った、業種固有の作業」を狙うこと。ChatGPTで済む話を売り込む気はありません。逆に、ChatGPTでは届かない、その会社にしかない作業——そこにだけ、私たちが入る価値があります。
+        </p>
+        <p>
+          まずは最初の1社を、原価で受けます。完璧に動くものを納品して、そこから次の業種へ展開する。Palantir が最初の数年でやったやり方を、規模を変えて再現するつもりです。
+        </p>
+        <div class="mentor-block">
+          <div class="mentor-label">Mentor</div>
+          <div class="mentor-name">うさねこ社長（酒井 聖）</div>
+          <div class="mentor-desc">
+            6社を立ち上げてきた連続起業家。<br>
+            事業設計・営業戦略について継続的に壁打ちをいただいています。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="contact">
+  <div class="cta-bgmark">Contact</div>
+  <div class="cta-inner">
+    <p class="cta-label reveal">06 — Contact</p>
+    <h2 class="reveal">最初の1作業を、<br>消しに行きませんか。</h2>
+    <p class="cta-lead reveal">
+      ヒアリングは無料です。<br>
+      「これって自動化できる？」というレベルの相談から、お気軽にどうぞ。
+    </p>
+    <a href="mailto:halu.nexusguild@example.com?subject=NexusGuild%20%E3%81%B8%E3%81%AE%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" class="cta-button reveal">無料ヒアリングを申し込む →</a>
+    <div class="cta-sub reveal">※ メールでの折り返し。24時間以内にご返信。</div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">NexusGuild<span class="mark">.</span></div>
+      <p class="footer-tagline">
+        中小企業の「面倒」を、<br>
+        AIで静かに消す。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Plans</h4>
+      <ul>
+        <li><a href="#tiers">梅 / Entry</a></li>
+        <li><a href="#tiers">竹 / Expand</a></li>
+        <li><a href="#tiers">松 / Embed</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#contact">無料ヒアリング</a></li>
+        <li><a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NexusGuild / 野呂田 あいはる</span>
+    <span>Saitama, Japan</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+// AI-at-work terminal demo (CSS/JS, no external media)
+(function () {
+  const term  = document.getElementById('demo-term');
+  const tasks = Array.from(document.querySelectorAll('#demo-tasks .task'));
+  if (!term) return;
+
+  // [text, cssClass, taskIndexToComplete]
+  const LINES = [
+    ['> nexus run --client "町工場A" --task inbox', 'prompt'],
+    ['  受信トレイをスキャン中… 1,284 件', 'dim'],
+    ['  ゴミメール 312 件 を分類・隔離  ✓', ''],
+    ['  要対応 18 件 を抽出 → Slack へ通知  ✓', '', 0],
+    ['', ''],
+    ['> nexus run --task order-intake', 'prompt'],
+    ['  FAX / PDF の受発注 47 件 を読み取り…', 'dim'],
+    ['  基幹システムへ自動入力  ✓', '', 1],
+    ['', ''],
+    ['> nexus run --task sns-post', 'prompt'],
+    ['  今週の投稿 5 本 を下書き生成  ✓', ''],
+    ['  画像を自動選定し予約投稿  ✓', '', 2],
+    ['', ''],
+    ['  本日、4.2 時間ぶんの「作業」を消しました。', 'accent'],
+  ];
+
+  let i = 0;
+  const cursor = document.createElement('span');
+  cursor.className = 'term-cursor';
+
+  function reset() {
+    term.innerHTML = '';
+    tasks.forEach((t) => {
+      t.classList.remove('done');
+      t.querySelector('.task-state').textContent = '待機中';
+    });
+    i = 0;
+    term.appendChild(cursor);
+    setTimeout(step, 700);
+  }
+
+  function step() {
+    if (i >= LINES.length) { setTimeout(reset, 3000); return; }
+    const [text, cls, taskIdx] = LINES[i];
+    const line = document.createElement('div');
+    line.className = 'term-line';
+    if (cls) {
+      const span = document.createElement('span');
+      span.className = cls;
+      span.textContent = text;
+      line.appendChild(span);
+    } else {
+      line.textContent = text || ' ';
+    }
+    term.insertBefore(line, cursor);
+    if (typeof taskIdx === 'number' && tasks[taskIdx]) {
+      tasks[taskIdx].classList.add('done');
+      tasks[taskIdx].querySelector('.task-state').textContent = '完了';
+    }
+    i++;
+    setTimeout(step, text ? 620 : 280);
+  }
+
+  // Start once the window scrolls into view
+  const startObs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { reset(); startObs.disconnect(); }
+    });
+  }, { threshold: 0.3 });
+  startObs.observe(term);
+})();
+</script>
+
+</body>
+</html>
