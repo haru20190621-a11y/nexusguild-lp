@@ -339,22 +339,16 @@ section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
 .compare-kill .compare-list li { border-bottom: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.92); }
 .compare-list li:last-child { border-bottom: none; }
 .compare-keep .compare-list li::before {
-  content: "保";
+  content: "";
   flex: none;
-  width: 26px; height: 26px;
-  display: grid; place-items: center;
-  font-size: 11px; font-weight: 700;
-  color: var(--paper);
-  border: 1px solid var(--line-2);
+  width: 7px; height: 7px;
+  background: var(--paper);
   border-radius: 50%;
 }
 .compare-kill .compare-list li::before {
-  content: "消";
+  content: "";
   flex: none;
-  width: 26px; height: 26px;
-  display: grid; place-items: center;
-  font-size: 11px; font-weight: 700;
-  color: #fff;
+  width: 7px; height: 7px;
   background: var(--accent);
   border-radius: 50%;
 }
@@ -505,7 +499,12 @@ section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
   font-size: 12.5px;
   line-height: 1.9;
   color: rgba(255, 255, 255, 0.82);
-  min-height: 300px;
+  height: 420px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .term-line { white-space: pre-wrap; word-break: break-word; }
 .term-line .prompt { color: #27c93f; }
@@ -774,26 +773,93 @@ section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
 }
 .about-text strong { color: var(--ink); font-weight: 700; }
 
+.mentor-wrap {
+  margin-top: 72px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .mentor-block {
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
+  padding: 40px 44px 36px;
+  background: var(--bg-white);
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--accent);
+  position: relative;
+}
+.mentor-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 .mentor-label {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: var(--accent);
+  text-transform: uppercase;
+  padding: 4px 9px;
+  margin-bottom: 18px;
+}
+.mentor-head {
+  margin-bottom: 22px;
+}
+.mentor-name { font-size: 22px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.01em; }
+.mentor-role {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+  color: var(--paper);
 }
-.mentor-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-.mentor-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.mentor-creds {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.mentor-creds li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.mentor-creds li::before {
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  margin-top: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.mentor-creds strong { font-weight: 700; }
+.mentor-creds .num {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 2px;
+}
+.mentor-quote {
+  font-size: 13px;
+  color: var(--paper);
+  line-height: 1.75;
+  padding: 16px 18px;
+  background: var(--bg);
+  border-left: 2px solid var(--line-2);
+  margin-bottom: 18px;
+}
 .mentor-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 12px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -802,6 +868,9 @@ section { padding: 130px var(--gutter); border-bottom: 1px solid var(--line); }
   transition: border-color 0.2s ease;
 }
 .mentor-link:hover { border-bottom-color: var(--accent); }
+@media (max-width: 640px) {
+  .mentor-block { padding: 28px 22px 26px; }
+}
 
 /* ---------- CTA ---------- */
 .cta {
@@ -975,7 +1044,7 @@ footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40
       </div>
       <div class="hero-side">
         <p>
-          中小企業の現場には、<span class="em">「人にしかできない仕事」</span>と<span class="em">「ただ面倒なだけの作業」</span>が混ざっている。<br><br>
+          中小企業の現場には、<span class="em">「人にしかできない仕事」</span>と<br><span class="em">「ただ面倒なだけの作業」</span>が混ざっている。<br><br>
           私たちは、後者だけを静かに消す。
         </p>
       </div>
@@ -1176,7 +1245,7 @@ footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40
       </div>
     </div>
     <div class="method-note reveal">
-      最初のクライアントは <strong>原価で受ける</strong>。目的は、最初の1社で「本当に使えるもの」を作りきること。Palantir の初期にならった、意図的な loss-leader 戦略です。
+      私たちのミッションは、<strong>中小企業の現場から「ただ面倒なだけの作業」を消し、人にしかできない仕事に時間を返す</strong>こと。汎用ツールでは届かない、その会社固有の業務に深く入り込み、一社ずつ、確実に効くものだけを作ります。
     </div>
   </div>
 </section>
@@ -1193,15 +1262,15 @@ footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40
         <div class="about-card-label">Profile</div>
         <dl>
           <dt>Name</dt><dd>野呂田 あいはる</dd>
-          <dt>Born</dt><dd>2007 / Saitama</dd>
-          <dt>Status</dt><dd>尚美学園大学 1年<br>ゲーム制作コース</dd>
+          <dt>Born</dt><dd>2007 / Fukui</dd>
+          <dt>Status</dt><dd>尚美学園大学<br>ゲーム制作コース</dd>
           <dt>Domain</dt><dd>AI / Software / Design</dd>
           <dt>Sport</dt><dd>Boxing — <span class="accent">北信越優勝</span></dd>
           <dt>Contact</dt><dd><a href="#contact" style="color:var(--accent);">下記のフォームより</a></dd>
         </dl>
       </div>
       <div class="about-text reveal">
-        <p>18歳の学生起業家が、なぜ AI自動化エージェンシーを立ち上げたのか。</p>
+        <p>現役大学生の起業家が、なぜ AI自動化エージェンシーを立ち上げたのか。</p>
         <p>
           きっかけは単純で、「面倒なものは消したい」という感覚です。ボクシングで<strong>北信越優勝</strong>まで勝ち上がる過程で身につけた、目標設定と失敗分析のサイクルを、そのまま事業に持ち込んでいます。
         </p>
@@ -1211,15 +1280,25 @@ footer { background: var(--bg-dark); color: #fff; padding: 80px var(--gutter) 40
         <p>
           まずは最初の1社を、原価で受けます。完璧に動くものを納品して、そこから次の業種へ展開する。Palantir が最初の数年でやったやり方を、規模を変えて再現するつもりです。
         </p>
-        <div class="mentor-block">
-          <div class="mentor-label">Mentor</div>
-          <div class="mentor-name">うさねこ社長（酒井 聖 様）</div>
-          <div class="mentor-desc">
-            6社を立ち上げてきた連続起業家。<br>
-            事業設計・営業戦略について継続的に壁打ちをいただいています。
-          </div>
-          <a class="mentor-link" href="https://memorynator.com/company#white2" target="_blank" rel="noopener">→ memorynator.com</a>
+      </div>
+    </div>
+    <div class="mentor-wrap reveal">
+      <div class="mentor-block">
+        <div class="mentor-eyebrow">Backed by</div>
+        <div class="mentor-label">Mentor</div>
+        <div class="mentor-head">
+          <div class="mentor-name">酒井 聖 様 <span style="font-size:14px; color:var(--muted); font-weight:400;">（うさねこ社長）</span></div>
+          <div class="mentor-role">memorynator株式会社 代表 ／ 連続起業家</div>
         </div>
+        <ul class="mentor-creds">
+          <li><span><span class="num">6社</span>を立ち上げてきた<strong>連続起業家</strong>。事業の立ち上げを、ゼロから何度も繰り返してきた人。</span></li>
+          <li><span>VTuber向けの<strong>背景・衣装・配信用素材</strong>を制作する <strong>memorynator株式会社</strong> を経営。<br>（ブランド名：うさねこメモリー／福井県坂井市）<br>ホロライブをはじめ、国内外の大手VTuber事務所と取引。</span></li>
+          <li><span>NexusGuild の<strong>事業設計・営業戦略</strong>について、継続的に壁打ちをいただいています。</span></li>
+        </ul>
+        <div class="mentor-quote">
+          事業の方向性、価値の置きどころ、起業家としての構え方——NexusGuild の根っこにある考え方の多くは、酒井 聖 様からいただいたアドバイスをもとに形にしてきました。
+        </div>
+        <a class="mentor-link" href="https://memorynator.com/company#white2" target="_blank" rel="noopener">→ memorynator.com で詳しく</a>
       </div>
     </div>
   </div>
