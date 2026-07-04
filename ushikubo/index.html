@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}
 .htitle .line{width:44px;height:2px;background:var(--terra);margin:16px auto 0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:6px;padding:14px 24px;transition:.2s;white-space:nowrap;font-size:.95rem}
 .btn-line{background:#06c755;color:#fff}
-.btn-tel{background:var(--terra);color:#fff;flex-direction:column;gap:1px;line-height:1.25;padding:10px 22px}
+.btn-tel{background:transparent;border:1.5px solid var(--terra);color:var(--terra);flex-direction:column;gap:1px;line-height:1.25;padding:9px 21px}
 .btn-tel .n{font-size:1.15rem;font-weight:700;letter-spacing:.02em}
 .btn-tel .s{font-size:.66rem;font-weight:500;opacity:.9}
 .btn:hover{opacity:.92;transform:translateY(-1px)}
@@ -89,6 +89,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,249,244,.95);backdro
 /* Worries */
 .worries{background:var(--bg)}
 .worry-lead{text-align:center;color:var(--muted);max-width:640px;margin:-14px auto 34px}
+.nobr{white-space:nowrap}
 .worry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .worry{background:var(--paper);padding:22px 22px 22px 50px;position:relative}
 .worry::before{content:"";position:absolute;left:20px;top:26px;width:9px;height:9px;border-radius:50%;background:var(--terra)}
@@ -292,7 +293,7 @@ footer small{color:#8b988b;display:block;margin-top:8px}
 <section class="section worries" id="worries">
   <div class="htitle"><span class="en min">ご相談の多い症状</span><h2>こんなお悩み、<br>あきらめていませんか</h2><div class="line"></div></div>
   <div class="wrap">
-    <p class="worry-lead">「病院では薬と湿布だけ」「マッサージに行っても、すぐ戻る」——そんな方が、たくさん通われています。</p>
+    <p class="worry-lead"><span class="nobr">「病院では薬と湿布だけ」</span><span class="nobr">「マッサージに行っても、すぐ戻る」</span>——そんな方が、たくさん通われています。</p>
     <div class="worry-grid">
       <div class="worry"><b>腰痛・ぎっくり腰</b><small>ヘルニア・腰椎分離症の不安も</small></div>
       <div class="worry"><b>肩こり・首こり・頭痛</b><small>ストレートネック・めまい</small></div>
