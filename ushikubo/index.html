@@ -17,8 +17,8 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.min{font-family:"Shippori Mincho",serif}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-break:strict;overflow-wrap:break-word}
+.min{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
@@ -76,8 +76,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,249,244,.95);backdro
 .license{max-width:100%}
 .license img{border:1px solid var(--line);border-radius:4px;width:100%}
 .license small{display:block;color:var(--muted);font-size:.72rem;margin-top:6px}
-.greet .en{color:var(--green2);font-size:.72rem;letter-spacing:.28em;margin-bottom:8px}
-.greet h2{font-size:1.55rem;font-weight:600;line-height:1.6;margin-bottom:18px}
+.greet .en{color:var(--green2);font-size:.72rem;letter-spacing:.28em;margin-bottom:10px}
+.greet h2{font-size:1.45rem;font-weight:600;line-height:1.75;margin-bottom:20px;padding-left:18px;border-left:3px solid var(--terra)}
 .greet h2 span{color:var(--terra)}
 .greet p{color:#3a352d;margin-bottom:14px}
 .greet .sign{margin-top:20px;display:flex;align-items:baseline;gap:12px}
@@ -178,8 +178,9 @@ footer small{color:#8b988b;display:block;margin-top:8px}
   .nav-links,.nav-right .tel{display:none}
   .hero{min-height:auto}
   .hero h1{font-size:1.72rem}
+  .hero-cta{justify-content:center}
   .greet-in{grid-template-columns:1fr;gap:26px}
-  .greet-photo{max-width:300px;margin:0 auto;aspect-ratio:4/5}
+  .greet-photo{width:100%;aspect-ratio:3/2}
   .worry-grid{grid-template-columns:1fr}
   .reason{grid-template-columns:1fr}
   .reason:nth-child(even) .r-txt{order:0}
@@ -200,6 +201,9 @@ footer small{color:#8b988b;display:block;margin-top:8px}
   .hero h1{font-size:1.5rem}
   .hero p{font-size:.92rem}
   .htitle h2{font-size:1.4rem}
+  .hero-cta{gap:8px}
+  .hero-cta .btn{padding:12px 14px;font-size:.86rem}
+  .hero-cta .btn-tel{padding:8px 14px}
   .reason .r-txt{padding:26px 22px}
   .menu-row{flex-wrap:wrap;row-gap:6px}
   .worry{padding:20px 18px 20px 44px}
