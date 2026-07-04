@@ -16,8 +16,8 @@
   --shadow:0 16px 40px rgba(48,58,40,.16);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .min{font-family:"Shippori Mincho",serif}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -100,7 +100,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,249,244,.95);backdro
 /* Reasons */
 .reason{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:24px;box-shadow:var(--shadow)}
 .reason:nth-child(even) .r-txt{order:2}
-.reason .r-photo{background:var(--cream);min-height:230px;width:100%;height:100%;object-fit:cover;display:flex;align-items:center;justify-content:center;color:var(--green2);text-align:center;padding:20px;font-size:.83rem}
+.reason .r-photo{background:var(--cream);aspect-ratio:4/3;width:100%;object-fit:cover;display:flex;align-items:center;justify-content:center;color:var(--green2);text-align:center;padding:20px;font-size:.83rem}
 .reason .r-txt{padding:34px 38px}
 .reason .r-num{font-family:"Shippori Mincho",serif;color:var(--terra);font-size:.9rem;letter-spacing:.1em;margin-bottom:6px}
 .reason h3{font-size:1.35rem;font-weight:600;margin-bottom:12px;line-height:1.5}
@@ -183,7 +183,7 @@ footer small{color:#8b988b;display:block;margin-top:8px}
   .worry-grid{grid-template-columns:1fr}
   .reason{grid-template-columns:1fr}
   .reason:nth-child(even) .r-txt{order:0}
-  .reason .r-photo{min-height:180px}
+  .reason .r-photo{aspect-ratio:16/10}
   .voice-grid,.access-grid{grid-template-columns:1fr}
   .flow-grid{grid-template-columns:1fr 1fr;gap:24px 16px}
   .strip-in div{padding:14px 18px}
@@ -193,6 +193,17 @@ footer small{color:#8b988b;display:block;margin-top:8px}
   .mobilebar .btn{flex:1}
   .mobilebar .btn-tel{flex-direction:row;gap:6px;padding:12px 0}
   .mobilebar .btn-tel .s{display:none}
+}
+
+@media(max-width:400px){
+  .wrap{padding:0 18px}
+  .hero h1{font-size:1.5rem}
+  .hero p{font-size:.92rem}
+  .htitle h2{font-size:1.4rem}
+  .reason .r-txt{padding:26px 22px}
+  .menu-row{flex-wrap:wrap;row-gap:6px}
+  .worry{padding:20px 18px 20px 44px}
+  .worry::before{left:16px}
 }
 </style>
 </head>
