@@ -76,6 +76,25 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 .btn:hover{background:var(--ink);color:var(--white)}
 .btn-accent{border-color:var(--accent);color:var(--accent)}
 .btn-accent:hover{background:var(--accent);color:#fff}
+/* hero line-art */
+.hero-grid{display:block}
+.hero-art{display:none}
+@media (min-width:1000px){
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero-art{display:block;animation:fadeIn 1.2s ease .7s backwards}
+}
+.hero-art svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto}
+.hero-art .ln{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero-art .fill-w{fill:var(--white)}
+.hero-art .pop{opacity:0;animation:popIn .5s ease forwards}
+@keyframes popIn{to{opacity:1}}
+.hero-art .float{animation:floatY 5.5s ease-in-out 2.6s infinite}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hero-art .blink{opacity:0;animation:popIn .3s ease 2.2s forwards,blinkC 1.2s steps(1) 2.6s infinite}
+@keyframes blinkC{50%{opacity:0}}
+
 .hero-vert{position:absolute;right:calc(var(--gutter) - 10px);top:50%;transform:translateY(-50%);z-index:1;
   writing-mode:vertical-rl;font-family:var(--serif);font-size:.85rem;letter-spacing:.5em;
   color:var(--muted);animation:fadeIn 1.2s ease 1s backwards}
@@ -284,6 +303,8 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .reveal{opacity:1;transform:none}
+  .hero-art .ln{stroke-dasharray:none;stroke-dashoffset:0}
+  .hero-art .pop,.hero-art .blink{opacity:1}
 }
 </style>
 </head>
@@ -304,23 +325,62 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
 
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <div class="hero-meta">
-      <span>Saitama — Kamifukuoka</span>
-      <span>Est. 2026</span>
-      <span>Web &amp; AI Studio</span>
-    </div>
-    <h1>
-      <span class="block">先に作って、</span>
-      <span class="block"><span class="accent">お見せする</span>。</span>
-    </h1>
-    <p class="hero-sub">
-      提案書のかわりに、動く現物を持っていく小さなスタジオです。<br>
-      地域のお店の<strong>Webサイト制作</strong>と、デスクワークの<strong>AI自動化</strong>。<br>
-      どちらも、まず作ってからお見せします。
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-accent" href="#contact">無料で相談する</a>
-      <a class="btn" href="#services">できることを見る</a>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-meta">
+          <span>Saitama — Kamifukuoka</span>
+          <span>Est. 2026</span>
+          <span>Web &amp; AI Studio</span>
+        </div>
+        <h1>
+          <span class="block">先に作って、</span>
+          <span class="block"><span class="accent">お見せする</span>。</span>
+        </h1>
+        <p class="hero-sub">
+          提案書のかわりに、動く現物を持っていく小さなスタジオです。<br>
+          地域のお店の<strong>Webサイト制作</strong>と、デスクワークの<strong>AI自動化</strong>。<br>
+          どちらも、まず作ってからお見せします。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="#contact">無料で相談する</a>
+          <a class="btn" href="#services">できることを見る</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 440 416" xmlns="http://www.w3.org/2000/svg">
+          <!-- ブラウザ窓（お店のサイト） -->
+          <rect class="ln fill-w" x="20" y="40" width="340" height="300" pathLength="1" style="animation-delay:.1s"/>
+          <path class="ln" d="M20,76 H360" pathLength="1" style="animation-delay:.3s"/>
+          <circle class="pop" cx="44" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.1s"/>
+          <circle class="pop" cx="62" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.2s"/>
+          <circle class="pop" cx="80" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.3s"/>
+          <!-- 店先：ひさし -->
+          <path class="ln" d="M80,118 H300" pathLength="1" style="animation-delay:.45s"/>
+          <path class="ln" d="M80,118 V148 M300,118 V148" pathLength="1" style="animation-delay:.55s"/>
+          <path class="ln" d="M80,148 q22,26 44,0 q22,26 44,0 q22,26 44,0 q22,26 44,0 q22,26 44,0" pathLength="1" style="animation-delay:.65s"/>
+          <!-- 店先：ドアと窓 -->
+          <rect class="ln" x="120" y="192" width="50" height="110" pathLength="1" style="animation-delay:.85s"/>
+          <circle class="pop" cx="162" cy="252" r="3" fill="#c73e1d" style="animation-delay:1.6s"/>
+          <rect class="ln" x="200" y="192" width="80" height="68" pathLength="1" style="animation-delay:.95s"/>
+          <path class="ln" d="M240,192 V260 M200,226 H280" pathLength="1" style="animation-delay:1.1s"/>
+          <path class="ln" d="M56,302 H324" pathLength="1" style="animation-delay:.75s"/>
+          <!-- ターミナル窓（AI） -->
+          <rect class="ln fill-w" x="250" y="270" width="170" height="130" pathLength="1" style="animation-delay:1.2s"/>
+          <path class="ln" d="M250,296 H420" pathLength="1" style="animation-delay:1.35s"/>
+          <circle class="pop" cx="268" cy="283" r="3" fill="#8d857b" style="animation-delay:1.7s"/>
+          <circle class="pop" cx="283" cy="283" r="3" fill="#8d857b" style="animation-delay:1.78s"/>
+          <circle class="pop" cx="298" cy="283" r="3" fill="#8d857b" style="animation-delay:1.86s"/>
+          <path class="ln" d="M268,318 l10,7 l-10,7" pathLength="1" style="animation-delay:1.45s"/>
+          <path class="ln" d="M292,325 H358" pathLength="1" style="animation-delay:1.55s"/>
+          <path class="ln" d="M268,352 H332" pathLength="1" style="animation-delay:1.65s"/>
+          <rect class="blink" x="340" y="345" width="10" height="13" fill="#c73e1d"/>
+          <!-- 遊び：きらめきと朱ドット -->
+          <g class="float">
+            <path class="ln" d="M390,62 V98 M372,80 H408" pathLength="1" style="animation-delay:1.5s"/>
+            <circle class="pop" cx="392" cy="150" r="5.5" fill="#c73e1d" style="animation-delay:1.9s"/>
+          </g>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="hero-vert">埼玉・上福岡から</div>
