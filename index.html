@@ -53,7 +53,7 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 .nav-links{display:flex;gap:24px;flex-wrap:wrap}
 .nav-links a{font-size:.8rem;letter-spacing:.14em;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .25s}
 .nav-links a:hover{border-bottom-color:var(--ink)}
-@media (max-width:640px){.nav-links a:not(.nav-contact){display:none}}
+@media (max-width:640px){.nav-links a:not(.nav-contact):not(.nav-web){display:none}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -129,6 +129,9 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 .svc-list{list-style:none;border-top:1px solid var(--line);margin-top:26px}
 .svc-list li{padding:11px 0 11px 20px;border-bottom:1px solid var(--line);font-size:.88rem;position:relative;color:var(--soft)}
 .svc-list li::before{content:"—";position:absolute;left:0;color:var(--accent);font-size:.8rem}
+.svc-more{display:inline-block;margin-top:26px;font-size:.85rem;letter-spacing:.12em;
+  color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
+.tiers-web a{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:1px}
 
 /* ---------- manifesto ---------- */
 .manifesto{background:var(--white)}
@@ -315,6 +318,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     <a class="nav-logo" href="#top">NexusGuild<span class="mark">.</span></a>
     <div class="nav-links">
       <a href="#services">できること</a>
+      <a class="nav-web" href="web.html">Web制作</a>
       <a href="#manifesto">考え方</a>
       <a href="#tiers">プラン</a>
       <a href="#about">運営</a>
@@ -405,13 +409,14 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
         <p class="svc-num">Service 01</p>
         <h3>お店のWebサイト制作</h3>
         <span class="en">Web Design for Local Shops</span>
-        <p><strong>まず作って、無料でお見せします。</strong>営業時間・場所・お店の空気が伝わる公式サイトを先に用意して、気に入っていただけたらそのままお渡しする——そういう順番でやっています。</p>
+        <p><strong>まず作って、無料でお見せします。</strong>営業時間・場所・お店の空気が伝わる公式サイトを先に用意して、気に入っていただけたら公開のご相談へ進む——そういう順番でやっています。</p>
         <p>グルメサイトやポータルの情報は借り物です。お店が自分で持てる「自分の場所」を、スマホで見やすい形で。</p>
         <ul class="svc-list">
           <li>スマホ最優先の1ページ公式サイト</li>
           <li>営業時間・地図・メニュー・写真の整理</li>
           <li>公開後の修正・更新のご相談も</li>
         </ul>
+        <a class="svc-more" href="web.html">料金と仕組みのすべて — Web制作の詳細へ</a>
       </article>
       <article class="svc">
         <p class="svc-num">Service 02</p>
@@ -501,7 +506,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     <p class="tiers-lead reveal">
       同じAI自動化でも、消す対象によって効果も価格も大きく変わる。NexusGuildでは「1つの作業を消す → ループを回す → 全部を1つにまとめる」の三段で、段階的に業務を引き取っていく。
     </p>
-    <p class="tiers-web reveal">※ Webサイト制作は、まず無料でデモをお見せするところから始めます。料金の前に、現物をご覧ください。</p>
+    <p class="tiers-web reveal">※ Webサイト制作は、まず無料でデモをお見せするところから始めます。料金と仕組みは<a href="web.html">専用ページ</a>にすべて公開しています。</p>
     <div class="tier-grid reveal">
 
       <article class="tier tier--badged">
@@ -682,6 +687,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     <span class="logo">NexusGuild<span style="color:var(--accent)">.</span></span>
     <div class="footer-links">
       <a href="#services">できること</a>
+      <a href="web.html">Web制作の料金</a>
       <a href="#tiers">プラン</a>
       <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
     </div>
