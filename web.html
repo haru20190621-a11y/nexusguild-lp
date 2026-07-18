@@ -4,316 +4,330 @@
 <meta charset="UTF-8" />
 <script>document.documentElement.className+=' js';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="NexusGuildのWebサイト制作 — 完成品を無料でお見せするところから始めます。月5,000円で公式サイトとして公開・維持。30ヶ月つづけたらサイトはお店のものに。料金と仕組みをすべて公開しています。" />
+<meta name="description" content="NexusGuildのWebサイト制作 — 完成品を無料でお見せするところから。制作は一式8万円からの3プラン、公開後の運用・更新はどのプランも月5,000円。料金と仕組みをすべて公開しています。" />
 <title>Webサイト制作の仕組みと料金｜NexusGuild（埼玉・上福岡）</title>
 <meta property="og:title" content="Webサイト制作の仕組みと料金｜NexusGuild">
-<meta property="og:description" content="完成品を無料でお見せするところから。月5,000円で公式サイトとして公開・維持、30ヶ月でサイトはお店のものに。">
+<meta property="og:description" content="完成品を無料でお見せするところから。制作は一式8万円〜の3プラン、公開後の運用・更新は月5,000円。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://haru20190621-a11y.github.io/nexusguild-lp/web.html">
 <meta property="og:image" content="https://haru20190621-a11y.github.io/nexusguild-lp/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231f1c18'/%3E%3Ctext x='30' y='46' font-family='serif' font-size='40' fill='%23fdfcf8' text-anchor='middle'%3EN%3C/text%3E%3Ccircle cx='50' cy='44' r='5' fill='%23c73e1d'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%231f1c18'/%3E%3Cpath d='M7 20 Q13 12 24 14 Q30 15 33 19 L39 13 L37 20 L39 27 L33 21 Q30 25 24 26 Q13 28 7 20 Z' fill='%23c73e1d'/%3E%3Ccircle cx='13' cy='19' r='1.5' fill='%23fdfcf8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f3ec; --white:#fdfcf8; --dark:#1f1c18;
-  --ink:#1f1c18; --soft:#57514a; --muted:#8d857b;
-  --line:rgba(31,28,24,.14); --line2:rgba(31,28,24,.26);
+  --ink:#1f1c18; --soft:#4f4941; --muted:#6b6359;
+  --line:rgba(31,28,24,.11); --line2:rgba(31,28,24,.2);
   --accent:#c73e1d;
   --serif:"Shippori Mincho",serif;
   --sans:"Zen Kaku Gothic New",sans-serif;
   --mono:"JetBrains Mono",Consolas,monospace;
-  --maxw:1140px; --gutter:clamp(22px,5vw,72px);
+  --maxw:1180px; --measure:38rem;
+  --gutter:clamp(22px,6vw,84px);
+  --sec:clamp(6rem,12vh,10.5rem);
+  --fs-cap:.74rem;
+  --fs-body:1.0625rem;
+  --fs-lead:clamp(1.14rem,1.7vw,1.5rem);
+  --fs-h3:clamp(1.35rem,2.2vw,1.9rem);
+  --fs-h2:clamp(1.9rem,4.4vw,3.35rem);
+  --fs-display:clamp(2.1rem,5.2vw,4.1rem);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;
-  line-height:1.9;letter-spacing:.04em;font-size:16px;-webkit-font-smoothing:antialiased}
+  line-height:1.95;letter-spacing:.015em;font-size:var(--fs-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--accent);color:#fff}
-h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.08em;line-height:1.5}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.02em;line-height:1.18}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
-section{padding:110px 0;border-bottom:1px solid var(--line)}
-.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:var(--accent);
-  text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
-.sec-title{font-size:clamp(1.7rem,4.2vw,2.7rem);margin-bottom:.6em}
+section{padding:var(--sec) 0}
+.cap{font-family:var(--mono);font-size:var(--fs-cap);letter-spacing:.22em;color:var(--accent);
+  text-transform:uppercase;display:inline-flex;align-items:center;gap:13px;margin-bottom:26px;font-weight:500}
+.cap::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.85}
+.sec-title{font-size:var(--fs-h2);margin-bottom:.7em;letter-spacing:.015em}
+.lead{max-width:var(--measure);color:var(--soft);font-size:var(--fs-lead);line-height:1.9;margin-bottom:2.6em}
+.lead strong{color:var(--ink);font-weight:700}
 
-/* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:100;background:rgba(246,243,236,.85);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:var(--maxw);margin:0 auto;padding:16px var(--gutter);
-  display:flex;justify-content:space-between;align-items:baseline;gap:18px}
-.nav-logo{font-family:var(--serif);font-size:1.2rem;letter-spacing:.1em}
+.koimark{display:inline-block;vertical-align:middle}
+.koimark path{fill:currentColor}
+.koimark circle{fill:var(--bg)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(246,243,236,.82);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--gutter);
+  display:flex;justify-content:space-between;align-items:center;gap:18px}
+.nav-logo{font-family:var(--serif);font-size:1.24rem;letter-spacing:.06em;display:inline-flex;align-items:center;gap:10px}
+.nav-logo .koimark{color:var(--accent)}
 .nav-logo .mark{color:var(--accent)}
-.nav-links{display:flex;gap:24px;flex-wrap:wrap}
-.nav-links a{font-size:.8rem;letter-spacing:.14em;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .25s}
-.nav-links a:hover{border-bottom-color:var(--ink)}
-@media (max-width:640px){.nav-links a:not(.nav-contact){display:none}}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.1em;color:var(--soft);position:relative;padding:4px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{right:0}
+.nav-cta{font-family:var(--serif);font-size:.85rem;letter-spacing:.16em;background:var(--accent);color:#fff;padding:9px 22px;transition:background .25s}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:#a8321a;color:#fff}
+.nav-toggle{display:none}
+@media (max-width:860px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line2);
+    flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gutter) 20px;max-height:0;overflow:hidden;transition:max-height .35s ease;box-shadow:0 20px 30px -24px rgba(31,28,24,.4)}
+  .nav-open .nav-links{max-height:70vh}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem;letter-spacing:.08em}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-cta{background:none;color:var(--accent);padding:14px 0}.nav-cta:hover{background:none;color:#a8321a}
+  .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer}
+  .nav-toggle span{display:block;height:2px;width:22px;background:var(--ink);transition:transform .3s,opacity .3s}
+  .nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-open .nav-toggle span:nth-child(2){opacity:0}
+  .nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:72svh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-in{position:relative;z-index:2;width:100%}
-.hero-meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;color:var(--muted);
-  text-transform:uppercase;display:flex;gap:26px;flex-wrap:wrap;margin-bottom:40px}
-.hero-meta span{display:flex;align-items:center;gap:8px}
-.hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%}
-.hero h1{font-size:clamp(2.05rem,7vw,4.6rem);font-weight:600;letter-spacing:.06em;line-height:1.3;margin-bottom:36px}
-.hero h1 .block{white-space:nowrap}
+/* btn */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);letter-spacing:.14em;font-size:.9rem;
+  padding:15px 34px;border:1px solid var(--ink);transition:background .28s,color .28s,border-color .28s;white-space:nowrap}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-primary:hover{background:#a8321a;border-color:#a8321a}
+.btn-ghost:hover{background:var(--ink);color:var(--white)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,9vh,7rem) 0 clamp(4rem,9vh,7rem)}
+.hero-meta{font-family:var(--mono);font-size:var(--fs-cap);letter-spacing:.24em;color:var(--muted);text-transform:uppercase;display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:34px}
+.hero-meta .dot{width:5px;height:5px;background:var(--accent);border-radius:50%}
+.hero h1{font-size:var(--fs-display);font-weight:600;letter-spacing:.01em;line-height:1.22;margin-bottom:30px;max-width:14em}
+.hero h1 .block{display:block;white-space:nowrap;animation:rise 1s cubic-bezier(.22,1,.36,1) backwards}
+.hero h1 .block:nth-child(2){animation-delay:.14s}
 .hero h1 .accent{color:var(--accent)}
-.hero h1 .block{display:block;animation:slideUp 1.1s cubic-bezier(.22,1,.36,1) backwards}
-.hero h1 .block:nth-child(2){animation-delay:.2s}
-@keyframes slideUp{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
-.hero-sub{max-width:34em;color:var(--soft);margin-bottom:44px;word-break:keep-all;overflow-wrap:anywhere;animation:fadeIn 1s ease .55s backwards}
+@keyframes rise{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+.hero-sub{max-width:36em;color:var(--soft);margin-bottom:40px;line-height:1.95;animation:fade 1s ease .5s backwards}
 .hero-sub strong{color:var(--ink);font-weight:700}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap;animation:fadeIn 1s ease .8s backwards}
-.btn{display:inline-block;font-family:var(--serif);letter-spacing:.16em;font-size:.9rem;
-  padding:14px 36px;border:1px solid var(--ink);transition:background .3s,color .3s}
-.btn:hover{background:var(--ink);color:var(--white)}
-.btn-accent{border-color:var(--accent);color:var(--accent)}
-.btn-accent:hover{background:var(--accent);color:#fff}
-.hero-vert{position:absolute;right:calc(var(--gutter) - 10px);top:50%;transform:translateY(-50%);z-index:1;
-  writing-mode:vertical-rl;font-family:var(--serif);font-size:.85rem;letter-spacing:.5em;
-  color:var(--muted);animation:fadeIn 1.2s ease 1s backwards}
-@media (max-width:760px){.hero-vert{display:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;animation:fade 1s ease .72s backwards}
+.hero-vert{position:absolute;right:calc(var(--gutter) - 6px);top:50%;transform:translateY(-50%);z-index:1;
+  writing-mode:vertical-rl;font-family:var(--serif);font-size:.85rem;letter-spacing:.4em;color:var(--muted);animation:fade 1.2s ease 1s backwards}
+@media (max-width:820px){.hero-vert{display:none}}
 
-/* ---------- letter ---------- */
+/* letter */
 .letter{background:var(--white)}
-.letter-lead{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:2;
-  letter-spacing:.08em;color:var(--ink);max-width:30em;margin-bottom:44px}
-.letter-body{max-width:38em}
-.letter-body p{color:var(--soft);margin-bottom:1.4em}
+.letter-lead{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);line-height:2;letter-spacing:.06em;color:var(--ink);max-width:30em;margin-bottom:44px}
+.letter-body{max-width:var(--measure)}
+.letter-body p{color:var(--soft);margin-bottom:1.4em;line-height:1.95}
 .letter-body strong{color:var(--ink);font-weight:700}
-.letter-sign{margin-top:40px;font-family:var(--serif);letter-spacing:.12em;color:var(--ink)}
-.letter-sign .small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--muted);margin-top:8px}
+.letter-sign{margin-top:40px;font-family:var(--serif);letter-spacing:.1em;color:var(--ink)}
+.letter-sign .small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--muted);margin-top:8px}
 
-/* ---------- compare ---------- */
-.compare{display:grid;grid-template-columns:1fr;border:1px solid var(--line2)}
-@media (min-width:820px){.compare{grid-template-columns:1fr 1fr}}
-.compare-col{padding:44px clamp(26px,4vw,52px)}
+/* compare */
+.sec-lead{max-width:var(--measure);color:var(--soft);font-size:var(--fs-lead);line-height:1.9;margin-bottom:2.6em}
+.sec-lead strong{color:var(--ink);font-weight:700}
+.compare{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line2);border:1px solid var(--line2)}
+@media (min-width:760px){.compare{grid-template-columns:1fr 1fr}}
+.compare-col{padding:clamp(30px,4vw,50px)}
 .compare-keep{background:var(--white)}
 .compare-kill{background:var(--dark);color:var(--white)}
-.compare-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+.compare-tag{font-family:var(--mono);font-size:var(--fs-cap);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
 .compare-keep .compare-tag{color:var(--muted)}
-.compare-kill .compare-tag{color:#e88a6f}
-.compare-h{font-family:var(--serif);font-size:clamp(1.5rem,2.8vw,2rem);font-weight:600;letter-spacing:.12em;margin-bottom:6px}
-.compare-sub{font-size:.85rem;margin-bottom:28px}
+.compare-kill .compare-tag{color:#e8926f}
+.compare-h{font-family:var(--serif);font-size:clamp(1.5rem,2.8vw,2rem);font-weight:600;letter-spacing:.08em;margin-bottom:8px}
+.compare-sub{font-size:.86rem;margin-bottom:30px}
 .compare-keep .compare-sub{color:var(--muted)}
 .compare-kill .compare-sub{color:rgba(253,252,248,.55)}
 .compare-list{list-style:none}
-.compare-list li{padding:13px 0;display:flex;align-items:flex-start;gap:14px;font-size:.95rem;line-height:1.8}
+.compare-list li{padding:14px 0;display:flex;align-items:flex-start;gap:15px;font-size:1rem;line-height:1.8}
 .compare-keep .compare-list li{border-bottom:1px solid var(--line);color:var(--soft)}
-.compare-kill .compare-list li{border-bottom:1px solid rgba(253,252,248,.14);color:rgba(253,252,248,.92)}
+.compare-kill .compare-list li{border-bottom:1px solid rgba(253,252,248,.13);color:rgba(253,252,248,.92)}
 .compare-list li:last-child{border-bottom:none}
-.compare-list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;margin-top:12px}
+.compare-list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;margin-top:11px}
 .compare-keep .compare-list li::before{background:var(--muted)}
 .compare-kill .compare-list li::before{background:var(--accent)}
-.mani-close{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.1em;margin-top:52px}
+.mani-close{font-family:var(--serif);font-size:clamp(1.3rem,2.7vw,1.9rem);letter-spacing:.06em;margin-top:clamp(3rem,5vw,4rem);line-height:1.6;max-width:26em}
 .mani-close .accent{color:var(--accent)}
-.sec-lead{max-width:36em;color:var(--soft);margin-bottom:56px}
-.sec-lead strong{color:var(--ink);font-weight:700}
 
-/* ---------- plans ---------- */
+/* plans */
 .plans{background:var(--bg)}
-.tier-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line2)}
-@media (min-width:920px){.tier-grid{grid-template-columns:repeat(3,1fr)}}
-.tier{position:relative;background:var(--white);padding:56px clamp(24px,3vw,40px) 40px;display:flex;flex-direction:column;overflow:hidden}
-.tier + .tier{border-top:1px solid var(--line2)}
-@media (min-width:920px){.tier + .tier{border-top:none;border-left:1px solid var(--line2)}}
-.tier-step{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.tier-title{font-size:1.35rem;margin-bottom:8px}
-.tier-price{border-top:1px solid var(--line);padding-top:22px;margin:18px 0 8px;
-  display:flex;align-items:baseline;justify-content:space-between;gap:16px}
-.tier-price-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.tier-price-value{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--ink);white-space:nowrap}
-.tier-price-value .unit{font-size:.72rem;font-weight:500;color:var(--soft)}
+.tier-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:900px){.tier-grid{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.tier{position:relative;background:var(--white);border:1px solid var(--line2);padding:44px clamp(24px,2.6vw,36px) 38px;display:flex;flex-direction:column;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease}
+.tier:hover,.tier:focus-within{transform:translateY(-4px);box-shadow:0 26px 44px -32px rgba(31,28,24,.45)}
+.tier--badged,.tier--featured{padding-top:52px}
+.tier-badge{position:absolute;top:0;left:0;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;padding:6px 14px}
+.tier-step{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.tier-title{font-size:1.4rem;margin-bottom:4px}
+.tier-price{border-top:1px solid var(--line);padding-top:22px;margin:18px 0 8px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.tier-price-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tier-price-value{font-family:var(--mono);font-size:1.32rem;font-weight:700;color:var(--ink);white-space:nowrap}
+.tier-price-value .u{font-size:.72rem;font-weight:500;color:var(--soft)}
 .tier-note{font-size:.78rem;line-height:1.8;color:var(--soft);margin-bottom:22px}
 .tier-list{list-style:none;border-top:1px solid var(--line);padding-top:8px;flex:1}
-.tier-list li{font-size:.85rem;padding:9px 0 9px 20px;position:relative;color:var(--soft);border-bottom:1px solid var(--line);line-height:1.8}
+.tier-list li{font-size:.85rem;padding:10px 0 10px 20px;position:relative;color:var(--soft);border-bottom:1px solid var(--line);line-height:1.8}
 .tier-list li:last-child{border-bottom:none}
-.tier-list li::before{content:"—";position:absolute;left:0;color:var(--accent);font-size:.75rem}
+.tier-list li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:1px;background:var(--accent)}
 .tier-list li strong{color:var(--ink);font-weight:700}
-.tier-fine{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;line-height:1.8;color:var(--soft)}
+.tier-fine{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;line-height:1.8;color:var(--soft)}
 .tier--featured{background:var(--dark)}
 .tier--featured .tier-step{color:rgba(253,252,248,.5)}
 .tier--featured .tier-title{color:var(--white)}
 .tier--featured .tier-price{border-top-color:rgba(253,252,248,.15)}
 .tier--featured .tier-price-label{color:rgba(253,252,248,.5)}
 .tier--featured .tier-price-value{color:var(--white)}
-.tier--featured .tier-price-value .unit{color:rgba(253,252,248,.6)}
+.tier--featured .tier-price-value .u{color:rgba(253,252,248,.6)}
 .tier--featured .tier-note{color:rgba(253,252,248,.6)}
 .tier--featured .tier-list{border-top-color:rgba(253,252,248,.15)}
 .tier--featured .tier-list li{color:rgba(253,252,248,.85);border-bottom-color:rgba(253,252,248,.12)}
 .tier--featured .tier-list li strong{color:var(--white)}
 .tier--featured .tier-fine{border-top-color:rgba(253,252,248,.15);color:rgba(253,252,248,.68)}
-.tier-badge{position:absolute;top:0;left:0;background:var(--accent);color:#fff;
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px}
+.tier--featured .tier-badge{background:transparent;border:1px solid rgba(253,252,248,.4);color:rgba(253,252,248,.85)}
 
-/* ---------- ownership ---------- */
+/* ownership */
 .own{background:var(--dark);color:var(--white)}
 .own .sec-title{color:var(--white)}
 .own .sec-lead{color:rgba(253,252,248,.68)}
 .own .sec-lead strong{color:var(--white)}
 .own-bar{margin:64px 0 18px;position:relative;height:2px;background:rgba(253,252,248,.18)}
-.own-bar-fill{position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent);transition:width 2.2s cubic-bezier(.22,1,.36,1)}
-.own-bar.on .own-bar-fill{width:100%}
-.own-marks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;
-  letter-spacing:.12em;color:rgba(253,252,248,.55);text-transform:uppercase}
-.own-marks div{max-width:11em;line-height:1.8;word-break:keep-all}
-.own-marks .big{display:block;font-family:var(--serif);font-size:1.05rem;letter-spacing:.1em;color:var(--white);text-transform:none;margin-bottom:4px}
-.own-marks .goal .big{color:#e88a6f}
+.own-bar-fill{position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent)}
+.js .own-bar.on .own-bar-fill{transition:width 2.2s cubic-bezier(.22,1,.36,1);width:100%}
+.own-marks{display:flex;justify-content:space-between;gap:22px;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:rgba(253,252,248,.55);text-transform:uppercase}
+.own-marks div{max-width:12em;line-height:1.8;word-break:keep-all}
+.own-marks .big{display:block;font-family:var(--serif);font-size:1.05rem;letter-spacing:.08em;color:var(--white);text-transform:none;margin-bottom:4px}
+.own-marks .goal .big{color:#e8926f}
 .own-marks div:nth-child(2){text-align:center}
 .own-marks div:last-child{text-align:right}
-.own-fair{margin-top:64px;padding:30px 36px;border-left:2px solid var(--accent);
-  font-size:.92rem;line-height:2;color:rgba(253,252,248,.78)}
+@media (max-width:640px){
+  .own-marks{flex-direction:column;gap:22px}
+  .own-marks div,.own-marks div:nth-child(2),.own-marks div:last-child{text-align:left;max-width:none;padding-left:18px;position:relative}
+  .own-marks div::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:rgba(253,252,248,.3)}
+  .own-marks .goal::before{background:var(--accent)}
+}
+.own-fair{margin-top:64px;padding:28px 34px;border-left:2px solid var(--accent);font-size:.95rem;line-height:2;color:rgba(253,252,248,.8);max-width:44em}
 .own-fair strong{color:var(--white);font-weight:700}
-.own-after{margin-top:36px;font-size:.9rem;color:rgba(253,252,248,.68);max-width:38em}
+.own-after{margin-top:34px;font-size:.92rem;color:rgba(253,252,248,.68);max-width:40em;line-height:1.95}
 
-/* ---------- flow ---------- */
+/* flow */
 .flow{background:var(--white)}
 .method-grid{display:grid;grid-template-columns:1fr}
-@media (min-width:920px){.method-grid{grid-template-columns:repeat(4,1fr)}}
-.method-step{padding:32px 26px 32px 0;border-top:1px solid var(--line2)}
-@media (min-width:920px){
-  .method-step:not(:last-child){border-right:1px solid var(--line);padding-right:26px}
-  .method-step:not(:first-child){padding-left:26px}
+@media (min-width:860px){.method-grid{grid-template-columns:repeat(4,1fr)}}
+.method-step{padding:34px 24px 34px 0;border-top:1px solid var(--line2)}
+@media (min-width:860px){
+  .method-step:not(:first-child){padding-left:24px;border-left:1px solid var(--line)}
 }
-.method-num{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--accent);margin-bottom:18px}
-.method-step h3{font-size:1.1rem;margin-bottom:10px}
-.method-step p{font-size:.85rem;line-height:1.85;color:var(--soft)}
-.method-step .free{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 10px;margin-bottom:14px}
-.method-step .paid{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);padding:2px 10px;margin-bottom:14px}
+.method-num{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--accent);margin-bottom:16px}
+.method-step h3{font-size:1.12rem;margin-bottom:11px}
+.method-step p{font-size:.87rem;line-height:1.85;color:var(--soft)}
+.method-step .free{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 10px;margin-bottom:14px}
+.method-step .paid{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);padding:2px 10px;margin-bottom:14px}
 
-/* ---------- faq ---------- */
+/* faq */
 .faq{background:var(--bg)}
-.faq-list{border-top:1px solid var(--line2);max-width:56em}
+.faq-list{border-top:1px solid var(--line2);max-width:58em}
 .faq-item{border-bottom:1px solid var(--line2)}
-.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:20px;
-  padding:26px 8px 26px 0;font-family:var(--serif);font-size:1.05rem;letter-spacing:.06em;line-height:1.7}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:20px;padding:26px 8px 26px 0;font-family:var(--serif);font-size:1.08rem;letter-spacing:.05em;line-height:1.7}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary .q{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--accent);flex:none;padding-top:6px}
-.faq-item summary .mark2{margin-left:auto;flex:none;font-family:var(--mono);color:var(--muted);transition:transform .3s;padding-top:4px}
-.faq-item[open] summary .mark2{transform:rotate(45deg)}
-.faq-a{padding:0 8px 30px 44px;color:var(--soft);font-size:1rem;max-width:44em}
+.faq-item summary .q{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--accent);flex:none;padding-top:6px}
+.faq-item summary .mk{margin-left:auto;flex:none;font-family:var(--mono);color:var(--muted);transition:transform .3s;padding-top:4px}
+.faq-item[open] summary .mk{transform:rotate(45deg)}
+.faq-a{padding:0 8px 30px 46px;color:var(--soft);font-size:1rem;max-width:46em;line-height:1.95}
 .faq-a p{margin-bottom:1em}
 .faq-a p:last-child{margin-bottom:0}
 .faq-a strong{color:var(--ink);font-weight:700}
 
-/* ---------- contact ---------- */
-.contact{background:var(--dark);color:var(--white);text-align:center;border-bottom:none;padding:130px 0}
-.contact .eyebrow{justify-content:center}
-.contact h2{font-size:clamp(1.8rem,5vw,3.2rem);color:var(--white);margin-bottom:26px}
-.contact-lead{color:rgba(253,252,248,.75);max-width:32em;margin:0 auto 46px}
-.contact .btn{border-color:var(--white);color:var(--white);font-size:1rem;padding:16px 48px}
-.contact .btn:hover{background:var(--white);color:var(--dark)}
-.contact-sub{margin-top:22px;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:rgba(253,252,248,.5);text-transform:uppercase}
-.contact-mail{margin-top:30px;font-family:var(--mono);font-size:.85rem;color:rgba(253,252,248,.75)}
-.contact-mail a{border-bottom:1px solid rgba(253,252,248,.4);padding-bottom:2px}
-.contact-mail a:hover{border-bottom-color:#fff;color:#fff}
+/* contact */
+.contact{background:var(--dark);color:var(--white);text-align:center;padding:clamp(7rem,13vh,11rem) 0}
+.contact .cap{justify-content:center;display:flex}
+.contact h2{font-size:clamp(1.9rem,5vw,3.3rem);color:var(--white);margin-bottom:26px;letter-spacing:.03em}
+.contact-lead{color:rgba(253,252,248,.75);max-width:32em;margin:0 auto 44px;line-height:1.95}
+.contact-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.contact .btn{border-color:rgba(253,252,248,.55);color:var(--white)}
+.contact .btn:hover{background:var(--white);color:var(--dark);border-color:var(--white)}
+.contact .btn-primary{background:var(--accent);border-color:var(--accent)}
+.contact .btn-primary:hover{background:#fff;color:var(--dark)}
+.contact-sub{margin-top:24px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:rgba(253,252,248,.5);text-transform:uppercase}
+.contact-mail{margin-top:26px;font-family:var(--mono);font-size:.85rem;color:rgba(253,252,248,.72)}
+.contact-mail a{border-bottom:1px solid rgba(253,252,248,.35);padding-bottom:2px}
+.contact-mail a:hover{color:#fff;border-bottom-color:#fff}
 
-/* ---------- footer ---------- */
-footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-size:.8rem}
-.footer-in{max-width:var(--maxw);margin:0 auto;padding:44px var(--gutter) 0;
-  border-top:1px solid rgba(253,252,248,.12);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-in .logo{font-family:var(--serif);color:var(--white);font-size:1.1rem;letter-spacing:.1em}
-.footer-links{display:flex;gap:22px;flex-wrap:wrap}
-.footer-links a{border-bottom:1px solid transparent;padding-bottom:2px}
-.footer-links a:hover{border-bottom-color:rgba(253,252,248,.5);color:#fff}
-.footer-copy{width:100%;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,252,248,.4);margin-top:26px}
+/* footer */
+footer{background:var(--dark);color:rgba(253,252,248,.58);padding:0 0 44px;font-size:.8rem;border-top:1px solid rgba(253,252,248,.1)}
+.footer-in{max-width:var(--maxw);margin:0 auto;padding:42px var(--gutter) 0;display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+.footer-logo{font-family:var(--serif);color:var(--white);font-size:1.15rem;letter-spacing:.06em;display:inline-flex;align-items:center;gap:11px}
+.footer-logo .koimark{color:var(--accent)}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{color:rgba(253,252,248,.72)}
+.footer-links a:hover{color:#fff}
+.footer-copy{width:100%;font-family:var(--mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(253,252,248,.55);margin-top:26px}
 
-/* ---------- reveal ---------- */
-.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
 .js .reveal.on{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.08s}.js .reveal.d2{transition-delay:.16s}
 
-/* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .reveal{opacity:1;transform:none}
-  .own-bar .own-bar-fill,.own-bar.on .own-bar-fill{width:100%}
+  .js .own-bar.on .own-bar-fill{transition:none;width:100%}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
   <div class="nav-in">
-    <a class="nav-logo" href="index.html">NexusGuild<span class="mark">.</span></a>
+    <a class="nav-logo" href="index.html" aria-label="NexusGuild トップ">
+      <svg class="koimark" width="26" height="16" viewBox="0 0 40 24" aria-hidden="true"><path d="M4 12 Q10 4 22 6 Q30 7 33 11 L39 5 L37 12 L39 19 L33 13 Q30 17 22 18 Q10 20 4 12 Z"/><circle cx="11" cy="11" r="1.4"/></svg>
+      <span>NexusGuild<span class="mark">.</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links">
+      <a href="index.html">トップ</a>
       <a href="#how">仕組み</a>
       <a href="#plans">料金</a>
-      <a href="#own">30ヶ月の約束</a>
+      <a href="#own">所有権のこと</a>
       <a href="#faq">よくあるご質問</a>
-      <a class="nav-contact" href="#contact">ご相談</a>
+      <a class="nav-cta" href="#contact">ご相談</a>
     </div>
   </div>
 </nav>
 
-<section class="hero" id="top">
-  <div class="wrap hero-in">
-    <div class="hero-meta">
-      <span>Web Design — Local Shops</span>
-      <span>Saitama — Kamifukuoka</span>
-      <span>NexusGuild</span>
-    </div>
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="hero-meta"><span>Web Design — Local Shops</span><span class="dot"></span><span>Saitama · Kamifukuoka</span></p>
     <h1>
       <span class="block">見てから、</span>
       <span class="block"><span class="accent">決めてください</span>。</span>
     </h1>
     <p class="hero-sub">
-      NexusGuildのWebサイト制作は、<strong>完成品を無料でお見せする</strong>ところから始まります。<br>
-      いただくのは、公式サイトとして世に出し、守っていくための<strong>月5,000円</strong>だけ。<br>
-      見るだけで終わっていただいても、大丈夫です。
+      NexusGuildのWebサイト制作は、<strong>完成品を無料でお見せする</strong>ところから始まります。気に入っていただけたら、制作は一式<strong>8万円からの3プラン</strong>。公開後の運用・更新は、どのプランも<strong>月5,000円</strong>です。見るだけで終わっていただいても、大丈夫です。
     </p>
     <div class="hero-cta">
-      <a class="btn btn-accent" href="#plans">料金と仕組みを見る</a>
-      <a class="btn" href="#faq">よくあるご質問</a>
+      <a class="btn btn-primary" href="#plans">料金と仕組みを見る</a>
+      <a class="btn btn-ghost" href="#faq">よくあるご質問</a>
     </div>
   </div>
   <div class="hero-vert">先に作って、お見せする</div>
-</section>
+</header>
 
 <section class="letter" id="letter">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">00 — To You</p>
-      <h2 class="sec-title">突然のご連絡から、<br>来られた方へ。</h2>
-    </div>
-    <p class="letter-lead reveal">
-      勝手にサイトを作ってしまい、<br>驚かせていたら、まずごめんなさい。
-    </p>
-    <div class="letter-body reveal">
-      <p>
-        私は埼玉・上福岡で、地域のお店のWebサイト制作とAI導入をしている、尚美学園大学の学生です。GoogleマップやSNSでお店を調べていると、クチコミで愛されているのに、検索して見られる公式サイトが無いお店に出会います。それが正直、とてももったいなくて。提案書を持ってご挨拶にうかがうかわりに、<strong>先にサイトを作ってお見せする</strong>——そういうやり方を選びました。
-      </p>
-      <p>
-        <strong>押し売りをするつもりは一切ありません。</strong>デモをご覧になって「うちには要らない」で終わって、まったく問題ありません。その場合、費用は一切かかりませんし、こちらから何度もご連絡することもありません。
-      </p>
-      <p>
-        もし「ここが実際と違う」「この写真は変えてほしい」があれば、すぐ直します。掲載している内容は公開情報をもとにした仮のものなので、遠慮なくお知らせください。気に入っていただけたときだけ、公開のお話をさせてください。
-      </p>
-      <p class="letter-sign">
-        野呂田 あいはる<span class="small">NexusGuild — Kamifukuoka, Saitama</span>
-      </p>
+    <p class="cap reveal">To You — はじめに</p>
+    <h2 class="sec-title reveal">突然のご連絡から、<br>来られた方へ。</h2>
+    <p class="letter-lead reveal">勝手にサイトを作ってしまい、<br>驚かせていたら、まずごめんなさい。</p>
+    <div class="letter-body reveal d1">
+      <p>私は埼玉・上福岡で、地域のお店のWebサイト制作とAI導入をしている、尚美学園大学の学生です。GoogleマップやSNSでお店を調べていると、クチコミで愛されているのに、検索して見られる公式サイトが無いお店に出会います。それが正直、とてももったいなくて。提案書を持ってご挨拶にうかがうかわりに、<strong>先にサイトを作ってお見せする</strong>——そういうやり方を選びました。</p>
+      <p><strong>押し売りをするつもりは一切ありません。</strong>デモをご覧になって「うちには要らない」で終わって、まったく問題ありません。その場合、費用は一切かかりませんし、こちらから何度もご連絡することもありません。</p>
+      <p>もし「ここが実際と違う」「この写真は変えてほしい」があれば、すぐ直します。掲載している内容は公開情報をもとにした仮のものなので、遠慮なくお知らせください。気に入っていただけたときだけ、公開のお話をさせてください。</p>
+      <p class="letter-sign">野呂田 あいはる<span class="small">NexusGuild — Kamifukuoka, Saitama</span></p>
     </div>
   </div>
 </section>
 
-<section class="plans" id="how" style="padding-bottom:0;border-bottom:none">
+<section class="plans" id="how" style="padding-bottom:0">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">01 — How It Works</p>
-      <h2 class="sec-title">「見られる」と「公式」の、<br>2つの状態。</h2>
-    </div>
-    <p class="sec-lead reveal">
-      お渡ししたデモは、いまも無料でご覧いただけます。ただしそれは「完成品の閲覧」の状態で、お店の公式サイトとしてはまだ働いていません。公開のご契約をいただくと、お店の名前のURL（独自ドメイン）で世に出て、検索から見つけてもらえる状態になります。
-    </p>
+    <p class="cap reveal">How It Works — 仕組み</p>
+    <h2 class="sec-title reveal">「見られる」と「公式」の、<br>2つの状態。</h2>
+    <p class="sec-lead reveal">お渡ししたデモは、いまも無料でご覧いただけます。ただしそれは「完成品の閲覧」の状態で、お店の公式サイトとしてはまだ働いていません。公開のご契約をいただくと、お店の名前のURL（独自ドメイン）で世に出て、検索から見つけてもらえる状態になります。</p>
     <div class="compare reveal">
       <div class="compare-col compare-keep">
         <p class="compare-tag">Now — いまの状態</p>
@@ -328,230 +342,143 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
       </div>
       <div class="compare-col compare-kill">
         <p class="compare-tag">Live — 公開後</p>
-        <p class="compare-h">公式サイト<span style="white-space:nowrap">（月5,000円）</span></p>
+        <p class="compare-h">公式サイト<span style="white-space:nowrap">（公開後）</span></p>
         <p class="compare-sub">あなたのお店の、自分の場所になります。</p>
         <ul class="compare-list">
           <li>お店の名前のURL（独自ドメイン）で公開</li>
           <li>検索から見つけてもらえる状態に。Googleマップのお店情報からの導線づくりもお手伝いします</li>
           <li>ドメイン・サーバー費用は月額に込み</li>
           <li>月1回までの修正（文言・写真の差し替え）</li>
-          <li>30ヶ月つづけたら、サイトはお店のものに</li>
+          <li>サイト一式は、制作費のお支払いでお店の資産に</li>
         </ul>
       </div>
     </div>
-    <p class="mani-close reveal">制作費は、いただきません。<br>いただくのは、<span class="accent">世に出して、守るための費用</span>です。</p>
+    <p class="mani-close reveal">デモをご覧いただくまでは、無料。<br>いただくのは、気に入っていただけたあとの<span class="accent">制作費と、守るための月5,000円</span>だけです。</p>
   </div>
 </section>
 
 <section class="plans" id="plans">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">02 — Plans</p>
-      <h2 class="sec-title">料金は、この3つだけ。</h2>
-    </div>
-    <p class="sec-lead reveal">
-      隠れた費用はありません。ここに書いていないお金の話は、あとから出てきません。
-    </p>
+    <p class="cap reveal">Plans — 料金</p>
+    <h2 class="sec-title reveal">料金は、この3つだけ。</h2>
+    <p class="sec-lead reveal">隠れた費用はありません。ここに書いていないお金の話は、あとから出てきません。</p>
     <div class="tier-grid reveal">
 
-      <article class="tier tier--featured">
-        <span class="tier-badge">おすすめ — まずはこちら</span>
-        <p class="tier-step" style="margin-top:14px">Plan 01 / Monthly</p>
-        <h3 class="tier-title">保守運用</h3>
-        <div class="tier-price">
-          <span class="tier-price-label">月額</span>
-          <span class="tier-price-value">¥5,000<span class="unit">／月</span></span>
-        </div>
-        <p class="tier-note">公式サイトとして公開し、維持していくためのプランです。1日あたり約165円。</p>
+      <article class="tier">
+        <p class="tier-step">Plan 01 / Light</p>
+        <h3 class="tier-title">LP型（1ページ）</h3>
+        <div class="tier-price"><span class="tier-price-label">制作一式</span><span class="tier-price-value">¥80,000</span></div>
+        <p class="tier-note">1ページ完結の公式サイト。まず「検索して見つかる場所」を持ちたいお店に。</p>
         <ul class="tier-list">
+          <li>お見せしたデモをベースに<strong>1ページ完結</strong>で仕上げ</li>
+          <li>スマホ最適化・営業情報・地図・SNS導線</li>
           <li>お店の名前のURL（<strong>独自ドメイン</strong>）で公開</li>
-          <li>ドメイン・サーバー費用は<strong>すべて込み</strong></li>
-          <li><strong>月1回までの修正</strong>（文言・写真・営業時間の差し替え）</li>
-          <li><strong>いつでも解約できます</strong>——最低契約期間・違約金なし</li>
-          <li>30ヶ月つづけたら<strong>サイトの所有権をお渡し</strong>（下記「30ヶ月の約束」）</li>
+          <li>サイト一式は<strong>お店の資産</strong>になります</li>
         </ul>
-        <p class="tier-fine">解約された場合は、公式サイトとしての公開を終了します。解約時の追加費用はありません。ページの追加や大きな作り替えは、別途お見積もりです。</p>
+        <p class="tier-fine">公開後の運用・更新（下記・月5,000円）とあわせてご利用ください。</p>
+      </article>
+
+      <article class="tier tier--featured">
+        <span class="tier-badge">おすすめ — いちばん選ばれる形</span>
+        <p class="tier-step">Plan 02 / Standard</p>
+        <h3 class="tier-title">スタンダード</h3>
+        <div class="tier-price"><span class="tier-price-label">制作一式</span><span class="tier-price-value">¥150,000</span></div>
+        <p class="tier-note">5ページ前後の公式サイトに、検索対策の基本まで込みのプランです。</p>
+        <ul class="tier-list">
+          <li><strong>5ページ前後</strong>（トップ・メニュー・こだわり・アクセス・お知らせ 等）</li>
+          <li><strong>Googleビジネスプロフィールの整備</strong>まで込み</li>
+          <li>スマホ最適化・写真構成のご提案</li>
+          <li>サイト一式は<strong>お店の資産</strong>になります</li>
+        </ul>
+        <p class="tier-fine">事例としてご紹介いただけるお店には、モニター価格 ¥100,000 でお受けすることがあります（お見積もりでご確認ください）。</p>
       </article>
 
       <article class="tier">
-        <p class="tier-step">Plan 02 / Buyout</p>
-        <h3 class="tier-title">買い切り</h3>
-        <div class="tier-price">
-          <span class="tier-price-label">一括</span>
-          <span class="tier-price-value">¥150,000</span>
-        </div>
-        <p class="tier-note">サイト一式を最初からお店のものにして、ご自身で運用したい方へ。</p>
+        <p class="tier-step">Plan 03 / Plus</p>
+        <h3 class="tier-title">予約・自動化パック</h3>
+        <div class="tier-price"><span class="tier-price-label">制作一式</span><span class="tier-price-value">¥250,000<span class="u">〜</span></span></div>
+        <p class="tier-note">サイトに加えて、予約フォームやSNS投稿の自動化をひとつ組み込みます。</p>
         <ul class="tier-list">
-          <li>サイト一式を<strong>お店に譲渡</strong>（入金確認後）</li>
-          <li>ドメイン・サーバーは<strong>お店の名義</strong>で契約——設定はすべて私が代行します</li>
-          <li>操作マニュアルつき（専門用語なし）</li>
-          <li>お渡し後<strong>1ヶ月間の質問対応</strong></li>
-          <li><strong>買い切り後に、毎月の請求は発生しません</strong></li>
+          <li>スタンダードの内容すべて</li>
+          <li><strong>予約・問い合わせフォーム</strong>や<strong>SNS投稿の自動化</strong>など1機能</li>
+          <li>予約で回るお店（美容室・教室・サロン等）に</li>
         </ul>
-        <p class="tier-fine">月額プランからの切替は「150,000円 − それまでにお支払いいただいた累計」の差額だけで可能です。ドメインはそのまま引き継げます。</p>
-      </article>
-
-      <article class="tier">
-        <p class="tier-step">Plan 03 / Spot</p>
-        <h3 class="tier-title">スポット修正</h3>
-        <div class="tier-price">
-          <span class="tier-price-label">1回</span>
-          <span class="tier-price-value">¥5,000<span class="unit">／回</span></span>
-        </div>
-        <p class="tier-note">買い切り後・譲渡後に、修正したいところが出てきたときに。</p>
-        <ul class="tier-list">
-          <li>文言・写真・営業時間などの差し替え</li>
-          <li>ご依頼のあったときだけ。定期の費用はありません</li>
-          <li>大きな作り替え・ページ追加は別途お見積もり</li>
-        </ul>
-        <p class="tier-fine">「自分で直せるようになりたい」という方には、買い切り時のマニュアルとお渡し後1ヶ月の質問対応でお手伝いします。</p>
+        <p class="tier-fine">組み込む機能に応じてお見積もりします。</p>
       </article>
 
     </div>
+    <p class="sec-lead reveal" style="margin-top:36px">公開後の<strong>運用・更新は、どのプランも月5,000円</strong>——ドメイン・サーバー費込み、月1回までの修正、最低契約期間・違約金なし。単発の直しは<strong>スポット修正 ¥5,000／回</strong>です。<br>なお、これまでに「月5,000円だけで公開・30ヶ月でお渡し」の形でご提案をお送りしたお店には、<strong>その条件のまま</strong>お受けしています。</p>
   </div>
 </section>
 
 <section class="own" id="own">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">03 — Ownership</p>
-      <h2 class="sec-title">30ヶ月つづけたら、<br>サイトはお店のものに。</h2>
-    </div>
-    <p class="sec-lead reveal">
-      月5,000円は、掛け捨てではありません。お支払いの累計が<strong>150,000円（30ヶ月）</strong>に届いた時点で、サイトの所有権をまるごとお渡しします。携帯電話の分割払いと同じ仕組みです。「解約したらサイトが消えるから、やめられない」——そういう縛り方はしたくないので、この形にしました。
-    </p>
-    <div class="own-bar reveal" id="own-bar"><span class="own-bar-fill"></span></div>
-    <div class="own-marks reveal">
-      <div><span class="big">ご契約</span>いつでも解約可能</div>
-      <div><span class="big">15ヶ月</span>累計 ¥75,000</div>
-      <div class="goal"><span class="big">30ヶ月</span>累計 ¥150,000 — 所有権をお渡し</div>
-    </div>
-    <p class="own-after reveal">
-      30ヶ月を過ぎたあとは、月5,000円をそのまま「純粋な保守費」として続けていただくこともできますし、ご自身での運用に切り替えていただくこともできます。
-    </p>
+    <p class="cap reveal" style="color:#e8926f">Ownership — 所有権のこと</p>
+    <h2 class="sec-title reveal">サイトは、最初から<br>お店のものです。</h2>
+    <p class="sec-lead reveal">制作費をお支払いいただいた時点で、サイトの所有権はまるごとお店に移ります。月5,000円は所有のための分割払いではなく、ドメイン・サーバーの維持と月1回までの修正のための、純粋な保守費です。「解約したらサイトが消えるから、やめられない」——そういう縛り方はしません。</p>
+    <p class="own-after reveal">保守をやめる場合は、ドメインとサイト一式をお店の名義に引き継ぐお手伝いをしてからお渡しします。引き継ぎの費用はいただきません。ご自身での運用にも、いつでも切り替えられます。</p>
     <div class="own-fair reveal">
       <strong>フェアさのために、先に書いておきます。</strong><br>
-      30ヶ月（累計150,000円）に届く前に解約された場合、サイトの所有権の譲渡はありません。月数に応じた部分的な譲渡もありません。そのかわり、いつ解約されても違約金や追加費用は一切かかりません。この線引きは、ご契約のときに書面でも明文化してお渡しします。
+      最低契約期間・違約金はありません。ページの追加や大きな作り替えは保守の範囲外で、別途お見積もりです。この線引きは、ご契約のときに書面でも明文化してお渡しします。なお、以前に「月5,000円だけではじめる形」でご提案をお送りしたお店には、当時の条件（30ヶ月つづけたら所有権をお渡し）のままお受けしています。
     </div>
   </div>
 </section>
 
 <section class="flow" id="flow">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">04 — Flow</p>
-      <h2 class="sec-title">進め方は、4つだけ。</h2>
-    </div>
+    <p class="cap reveal">Flow — 進め方</p>
+    <h2 class="sec-title reveal">進め方は、4つだけ。</h2>
     <div class="method-grid reveal">
-      <div class="method-step">
-        <p class="method-num">01</p>
-        <span class="free">Free</span>
-        <h3>デモを見る</h3>
-        <p>完成したサイトをご覧いただきます。デモが届いた方は、いまこの段階です。ここで終わっても費用はかかりません。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">02</p>
-        <span class="free">Free</span>
-        <h3>手直しする</h3>
-        <p>「ここが実際と違う」「この写真に変えたい」を直します。公開前の手直しのご相談は無料です。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">03</p>
-        <span class="paid">¥5,000/mo</span>
-        <h3>公開する</h3>
-        <p>お店の名前のURLをつないで、公式サイトとして世に出します。ご契約はここからです。デモの注記も外れます。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">04</p>
-        <span class="paid">Keep</span>
-        <h3>守っていく</h3>
-        <p>月1回までの修正と維持管理。30ヶ月つづいたら、所有権をお渡しします。やめたくなったら、いつでもどうぞ。</p>
-      </div>
+      <div class="method-step"><p class="method-num">01</p><span class="free">Free</span><h3>デモを見る</h3><p>完成したサイトをご覧いただきます。デモが届いた方は、いまこの段階です。ここで終わっても費用はかかりません。</p></div>
+      <div class="method-step"><p class="method-num">02</p><span class="free">Free</span><h3>手直しする</h3><p>「ここが実際と違う」「この写真に変えたい」を直します。公開前の手直しのご相談は無料です。</p></div>
+      <div class="method-step"><p class="method-num">03</p><span class="paid">Plan</span><h3>制作を選ぶ</h3><p>3つのプランから選んでいただき、正式な公式サイトに仕上げます。お店の名前のURLで世に出します。ご契約はここからです。</p></div>
+      <div class="method-step"><p class="method-num">04</p><span class="paid">¥5,000/mo</span><h3>守っていく</h3><p>月5,000円で、月1回までの修正と維持管理。ドメイン・サーバー費も込みです。やめたくなったら、いつでもどうぞ。</p></div>
     </div>
   </div>
 </section>
 
 <section class="faq" id="faq">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">05 — FAQ</p>
-      <h2 class="sec-title">よくあるご質問。</h2>
-    </div>
-    <p class="sec-lead reveal">お金と契約の話こそ、先に全部書いておきます。</p>
+    <p class="cap reveal">FAQ — よくあるご質問</p>
+    <h2 class="sec-title reveal">お金と契約の話こそ、<br>先に全部書いておきます。</h2>
     <div class="faq-list reveal">
-
-      <details class="faq-item">
-        <summary><span class="q">Q.01</span>どうして無料でサイトを作るのですか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>営業のためです。ここは正直に書きます。</p>
-          <p>提案書で「作れます」と言うより、作ったものを見ていただくほうが、お店にとっても判断が早いと思っています。制作の工程は自分の仕組みでほぼ自動化できているので、先に作って無料でお見せしても成り立つ——それがNexusGuildのやり方です。デモを見て終わりになっても、それは織り込み済みですので、ご負担に感じないでください。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.00</span>制作には、いくらかかりますか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>LP型（1ページ）80,000円、スタンダード（5ページ前後＋Googleビジネスプロフィール整備）150,000円、予約・自動化パック250,000円〜の3プランです。公開後の運用・更新はどのプランも月5,000円。デモをご覧いただくだけなら、費用は一切かかりません。</p></div></details>
+      <details class="faq-item"><summary><span class="q">Q.01</span>どうして無料でサイトを作るのですか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>営業のためです。ここは正直に書きます。</p><p>提案書で「作れます」と言うより、作ったものを見ていただくほうが、お店にとっても判断が早いと思っています。制作の工程は自分の仕組みでほぼ自動化できているので、先に作って無料でお見せしても成り立つ——それがNexusGuildのやり方です。デモを見て終わりになっても、それは織り込み済みですので、ご負担に感じないでください。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.02</span>見るだけで終わってもいいですか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>はい、まったく問題ありません。費用は一切かかりませんし、お返事の催促もいたしません。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.02</span>見るだけで終わってもいいですか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>はい、まったく問題ありません。費用は一切かかりませんし、お返事の催促もいたしません。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.03</span>月5,000円には、何が含まれますか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>独自ドメイン（お店の名前のURL）とサーバーの費用、月1回までの修正、公式サイトとしての公開・維持管理のすべてです。ドメイン代・サーバー代を別で請求することはありません。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.03</span>月5,000円には、何が含まれますか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>独自ドメイン（お店の名前のURL）とサーバーの費用、月1回までの修正、公式サイトとしての公開・維持管理のすべてです。ドメイン代・サーバー代を別で請求することはありません。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.04</span>月1回の修正では、どこまでやってもらえますか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>文言・写真・営業時間の差し替えなど、いまあるページの中身の更新までです。ページの追加や、デザインの大きな作り替えは、別途お見積もりになります。この線引きは、ご契約時の書面にも明記します。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.04</span>月1回の修正では、どこまでやってもらえますか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>文言・写真・営業時間の差し替えなど、いまあるページの中身の更新までです。ページの追加や、デザインの大きな作り替えは、別途お見積もりになります。この線引きは、ご契約時の書面にも明記します。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.05</span>解約したいときは、どうすればいいですか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>ご連絡いただくだけです。最低契約期間はなく、違約金もありません。解約後は、公式サイトとしての公開を終了します。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.05</span>保守をやめたいときは、どうすればいいですか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>ご連絡いただくだけです。最低契約期間はなく、違約金もありません。サイト一式はお店のものですので、ドメインやデータをお店の名義へ引き継ぐお手伝いをしてからお渡しします。引き継ぎの費用はいただきません。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.06</span>30ヶ月たつ前に解約したら、サイトはもらえますか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>いいえ。所有権のお渡しは、累計150,000円（30ヶ月）に届いたときだけです。途中解約の場合、月数に応じた部分的な譲渡もありません。</p>
-          <p>そのかわり、いつ解約されても違約金はいただきません。「続ける自由」と「やめる自由」を両方残すための線引きとして、ご契約時に書面でお渡しします。すぐに全部ほしい場合は、差額での買い切り切替（150,000円 − 既払い累計）もできます。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.06</span>サイトの所有権は、いつお店のものになりますか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>制作費をお支払いいただいた時点でお渡しします。月5,000円は保守のための費用で、所有のための分割払いではありません。</p><p>なお、以前に「月5,000円だけではじめる形」でご提案をお送りしたお店は、当時の条件（30ヶ月つづけたら所有権をお渡し）のままお受けしています。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.07</span>学生さんに任せて、大丈夫ですか。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>ご不安はもっともだと思います。私は開業届を出した個人事業として運営していて、地元・福井の惣菜店ではSNS自動投稿の仕組みが実際に稼働しています。そして何より、<strong>品質はお渡ししたデモそのもので判断していただけます</strong>。あれが私の実力のすべてです。</p>
-          <p>地元で顔を出して活動している学生なので、逃げも隠れもできません。合わないと思ったら、遠慮なく断ってください。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.07</span>学生さんに任せて、大丈夫ですか。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>ご不安はもっともだと思います。私は開業届を出した個人事業として運営していて、地元・福井の惣菜店ではSNS自動投稿の仕組みが実際に稼働しています。そして何より、<strong>品質はお渡ししたデモそのもので判断していただけます</strong>。あれが私の実力のすべてです。</p><p>地元で顔を出して活動している学生なので、逃げも隠れもできません。合わないと思ったら、遠慮なく断ってください。</p></div>
       </details>
-
-      <details class="faq-item">
-        <summary><span class="q">Q.08</span>デモの写真や内容が、実際と違うのですが。<span class="mark2">＋</span></summary>
-        <div class="faq-a">
-          <p>すぐ直します。デモは公開情報をもとにした仮のものなので、事実と違う点・使ってほしくない写真があれば、お手数ですがお知らせください。差し替えも削除も、最優先で対応します。</p>
-        </div>
+      <details class="faq-item"><summary><span class="q">Q.08</span>デモの写真や内容が、実際と違うのですが。<span class="mk">＋</span></summary>
+        <div class="faq-a"><p>すぐ直します。デモは公開情報をもとにした仮のものなので、事実と違う点・使ってほしくない写真があれば、お手数ですがお知らせください。差し替えも削除も、最優先で対応します。</p></div>
       </details>
-
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal">06 — Contact</p>
-    <h2 class="reveal">まず、デモの感想から。</h2>
-    <p class="contact-lead reveal">
-      「ここが実際と違う」の一言だけでも歓迎です。契約の話は、気に入っていただけてからで構いません。
-    </p>
-    <div class="hero-cta reveal" style="justify-content:center">
-      <a class="btn" href="mailto:nexusguild.aiharu@gmail.com?subject=%E3%83%87%E3%83%A2%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E4%BB%B6">メールで連絡する</a>
+    <p class="cap reveal">Contact — ご相談</p>
+    <h2 class="reveal">まず、デモの<br>感想から。</h2>
+    <p class="contact-lead reveal">「ここが実際と違う」の一言だけでも歓迎です。契約の話は、気に入っていただけてからで構いません。</p>
+    <div class="contact-cta reveal">
+      <a class="btn btn-primary" href="mailto:nexusguild.aiharu@gmail.com?subject=%E3%83%87%E3%83%A2%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E4%BB%B6">メールで連絡する</a>
       <a class="btn" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">InstagramのDMで連絡する</a>
     </div>
     <p class="contact-sub reveal">※ 24時間以内にご返信します。</p>
@@ -561,38 +488,34 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
 
 <footer>
   <div class="footer-in">
-    <span class="logo">NexusGuild<span style="color:var(--accent)">.</span></span>
+    <span class="footer-logo">
+      <svg class="koimark" width="28" height="17" viewBox="0 0 40 24" aria-hidden="true"><path d="M4 12 Q10 4 22 6 Q30 7 33 11 L39 5 L37 12 L39 19 L33 13 Q30 17 22 18 Q10 20 4 12 Z"/><circle cx="11" cy="11" r="1.4"/></svg>
+      <span>NexusGuild<span style="color:var(--accent)">.</span></span>
+    </span>
     <div class="footer-links">
       <a href="index.html">トップ</a>
       <a href="#plans">料金</a>
       <a href="index.html#about">運営者について</a>
-      <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
+      <a href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X</a>
     </div>
-    <p class="footer-copy">© 2026 NexusGuild / 野呂田 あいはる — Saitama, Japan</p>
+    <p class="footer-copy">© 2026 NexusGuild / 野呂田 あいはる — Kamifukuoka, Saitama, Japan</p>
   </div>
 </footer>
 
 <script>
-// スクロール出現（scrollイベント直接判定＋setInterval保険）
+(function(){
+  var nav=document.getElementById('nav'), t=nav.querySelector('.nav-toggle');
+  t.addEventListener('click',function(){var o=nav.classList.toggle('nav-open');t.setAttribute('aria-expanded',o?'true':'false');});
+  nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('nav-open');t.setAttribute('aria-expanded','false');});});
+})();
 (function(){
   var els=document.querySelectorAll('.reveal');
-  function check(){
-    var vh=window.innerHeight;
-    els.forEach(function(el){
-      if(!el.classList.contains('on')&&el.getBoundingClientRect().top<vh*0.88)
-        el.classList.add('on');
-    });
-    var bar=document.getElementById('own-bar');
-    if(bar&&!bar.classList.contains('on')&&bar.getBoundingClientRect().top<vh*0.8)
-      bar.classList.add('on');
-  }
-  window.addEventListener('scroll',check,{passive:true});
-  window.addEventListener('load',check);
-  var t=setInterval(function(){
-    check();
-    if(!document.querySelector('.reveal:not(.on)')&&document.getElementById('own-bar').classList.contains('on'))clearInterval(t);
-  },700);
-  check();
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on');});var b=document.getElementById('own-bar');if(b)b.classList.add('on');return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  var bar=document.getElementById('own-bar');
+  if(bar){var io2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){bar.classList.add('on');io2.disconnect();}});},{threshold:.4});io2.observe(bar);}
 })();
 </script>
 
