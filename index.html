@@ -117,6 +117,12 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 .svc-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line2)}
 @media (min-width:820px){.svc-grid{grid-template-columns:1fr 1fr}}
 .svc{padding:52px clamp(26px,4vw,56px);background:var(--white)}
+/* カードいっぱいに写真を出す。上と左右のパディングを打ち消して縁まで届かせる */
+.svc-photo{margin:-52px calc(-1 * clamp(26px,4vw,56px)) 38px;border-bottom:1px solid var(--line2)}
+/* width/height属性はレイアウトのガタつき防止のために残す。
+   height:auto を入れないと属性の675pxが効いてしまい、aspect-ratioが無視される */
+.svc-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.svc-note{margin-top:16px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--muted)}
 .svc + .svc{border-top:1px solid var(--line2)}
 @media (min-width:820px){.svc + .svc{border-top:none;border-left:1px solid var(--line2)}}
 .svc-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;color:var(--muted);
@@ -247,7 +253,11 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 /* ---------- method ---------- */
 .method{background:var(--dark);color:var(--white)}
 .method .sec-title{color:var(--white)}
-.method-lead{max-width:36em;color:rgba(253,252,248,.62);margin-bottom:60px}
+.method-lead{max-width:36em;color:rgba(253,252,248,.62);margin-bottom:40px}
+.method-film{margin-bottom:22px;border:1px solid rgba(253,252,248,.18);background:#000;overflow:hidden}
+.method-film video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.method-film-note{margin-bottom:60px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+  color:rgba(253,252,248,.45)}
 .method-grid{display:grid;grid-template-columns:1fr}
 @media (min-width:920px){.method-grid{grid-template-columns:repeat(4,1fr)}}
 .method-step{padding:32px 26px 32px 0;border-top:1px solid rgba(253,252,248,.16)}
@@ -407,6 +417,10 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     </div>
     <div class="svc-grid reveal">
       <article class="svc">
+        <div class="svc-photo">
+          <img src="assets/svc-web.jpg" width="1200" height="670" loading="lazy" decoding="async"
+               alt="お店の方と一緒にノートパソコンでサイトを見ながら相談している様子">
+        </div>
         <p class="svc-num">Service 01</p>
         <h3>お店のWebサイト制作</h3>
         <span class="en">Web Design for Local Shops</span>
@@ -420,6 +434,10 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
         <a class="svc-more" href="web.html">料金と仕組みのすべて — Web制作の詳細へ</a>
       </article>
       <article class="svc">
+        <div class="svc-photo">
+          <img src="assets/svc-sns.jpg" width="1200" height="670" loading="lazy" decoding="async"
+               alt="お店の方がカウンターの料理をスマートフォンで撮影している様子">
+        </div>
         <p class="svc-num">Service 02</p>
         <h3>SNS運用の自動化</h3>
         <span class="en">Social Media, Handled</span>
@@ -433,6 +451,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
         <a class="svc-more" href="#tiers">料金と、お店にしていただくこと</a>
       </article>
     </div>
+    <p class="svc-note reveal">※ 写真はイメージです（実在のお店・人物ではありません）。</p>
   </div>
 </section>
 
@@ -581,6 +600,13 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     <p class="method-lead reveal">
       アカウントの設定も、写真の受け渡しも、こちらからお店に伺って、横で一緒に進めます。パソコンの操作をお願いしたり、あとから資料を送りつけて「読んでおいてください」と言ったりはしません。
     </p>
+    <div class="method-film reveal">
+      <video id="method-video" poster="assets/visit-poster.jpg" muted loop playsinline
+             preload="none" aria-label="お店に伺って話を聞いている様子のイメージ映像">
+        <source src="assets/visit.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="method-film-note reveal">※ イメージ映像です（実在のお店・人物ではありません）。</p>
     <div class="method-grid reveal">
       <div class="method-step">
         <p class="method-num">01</p>
@@ -692,6 +718,29 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
     if(!document.querySelector('.reveal:not(.on)'))clearInterval(t);
   },700);
   check();
+})();
+
+// イメージ映像：画面に入ったときだけ読み込んで再生する。
+// preload="none" のままなので、ここまでスクロールしない人には1バイトも落ちない。
+// 動きを減らす設定の人には再生しない（ポスター画像だけが残る）。
+(function () {
+  var v = document.getElementById('method-video');
+  if (!v) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});   // 自動再生が拒否されても黙って諦める
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  io.observe(v);
 })();
 
 // AIターミナル実演（架空のデモデータのみ・個人情報なし）
