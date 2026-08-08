@@ -165,39 +165,6 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 .mani-close{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.1em;margin-top:52px}
 .mani-close .accent{color:var(--accent)}
 
-/* ---------- demo terminal ---------- */
-.demo{background:var(--bg)}
-.window{border:1px solid var(--line2);background:#141210;overflow:hidden}
-.window-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;background:#211e1a;border-bottom:1px solid rgba(253,252,248,.08)}
-.window-bar .dot{width:11px;height:11px;border-radius:50%;background:#3a352f}
-.window-title{margin-left:12px;font-family:var(--mono);font-size:.72rem;color:rgba(253,252,248,.5)}
-.window-status{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:#7ec98f}
-.window-status .pulse{width:8px;height:8px;border-radius:50%;background:#7ec98f;animation:pulse 1.8s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(126,201,143,.6)}70%{box-shadow:0 0 0 9px rgba(126,201,143,0)}100%{box-shadow:0 0 0 0 rgba(126,201,143,0)}}
-.window-body{display:grid;grid-template-columns:1fr}
-@media (min-width:760px){.window-body{grid-template-columns:1fr 1.35fr}}
-.panel{padding:26px 24px}
-.panel-tasks{border-bottom:1px solid rgba(253,252,248,.08)}
-@media (min-width:760px){.panel-tasks{border-bottom:none;border-right:1px solid rgba(253,252,248,.08)}}
-.panel-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,248,.4);margin-bottom:18px}
-.task-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.task{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid rgba(253,252,248,.1);
-  font-size:.8rem;color:rgba(253,252,248,.85);transition:border-color .4s ease}
-.task-check{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(253,252,248,.25);
-  display:grid;place-items:center;font-size:10px;color:transparent;transition:all .4s ease}
-.task-state{margin-left:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:#d9a53a}
-.task.done{border-color:rgba(126,201,143,.4)}
-.task.done .task-check{background:#7ec98f;border-color:#7ec98f;color:#141210}
-.task.done .task-state{color:#7ec98f}
-.panel-term{font-family:var(--mono);font-size:.78rem;line-height:1.9;color:rgba(253,252,248,.82);
-  height:400px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.term-line{white-space:pre-wrap;word-break:break-word}
-.term-line .prompt{color:#7ec98f}
-.term-line .accent{color:#e88a6f;font-weight:700}
-.term-line .dim{color:rgba(253,252,248,.4)}
-.term-cursor{display:inline-block;width:8px;height:14px;background:#7ec98f;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-
 /* ---------- tiers ---------- */
 .tiers{background:var(--white)}
 .tiers-lead{max-width:36em;color:var(--soft);margin-bottom:14px}
@@ -247,7 +214,6 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
   font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px}
 .tier--featured .tier-badge{background:transparent;border:1px solid rgba(253,252,248,.4);color:rgba(253,252,248,.85)}
 .tier--featured,.tier--badged{padding-top:56px}
-.demo-note{margin-top:14px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--muted)}
 
 /* ---------- method ---------- */
 .method{background:var(--dark);color:var(--white)}
@@ -489,31 +455,48 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
   </div>
 </section>
 
-<section class="demo" id="demo">
+
+<section class="method" id="method">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">03 — In Action</p>
-      <h2 class="sec-title">お店の作業は、<br>タップひとつ。</h2>
+      <p class="eyebrow">03 — Method</p>
+      <h2 class="sec-title">面倒な手続きは、<br>こちらで。</h2>
     </div>
-    <div class="window reveal">
-      <div class="window-bar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="window-title">NexusGuild AI Engine — work.log</span>
-        <span class="window-status"><i class="pulse"></i> 稼働中</span>
+    <p class="method-lead reveal">
+      アカウントの設定も、写真の受け渡しも、こちらからお店に伺って、横で一緒に進めます。パソコンの操作をお願いしたり、あとから資料を送りつけて「読んでおいてください」と言ったりはしません。
+    </p>
+    <div class="method-film reveal">
+      <video id="method-video" poster="assets/visit-poster.jpg" muted loop playsinline
+             preload="none" aria-label="お店に伺って話を聞いている様子のイメージ映像">
+        <source src="assets/visit.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="method-film-note reveal">※ イメージ映像です（実在のお店・人物ではありません）。</p>
+    <div class="method-grid reveal">
+      <div class="method-step">
+        <p class="method-num">01</p>
+        <h3>お店に伺う</h3>
+        <p>アカウントの準備や連携の設定を、こちらから伺って横で進めます。お店のパソコンやスマホの操作をお願いすることはありません。</p>
       </div>
-      <div class="window-body">
-        <div class="panel panel-tasks">
-          <p class="panel-label">今日の流れ</p>
-          <ul class="task-list" id="demo-tasks">
-            <li class="task"><span class="task-check">✓</span>写真をえらぶ<span class="task-state">待機中</span></li>
-            <li class="task"><span class="task-check">✓</span>投稿文を下書き<span class="task-state">待機中</span></li>
-            <li class="task"><span class="task-check">✓</span>確認をもらって投稿<span class="task-state">待機中</span></li>
-          </ul>
-        </div>
-        <div class="panel panel-term" id="demo-term"></div>
+      <div class="method-step">
+        <p class="method-num">02</p>
+        <h3>撮影</h3>
+        <p>その日のうちに、商品とお店の写真を撮らせていただきます。しばらく投稿を続けられるだけの枚数をまとめてお預かりします。</p>
+      </div>
+      <div class="method-step">
+        <p class="method-num">03</p>
+        <h3>下書きが届く</h3>
+        <p>決まった曜日に、写真と文章がセットで届きます。読んで、直したいところがあれば返信してください。何度でも直します。</p>
+      </div>
+      <div class="method-step">
+        <p class="method-num">04</p>
+        <h3>承認、そして投稿</h3>
+        <p>「承認」を押していただければ、あとはこちらで投稿します。押さなかった日は投稿しません。勝手に載ることはありません。</p>
       </div>
     </div>
-    <p class="demo-note reveal">※ 画面は動作イメージです（データはすべて架空のものです）。</p>
+    <div class="method-note reveal">
+      写真が少なくなってきたら、こちらから撮影に伺います。<strong>お店から「写真をください」と催促されることはありません。</strong>投稿が続くようにしておくのは、こちらの仕事だと思っています。
+    </div>
   </div>
 </section>
 
@@ -590,54 +573,10 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
   </div>
 </section>
 
-<section class="method" id="method">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">05 — Method</p>
-      <h2 class="sec-title">面倒な手続きは、<br>こちらで。</h2>
-    </div>
-    <p class="method-lead reveal">
-      アカウントの設定も、写真の受け渡しも、こちらからお店に伺って、横で一緒に進めます。パソコンの操作をお願いしたり、あとから資料を送りつけて「読んでおいてください」と言ったりはしません。
-    </p>
-    <div class="method-film reveal">
-      <video id="method-video" poster="assets/visit-poster.jpg" muted loop playsinline
-             preload="none" aria-label="お店に伺って話を聞いている様子のイメージ映像">
-        <source src="assets/visit.mp4" type="video/mp4">
-      </video>
-    </div>
-    <p class="method-film-note reveal">※ イメージ映像です（実在のお店・人物ではありません）。</p>
-    <div class="method-grid reveal">
-      <div class="method-step">
-        <p class="method-num">01</p>
-        <h3>お店に伺う</h3>
-        <p>アカウントの準備や連携の設定を、こちらから伺って横で進めます。お店のパソコンやスマホの操作をお願いすることはありません。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">02</p>
-        <h3>撮影</h3>
-        <p>その日のうちに、商品とお店の写真を撮らせていただきます。しばらく投稿を続けられるだけの枚数をまとめてお預かりします。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">03</p>
-        <h3>下書きが届く</h3>
-        <p>決まった曜日に、写真と文章がセットで届きます。読んで、直したいところがあれば返信してください。何度でも直します。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">04</p>
-        <h3>承認、そして投稿</h3>
-        <p>「承認」を押していただければ、あとはこちらで投稿します。押さなかった日は投稿しません。勝手に載ることはありません。</p>
-      </div>
-    </div>
-    <div class="method-note reveal">
-      写真が少なくなってきたら、こちらから撮影に伺います。<strong>お店から「写真をください」と催促されることはありません。</strong>投稿が続くようにしておくのは、こちらの仕事だと思っています。
-    </div>
-  </div>
-</section>
-
 <section class="about" id="about">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">06 — About</p>
+      <p class="eyebrow">05 — About</p>
       <h2 class="sec-title">運営者について。</h2>
     </div>
     <div class="about-grid">
@@ -672,7 +611,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal">07 — Contact</p>
+    <p class="eyebrow reveal">06 — Contact</p>
     <h2 class="reveal">まず、現物から<br>始めませんか。</h2>
     <p class="contact-lead reveal">
       ヒアリングは無料です。「これって自動化できる？」「うちの店もサイト作れる？」というレベルの相談から、お気軽にどうぞ。
@@ -742,90 +681,7 @@ footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-s
   io.observe(v);
 })();
 
-// AIターミナル実演（架空のデモデータのみ・個人情報なし）
-(function () {
-  var term  = document.getElementById('demo-term');
-  var tasks = Array.prototype.slice.call(document.querySelectorAll('#demo-tasks .task'));
-  if (!term) return;
-  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var LINES = [
-    ['> nexus run --shop "カフェあおい" --task photo', 'prompt'],
-    ['  撮影済みの写真 90 枚 から今日のぶんを選定…', 'dim'],
-    ['  本日は木曜 — ジャンル「スイーツ」  ✓', '', 0],
-    ['', ''],
-    ['> nexus run --task draft', 'prompt'],
-    ['  お店の言葉づかいに合わせて投稿文を作成  ✓', ''],
-    ['  日付・曜日・お品書きを照合  ✓', '', 1],
-    ['', ''],
-    ['> nexus send --to owner', 'prompt'],
-    ['  下書きをお店へ送信 → 確認をお待ちしています', 'dim'],
-    ['  「承認」を受信 → 17:30 に投稿  ✓', '', 2],
-    ['', ''],
-    ['  今週の投稿 7 本。お店の作業は、7 タップ。', 'accent'],
-  ];
-
-  var i = 0;
-  var cursor = document.createElement('span');
-  cursor.className = 'term-cursor';
-
-  function showAll(){
-    term.innerHTML='';
-    LINES.forEach(function(l){
-      var line=document.createElement('div');
-      line.className='term-line';
-      if(l[1]){var s=document.createElement('span');s.className=l[1];s.textContent=l[0];line.appendChild(s);}
-      else{line.textContent=l[0]||' ';}
-      term.appendChild(line);
-    });
-    tasks.forEach(function(t){t.classList.add('done');t.querySelector('.task-state').textContent='完了';});
-  }
-  if(rm){showAll();return;}
-
-  function reset(){
-    term.innerHTML = '';
-    tasks.forEach(function(t){
-      t.classList.remove('done');
-      t.querySelector('.task-state').textContent = '待機中';
-    });
-    i = 0;
-    term.appendChild(cursor);
-    setTimeout(step, 700);
-  }
-  function step(){
-    if (i >= LINES.length) { setTimeout(reset, 3000); return; }
-    var text = LINES[i][0], cls = LINES[i][1], taskIdx = LINES[i][2];
-    var line = document.createElement('div');
-    line.className = 'term-line';
-    if (cls) {
-      var span = document.createElement('span');
-      span.className = cls;
-      span.textContent = text;
-      line.appendChild(span);
-    } else {
-      line.textContent = text || ' ';
-    }
-    term.insertBefore(line, cursor);
-    if (typeof taskIdx === 'number' && tasks[taskIdx]) {
-      tasks[taskIdx].classList.add('done');
-      tasks[taskIdx].querySelector('.task-state').textContent = '完了';
-    }
-    i++;
-    setTimeout(step, text ? 620 : 280);
-  }
-
-  // 画面に入ったら開始（scroll判定・IntersectionObserver不使用）
-  var started = false;
-  function tryStart(){
-    if (started) return;
-    var r = term.getBoundingClientRect();
-    if (r.top < window.innerHeight * 0.85 && r.bottom > 0) { started = true; reset(); }
-  }
-  window.addEventListener('scroll', tryStart, {passive:true});
-  window.addEventListener('load', tryStart);
-  var g = setInterval(function(){ tryStart(); if (started) clearInterval(g); }, 700);
-  tryStart();
-})();
 </script>
 
 </body>
