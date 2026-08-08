@@ -114,17 +114,16 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
 
 /* ---------- services ---------- */
 .services{background:var(--bg)}
-.svc-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line2)}
+/* 2枚を1つの枠に詰めるのをやめ、それぞれを独立した枠にして間を空ける */
+.svc-grid{display:grid;grid-template-columns:1fr;gap:clamp(16px,2.2vw,28px)}
 @media (min-width:820px){.svc-grid{grid-template-columns:1fr 1fr}}
-.svc{padding:52px clamp(26px,4vw,56px);background:var(--white)}
+.svc{padding:52px clamp(26px,4vw,56px);background:var(--white);border:1px solid var(--line2)}
 /* カードいっぱいに写真を出す。上と左右のパディングを打ち消して縁まで届かせる */
 .svc-photo{margin:-52px calc(-1 * clamp(26px,4vw,56px)) 38px;border-bottom:1px solid var(--line2)}
 /* width/height属性はレイアウトのガタつき防止のために残す。
    height:auto を入れないと属性の675pxが効いてしまい、aspect-ratioが無視される */
 .svc-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 .svc-note{margin-top:16px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--muted)}
-.svc + .svc{border-top:1px solid var(--line2)}
-@media (min-width:820px){.svc + .svc{border-top:none;border-left:1px solid var(--line2)}}
 .svc-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;color:var(--muted);
   text-transform:uppercase;margin-bottom:22px}
 .svc h3{font-size:1.5rem;margin-bottom:6px}
