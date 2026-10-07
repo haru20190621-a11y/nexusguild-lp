@@ -1,691 +1,365 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <script>document.documentElement.className+=' js';</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="NexusGuild — 埼玉・上福岡の小さなスタジオ。地域のお店のWebサイト制作と、SNS運用の自動化。写真の撮影から投稿まで引き取ります。お店の作業は、届いた下書きの確認だけ。" />
-<title>NexusGuild｜Webサイト制作とSNS運用の自動化（埼玉・上福岡）</title>
-<meta property="og:title" content="NexusGuild｜Webサイト制作とSNS運用の自動化（埼玉・上福岡）">
-<meta property="og:description" content="写真の撮影から投稿まで引き取るSNS運用の自動化。お店の作業は、届いた下書きを確認して承認を押すだけ。導入費5万円・月3万円。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NexusGuild — 埼玉・上福岡の小さなスタジオ。お店のWebサイト、予約サイト、業務用の小さなアプリを、先に作ってお見せしています。">
+<title>NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）</title>
+<meta property="og:title" content="NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）">
+<meta property="og:description" content="提案書のかわりに、動くものを持っていきます。お店のWebサイト、予約サイト、アプリ。先に作って、お見せする。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://haru20190621-a11y.github.io/nexusguild-lp/">
-<meta property="og:image" content="https://haru20190621-a11y.github.io/nexusguild-lp/og-image.png">
+<meta property="og:image" content="https://haru20190621-a11y.github.io/nexusguild-lp/og-image.png?v=2">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231f1c18'/%3E%3Ctext x='30' y='46' font-family='serif' font-size='40' fill='%23fdfcf8' text-anchor='middle'%3EN%3C/text%3E%3Ccircle cx='50' cy='44' r='5' fill='%23c73e1d'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ffffff'/%3E%3Ctext x='32' y='46' font-family='serif' font-size='40' fill='%231b1b1b' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f6f3ec; --white:#fdfcf8; --dark:#1f1c18;
-  --ink:#1f1c18; --soft:#57514a; --muted:#8d857b;
-  --line:rgba(31,28,24,.14); --line2:rgba(31,28,24,.26);
-  --accent:#c73e1d;
-  --serif:"Shippori Mincho",serif;
-  --sans:"Zen Kaku Gothic New",sans-serif;
-  --mono:"JetBrains Mono",Consolas,monospace;
-  --maxw:1140px; --gutter:clamp(22px,5vw,72px);
+  --bg:#ffffff; --bg2:#f6f5f2;
+  --ink:#1b1b1b; --soft:#55524d;
+  --line:#dcd9d3; --line2:#1b1b1b;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --rail:96px;
+  --gutter:clamp(24px,7vw,120px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;
-  line-height:1.9;letter-spacing:.04em;font-size:16px;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:2;font-weight:400;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--accent);color:#fff}
-h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.08em;line-height:1.5}
+::selection{background:var(--ink);color:#fff}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
-section{padding:110px 0;border-bottom:1px solid var(--line)}
-.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:var(--accent);
-  text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
-.sec-title{font-size:clamp(1.7rem,4.2vw,2.7rem);margin-bottom:.6em}
+/* ---------- 左のレール（縦書きナビ） ---------- */
+.rail{position:fixed;left:0;top:0;width:var(--rail);height:100vh;height:100dvh;border-right:1px solid var(--line);background:var(--bg);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 0}
+.rail-logo{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.08em;writing-mode:vertical-rl;text-orientation:mixed}
+.rail-nav{display:flex;flex-direction:row;gap:34px;writing-mode:vertical-rl}
+.rail-nav a{font-family:var(--serif);font-size:14px;letter-spacing:.32em;color:var(--ink);position:relative;padding:0 13px;opacity:.78;transition:opacity .3s}
+.rail-nav a:hover{opacity:1}
+.rail-year{font-family:var(--serif);font-size:12px;letter-spacing:.3em;writing-mode:vertical-rl;color:var(--soft)}
+main{margin-left:var(--rail)}
 
-/* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:100;background:rgba(246,243,236,.85);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:var(--maxw);margin:0 auto;padding:16px var(--gutter);
-  display:flex;justify-content:space-between;align-items:baseline;gap:18px}
-.nav-logo{font-family:var(--serif);font-size:1.2rem;letter-spacing:.1em}
-.nav-logo .mark{color:var(--accent)}
-.nav-links{display:flex;gap:24px;flex-wrap:wrap}
-.nav-links a{font-size:.8rem;letter-spacing:.14em;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .25s}
-.nav-links a:hover{border-bottom-color:var(--ink)}
-@media (max-width:640px){.nav-links a:not(.nav-contact):not(.nav-web){display:none}}
+/* ---------- 共通 ---------- */
+.sec{padding:clamp(88px,12vw,168px) var(--gutter)}
+.sec-head{display:flex;align-items:baseline;gap:22px}
+.sec-head .num{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.sec-head .label{font-family:var(--serif);font-size:15px;letter-spacing:.32em}
+.sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.6vw,48px);line-height:1.6;letter-spacing:.12em;margin-top:28px}
+.lead{max-width:640px;margin-top:28px;font-size:16px;line-height:2.2;color:var(--ink)}
+.phone{width:clamp(220px,22vw,300px);aspect-ratio:375/808;border:1px solid var(--line);border-radius:26px;padding:8px;background:#fff;flex:none}
+.phone .screen{width:100%;height:100%;border-radius:18px;overflow:hidden;background:#fff}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cap{font-size:13px;letter-spacing:.12em;color:var(--soft);margin-top:14px;line-height:1.8}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-in{position:relative;z-index:2;width:100%}
-.hero-meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;color:var(--muted);
-  text-transform:uppercase;display:flex;gap:26px;flex-wrap:wrap;margin-bottom:40px}
-.hero-meta span{display:flex;align-items:center;gap:8px}
-.hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%}
-.hero h1{font-size:clamp(2.5rem,7.5vw,5rem);font-weight:600;letter-spacing:.06em;line-height:1.3;margin-bottom:36px}
-.hero h1 .accent{color:var(--accent)}
-.hero h1 .block{display:block;animation:slideUp 1.1s cubic-bezier(.22,1,.36,1) backwards}
-.hero h1 .block:nth-child(2){animation-delay:.2s}
-@keyframes slideUp{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
-.hero-sub{max-width:34em;color:var(--soft);margin-bottom:44px;word-break:keep-all;overflow-wrap:anywhere;animation:fadeIn 1s ease .55s backwards}
-.hero-sub strong{color:var(--ink);font-weight:700}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap;animation:fadeIn 1s ease .8s backwards}
-.btn{display:inline-block;font-family:var(--serif);letter-spacing:.16em;font-size:.9rem;
-  padding:14px 36px;border:1px solid var(--ink);transition:background .3s,color .3s}
-.btn:hover{background:var(--ink);color:var(--white)}
-.btn-accent{border-color:var(--accent);color:var(--accent)}
-.btn-accent:hover{background:var(--accent);color:#fff}
-/* hero line-art */
-.hero-grid{display:block}
-.hero-art{display:none}
-@media (min-width:1000px){
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-  .hero-art{display:block;animation:fadeIn 1.2s ease .7s backwards}
-}
-.hero-art svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto}
-.hero-art .ln{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
-  stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s ease forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.hero-art .fill-w{fill:var(--white)}
-.hero-art .pop{opacity:0;animation:popIn .5s ease forwards}
-@keyframes popIn{to{opacity:1}}
-.hero-art .float{animation:floatY 5.5s ease-in-out 2.6s infinite}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.hero-art .blink{opacity:0;animation:popIn .3s ease 2.2s forwards,blinkC 1.2s steps(1) 2.6s infinite}
-@keyframes blinkC{50%{opacity:0}}
+/* ---------- ヒーロー ---------- */
+.hero{min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(24px,5vw,80px);padding:120px var(--gutter) 96px;position:relative}
+.hero-vert{writing-mode:vertical-rl;text-orientation:mixed;font-family:var(--serif);font-size:14px;letter-spacing:.34em;line-height:1;color:var(--ink);height:min(60vh,520px);display:flex;align-items:flex-start}
+.hero-main{max-width:760px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(42px,5.4vw,92px);line-height:1.42;letter-spacing:.1em;text-wrap:balance}
+.hero-sub{margin-top:34px;font-family:var(--serif);font-size:clamp(15px,1.3vw,18px);letter-spacing:.2em;line-height:2.4}
+.hero-cta{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap}
+.hero-side{display:flex;flex-direction:column;align-items:center}
+.scroll-hint{position:absolute;right:var(--gutter);bottom:36px;font-family:var(--serif);font-size:11px;letter-spacing:.34em;color:var(--soft);display:flex;align-items:center;gap:12px}
+.scroll-hint::after{content:"";width:40px;height:1px;background:var(--line2);opacity:.5}
 
-.hero-vert{position:absolute;right:calc(var(--gutter) - 10px);top:50%;transform:translateY(-50%);z-index:1;
-  writing-mode:vertical-rl;font-family:var(--serif);font-size:.85rem;letter-spacing:.5em;
-  color:var(--muted);animation:fadeIn 1.2s ease 1s backwards}
-@media (max-width:760px){.hero-vert{display:none}}
-.hero-foot{position:absolute;left:var(--gutter);right:var(--gutter);bottom:26px;z-index:1;
-  display:flex;justify-content:space-between;font-family:var(--mono);font-size:.65rem;
-  letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
-@media (max-width:640px){.hero-foot{display:none}}
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 34px;border:1px solid var(--ink);font-family:var(--serif);font-size:14px;letter-spacing:.22em;color:var(--ink);background:transparent;transition:background .3s,color .3s}
+.btn:hover{background:var(--ink);color:#fff}
 
-/* ---------- telop marquee ---------- */
-.telop{overflow:hidden;border-bottom:1px solid var(--line);padding:20px 0;background:var(--white)}
-.telop-track{display:flex;width:max-content;animation:mq 36s linear infinite}
-.telop-track span{font-family:var(--serif);font-size:1.05rem;letter-spacing:.28em;
-  color:var(--soft);margin-right:64px;white-space:nowrap}
-.telop-track span i{font-style:normal;color:var(--accent);margin-right:64px;font-size:.8rem;vertical-align:middle}
-@keyframes mq{to{transform:translateX(-50%)}}
+/* ---------- 01 コンセプト ---------- */
+.concept{text-align:center}
+.concept .sec-head{justify-content:center}
+.concept .sec-title{margin-top:40px}
+.concept-text{margin:56px auto 0;max-width:680px;font-family:var(--serif);font-size:clamp(16px,1.3vw,19px);letter-spacing:.14em;line-height:2.8}
+.concept-text p+p{margin-top:2.2em}
 
-/* ---------- services ---------- */
-.services{background:var(--bg)}
-/* 2枚を1つの枠に詰めるのをやめ、それぞれを独立した枠にして間を空ける */
-.svc-grid{display:grid;grid-template-columns:1fr;gap:clamp(16px,2.2vw,28px)}
-@media (min-width:820px){.svc-grid{grid-template-columns:1fr 1fr}}
-.svc{padding:52px clamp(26px,4vw,56px);background:var(--white);border:1px solid var(--line2)}
-/* カードいっぱいに写真を出す。上と左右のパディングを打ち消して縁まで届かせる */
-.svc-photo{margin:-52px calc(-1 * clamp(26px,4vw,56px)) 38px;border-bottom:1px solid var(--line2)}
-/* width/height属性はレイアウトのガタつき防止のために残す。
-   height:auto を入れないと属性の675pxが効いてしまい、aspect-ratioが無視される */
-.svc-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
-.svc-note{margin-top:16px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--muted)}
-.svc-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;color:var(--muted);
-  text-transform:uppercase;margin-bottom:22px}
-.svc h3{font-size:1.5rem;margin-bottom:6px}
-.svc .en{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--accent);
-  text-transform:uppercase;display:block;margin-bottom:24px}
-.svc p{color:var(--soft);font-size:.95rem;margin-bottom:1.2em}
-.svc p strong{color:var(--ink);font-weight:700}
-.svc-list{list-style:none;border-top:1px solid var(--line);margin-top:26px}
-.svc-list li{padding:11px 0 11px 20px;border-bottom:1px solid var(--line);font-size:.88rem;position:relative;color:var(--soft)}
-.svc-list li::before{content:"—";position:absolute;left:0;color:var(--accent);font-size:.8rem}
-.svc-more{display:inline-block;margin-top:26px;font-size:.85rem;letter-spacing:.12em;
-  color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
-.tiers-web a{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:1px}
+/* ---------- 02 できること ---------- */
+.services{background:var(--bg2)}
+.svc-list{margin-top:72px;border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(32px,6vw,96px);padding:clamp(56px,7vw,88px) 0;border-bottom:1px solid var(--line)}
+.svc:nth-child(even) .svc-text{order:2}
+.svc:nth-child(even) .svc-shot{order:1}
+.svc-text{max-width:560px}
+.svc-no{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.svc h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);letter-spacing:.12em;line-height:1.6;margin-top:14px}
+.svc-en{display:block;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--soft);margin-top:8px}
+.svc p{margin-top:26px;font-size:16px;line-height:2.2}
+.svc p+p{margin-top:14px}
+.svc-shot{display:flex;flex-direction:column;align-items:center}
 
-/* ---------- manifesto ---------- */
-.manifesto{background:var(--white)}
-.mani-lead{max-width:36em;color:var(--soft);margin-bottom:56px}
-.mani-lead strong{color:var(--ink);font-weight:700}
-.compare{display:grid;grid-template-columns:1fr;border:1px solid var(--line2)}
-@media (min-width:820px){.compare{grid-template-columns:1fr 1fr}}
-.compare-col{padding:44px clamp(26px,4vw,52px)}
-.compare-keep{background:var(--white)}
-.compare-kill{background:var(--dark);color:var(--white)}
-.compare-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
-.compare-keep .compare-tag{color:var(--muted)}
-.compare-kill .compare-tag{color:#e88a6f}
-.compare-h{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;letter-spacing:.12em;margin-bottom:6px}
-.compare-sub{font-size:.85rem;margin-bottom:28px}
-.compare-keep .compare-sub{color:var(--muted)}
-.compare-kill .compare-sub{color:rgba(253,252,248,.55)}
-.compare-list{list-style:none}
-.compare-list li{padding:13px 0;display:flex;align-items:center;gap:14px;font-size:.95rem}
-.compare-keep .compare-list li{border-bottom:1px solid var(--line);color:var(--soft)}
-.compare-kill .compare-list li{border-bottom:1px solid rgba(253,252,248,.14);color:rgba(253,252,248,.92)}
-.compare-list li:last-child{border-bottom:none}
-.compare-list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%}
-.compare-keep .compare-list li::before{background:var(--muted)}
-.compare-kill .compare-list li::before{background:var(--accent)}
-.mani-close{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.1em;margin-top:52px}
-.mani-close .accent{color:var(--accent)}
+/* ---------- 03 進め方 ---------- */
+.steps{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:40px 28px 48px 0;border-top:1px solid var(--line2);margin-top:-1px}
+.step+.step{margin-left:0}
+.step-no{font-family:var(--serif);font-size:30px;letter-spacing:.1em;line-height:1}
+.step h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.1em;margin-top:22px;line-height:1.7}
+.step p{margin-top:14px;font-size:16px;line-height:2.1}
+.steps-note{margin-top:40px;font-size:16px;line-height:2.1;max-width:640px}
 
-/* ---------- tiers ---------- */
-.tiers{background:var(--white)}
-.tiers-lead{max-width:36em;color:var(--soft);margin-bottom:14px}
-.tiers-web{max-width:36em;font-size:.88rem;color:var(--muted);margin-bottom:52px}
-.tier-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line2)}
-@media (min-width:920px){.tier-grid{grid-template-columns:repeat(3,1fr)}}
-@media (min-width:920px){.tier-grid--duo{grid-template-columns:1.15fr 1fr}}
-.tier{position:relative;background:var(--white);padding:56px clamp(24px,3vw,40px) 40px;display:flex;flex-direction:column;overflow:hidden}
-.tier + .tier{border-top:1px solid var(--line2)}
-@media (min-width:920px){.tier + .tier{border-top:none;border-left:1px solid var(--line2)}}
-.tier-glyph{position:absolute;top:-8px;right:10px;font-family:var(--serif);font-weight:700;
-  font-size:130px;line-height:1;color:var(--accent);opacity:.07;pointer-events:none}
-.tier-step{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.tier-title{font-size:1.35rem;margin-bottom:8px}
-.tier-price{font-family:var(--serif);font-size:.85rem;letter-spacing:.2em;color:var(--accent);margin-bottom:22px}
-.tier-cost{border-top:1px solid var(--line);padding-top:22px;margin-bottom:28px}
-.tier-cost-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
-.tier-cost-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.tier-cost-value{font-family:var(--mono);font-size:1.15rem;font-weight:700;color:var(--ink);white-space:nowrap}
-.tier-cost-value .unit,.tier-cost-value .approx{font-size:.72rem;font-weight:500;color:var(--soft)}
-.tier-cost-note{font-size:.76rem;line-height:1.75;color:var(--soft)}
-.tier-cost-row + .tier-cost-note{margin-top:7px}
-.tier-cost-note + .tier-cost-row{margin-top:16px}
-.tier-cost-fine{font-size:.76rem;line-height:1.75;color:var(--soft)}
-.tier-cost-note + .tier-cost-fine{margin-top:16px}
-.tier-cost-fine + .tier-cost-fine{margin-top:8px}
-.tier-cost-quote{font-family:var(--serif);font-size:1.02rem;letter-spacing:.06em;color:var(--ink);margin-bottom:8px}
-.tier-cost--quote .tier-cost-label{display:block;margin-bottom:10px}
-.tier-desc{font-size:.85rem;line-height:1.9;color:var(--soft);margin-bottom:28px;flex:1}
-.tier-examples{border-top:1px solid var(--line);padding-top:20px}
-.tier-examples-label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.tier-examples ul{list-style:none}
-.tier-examples li{font-size:.8rem;padding:6px 0 6px 18px;position:relative;color:var(--soft)}
-.tier-examples li::before{content:"—";position:absolute;left:0;color:var(--accent);font-size:.7rem}
-.tier--featured{background:var(--dark)}
-.tier--featured .tier-step{color:rgba(253,252,248,.5)}
-.tier--featured .tier-title{color:var(--white)}
-.tier--featured .tier-desc{color:rgba(253,252,248,.72)}
-.tier--featured .tier-examples{border-top-color:rgba(253,252,248,.15)}
-.tier--featured .tier-examples li{color:rgba(253,252,248,.85)}
-.tier--featured .tier-glyph{color:#fff;opacity:.06}
-.tier--featured .tier-cost{border-top-color:rgba(253,252,248,.15)}
-.tier--featured .tier-cost-label{color:rgba(253,252,248,.5)}
-.tier--featured .tier-cost-quote{color:var(--white)}
-.tier--featured .tier-cost-note{color:rgba(253,252,248,.55)}
-.tier-badge{position:absolute;top:0;left:0;background:var(--accent);color:#fff;
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px}
-.tier--featured .tier-badge{background:transparent;border:1px solid rgba(253,252,248,.4);color:rgba(253,252,248,.85)}
-.tier--featured,.tier--badged{padding-top:56px}
+/* ---------- 04 運営 ---------- */
+.about{background:var(--bg2)}
+.about-grid{margin-top:64px;display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(40px,8vw,120px);align-items:start}
+.about dl{display:grid;grid-template-columns:auto 1fr;gap:0 28px;border-top:1px solid var(--line)}
+.about dt{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);padding:18px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.about dd{font-size:16px;line-height:2;padding:14px 0;border-bottom:1px solid var(--line)}
+.about-text{max-width:560px}
+.about-text p{font-size:16px;line-height:2.3}
+.about-text p+p{margin-top:1.4em}
 
-/* ---------- method ---------- */
-.method{background:var(--dark);color:var(--white)}
-.method .sec-title{color:var(--white)}
-.method-lead{max-width:36em;color:rgba(253,252,248,.62);margin-bottom:40px}
-.method-film{margin-bottom:22px;border:1px solid rgba(253,252,248,.18);background:#000;overflow:hidden}
-.method-film video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-.method-film-note{margin-bottom:60px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
-  color:rgba(253,252,248,.45)}
-.method-grid{display:grid;grid-template-columns:1fr}
-@media (min-width:920px){.method-grid{grid-template-columns:repeat(4,1fr)}}
-.method-step{padding:32px 26px 32px 0;border-top:1px solid rgba(253,252,248,.16)}
-@media (min-width:920px){
-  .method-step:not(:last-child){border-right:1px solid rgba(253,252,248,.1);padding-right:26px}
-  .method-step:not(:first-child){padding-left:26px}
-}
-.method-num{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--accent);margin-bottom:18px}
-.method-step h3{font-size:1.1rem;color:var(--white);margin-bottom:10px}
-.method-step p{font-size:.85rem;line-height:1.85;color:rgba(253,252,248,.6)}
-.method-note{margin-top:56px;padding:30px 36px;border-left:2px solid var(--accent);
-  font-size:.92rem;line-height:2;color:rgba(253,252,248,.78)}
-.method-note strong{color:var(--white);font-weight:700}
+/* ---------- 05 お問い合わせ ---------- */
+.contact{text-align:center;padding-bottom:clamp(96px,12vw,180px)}
+.contact .sec-head{justify-content:center}
+.contact .sec-title{margin-top:40px}
+.contact .lead{margin:36px auto 0;text-align:center}
+.contact-cta{margin-top:48px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.contact-mail{margin-top:40px;font-family:var(--serif);font-size:15px;letter-spacing:.14em}
+.contact-mail a{display:inline-block;padding:8px 0 2px;border-bottom:1px solid var(--line2)}
+.contact-note{margin-top:16px;font-size:14px;letter-spacing:.08em;color:var(--soft)}
 
-/* ---------- about ---------- */
-.about{background:var(--bg)}
-.about-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:start}
-@media (min-width:920px){.about-grid{grid-template-columns:5fr 7fr;gap:72px}}
-.about-card{border:1px solid var(--line2);padding:36px;background:var(--white)}
-.about-card-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:24px}
-.about-card dl{display:grid;grid-template-columns:auto 1fr;gap:14px 26px;font-size:.85rem;line-height:1.7}
-.about-card dt{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:4px;white-space:nowrap}
-.about-card dd{color:var(--soft)}
-.about-card dd .accent{color:var(--accent);font-weight:700}
-.about-text p{color:var(--soft);margin-bottom:1.3em}
-.about-text p:first-child{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.45rem);
-  line-height:1.9;letter-spacing:.08em;color:var(--ink);margin-bottom:1.4em}
-.about-text strong{color:var(--ink);font-weight:700}
+/* ---------- フッター ---------- */
+footer{border-top:1px solid var(--line);padding:40px var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.f-logo{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.08em}
+.f-links{display:flex;gap:28px;flex-wrap:wrap}
+.f-links a{display:inline-block;padding:8px 0;font-size:13px;letter-spacing:.14em;color:var(--soft)}
+.f-copy{font-size:12px;letter-spacing:.14em;color:var(--soft);width:100%}
 
-/* ---------- contact ---------- */
-.contact{background:var(--dark);color:var(--white);text-align:center;border-bottom:none;padding:130px 0}
-.contact .eyebrow{justify-content:center}
-.contact h2{font-size:clamp(1.8rem,5vw,3.2rem);color:var(--white);margin-bottom:26px}
-.contact-lead{color:rgba(253,252,248,.75);max-width:32em;margin:0 auto 46px}
-.contact .btn{border-color:var(--white);color:var(--white);font-size:1rem;padding:16px 48px}
-.contact .btn:hover{background:var(--white);color:var(--dark)}
-.contact-sub{margin-top:22px;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:rgba(253,252,248,.5);text-transform:uppercase}
-.contact-mail{margin-top:30px;font-family:var(--mono);font-size:.85rem;color:rgba(253,252,248,.75)}
-.contact-mail a{border-bottom:1px solid rgba(253,252,248,.4);padding-bottom:2px}
-.contact-mail a:hover{border-bottom-color:#fff;color:#fff}
-
-/* ---------- footer ---------- */
-footer{background:var(--dark);color:rgba(253,252,248,.6);padding:0 0 44px;font-size:.8rem}
-.footer-in{max-width:var(--maxw);margin:0 auto;padding:44px var(--gutter) 0;
-  border-top:1px solid rgba(253,252,248,.12);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-in .logo{font-family:var(--serif);color:var(--white);font-size:1.1rem;letter-spacing:.1em}
-.footer-links{display:flex;gap:22px;flex-wrap:wrap}
-.footer-links a{border-bottom:1px solid transparent;padding-bottom:2px}
-.footer-links a:hover{border-bottom-color:rgba(253,252,248,.5);color:#fff}
-.footer-copy{width:100%;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,252,248,.4);margin-top:26px}
-
-/* ---------- reveal ---------- */
-.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+/* ---------- 出現 ---------- */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
 .js .reveal.on{opacity:1;transform:none}
-
-/* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .reveal{opacity:1;transform:none}
-  .hero-art .ln{stroke-dasharray:none;stroke-dashoffset:0}
-  .hero-art .pop,.hero-art .blink{opacity:1}
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+
+/* ---------- モバイル ---------- */
+@media (max-width:979px){
+  :root{--rail:0px}
+  .rail{position:sticky;top:0;width:100%;height:56px;flex-direction:row;justify-content:space-between;padding:0 20px;border-right:0;border-bottom:1px solid var(--line)}
+  .rail-logo{writing-mode:horizontal-tb}
+  .rail-nav{writing-mode:horizontal-tb;flex-direction:row;gap:22px}
+  .rail-nav a{font-size:13px;letter-spacing:.16em;padding:12px 4px}
+  .rail-nav a.hide-m{display:none}
+  .rail-year{display:none}
+  main{margin-left:0}
+  .hero{grid-template-columns:1fr;min-height:0;padding:64px var(--gutter) 88px;gap:40px}
+  .hero-vert{writing-mode:horizontal-tb;height:auto;font-size:13px;letter-spacing:.26em;line-height:1.8}
+  .hero-side{align-items:flex-start}
+  .scroll-hint{display:none}
+  .svc{grid-template-columns:1fr}
+  .svc:nth-child(even) .svc-text{order:1}
+  .svc:nth-child(even) .svc-shot{order:2}
+  .svc-shot{align-items:flex-start}
+  .phone{width:min(260px,70vw)}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{padding-right:20px}
+  .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .hero-sub{letter-spacing:.1em}
+  .hero-sub br{display:none}
+  .concept-text{text-align:left;letter-spacing:.04em;line-height:2.4}
+  .concept-text br,.contact .lead br{display:none}
+  .steps{grid-template-columns:1fr}
+  .step{padding-right:0}
+  .hero-cta .btn,.contact-cta .btn{width:100%}
+  footer{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-in">
-    <a class="nav-logo" href="#top">NexusGuild<span class="mark">.</span></a>
-    <div class="nav-links">
-      <a href="#services">できること</a>
-      <a class="nav-web" href="web.html">Web制作</a>
-      <a href="#manifesto">考え方</a>
-      <a href="#tiers">プラン</a>
-      <a href="#about">運営</a>
-      <a class="nav-contact" href="#contact">ご相談</a>
-    </div>
-  </div>
-</nav>
+<header class="rail">
+  <a class="rail-logo" href="#top">NexusGuild</a>
+  <nav class="rail-nav" aria-label="ページ内">
+    <a class="hide-m" href="#concept">コンセプト</a>
+    <a href="#services">できること</a>
+    <a class="hide-m" href="#method">進め方</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+  <span class="rail-year">2026</span>
+</header>
 
-<section class="hero" id="top">
-  <div class="wrap hero-in">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-meta">
-          <span>Saitama — Kamifukuoka</span>
-          <span>Est. 2026</span>
-          <span>Web &amp; AI Studio</span>
-        </div>
-        <h1>
-          <span class="block">先に作って、</span>
-          <span class="block"><span class="accent">お見せする</span>。</span>
-        </h1>
-        <p class="hero-sub">
-          提案書のかわりに、動く現物を持っていく小さなスタジオです。<br>
-          地域のお店の<strong>Webサイト制作</strong>と、<strong>SNS運用の自動化</strong>。<br>
-          どちらも、まず作ってからお見せします。
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-accent" href="#contact">無料で相談する</a>
-          <a class="btn" href="#services">できることを見る</a>
-        </div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 440 416" xmlns="http://www.w3.org/2000/svg">
-          <!-- ブラウザ窓（お店のサイト） -->
-          <rect class="ln fill-w" x="20" y="40" width="340" height="300" pathLength="1" style="animation-delay:.1s"/>
-          <path class="ln" d="M20,76 H360" pathLength="1" style="animation-delay:.3s"/>
-          <circle class="pop" cx="44" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.1s"/>
-          <circle class="pop" cx="62" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.2s"/>
-          <circle class="pop" cx="80" cy="58" r="3.5" fill="#8d857b" style="animation-delay:1.3s"/>
-          <!-- 店先：ひさし -->
-          <path class="ln" d="M80,118 H300" pathLength="1" style="animation-delay:.45s"/>
-          <path class="ln" d="M80,118 V148 M300,118 V148" pathLength="1" style="animation-delay:.55s"/>
-          <path class="ln" d="M80,148 q22,26 44,0 q22,26 44,0 q22,26 44,0 q22,26 44,0 q22,26 44,0" pathLength="1" style="animation-delay:.65s"/>
-          <!-- 店先：ドアと窓 -->
-          <rect class="ln" x="120" y="192" width="50" height="110" pathLength="1" style="animation-delay:.85s"/>
-          <circle class="pop" cx="162" cy="252" r="3" fill="#c73e1d" style="animation-delay:1.6s"/>
-          <rect class="ln" x="200" y="192" width="80" height="68" pathLength="1" style="animation-delay:.95s"/>
-          <path class="ln" d="M240,192 V260 M200,226 H280" pathLength="1" style="animation-delay:1.1s"/>
-          <path class="ln" d="M56,302 H324" pathLength="1" style="animation-delay:.75s"/>
-          <!-- ターミナル窓（AI） -->
-          <rect class="ln fill-w" x="250" y="270" width="170" height="130" pathLength="1" style="animation-delay:1.2s"/>
-          <path class="ln" d="M250,296 H420" pathLength="1" style="animation-delay:1.35s"/>
-          <circle class="pop" cx="268" cy="283" r="3" fill="#8d857b" style="animation-delay:1.7s"/>
-          <circle class="pop" cx="283" cy="283" r="3" fill="#8d857b" style="animation-delay:1.78s"/>
-          <circle class="pop" cx="298" cy="283" r="3" fill="#8d857b" style="animation-delay:1.86s"/>
-          <path class="ln" d="M268,318 l10,7 l-10,7" pathLength="1" style="animation-delay:1.45s"/>
-          <path class="ln" d="M292,325 H358" pathLength="1" style="animation-delay:1.55s"/>
-          <path class="ln" d="M268,352 H332" pathLength="1" style="animation-delay:1.65s"/>
-          <rect class="blink" x="340" y="345" width="10" height="13" fill="#c73e1d"/>
-          <!-- 遊び：きらめきと朱ドット -->
-          <g class="float">
-            <path class="ln" d="M390,62 V98 M372,80 H408" pathLength="1" style="animation-delay:1.5s"/>
-            <circle class="pop" cx="392" cy="150" r="5.5" fill="#c73e1d" style="animation-delay:1.9s"/>
-          </g>
-        </svg>
-      </div>
+<main id="top">
+
+<section class="hero">
+  <p class="hero-vert">埼玉・上福岡の、小さなスタジオ</p>
+  <div class="hero-main">
+    <h1>先に作って、<br>お見せする。</h1>
+    <p class="hero-sub">Webサイト、予約サイト、アプリ。<br>提案書のかわりに、動くものを持っていきます。</p>
+    <div class="hero-cta">
+      <a class="btn" href="#services">できることを見る</a>
+      <a class="btn" href="#contact">相談する</a>
     </div>
   </div>
-  <div class="hero-vert">埼玉・上福岡から</div>
-  <div class="hero-foot"><span>↓ Scroll</span><span>NexusGuild / 2026</span></div>
+  <div class="hero-side">
+    <div class="phone">
+      <div class="screen"><img src="assets/shot-reserve.png?v=1" width="375" height="808" alt="ケーキ屋さん向け予約サイトの画面。受け取り日と時間を選ぶところ" decoding="async"></div>
+    </div>
+    <p class="cap">ケーキ屋さん向けの予約サイト（見本）</p>
+  </div>
+  <p class="scroll-hint">SCROLL</p>
 </section>
 
-<div class="telop" aria-hidden="true">
-  <div class="telop-track">
-    <span>Webサイト制作 <i>●</i></span><span>SNS運用の自動化 <i>●</i></span><span>地域のお店とともに <i>●</i></span><span>提案書ではなく、現物で <i>●</i></span>
-    <span>Webサイト制作 <i>●</i></span><span>SNS運用の自動化 <i>●</i></span><span>地域のお店とともに <i>●</i></span><span>提案書ではなく、現物で <i>●</i></span>
+<section class="sec concept" id="concept">
+  <div class="reveal">
+    <div class="sec-head"><span class="num">01</span><span class="label">コンセプト</span></div>
+    <h2 class="sec-title">動くものを、先に。</h2>
   </div>
-</div>
-
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">01 — Services</p>
-      <h2 class="sec-title">できることは、2つ。</h2>
-    </div>
-    <div class="svc-grid reveal">
-      <article class="svc">
-        <div class="svc-photo">
-          <img src="assets/svc-web.jpg" width="1200" height="670" loading="lazy" decoding="async"
-               alt="お店の方と一緒にノートパソコンでサイトを見ながら相談している様子">
-        </div>
-        <p class="svc-num">Service 01</p>
-        <h3>お店のWebサイト制作</h3>
-        <span class="en">Web Design for Local Shops</span>
-        <p><strong>まず作って、無料でお見せします。</strong>営業時間・場所・お店の空気が伝わる公式サイトを先に用意して、気に入っていただけたら公開のご相談へ進む——そういう順番でやっています。</p>
-        <p>グルメサイトやポータルの情報は借り物です。お店が自分で持てる「自分の場所」を、スマホで見やすい形で。</p>
-        <ul class="svc-list">
-          <li>スマホ最優先の1ページ公式サイト</li>
-          <li>営業時間・地図・メニュー・写真の整理</li>
-          <li>公開後の修正・更新のご相談も</li>
-        </ul>
-        <a class="svc-more" href="web.html">料金と仕組みのすべて — Web制作の詳細へ</a>
-      </article>
-      <article class="svc">
-        <div class="svc-photo">
-          <img src="assets/svc-sns.jpg" width="1200" height="670" loading="lazy" decoding="async"
-               alt="お店の方がカウンターの料理をスマートフォンで撮影している様子">
-        </div>
-        <p class="svc-num">Service 02</p>
-        <h3>SNS運用の自動化</h3>
-        <span class="en">Social Media, Handled</span>
-        <p><strong>新しいお客さんに来てもらうためのSNS運用を、まるごと引き取ります。</strong>写真を撮るところから、投稿するところまで。お店にしていただくのは、届いた下書きを見て「これでいい」か「ここを直して」を返すことだけです。</p>
-        <p>更新が止まるのは、やる気の問題ではありません。写真を撮って、文章を考えて、載せる。その3つを毎日続けるには、時間が足りないだけです。そこを引き取ります。</p>
-        <ul class="svc-list">
-          <li>写真 — こちらから撮影に伺います。ご用意いただける場合はお安くなります</li>
-          <li>投稿文 — 決まった曜日に下書きが届きます</li>
-          <li>お店の作業 — 確認して、直しを送るか承認を押すだけ</li>
-        </ul>
-        <a class="svc-more" href="#tiers">料金と、お店にしていただくこと</a>
-      </article>
-    </div>
-    <p class="svc-note reveal">※ 写真はイメージです（実在のお店・人物ではありません）。</p>
+  <div class="concept-text reveal">
+    <p>「こんなことができます」と説明するより、<br>実際に動くものを見ていただくほうが早い。</p>
+    <p>そう思って、お店のサイトも、予約の仕組みも、<br>先に作ってからお見せしています。</p>
+    <p>気に入っていただけたら、そこから一緒に直していく。<br>合わなければ、そこで終わりで構いません。</p>
   </div>
 </section>
 
-<section class="manifesto" id="manifesto">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">02 — Manifesto</p>
-      <h2 class="sec-title">「仕事」と「作業」を、<br>分けて考える。</h2>
-    </div>
-    <p class="mani-lead reveal">
-      お店の方とお話ししていて見えてきたのは、「任せてしまいたいもの」と「絶対に任せたくないもの」の境界線が、<strong>「仕事」と「作業」の違い</strong>にきれいに沿っている、ということでした。SNSも同じです。何を出すかはお店が決める。撮って、書いて、載せるところは、こちらが引き取る。
-    </p>
-    <div class="compare reveal">
-      <div class="compare-col compare-keep">
-        <p class="compare-tag">Keep — 人がやる</p>
-        <p class="compare-h">仕事</p>
-        <p class="compare-sub">お店の手から、離してはいけないもの。</p>
-        <ul class="compare-list">
-          <li>お客さんを迎える</li>
-          <li>出すものを決める</li>
-          <li>載せる前の、最後の一言</li>
-        </ul>
+<section class="sec services" id="services">
+  <div class="reveal">
+    <div class="sec-head"><span class="num">02</span><span class="label">できること</span></div>
+    <h2 class="sec-title">できることは、3つ。</h2>
+  </div>
+  <div class="svc-list">
+
+    <article class="svc reveal">
+      <div class="svc-text">
+        <p class="svc-no">01</p>
+        <h3>Webサイト制作</h3>
+        <span class="svc-en">Website</span>
+        <p>お店の公式サイトを、スマホで見やすい形で作ります。営業時間、場所、メニュー、写真。検索して見つけたときに、知りたいことがすぐ分かるページにします。</p>
+        <p>公開して終わりではなく、そのあとの修正や更新のご相談も受けています。</p>
       </div>
-      <div class="compare-col compare-kill">
-        <p class="compare-tag">Kill — こちらが引き取る</p>
-        <p class="compare-h">作業</p>
-        <p class="compare-sub">本来やりたい仕事の時間を、奪っているもの。</p>
-        <ul class="compare-list">
-          <li>投稿用の写真を撮る</li>
-          <li>載せる文章を考える</li>
-          <li>毎日それを続ける</li>
-        </ul>
+      <div class="svc-shot">
+        <div class="phone"><div class="screen"><img src="assets/shot-web.png?v=1" width="375" height="808" alt="お店のサイトのトップページの画面" loading="lazy" decoding="async"></div></div>
+        <p class="cap">お店のサイト（見本）</p>
       </div>
-    </div>
-    <p class="mani-close reveal">NexusGuildは、<span class="accent">作業だけ</span>を、静かに引き取る。</p>
+    </article>
+
+    <article class="svc reveal">
+      <div class="svc-text">
+        <p class="svc-no">02</p>
+        <h3>予約サイト制作</h3>
+        <span class="svc-en">Reservation</span>
+        <p>お客さんがスマホで日にちと時間を選んで予約できる仕組みです。お店側は管理画面で予約の一覧を見て、商品の写真や説明を自分で直せます。</p>
+        <p>電話と紙の予約票で受けていたものを、ひとつの画面にまとめます。</p>
+      </div>
+      <div class="svc-shot">
+        <div class="phone"><div class="screen"><img src="assets/shot-reserve-list.png?v=1" width="375" height="808" alt="予約サイトの管理画面。予約の一覧" loading="lazy" decoding="async"></div></div>
+        <p class="cap">お店側の管理画面（見本・予約は架空のものです）</p>
+      </div>
+    </article>
+
+    <article class="svc reveal">
+      <div class="svc-text">
+        <p class="svc-no">03</p>
+        <h3>アプリ制作</h3>
+        <span class="svc-en">Application</span>
+        <p>お店や教室の毎日の記録を、専用の小さなアプリにします。たとえばジムの会員さん向けの来館記録。受付のQRを読むだけでその日の記録が残り、しばらく来ていない方が一覧で分かります。</p>
+        <p>大きな仕組みではなく、その場所でほんとうに使う機能だけを作ります。</p>
+      </div>
+      <div class="svc-shot">
+        <div class="phone"><div class="screen"><img src="assets/shot-app.png?v=1" width="375" height="808" alt="ジム会員向けアプリの来館カレンダーの画面" loading="lazy" decoding="async"></div></div>
+        <p class="cap">ジム会員向けアプリ（試用版）</p>
+      </div>
+    </article>
+
   </div>
 </section>
 
-
-<section class="method" id="method">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">03 — Method</p>
-      <h2 class="sec-title">面倒な手続きは、<br>こちらで。</h2>
+<section class="sec method" id="method">
+  <div class="reveal">
+    <div class="sec-head"><span class="num">03</span><span class="label">進め方</span></div>
+    <h2 class="sec-title">相談から公開まで、4つ。</h2>
+  </div>
+  <div class="steps reveal">
+    <div class="step">
+      <p class="step-no">01</p>
+      <h3>お話を伺う</h3>
+      <p>どんなお店で、いま何に時間を取られているか。メールかInstagramのDMで、まずお聞かせください。ご相談は無料です。</p>
     </div>
-    <p class="method-lead reveal">
-      アカウントの設定も、写真の受け渡しも、こちらからお店に伺って、横で一緒に進めます。パソコンの操作をお願いしたり、あとから資料を送りつけて「読んでおいてください」と言ったりはしません。
-    </p>
-    <div class="method-film reveal">
-      <video id="method-video" poster="assets/visit-poster.jpg" muted loop playsinline
-             preload="none" aria-label="お店に伺って話を聞いている様子のイメージ映像">
-        <source src="assets/visit.mp4" type="video/mp4">
-      </video>
+    <div class="step">
+      <p class="step-no">02</p>
+      <h3>作って、お見せする</h3>
+      <p>動くものを先に作って、実際にスマホで触っていただきます。見ていただくところまでは、費用をいただきません。</p>
     </div>
-    <p class="method-film-note reveal">※ イメージ映像です（実在のお店・人物ではありません）。</p>
-    <div class="method-grid reveal">
-      <div class="method-step">
-        <p class="method-num">01</p>
-        <h3>お店に伺う</h3>
-        <p>アカウントの準備や連携の設定を、こちらから伺って横で進めます。お店のパソコンやスマホの操作をお願いすることはありません。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">02</p>
-        <h3>撮影</h3>
-        <p>その日のうちに、商品とお店の写真を撮らせていただきます。しばらく投稿を続けられるだけの枚数をまとめてお預かりします。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">03</p>
-        <h3>下書きが届く</h3>
-        <p>決まった曜日に、写真と文章がセットで届きます。読んで、直したいところがあれば返信してください。何度でも直します。</p>
-      </div>
-      <div class="method-step">
-        <p class="method-num">04</p>
-        <h3>承認、そして投稿</h3>
-        <p>「承認」を押していただければ、あとはこちらで投稿します。押さなかった日は投稿しません。勝手に載ることはありません。</p>
-      </div>
+    <div class="step">
+      <p class="step-no">03</p>
+      <h3>直す</h3>
+      <p>気になるところを伺って直します。費用は、公開に進む前にお伝えします。納得いただけたところで、公開へ。</p>
     </div>
-    <div class="method-note reveal">
-      写真が少なくなってきたら、こちらから撮影に伺います。<strong>お店から「写真をください」と催促されることはありません。</strong>投稿が続くようにしておくのは、こちらの仕事だと思っています。
+    <div class="step">
+      <p class="step-no">04</p>
+      <h3>公開と、その後</h3>
+      <p>公開したあとも、更新や修正のご相談を受けます。お店の作業が増えないように、こちらで引き取れるところは引き取ります。</p>
     </div>
   </div>
 </section>
 
-<section class="tiers" id="tiers">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">04 — Plans</p>
-      <h2 class="sec-title">料金は、ひとつ。</h2>
-    </div>
-    <p class="tiers-lead reveal">
-      毎日の投稿でお店を知ってもらい、来てみたいと思ってもらう。そのための運用を、写真を撮るところからまるごと引き取ります。オプションも成果報酬もありません。
-    </p>
-    <p class="tiers-web reveal">※ Webサイト制作は別のご案内です。料金と仕組みは<a href="web.html">専用ページ</a>にすべて公開しています。</p>
-    <div class="tier-grid tier-grid--duo reveal">
-
-      <article class="tier tier--badged">
-        <span class="tier-badge">First Step — まずはここから</span>
-        <span class="tier-glyph">今</span>
-        <p class="tier-step">SNS運用の自動化</p>
-        <h3 class="tier-title">新しいお客さんに、<br>見つけてもらう。</h3>
-        <p class="tier-price">撮るところから、載せるところまで。</p>
-        <div class="tier-cost">
-          <div class="tier-cost-row">
-            <span class="tier-cost-label">導入費</span>
-            <span class="tier-cost-value">¥50,000</span>
-          </div>
-          <p class="tier-cost-note">お店に伺って、アカウントの準備と最初の設計をするための費用です。初回だけいただきます。</p>
-          <div class="tier-cost-row">
-            <span class="tier-cost-label">月額</span>
-            <span class="tier-cost-value">¥30,000<span class="unit">／月</span></span>
-          </div>
-          <p class="tier-cost-note">撮影・投稿文の作成・投稿・反応の記録まで、すべて含みます。1日あたり約1,000円。</p>
-          <div class="tier-cost-row">
-            <span class="tier-cost-label">月額（写真をご用意いただける場合）</span>
-            <span class="tier-cost-value">¥20,000<span class="unit">／月</span></span>
-          </div>
-          <p class="tier-cost-note">すでにお店で写真を撮られているなら、撮影のぶんをお引きします。撮った写真を送っていただければ、投稿文の作成・投稿・反応の記録はこちらでやります。</p>
-          <p class="tier-cost-fine">追加料金はありません。写真の枚数や投稿の本数で金額が変わることもありません。</p>
-          <p class="tier-cost-fine">まずは1ヶ月、お試しください。合わなければ、そこで終了で構いません。</p>
-        </div>
-        <p class="tier-desc">
-          お店のことを知らない人に届くのは、写真です。だから写真は、こちらが撮りに伺います。すでにご自分で撮られているお店は、その写真をそのまま使います。文章はお店の言葉づかいを覚えたAIが下書きし、載せる前に必ずお店に確認します。反応を見て、投稿する時間帯も少しずつ合わせていきます。
-        </p>
-        <div class="tier-examples">
-          <span class="tier-examples-label">お店にしていただくこと</span>
-          <ul>
-            <li>決まった曜日に、下書きが届きます</li>
-            <li>読んで、直したいところがあれば送ってください</li>
-            <li>よければ「承認」を押すだけです</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="tier tier--featured">
-        <span class="tier-badge">Next — その先のご相談</span>
-        <span class="tier-glyph">次</span>
-        <p class="tier-step">そのほかの自動化</p>
-        <h3 class="tier-title">手が回っていないところは、<br>ほかにもありますか。</h3>
-        <p class="tier-price">SNSが落ち着いてからで、大丈夫です。</p>
-        <div class="tier-cost tier-cost--quote">
-          <span class="tier-cost-label">費用</span>
-          <p class="tier-cost-quote">お話を伺った上で、お見積もり</p>
-          <p class="tier-cost-note">お店ごとに中身がまったく違うので、決まった値段を先に出せません。まずは何にどれだけ時間がかかっているかを伺うところからです。</p>
-        </div>
-        <p class="tier-desc">
-          予約の受付、いただいた電話やメッセージの整理、仕入れや在庫の記録。SNSと同じで、毎日同じ形で時間を奪っていくものは、引き取れることがあります。ただ、こちらから広げることはしません。SNSの運用が落ち着いて、まだ困っていることがあれば、そのときに伺います。
-        </p>
-        <div class="tier-examples">
-          <span class="tier-examples-label">たとえば、こんなことです</span>
-          <ul>
-            <li>予約の受付と、その先の記録</li>
-            <li>営業時間外にいただいた連絡の取りこぼし</li>
-            <li>毎日同じ形で届く書類の入力</li>
-          </ul>
-        </div>
-      </article>
-
+<section class="sec about" id="about">
+  <div class="reveal">
+    <div class="sec-head"><span class="num">04</span><span class="label">運営</span></div>
+    <h2 class="sec-title">運営について。</h2>
+  </div>
+  <div class="about-grid">
+    <dl class="reveal">
+      <dt>Studio</dt><dd>NexusGuild（個人事業・2026年開業）</dd>
+      <dt>Base</dt><dd>埼玉・上福岡</dd>
+      <dt>Member</dt><dd>尚美学園大学の学生が運営</dd>
+      <dt>Works</dt><dd>福井の惣菜店（母の店）で、Instagram投稿の仕組みを運用中</dd>
+    </dl>
+    <div class="about-text reveal">
+      <p>大学に通いながら、個人で運営しています。大きな会社には頼みにくい、小さな単位の仕事を引き受けるのが役目だと思っています。</p>
+      <p>お店の手から離してはいけない仕事と、本当は誰がやってもいい作業がある。サイトも予約も記録も、後者のほうを静かに引き取るための道具として作っています。</p>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">05 — About</p>
-      <h2 class="sec-title">運営者について。</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-card reveal">
-        <p class="about-card-label">Profile</p>
-        <dl>
-          <dt>Studio</dt><dd>NexusGuild — 個人事業（2026年開業）</dd>
-          <dt>Base</dt><dd>埼玉・上福岡</dd>
-          <dt>Status</dt><dd>尚美学園大学 情報表現学科<br>ゲームクリエーションコース</dd>
-          <dt>Domain</dt><dd>AI / Software / Design</dd>
-          <dt>Sport</dt><dd>Boxing — <span class="accent">北信越優勝</span></dd>
-          <dt>Contact</dt><dd><a href="#contact" style="color:var(--accent)">下記より</a></dd>
-        </dl>
-      </div>
-      <div class="about-text reveal">
-        <p>現役大学生の起業家が、なぜWebとAIのスタジオを立ち上げたのか。</p>
-        <p>
-          きっかけは単純で、「面倒なものは消したい」という感覚です。ボクシングで<strong>北信越優勝</strong>まで勝ち上がる過程で身につけた、目標設定と失敗分析のサイクルを、そのまま事業に持ち込んでいます。
-        </p>
-        <p>
-          NexusGuildが大切にしているのは、「汎用ツールの隙間に残った、業種固有の作業」を狙うこと。ChatGPTで済む話を売り込む気はありません。逆に、ChatGPTでは届かない、その会社にしかない作業——そこにだけ、私たちが入る価値があります。
-        </p>
-        <p>
-          Webサイトも同じ考え方です。良いお店なのに、検索して見られる場所がない。それは「もったいない」で済ませていい問題ではないと思っています。だから先に作って、お見せする。気に入っていただけたら、そこから始めればいい。
-        </p>
-      </div>
-    </div>
+<section class="sec contact" id="contact">
+  <div class="reveal">
+    <div class="sec-head"><span class="num">05</span><span class="label">お問い合わせ</span></div>
+    <h2 class="sec-title">まず、現物から。</h2>
   </div>
+  <p class="lead reveal">「うちの店でもできるだろうか」という段階のご相談で構いません。<br>メールか、InstagramのDMでどうぞ。</p>
+  <div class="contact-cta reveal">
+    <a class="btn" href="mailto:nexusguild.aiharu@gmail.com?subject=NexusGuild%20%E3%81%B8%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a>
+    <a class="btn" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">Instagramで相談する</a>
+  </div>
+  <p class="contact-mail reveal"><a href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
+  <p class="contact-note reveal">24時間以内にご返信します。</p>
 </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <p class="eyebrow reveal">06 — Contact</p>
-    <h2 class="reveal">まず、現物から<br>始めませんか。</h2>
-    <p class="contact-lead reveal">
-      ヒアリングは無料です。「これって自動化できる？」「うちの店もサイト作れる？」というレベルの相談から、お気軽にどうぞ。
-    </p>
-    <div class="hero-cta reveal" style="justify-content:center">
-      <a class="btn" href="mailto:nexusguild.aiharu@gmail.com?subject=NexusGuild%20%E3%81%B8%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a>
-      <a class="btn" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">InstagramのDMで相談する</a>
-    </div>
-    <p class="contact-sub reveal">※ 24時間以内にご返信します。</p>
-    <p class="contact-mail reveal"><a href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
-  </div>
-</section>
+</main>
 
 <footer>
-  <div class="footer-in">
-    <span class="logo">NexusGuild<span style="color:var(--accent)">.</span></span>
-    <div class="footer-links">
-      <a href="#services">できること</a>
-      <a href="web.html">Web制作の料金</a>
-      <a href="#tiers">プラン</a>
-      <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
-    </div>
-    <p class="footer-copy">© 2026 NexusGuild — Saitama, Japan</p>
-  </div>
+  <span class="f-logo">NexusGuild</span>
+  <nav class="f-links" aria-label="フッター">
+    <a href="#concept">コンセプト</a>
+    <a href="#services">できること</a>
+    <a href="#method">進め方</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
+  </nav>
+  <p class="f-copy">© 2026 NexusGuild — Saitama, Japan</p>
 </footer>
 
 <script>
-// スクロール出現（scrollイベント直接判定＋setInterval保険）
 (function(){
   var els=document.querySelectorAll('.reveal');
-  function check(){
-    var vh=window.innerHeight;
-    els.forEach(function(el){
-      if(!el.classList.contains('on')&&el.getBoundingClientRect().top<vh*0.88)
-        el.classList.add('on');
-    });
+  var review=/[?&]review=1/.test(location.search);
+  if(review||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('on')});
+    if(review){document.querySelectorAll('img[loading="lazy"]').forEach(function(im){im.loading='eager'})}
+    return;
   }
-  window.addEventListener('scroll',check,{passive:true});
-  window.addEventListener('load',check);
-  var t=setInterval(function(){
-    check();
-    if(!document.querySelector('.reveal:not(.on)'))clearInterval(t);
-  },700);
-  check();
-})();
-
-// イメージ映像：画面に入ったときだけ読み込んで再生する。
-// preload="none" のままなので、ここまでスクロールしない人には1バイトも落ちない。
-// 動きを減らす設定の人には再生しない（ポスター画像だけが残る）。
-(function () {
-  var v = document.getElementById('method-video');
-  if (!v) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (!('IntersectionObserver' in window)) return;
-
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {});   // 自動再生が拒否されても黙って諦める
-      } else {
-        v.pause();
-      }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
     });
-  }, { threshold: 0.25 });
-  io.observe(v);
+  },{rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){io.observe(el)});
 })();
-
-
 </script>
-
 </body>
 </html>
