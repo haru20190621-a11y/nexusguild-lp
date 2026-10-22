@@ -164,226 +164,9 @@
 <link rel="alternate" type="application/rss+xml" title="深谷市の子供英会話教室・English Gator Academy（イングリッシュゲーターアカデミー） &raquo; 深谷で子ども英会話は何歳から？0歳から通えるEnglish Gator Academy のコメントのフィード" href="https://english-gator.com/2026/10/22/%e3%80%90%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%90%e3%83%83%e3%82%af%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%9a%e3%83%bc%e3%83%b3%e3%80%91/feed/" />
 		<!-- This site uses the Google Analytics by MonsterInsights plugin v11.3.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
 							
-			<script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
-				var mi_version = '11.3.0';
-				var mi_track_user = true;
-				var mi_no_track_reason = '';
-								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/english-gator.com\/2026\/04\/15\/%e3%80%90%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%90%e3%83%83%e3%82%af%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%9a%e3%83%bc%e3%83%b3%e3%80%91\/"};
-								if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
-					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
-				} else {
-					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
-				}
-
-								var disableStrs = [
-										'ga-disable-G-N3VE08CXHN',
-									];
-
-				/* Function to detect opted out users */
-				function __gtagTrackerIsOptedOut() {
-					for (var index = 0; index < disableStrs.length; index++) {
-						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
-							return true;
-						}
-					}
-
-					return false;
-				}
-
-				/* Disable tracking if the opt-out cookie exists. */
-				if (__gtagTrackerIsOptedOut()) {
-					for (var index = 0; index < disableStrs.length; index++) {
-						window[disableStrs[index]] = true;
-					}
-				}
-
-				/* Opt-out function */
-				function __gtagTrackerOptout() {
-					for (var index = 0; index < disableStrs.length; index++) {
-						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-						window[disableStrs[index]] = true;
-					}
-				}
-
-				if ('undefined' === typeof gaOptout) {
-					function gaOptout() {
-						__gtagTrackerOptout();
-					}
-				}
-								window.dataLayer = window.dataLayer || [];
-
-				window.MonsterInsightsDualTracker = {
-					helpers: {},
-					trackers: {},
-				};
-				if (mi_track_user) {
-					function __gtagDataLayer() {
-						dataLayer.push(arguments);
-					}
-
-					function __gtagTracker(type, name, parameters) {
-						if (!parameters) {
-							parameters = {};
-						}
-
-						if (parameters.send_to) {
-							__gtagDataLayer.apply(null, arguments);
-							return;
-						}
-
-						if (type === 'event') {
-														parameters.send_to = monsterinsights_frontend.v4_id;
-							var hookName = name;
-							if (typeof parameters['event_category'] !== 'undefined') {
-								hookName = parameters['event_category'] + ':' + name;
-							}
-
-							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
-								MonsterInsightsDualTracker.trackers[hookName](parameters);
-							} else {
-								__gtagDataLayer('event', name, parameters);
-							}
-							
-						} else {
-							__gtagDataLayer.apply(null, arguments);
-						}
-					}
-
-					__gtagTracker('js', new Date());
-					__gtagTracker('set', {
-						'developer_id.dZGIzZG': true,
-											});
-					if ( MonsterInsightsLocations.page_location ) {
-						__gtagTracker('set', MonsterInsightsLocations);
-					}
-										__gtagTracker('config', 'G-N3VE08CXHN', {"forceSSL":"true","link_attribution":"true"} );
-										window.gtag = __gtagTracker;										(function () {
-						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
-						/* ga and __gaTracker compatibility shim. */
-						var noopfn = function () {
-							return null;
-						};
-						var newtracker = function () {
-							return new Tracker();
-						};
-						var Tracker = function () {
-							return null;
-						};
-						var p = Tracker.prototype;
-						p.get = noopfn;
-						p.set = noopfn;
-						p.send = function () {
-							var args = Array.prototype.slice.call(arguments);
-							args.unshift('send');
-							__gaTracker.apply(null, args);
-						};
-						var __gaTracker = function () {
-							var len = arguments.length;
-							if (len === 0) {
-								return;
-							}
-							var f = arguments[len - 1];
-							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
-								if ('send' === arguments[0]) {
-									var hitConverted, hitObject = false, action;
-									if ('event' === arguments[1]) {
-										if ('undefined' !== typeof arguments[3]) {
-											hitObject = {
-												'eventAction': arguments[3],
-												'eventCategory': arguments[2],
-												'eventLabel': arguments[4],
-												'value': arguments[5] ? arguments[5] : 1,
-											}
-										}
-									}
-									if ('pageview' === arguments[1]) {
-										if ('undefined' !== typeof arguments[2]) {
-											hitObject = {
-												'eventAction': 'page_view',
-												'page_path': arguments[2],
-											}
-										}
-									}
-									if (typeof arguments[2] === 'object') {
-										hitObject = arguments[2];
-									}
-									if (typeof arguments[5] === 'object') {
-										Object.assign(hitObject, arguments[5]);
-									}
-									if ('undefined' !== typeof arguments[1].hitType) {
-										hitObject = arguments[1];
-										if ('pageview' === hitObject.hitType) {
-											hitObject.eventAction = 'page_view';
-										}
-									}
-									if (hitObject) {
-										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
-										hitConverted = mapArgs(hitObject);
-										__gtagTracker('event', action, hitConverted);
-									}
-								}
-								return;
-							}
-
-							function mapArgs(args) {
-								var arg, hit = {};
-								var gaMap = {
-									'eventCategory': 'event_category',
-									'eventAction': 'event_action',
-									'eventLabel': 'event_label',
-									'eventValue': 'event_value',
-									'nonInteraction': 'non_interaction',
-									'timingCategory': 'event_category',
-									'timingVar': 'name',
-									'timingValue': 'value',
-									'timingLabel': 'event_label',
-									'page': 'page_path',
-									'location': 'page_location',
-									'title': 'page_title',
-									'referrer' : 'page_referrer',
-								};
-								for (arg in args) {
-																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
-										hit[gaMap[arg]] = args[arg];
-									} else {
-										hit[arg] = args[arg];
-									}
-								}
-								return hit;
-							}
-
-							try {
-								f.hitCallback();
-							} catch (ex) {
-							}
-						};
-						__gaTracker.create = newtracker;
-						__gaTracker.getByName = newtracker;
-						__gaTracker.getAll = function () {
-							return [];
-						};
-						__gaTracker.remove = noopfn;
-						__gaTracker.loaded = true;
-						window['__gaTracker'] = __gaTracker;
-					})();
-									} else {
-										console.log("");
-					(function () {
-						function __gtagTracker() {
-							return null;
-						}
-
-						window['__gtagTracker'] = __gtagTracker;
-						window['gtag'] = __gtagTracker;
-					})();
-									}
-			</script>
+			
 							<!-- / Google Analytics by MonsterInsights -->
-		<script type="text/javascript">
-window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/english-gator.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.14"}};
-/*! This file is auto-generated */
-!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
-</script>
+		
 <style type="text/css">
 img.wp-smiley,
 img.emoji {
@@ -502,15 +285,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://english-gator.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' type='text/css' media='all' />
 <link rel='stylesheet' id='elementor-icons-fa-brands-css' href='https://english-gator.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3' type='text/css' media='all' />
 
-<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='monsterinsights-frontend-script-js-extra'>/* <![CDATA[ */
-var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/english-gator.com","hash_tracking":"false","v4_id":"G-N3VE08CXHN"};/* ]]> */
-</script>
-<script type='text/javascript' id='cookie-notice-front-js-before'>
-var cnArgs = {"ajaxUrl":"https:\/\/english-gator.com\/wp-admin\/admin-ajax.php","nonce":"58f7a312c2","hideEffect":"fade","position":"bottom","onScroll":false,"onScrollOffset":100,"onClick":false,"cookieName":"cookie_notice_accepted","cookieTime":2592000,"cookieTimeRejected":2592000,"globalCookie":false,"redirection":false,"cache":true,"revokeCookies":false,"revokeCookiesOpt":"automatic"};
-</script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/cookie-notice/js/front.min.js?ver=3.0.6' id='cookie-notice-front-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.1' id='jquery-core-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.5.5' id='font-awesome-4-shim-js'></script>
+
+
+
+
+
 <link rel="https://api.w.org/" href="https://english-gator.com/wp-json/" /><link rel="alternate" type="application/json" href="https://english-gator.com/wp-json/wp/v2/posts/7782" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://english-gator.com/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://english-gator.com/wp-includes/wlwmanifest.xml" />
 <meta name="generator" content="WordPress 6.1.14" />
@@ -526,8 +305,9 @@ var cnArgs = {"ajaxUrl":"https:\/\/english-gator.com\/wp-admin\/admin-ajax.php",
 			.m20 {margin: 20px;}
 .p20 {margin: 20px;}		</style>
 		<style id="ng-sample-fix">.elementor-widget-theme-post-content h2{font-size:1.32em !important;line-height:1.4 !important;margin:1.8em 0 .7em !important;letter-spacing:0 !important}.elementor-widget-theme-post-content p{margin-bottom:1em}</style>
-<style id="ng-banner-fix">:root{--ng-banner:48px}body{margin-top:var(--ng-banner) !important}.elementor-sticky--active,.elementor-sticky__spacer+*,header.elementor-location-header[style*="position: fixed"],.sticky-header{top:var(--ng-banner) !important}</style><script>(function(){function f(){var b=document.getElementById("ng-sample-banner");if(b){document.documentElement.style.setProperty("--ng-banner",b.offsetHeight+"px")}}window.addEventListener("load",f);window.addEventListener("resize",f);document.addEventListener("DOMContentLoaded",f)})();</script>
-</head>
+<style id="ng-banner-fix">:root{--ng-banner:48px}body{margin-top:var(--ng-banner) !important}.elementor-sticky--active,.elementor-sticky__spacer+*,header.elementor-location-header[style*="position: fixed"],.sticky-header{top:var(--ng-banner) !important}</style>
+<style id="ng-nojs">#loading,#loader,.loading,.loader,#preloader,.preloader,#js-loader,.l-loading{display:none !important}.lazyload,.lazyloading,[data-src]{opacity:1 !important}</style>
+<script>(function(){function f(){var b=document.getElementById("ng-sample-banner");if(b){document.documentElement.style.setProperty("--ng-banner",b.offsetHeight+"px")}}window.addEventListener("load",f);window.addEventListener("resize",f);document.addEventListener("DOMContentLoaded",f)})();</script></head>
 <body data-rsssl=1 class="post-template-default single single-post postid-7782 single-format-standard wp-custom-logo wp-embed-responsive cookies-not-set full header-layout-logo-menu has-page-header no-middle-header responsive-layout has-post-thumbnail single-post-one-column has-blocks layout-full elementor-default elementor-kit-1675 elementor-page-1792"><div id="ng-sample-banner" style="position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#ffd54f;color:#333;padding:10px 16px;font-size:14px;line-height:1.5;text-align:center;font-family:sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.15)">ネクサスギルドの<b>サンプル表示</b>です（English Gator Academy様の実際のサイトではありません）。自動更新で載る記事のイメージです。</div>
 	<h1 style="display: none;">
 		埼玉県深谷市上柴町東の英会話教室・子供英会話・英語スクール English Gator Academy （イングリッシュゲーターアカデミー）
@@ -1175,41 +955,31 @@ var cnArgs = {"ajaxUrl":"https:\/\/english-gator.com\/wp-admin\/admin-ajax.php",
 
 <link rel='stylesheet' id='elementor-icons-fa-regular-css' href='https://english-gator.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=5.15.3' type='text/css' media='all' />
 <link rel='stylesheet' id='e-animations-css' href='https://english-gator.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.5.5' type='text/css' media='all' />
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/comment-reply.min.js?ver=6.1.14' id='comment-reply-js'></script>
-<script type='text/javascript' id='vamtam-all-js-extra'>
-/* <![CDATA[ */
-var VAMTAM_FRONT = {"ajaxurl":"https:\/\/english-gator.com\/wp-admin\/admin-ajax.php","jspath":"https:\/\/english-gator.com\/wp-content\/themes\/jcstudios\/vamtam\/assets\/js\/","max_breakpoint":"1025","beaver_responsive":"1025","beaver_small":"768","content_width":"1260"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/themes/jcstudios/vamtam/assets/js/all.min.js?ver=1591415389' id='vamtam-all-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1' id='smartmenus-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.6.2' id='elementor-pro-webpack-runtime-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.5.5' id='elementor-webpack-runtime-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.5.5' id='elementor-frontend-modules-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/dist/hooks.min.js?ver=4169d3cf8e8d95a3d6d5' id='wp-hooks-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/dist/i18n.min.js?ver=9e794f35a71bb98672ae' id='wp-i18n-js'></script>
-<script type='text/javascript' id='wp-i18n-js-after'>
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
-</script>
-<script type='text/javascript' id='elementor-pro-frontend-js-before'>
-var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/english-gator.com\/wp-admin\/admin-ajax.php","nonce":"95ede73faf","urls":{"assets":"https:\/\/english-gator.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/english-gator.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"ja","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/english-gator.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
-</script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.6.2' id='elementor-pro-frontend-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2' id='jquery-ui-core-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6' id='swiper-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.5.5' id='share-link-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0' id='elementor-dialog-js'></script>
-<script type='text/javascript' id='elementor-frontend-js-before'>
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Facebook \u3067\u5171\u6709","shareOnTwitter":"Twitter \u3067\u5171\u6709","pinIt":"\u30d4\u30f3\u3059\u308b","download":"\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9","downloadImage":"\u753b\u50cf\u3092\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9","fullscreen":"\u30d5\u30eb\u30b9\u30af\u30ea\u30fc\u30f3","zoom":"\u30ba\u30fc\u30e0","share":"\u30b7\u30a7\u30a2","playVideo":"\u52d5\u753b\u518d\u751f","previous":"\u524d","next":"\u6b21","close":"\u9589\u3058\u308b"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u30e2\u30d0\u30a4\u30eb","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u30bf\u30d6\u30ec\u30c3\u30c8","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u30ce\u30fc\u30c8\u30d6\u30c3\u30af","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u30ef\u30a4\u30c9\u30b9\u30af\u30ea\u30fc\u30f3","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.5.5","is_static":false,"experimentalFeatures":{"theme_builder_v2":true,"landing-pages":true,"elements-color-picker":true,"admin-top-bar":true,"page-transitions":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/english-gator.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","global_image_lightbox":"yes","active_breakpoints":["viewport_mobile","viewport_tablet"],"lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":7782,"title":"%E3%80%90%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%83%90%E3%83%83%E3%82%AF%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E3%80%91%20%E2%80%93%20%E6%B7%B1%E8%B0%B7%E5%B8%82%E3%81%AE%E5%AD%90%E4%BE%9B%E8%8B%B1%E4%BC%9A%E8%A9%B1%E6%95%99%E5%AE%A4%E3%83%BBEnglish%20Gator%20Academy%EF%BC%88%E3%82%A4%E3%83%B3%E3%82%B0%E3%83%AA%E3%83%83%E3%82%B7%E3%83%A5%E3%82%B2%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%A2%E3%82%AB%E3%83%87%E3%83%9F%E3%83%BC%EF%BC%89","excerpt":"","featuredImage":"https:\/\/english-gator.com\/wp-content\/uploads\/2026\/04\/202605_\u30ad\u30e3\u30c3\u30b7\u30e5\u30d0\u30c3\u30af\u30ad\u30e3\u30f3\u30da\u30fc\u30f3-1024x731.png"}};
-</script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.5.5' id='elementor-frontend-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.6.2' id='pro-preloaded-elements-handlers-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.5.5' id='preloaded-modules-js'></script>
-<script type='text/javascript' src='https://english-gator.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.6.2' id='e-sticky-js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		<!-- Compliance by Hu-manity.co plugin v3.0.6 https://hu-manity.co/ -->
@@ -1221,6 +991,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		</div>
 
 		<!-- / Compliance by Hu-manity.co plugin -->
+
 <script id="ng-keep-inside">(function(){var HOME="https://haru20190621-a11y.github.io/nexusguild-lp/demo/english-gator/index.html";function fix(){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href')||'';var inDemo=/github\.io\/nexusguild-lp\/demo\//.test(a.href);if(inDemo)return;var real=/english-gator\.com/.test(a.href)||h.charAt(0)==='/'||h.charAt(0)==='#';if(!real)return;if(a.closest('.elementor-widget-theme-post-content')){a.setAttribute('target','_blank');a.setAttribute('rel','noopener');}else{a.setAttribute('href',HOME);a.removeAttribute('target');}});}document.addEventListener('DOMContentLoaded',fix);window.addEventListener('load',fix);})();</script>
 </body>
 </html>
