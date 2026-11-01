@@ -1,0 +1,249 @@
+/*=====================================
+blog
+=====================================*/
+#footer {
+	background: none;
+}
+
+
+.fixPosBase {
+	position: relative;
+}
+.colWrap {
+	margin-top: 85px;
+	min-height: 600px;
+}
+.navCol {
+	position: absolute;
+	top: 0;
+	width: 180px;
+	max-width: 23%;
+	z-index: 3;
+}
+.navCol.js-fixed {
+	position: fixed;
+}
+.navCol .blogNav dl {
+	margin-top: 65px;
+}
+.navCol .blogNav dl:first-child {
+	margin-top: 0;
+}
+.navCol .blogNav dl dt {
+	font-size: 134%; /*16px*/
+	font-family: 'montserratlight', sans-serif;
+	letter-spacing: 2px;
+	padding-bottom: 15px;
+	border-bottom: 3px solid #d5d5d5;
+}
+.navCol .blogNav dl dd li {
+	margin-top: 23px;
+	line-height: 1.5;
+	font-size: 117%; /*14px*/
+	letter-spacing: 2px;
+}
+.navCol .blogNav dl dd li a {
+	display: inline-block;
+	padding-left: 12px;
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/hodaka/assets/a1368c57f730.svg) no-repeat left 0.6em;
+}
+.dtlCol {
+	padding-left: 26.7%;
+}
+
+.dtlCol .entryDtl {
+	margin-top: 80px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #ededed;
+}
+.dtlCol .entryDtl:first-child {
+	margin-top: 0;
+}
+.dtlCol .entryDtl .catDate {
+	color: #787878;
+	font-size: 117%; /*14px*/
+	letter-spacing: 1px;
+}
+.dtlCol .entryDtl .catDate .cat {
+	float: left;
+	margin-right: 20px;
+	padding-right: 20px;
+	border-right: 1px solid #b7b7b7;
+}
+.dtlCol .entryDtl .catDate .date {
+	float: left;
+	font-family: 'montserratlight', sans-serif;
+}
+.dtlCol .entryDtl .entTel {
+	font-size: 233.4%; /*28px*/
+	line-height: 1.3;
+	margin-top: 10px;
+}
+.dtlCol .entryDtl .entBody {
+	line-height: 2.2;
+	font-size: 117%; /*14px*/
+}
+.dtlCol .entryDtl .entBody {
+	padding-top: 5px;
+}
+.dtlCol .entryDtl .entBody p {
+	margin-top: 35px;
+}
+.dtlCol .entryDtl .entBody img {
+	max-width: 100%;
+	height: auto;
+}
+.dtlCol .entryDtl .snsBtn {
+	margin-top: 40px;
+}
+.dtlCol .entryDtl .snsBtn .fb_iframe_widget {
+	margin-right: 5px;
+}
+
+.smp_only_old{
+	display: none;
+}
+
+/* PC
+-------------------------------------*/
+@media screen and (min-width: 671px) {
+	.navCol .blogNav dl dd {
+		height: auto !important;
+	}
+}
+
+/* SP
+-------------------------------------*/
+@media screen and (max-width: 670px) {
+	.smp_only_old{
+		display: inherit;
+		text-align: center;
+		display: block;
+		margin-top: 40px;
+	}
+	.ttlSpOnly {
+		margin-top: 60px;
+		font-size: 2.5rem;
+		font-family: 'montserratlight', sans-serif;
+		letter-spacing: 5px;
+		text-align: center;
+	}
+	.colWrap {
+		margin-top: 50px;
+		min-height: 0;
+	}
+	.navCol {
+		position: static;
+		width: auto;
+		max-width: 100%;
+	}
+	.navCol.js-fixed {
+		position: static;
+	}
+	.navCol .blogNav dl {
+		margin-top: 33px;
+		border: 1px solid #d5d5d5;
+		text-align: center;
+	}
+	.navCol .blogNav dl:first-child {
+		margin-top: 33px;
+	}
+	.navCol .blogNav dl dt {
+		font-size: 1.1rem;
+		padding: 15px;
+		border-bottom: none;
+		position: relative;
+	}
+	.navCol .blogNav dl dt:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 19px;
+		width: 7px;
+		height: 6px;
+		margin-top: -3px;
+		background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/hodaka/assets/daedcf44b73b.svg) no-repeat center center;
+		background-size: 7px auto;
+		-webkit-background-size: 7px auto;
+
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+
+	}
+	.navCol .blogNav dl.js-open dt:after {
+		moz-transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	.navCol .blogNav dl dd {
+		overflow: hidden;
+		height: 0;
+	}
+	.navCol .blogNav dl dd ul {
+		padding-top: 1px;
+	}
+	.navCol .blogNav dl dd li {
+		margin-top: 33px;
+		line-height: 1.2;
+		font-size: 1.4rem;
+	}
+	.navCol .blogNav dl dd li:first-child {
+		margin-top: 18px;
+	}
+	.navCol .blogNav dl dd li:last-child {
+		padding-bottom: 33px;
+	}
+	.navCol .blogNav dl dd li a {
+		display: inline-block;
+		padding-left: 12px;
+		background-position: left 0.4em;
+
+		background-size: 5px auto;
+		-webkit-background-size: 5px auto;
+	}
+	.dtlCol {
+		padding-left: 0;
+	}
+
+	.dtlCol .entryDtl {
+		margin-top: 55px;
+		padding-bottom: 50px;
+		border-bottom: 1px solid #ededed;
+	}
+	.dtlCol .entryDtl:first-child {
+		margin-top: 60px;
+	}
+	.dtlCol .entryDtl .catDate {
+		font-size: 1rem;
+		letter-spacing: 1px;
+	}
+	.dtlCol .entryDtl .catDate .cat {
+		float: left;
+		margin-right: 12px;
+		padding-right: 12px;
+	}
+	.dtlCol .entryDtl .catDate .date {
+	}
+	.dtlCol .entryDtl .entTel {
+		font-size: 1.6rem;
+		margin-top: 10px;
+	}
+	.dtlCol .entryDtl .entBody {
+		font-size: 1.2rem;
+	}
+	.dtlCol .entryDtl .entBody {
+		padding-top: 0;
+	}
+	.dtlCol .entryDtl .entBody p {
+		margin-top: 40px;
+	}
+	.dtlCol .entryDtl .snsBtn {
+		margin-top: 45px;
+	}
+}

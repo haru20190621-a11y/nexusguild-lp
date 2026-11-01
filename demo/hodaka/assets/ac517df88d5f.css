@@ -1,0 +1,50 @@
+/*===================================== 
+cafe_dogrun
+=====================================*/
+
+#footer {
+	background: #fafafa;
+}
+
+.pt-pageTtl {
+	background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/hodaka/assets/30c5a84300e9.jpg);
+}
+
+/* SP
+-------------------------------------*/
+@media screen and (max-width: 670px) {
+	.pt-pageTtl {
+		background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/hodaka/assets/30c5a84300e9.jpg);
+	}
+}
+
+
+/*------------------------------------- 
+secDtlLink
+-------------------------------------*/
+#secDtlLink .secInr {
+	padding: 15px 0 85px;
+}
+
+/* SP
+-------------------------------------*/
+@media screen and (max-width: 670px) {
+	#secDtlLink .secInr {
+		padding: 0 0 50px;
+	}
+}
+
+
+/*------------------------------------- 
+secBlog
+-------------------------------------*/
+#secBlog .secInr {
+	padding: 70px 0 0;
+}
+/* SP
+-------------------------------------*/
+@media screen and (max-width: 670px) {
+	#secBlog .secInr {
+		padding: 45px 0 0;
+	}
+}
