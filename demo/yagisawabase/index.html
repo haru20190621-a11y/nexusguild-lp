@@ -226,11 +226,63 @@ var infScroll = new InfiniteScroll( '.frame', {
 });
 --></script>
 <script src="https://yagisawabase.com/yb/wp-content/themes/yagisawabase/js/jquery.js" charset="uft-8"></script>
-<!-- Instagram Feed JS -->
-<script type="text/javascript">
-var sbiajaxurl = "https://yagisawabase.com/yb/wp-admin/admin-ajax.php";
-</script>
+<!-- Instagram Feed JS -->
+
+<script type="text/javascript">
+
+var sbiajaxurl = "https://yagisawabase.com/yb/wp-admin/admin-ajax.php";
+
+</script>
+
 <script type="text/javascript" src="https://yagisawabase.com/yb/wp-content/themes/yagisawabase/assets/js/script.js"></script>
 <script type="text/javascript" src="https://yagisawabase.com/yb/wp-includes/js/wp-embed.min.js"></script>
-<script id="ng-keep-inside">(function(){var HOME="https://haru20190621-a11y.github.io/nexusguild-lp/demo/yagisawabase/index.html";var SITE="yagisawabase.com";function fix(){document.querySelectorAll("a[href]").forEach(function(a){var h=a.getAttribute("href")||"";if(a.href.indexOf(HOME.replace("index.html",""))===0)return;var real=a.href.indexOf(SITE)>=0||h.charAt(0)==="/"||h.charAt(0)==="#";if(!real)return;if(a.closest("[data-ng-article]")){a.setAttribute("target","_blank");a.setAttribute("rel","noopener");}else{a.setAttribute("href",HOME);a.removeAttribute("target");}});}document.addEventListener("DOMContentLoaded",fix);window.addEventListener("load",fix);})();</script></body>
+<script id="ng-keep-inside">(function(){var HOME="https://haru20190621-a11y.github.io/nexusguild-lp/demo/yagisawabase/index.html";var SITE="yagisawabase.com";function fix(){document.querySelectorAll("a[href]").forEach(function(a){var h=a.getAttribute("href")||"";if(a.href.indexOf(HOME.replace("index.html",""))===0)return;var real=a.href.indexOf(SITE)>=0||h.charAt(0)==="/"||h.charAt(0)==="#";if(!real)return;if(a.closest("[data-ng-article]")){a.setAttribute("target","_blank");a.setAttribute("rel","noopener");}else{a.setAttribute("href",HOME);a.removeAttribute("target");}});}document.addEventListener("DOMContentLoaded",fix);window.addEventListener("load",fix);})();</script><style id="ng-sample-focus-css">
+.ng-sample-focus{outline:4px solid #f5b400 !important;outline-offset:6px;scroll-margin:120px}
+.ng-sample-tag{position:absolute;top:-16px;left:-4px;z-index:9999;background:#f5b400;color:#1a1a1a;font:700 12px/1 "Hiragino Sans","Yu Gothic",sans-serif;padding:6px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap;letter-spacing:0}
+</style>
+<script id="ng-sample-focus">
+(function(){
+  function visible(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0;}
+  function sameItem(a,b){return b&&a.tagName===b.tagName&&a.className===b.className;}
+  function cardOf(link){
+    var el=link;
+    for(var i=0;i<10&&el.parentElement&&el.parentElement!==document.body;i++){
+      if(sameItem(el,el.nextElementSibling)||sameItem(el,el.previousElementSibling)){
+        if(el.getBoundingClientRect().width>=160) return el;
+      }
+      el=el.parentElement;
+    }
+    el=link;
+    while(el.parentElement&&el.parentElement!==document.body&&el.getBoundingClientRect().width<200) el=el.parentElement;
+    return el;
+  }
+  function bring(el){
+    var r=el.getBoundingClientRect();
+    if(r.top>innerHeight*0.55||r.bottom<60) el.scrollIntoView({block:'center'});
+  }
+  function onList(){
+    var links=[].slice.call(document.querySelectorAll('a[href$="/post.html"]')).filter(visible);
+    var main=links.filter(function(a){return !a.closest('header,nav,aside,footer,[class*="side"],[id*="side"],[class*="widget"]');});
+    var link=(main[0]||links[0]); if(!link) return;
+    var card=cardOf(link);
+    card.classList.add('ng-sample-focus');
+    if(getComputedStyle(card).position==='static') card.style.position='relative';
+    if(!card.querySelector('.ng-sample-tag')){var t=document.createElement('span');t.className='ng-sample-tag';t.textContent='サンプルで追加した記事';card.appendChild(t);}
+    bring(card);
+  }
+  function onPost(){
+    var title=(document.title||'').split(' | ')[0].trim(); if(!title) return;
+    var best=null;
+    [].slice.call(document.querySelectorAll('h1,h2,h3,p,div,span')).forEach(function(e){
+      if(!visible(e)) return;
+      var t=(e.innerText||'').replace(/\s+/g,'');
+      if(t===title.replace(/\s+/g,'')&&(!best||best.contains(e))) best=e;
+    });
+    var target=best||document.querySelector('[data-ng-article]'); if(target) bring(target);
+  }
+  function go(){ if(/\/post\.html$/.test(location.pathname)) onPost(); else onList(); }
+  if(document.readyState==='complete') setTimeout(go,400); else addEventListener('load',function(){setTimeout(go,400);});
+})();
+</script>
+</body>
 </html>
