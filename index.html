@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script>/* Instagram の連携（許可）から戻ってきたときだけ、受け取りページへ回す（2026-11-11） */
+if (/[?&](code|error)=/.test(location.search)) { location.replace("ig-callback/" + location.search); }</script>
 <script>document.documentElement.className+=' js';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="NexusGuild — 埼玉・上福岡の小さなスタジオ。お店のWebサイト、予約サイト、業務用の小さなアプリを、先に作ってお見せしています。">
