@@ -32,7 +32,8 @@ img{max-width:100%}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .hero-wrap::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.5) 55%,rgba(0,0,0,.8))}
 .top{display:flex;justify-content:space-between;align-items:center;min-height:76px}
-.logo{display:inline-flex;align-items:center;min-height:44px;font-size:18px;font-weight:500;letter-spacing:.02em;text-decoration:none}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding-right:6px;font-size:18px;font-weight:500;letter-spacing:.02em;text-decoration:none}
+.mark{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:30px;height:30px;border:1px solid currentColor;border-radius:6px;font-family:var(--serif);font-size:17px;font-weight:500;line-height:1;letter-spacing:0}
 .top .btn{min-height:44px;padding:0 22px}
 .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:min(72vh,700px);padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(72px,10vw,128px)}
 .kicker{font-size:13px;font-weight:500;letter-spacing:.14em}
@@ -272,7 +273,7 @@ figcaption{margin-top:8px;font-size:13px;color:var(--mute)}
 <div class="hero-wrap">
   <img class="hero-img" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" srcset="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w, https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w, https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=2400&amp;q=70 2400w" sizes="100vw" alt="">
   <header class="wrap top">
-    <a class="logo" href="../../">NexusGuild</a>
+    <a class="logo" href="https://haru20190621-a11y.github.io/nexusguild-lp/" aria-label="NexusGuild のトップページへ"><span class="mark" aria-hidden="true">N</span>NexusGuild</a>
     <a class="btn" href="#contact">相談する</a>
   </header>
   <section class="wrap hero">
