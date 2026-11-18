@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>料金プランとご契約後の流れ｜オートサイト（NexusGuild）</title>
+<meta name="description" content="NexusGuild の「オートサイト」（お店のホームページの記事を作って載せ続けるサービス）の料金プランと、ご契約後の流れのご案内です。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js";</script>
+<style>
+:root{--ink:#000;--bg:#fff;--mute:#595959;--line:#d9d9d9;--soft:#f3f3f3;--pill:#ececec;--pill-fill:#d2d2d2;
+--dline:#333;--dmute:#bdbdbd;
+--sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+--serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+--pad:clamp(20px,4vw,40px);--r:6px;--rail:44px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.8;-webkit-font-smoothing:antialiased;word-break:auto-phrase}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border:1px solid #fff;border-radius:4px;background:#fff;color:#000;font-size:14px;font-weight:500;text-decoration:none;transition:opacity .2s}
+.btn:hover{opacity:.82}
+
+/* ---------- いちばん上（写真の上に見出し） ---------- */
+.hero-wrap{position:relative;isolation:isolate;overflow:hidden;background:#111;color:#fff}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-wrap::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.5) 55%,rgba(0,0,0,.8))}
+.top{display:flex;justify-content:space-between;align-items:center;min-height:76px}
+.logo{display:inline-flex;align-items:center;min-height:44px;font-size:18px;font-weight:500;letter-spacing:.02em;text-decoration:none}
+.top .btn{min-height:44px;padding:0 22px}
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:min(72vh,700px);padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(72px,10vw,128px)}
+.kicker{font-size:13px;font-weight:500;letter-spacing:.14em}
+h1{font-weight:300;font-size:clamp(38px,6.2vw,78px);letter-spacing:-.05em;line-height:1.14;margin-top:14px;text-wrap:balance}
+.lead{max-width:33em;margin-top:22px}
+.hero .btn{margin-top:30px}
+.meta{margin-top:16px;font-size:13px;color:rgba(255,255,255,.8)}
+.photo-cap{position:absolute;right:var(--pad);bottom:12px;font-size:12px;color:rgba(255,255,255,.75)}
+
+/* ---------- 黒い帯（3つの数字） ---------- */
+.facts{background:#000;color:#fff;padding:clamp(40px,6vw,72px) 0}
+.facts ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px;list-style:none;text-align:center}
+.facts b{display:block;font-weight:300;font-size:clamp(28px,3.8vw,46px);letter-spacing:-.04em;line-height:1.25}
+.facts span{display:block;margin-top:8px;font-size:13px;color:var(--dmute)}
+
+/* ---------- 区切りの見出し ---------- */
+.sec-head{text-align:center}
+h2{font-weight:400;letter-spacing:-.04em;line-height:1.3;text-wrap:balance}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px)}
+.sec-head p{max-width:36em;margin:14px auto 0}
+
+/* ---------- 右から流れる記事の見本 ---------- */
+.show{padding:clamp(72px,9vw,128px) 0 clamp(40px,5vw,64px);overflow:hidden}
+@supports (overflow:clip){.show{overflow:clip}}
+.tabs{display:flex;gap:4px;margin-top:28px;padding:0 var(--pad);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;flex:0 0 auto;min-height:40px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#000;font:inherit;font-size:15px;white-space:nowrap;cursor:pointer;overflow:hidden}
+.tab:first-child{margin-left:auto}
+.tab:last-child{margin-right:auto}
+.tab .bar{position:absolute;inset:0;background:var(--pill-fill);transform:scaleX(0);transform-origin:left center}
+.tab span{position:relative}
+.tab.is-on{background:var(--pill)}
+.show.playing .tab.is-on .bar{animation:fill var(--T,3s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.rail{position:relative;display:flex;gap:clamp(12px,2vw,26px);margin-top:28px;padding:0 var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--pad);scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.card{position:relative;isolation:isolate;flex:0 0 min(860px,84vw);height:clamp(440px,46vw,580px);border-radius:var(--r);overflow:hidden;scroll-snap-align:start;background:#222;color:#fff}
+.card-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.2) 48%,rgba(0,0,0,.32))}
+.card-tx{max-width:min(30em,56%);padding:clamp(20px,2.6vw,30px) clamp(20px,2.8vw,34px) 0}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.7vw,34px);letter-spacing:-.02em;line-height:1.3}
+.card-tx p{margin-top:6px;font-size:14px;line-height:1.7}
+.mock{position:absolute;left:22%;right:15%;top:34%;bottom:clamp(28px,3.6vw,46px);display:grid;grid-template-rows:auto minmax(0,1fr);border-radius:8px;overflow:hidden;background:var(--m,#f1ece4);color:#1a1a1a;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.mock-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 14px;font-size:10px;letter-spacing:.08em;white-space:nowrap}
+.mock-nav b{font-weight:500}
+.mock-nav span{display:flex;gap:12px;color:#555}
+.mock-body{display:grid;grid-template-columns:42% minmax(0,1fr);min-height:0}
+.mock-ph{display:block;width:100%;height:100%;min-height:0;object-fit:cover}
+.mock-art{display:flex;flex-direction:column;justify-content:flex-start;gap:6px;min-width:0;padding:clamp(12px,1.6vw,22px) 18px 12px}
+.mock-kick{font-size:10px;letter-spacing:.08em;color:#555}
+.mock-ttl{font-family:var(--serif);font-size:clamp(15px,1.7vw,21px);line-height:1.5;letter-spacing:-.01em}
+.mock-lead{margin-top:2px;font-size:12px;line-height:1.75;color:#333;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.mock-more{font-size:11px;text-decoration:underline;text-underline-offset:3px}
+.fl{position:absolute;z-index:1;width:max-content;max-width:44%;padding:11px 13px;border-radius:8px;background:#fff;color:#111;font-size:12px;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.24)}
+.fl.a{left:6%;top:52%;max-width:34%}
+.fl.b{right:4%;top:9%}
+.fl-sub{font-size:10.5px;font-weight:700;color:#666}
+.fl-tx{margin-top:2px;font-weight:500}
+.fl-acts{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.fl-acts span{padding:6px 8px;border:1px solid #111;border-radius:4px;text-align:center;font-size:11px;font-weight:700;white-space:nowrap}
+.fl-acts .k{background:#111;color:#fff}
+.fl-big{margin-top:2px;font-size:22px;font-weight:300;letter-spacing:-.03em;line-height:1.25;white-space:nowrap}
+.show-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-top:16px}
+.cap{font-size:13px;color:var(--mute)}
+.pp{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:4px;width:40px;height:40px;border:1px solid #000;border-radius:50%;background:#fff;cursor:pointer}
+.pp[hidden]{display:none}
+.pp i{display:block;width:3px;height:12px;background:#000}
+.pp[aria-pressed="true"] i:first-child{width:0;height:0;margin-left:3px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #000;background:none}
+.pp[aria-pressed="true"] i:last-child{display:none}
+
+/* ---------- ご契約からの流れ（左に番号と縦の線） ---------- */
+.flow{padding-top:clamp(56px,8vw,112px)}
+.steps{margin-top:clamp(40px,6vw,72px)}
+.step{position:relative;display:grid;grid-template-columns:var(--rail) minmax(0,1fr);column-gap:clamp(16px,3vw,32px);padding-bottom:clamp(56px,8vw,96px)}
+.step::before{content:"";position:absolute;left:calc(var(--rail) / 2 - .5px);top:var(--rail);bottom:0;width:1px;background:var(--line)}
+.step:last-child{padding-bottom:0}
+.step:last-child::before{display:none}
+.dot{width:var(--rail);height:var(--rail);border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;background:#fff}
+.step-main{min-width:0}
+.when{display:flex;align-items:center;min-height:var(--rail);font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--mute)}
+.step h2{font-size:clamp(26px,3vw,36px);margin-top:2px}
+.tx{max-width:40em;margin-top:14px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start;margin-top:18px}
+.split>div{min-width:0}
+.split p+p{margin-top:12px}
+.sub{margin-top:clamp(36px,5vw,56px)}
+h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
+h3+p{margin-top:8px}
+figcaption{margin-top:8px;font-size:13px;color:var(--mute)}
+
+/* 01 プラン（上に写真、下に料金と含まれるサービス） */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;margin-top:30px}
+.plan{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.plan:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.12)}
+.plan.main{border-color:#000;box-shadow:0 20px 44px rgba(0,0,0,.14)}
+.plan-ph{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;min-height:200px;padding:20px 24px;background:#1a1a1a;color:#fff}
+.plan-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.plan-ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.66))}
+.name{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.1;letter-spacing:0}
+.freq{margin-top:6px;font-size:15px;font-weight:500}
+.tag{position:absolute;top:16px;right:16px;font-size:12px;font-weight:500;line-height:1;padding:7px 10px;border-radius:4px;background:#fff;color:#000}
+.plan-bd{padding:24px 24px 28px}
+.price{font-weight:300;font-size:clamp(40px,4.2vw,54px);letter-spacing:-.04em;line-height:1.1;white-space:nowrap}
+.price small{font-size:15px;font-weight:400;letter-spacing:0;margin-left:4px}
+.inc-cap{margin-top:20px;font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--mute)}
+.inc{margin-top:8px;list-style:none;border-bottom:1px solid var(--line)}
+.inc li{position:relative;padding:11px 0 11px 28px;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.inc li::before{content:"";position:absolute;left:4px;top:18px;width:11px;height:6px;border-left:1.5px solid #000;border-bottom:1.5px solid #000;transform:rotate(-45deg)}
+.inc li.all{font-weight:700}
+.inc li.plus::before{content:"＋";left:0;top:11px;width:auto;height:auto;border:0;transform:none;font-weight:500}
+.note{margin-top:16px;font-size:14px;color:var(--mute)}
+.note span{display:block}
+.nb{font-weight:inherit;white-space:nowrap}
+.aside{max-width:40em;margin-top:18px;font-size:15px;color:var(--mute)}
+
+/* 02 準備（上に小さな画面の見本、下に説明） */
+.prep{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px;list-style:none}
+.prep li{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.prep-vis{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:136px;padding:18px 20px;background:var(--t,#f1ece4)}
+.mini{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#fff;font-size:13px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.mini b{font-weight:500}
+.mini em{flex:0 0 auto;padding:4px 8px;border-radius:4px;background:#111;color:#fff;font-style:normal;font-size:12px;font-weight:700;white-space:nowrap}
+.prep-tx{padding:20px 22px 24px}
+.prep .k{display:block;font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--mute);margin-bottom:4px}
+.prep p{font-size:15px}
+
+/* 03 お支払い */
+.terms{max-width:46em;margin-top:22px;border-top:1px solid var(--line)}
+.terms div{display:grid;grid-template-columns:9em minmax(0,1fr);gap:4px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.terms dt{font-weight:500}
+.trial{max-width:46em;margin-top:28px;border-radius:var(--r);background:var(--soft);padding:24px 24px 26px}
+.tl-cap{margin-top:16px;font-size:13px;font-weight:500;color:var(--mute)}
+.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:8px}
+.tl div{padding:12px 2px;border-radius:4px;background:#fff;text-align:center;font-size:14px;line-height:1.5}
+.tl b{display:block;font-size:17px;font-weight:500}
+.tl .paid{background:#2f3a2f;color:#fff}
+
+/* 画面の見本（色のついた台、または写真の上に、白い札） */
+.panel{display:flex;align-items:center;justify-content:center;min-height:220px;border-radius:var(--r);background:var(--t,#f1ece4);padding:clamp(18px,3vw,32px)}
+.panel .chip,.talk{width:100%;max-width:380px}
+.chip{padding:14px 16px;border-radius:8px;background:#fff;color:#111;font-size:14px;line-height:1.6;box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.chip-sub{font-size:13px;font-weight:700;color:#666}
+.chip-tx{font-weight:500}
+.chip-acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.chip-acts span{display:block;padding:8px 2px;border:1px solid #111;border-radius:4px;text-align:center;font-size:13px;font-weight:700;white-space:nowrap}
+.chip-acts span.k{background:#111;color:#fff}
+.chip-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:4px;font-size:13px}
+.chip-row b{font-size:22px;font-weight:300;letter-spacing:-.03em;white-space:nowrap}
+.talk{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.talk small{align-self:flex-start;font-size:13px;font-weight:700;color:#555}
+.bubble{padding:10px 20px;border-radius:18px 18px 4px 18px;background:#111;color:#fff;font-size:16px;font-weight:500}
+.shot{position:relative;aspect-ratio:4/3;max-width:100%}
+.ph{position:absolute;inset:0;border-radius:var(--r);background:#ddd center/cover no-repeat}
+.ph::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35))}
+.ph.s2{background-image:url("https://images.unsplash.com/photo-1616422403639-282145aa3e73?auto=format&fit=crop&w=900&q=70");background-position:50% 72%}
+.ph.s3{background-image:url("https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=900&q=70")}
+.shot .chip{position:absolute;left:16px;right:16px;bottom:16px}
+
+/* ---------- あわせて頼めること・どのプランも同じこと ---------- */
+.extra{padding-top:clamp(80px,10vw,128px)}
+.extra>h2{font-size:clamp(26px,3vw,36px)}
+.row-ph img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.same{margin-top:clamp(56px,7vw,88px)}
+.same h2{font-size:clamp(22px,2.4vw,28px)}
+.same dl{margin-top:16px;border-top:1px solid var(--line)}
+.same div{display:grid;grid-template-columns:9em minmax(0,1fr);gap:4px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.same dt{font-weight:500}
+
+/* ---------- お問い合わせ・フッター（黒） ---------- */
+.contact{margin-top:clamp(80px,10vw,128px);background:#000;color:#fff;padding:clamp(72px,10vw,128px) 0 28px;text-align:center}
+.contact h2{font-weight:300;font-size:clamp(30px,4.4vw,56px);letter-spacing:-.05em;line-height:1.25}
+.contact p{margin-top:18px;text-wrap:balance}
+.contact .btn{margin-top:30px;min-height:54px;padding:0 34px}
+.mail{display:inline-flex;align-items:center;min-height:40px}
+.foot{margin-top:clamp(64px,9vw,112px);padding-top:16px;border-top:1px solid var(--dline);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--dmute);text-align:left}
+.foot a{display:inline-flex;align-items:center;min-height:40px}
+
+/* ---------- 動き ---------- */
+.js .hero-img{animation:zoom 16s var(--ease) both}
+@keyframes zoom{from{transform:scale(1.14)}to{transform:scale(1)}}
+.js .up{opacity:0;transform:translateY(18px);animation:up .9s var(--ease) forwards}
+.js .up.d1{animation-delay:.15s}
+.js .up.d2{animation-delay:.3s}
+.js .up.d3{animation-delay:.45s}
+@keyframes up{to{opacity:1;transform:none}}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rail.rv{transform:translateX(110px)}
+.js .rv.in,.js .rail.rv.in{opacity:1;transform:none}
+.js .fl{opacity:0;transform:translateY(12px) scale(.96);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.js .card.is-on .fl{opacity:1;transform:none;transition-delay:.45s}
+.js .card.is-on .fl.b{transition-delay:.7s}
+@media (prefers-reduced-motion:reduce){
+  .js .hero-img,.js .up{animation:none;opacity:1;transform:none}
+  .js .rv,.js .fl{opacity:1;transform:none;transition:none}
+  .plan{transition:none}
+  .plan:hover{transform:none}
+}
+
+@media (max-width:1100px){
+  .mock-lead{-webkit-line-clamp:3}
+}
+@media (max-width:899px){
+  .plans,.prep,.split{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:639px){
+  :root{--rail:34px}
+  .top{min-height:64px}
+  .dot{font-size:13px}
+  .facts ul{grid-template-columns:minmax(0,1fr)}
+  /* スマホでは、カードの高さを中身に合わせる（写真も文も切らない）。
+     上から 見出し → 白い札 → 記事の見本 → 白い札 の順に積む */
+  .card{flex-basis:86vw;height:auto;display:flex;flex-direction:column;padding-bottom:20px}
+  .card-tx{order:1;max-width:none}
+  .fl{position:relative;left:auto;right:auto;top:auto;bottom:auto;max-width:82%;padding:9px 11px}
+  .fl.a{order:2;left:auto;right:auto;top:auto;bottom:auto;align-self:flex-start;margin:18px 0 -14px 4%;max-width:82%}
+  .mock{order:3;position:relative;left:auto;right:auto;top:auto;bottom:auto;display:block;margin:0 6%}
+  .mock-nav span{display:none}
+  .mock-body{display:block}
+  .mock-ph{height:auto;aspect-ratio:1/1;object-position:var(--op,50% 50%)}
+  .mock-art{padding:12px 14px 18px;gap:4px}
+  .mock-lead{-webkit-line-clamp:6}
+  .mock-more{display:none}
+  .fl.b{order:4;left:auto;right:auto;top:auto;bottom:auto;align-self:flex-end;margin:-12px 4% 0 0}
+  .plan-ph{min-height:170px}
+  .terms div,.same div{grid-template-columns:minmax(0,1fr)}
+  .panel{min-height:0;padding:14px}
+  .shot{aspect-ratio:auto}
+  .ph{position:relative;inset:auto;aspect-ratio:4/3}
+  .ph.s2{background-position:50% 45%}
+  .shot .chip{position:relative;left:auto;right:auto;bottom:auto;margin:-36px 12px 0}
+  .contact .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="hero-wrap">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" srcset="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w, https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w, https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=2400&amp;q=70 2400w" sizes="100vw" alt="">
+  <header class="wrap top">
+    <a class="logo" href="../../">NexusGuild</a>
+    <a class="btn" href="#contact">相談する</a>
+  </header>
+  <section class="wrap hero">
+    <p class="kicker up">オートサイト</p>
+    <h1 class="up d1">料金プランと、<br>ご契約後の流れ</h1>
+    <p class="lead up d2">オートサイトは、お店のホームページに載せる記事を作り、途切れずに載せ続けるサービスです。</p>
+    <a class="btn up d3" href="#plans">プランを見る</a>
+    <p class="meta up d3">2026年11月版　運営：NexusGuild</p>
+  </section>
+  <p class="photo-cap">写真はイメージです</p>
+</div>
+
+<section class="facts">
+  <div class="wrap">
+    <ul>
+      <li class="rv"><b>月7,500円から</b><span>梅プラン（記事を2週に1本）</span></li>
+      <li class="rv"><b>初期費用0円</b><span>アプリの製作費もいただきません</span></li>
+      <li class="rv"><b>連絡はLINEで</b><span>記事の確認・毎月のレポート・解約のご連絡</span></li>
+    </ul>
+  </div>
+</section>
+
+<main>
+
+<section class="show" id="show" data-interval="3000">
+  <div class="wrap sec-head rv">
+    <h2>こんな記事が、<br>お店のホームページに載ります</h2>
+    <p>お店ごとに、内容を変えて作ります。業種ごとの見本をご覧ください。</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="業種ごとの見本">
+    <button type="button" class="tab is-on" role="tab" aria-selected="true"><i class="bar"></i><span>ドッグサロン</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>整体院</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>美容室</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>リフォーム</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>造園</span></button>
+  </div>
+  <div class="rail rv" tabindex="0" aria-label="記事の見本。左右に動かせます">
+
+    <article class="card is-on" style="--m:#f3eee6">
+      <img class="card-bg" style="transform:scale(1.22);transform-origin:50% 100%" src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx"><h3>ドッグサロン</h3><p>よく聞かれることに、お店の言葉で答える記事を。</p></div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-nav"><b>ドッグサロン</b><span><i>メニュー</i><i>ブログ</i><i>ご予約</i></span></div>
+        <div class="mock-body">
+          <img class="mock-ph" style="--op:22% 50%" src="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="mock-art"><span class="mock-kick">ブログ</span><p class="mock-ttl">シャンプーは、どれくらいの間隔がいい？</p><p class="mock-lead">「どれくらいの間隔で連れてくればいいですか？」と、よくご質問をいただきます。当店では、毛の長さやお散歩の様子を伺ってから、その子に合う間隔をお伝えしています。</p><span class="mock-more">続きを読む</span></div>
+        </div>
+      </div>
+      <div class="fl a" aria-hidden="true"><p class="fl-sub">LINEで届く確認</p><p class="fl-tx">今週の記事です。公開してよいですか？</p><div class="fl-acts"><span class="k">承認して公開</span><span>修正を伝える</span></div></div>
+      <div class="fl b" aria-hidden="true"><p class="fl-sub">記事の下に付くボタン</p><div class="fl-acts"><span class="k">ネットで予約する</span><span>電話する</span></div></div>
+    </article>
+
+    <article class="card" style="--m:#e6e8df">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1769184614133-e0cad8d2a1be?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx"><h3>整体院</h3><p>はじめての方が安心できるように、当日の流れを記事に。</p></div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-nav"><b>整体院</b><span><i>施術</i><i>ブログ</i><i>ご予約</i></span></div>
+        <div class="mock-body">
+          <img class="mock-ph" style="--op:50% 88%" src="https://images.unsplash.com/photo-1768507423533-b87b62769758?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="mock-art"><span class="mock-kick">ブログ</span><p class="mock-ttl">はじめての方へ。当日の流れをご案内します</p><p class="mock-lead">はじめてのご来院は、どなたも少し緊張されます。受付からお帰りまでの流れを、順番にまとめました。動きやすい服装でお越しください。</p><span class="mock-more">続きを読む</span></div>
+        </div>
+      </div>
+      <div class="fl a" aria-hidden="true"><p class="fl-sub">記事の下に付くボタン</p><div class="fl-acts"><span class="k">ネットで予約する</span><span>電話する</span></div></div>
+      <div class="fl b" aria-hidden="true"><p class="fl-sub">月末のレポート</p><p class="fl-tx">記事が見られた回数</p><p class="fl-big">合計72回</p></div>
+    </article>
+
+    <article class="card" style="--m:#efe8e4">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1637777269327-c4d5c7944d7b?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx"><h3>美容室</h3><p>季節の悩みに合わせた記事を、途切れずに。</p></div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-nav"><b>美容室</b><span><i>メニュー</i><i>ブログ</i><i>ご予約</i></span></div>
+        <div class="mock-body">
+          <img class="mock-ph" style="--op:50% 38%" src="https://images.unsplash.com/photo-1554519934-e32b1629d9ee?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="mock-art"><span class="mock-kick">ブログ</span><p class="mock-ttl">くせ毛が気になる季節の、乾かし方のこつ</p><p class="mock-lead">湿気の多い時期は、「朝まとまらない」というご相談が増えます。お店でお伝えしている乾かし方を、ご自宅でもできる順番でご紹介します。</p><span class="mock-more">続きを読む</span></div>
+        </div>
+      </div>
+      <div class="fl a" aria-hidden="true"><p class="fl-sub">毎月25日に届く質問</p><p class="fl-tx">（1/3）最近、お客さまからよく聞かれること・相談されることは何ですか？</p></div>
+      <div class="fl b" aria-hidden="true"><p class="fl-sub">LINEで届く確認</p><p class="fl-tx">今週の記事です。公開してよいですか？</p><div class="fl-acts"><span class="k">承認して公開</span><span>修正を伝える</span></div></div>
+    </article>
+
+    <article class="card" style="--m:#ebe6dc">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1600684388091-627109f3cd60?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx"><h3>リフォーム</h3><p>工事の前に知っておきたいことを、記事に。</p></div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-nav"><b>リフォーム</b><span><i>施工例</i><i>ブログ</i><i>ご相談</i></span></div>
+        <div class="mock-body">
+          <img class="mock-ph" style="--op:50% 62%" src="https://images.unsplash.com/photo-1628797285815-453c1d0d21e3?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="mock-art"><span class="mock-kick">ブログ</span><p class="mock-ttl">キッチンの入れ替え。工事の前に決めておくこと</p><p class="mock-lead">キッチンの入れ替えは、工事の前に決めておくことがいくつかあります。打ち合わせでいつもお聞きしていることを、一覧にしました。</p><span class="mock-more">続きを読む</span></div>
+        </div>
+      </div>
+      <div class="fl a" aria-hidden="true"><p class="fl-sub">月末のレポート</p><p class="fl-tx">記事が見られた回数</p><p class="fl-big">合計72回</p></div>
+      <div class="fl b" aria-hidden="true"><p class="fl-sub">記事の下に付くボタン</p><div class="fl-acts"><span class="k">ネットで予約する</span><span>電話する</span></div></div>
+    </article>
+
+    <article class="card" style="--m:#e4e8de">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1532188978303-4bfaccc429d2?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx"><h3>造園</h3><p>頼みどきが分かる記事を、季節ごとに。</p></div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-nav"><b>造園</b><span><i>お仕事</i><i>ブログ</i><i>ご相談</i></span></div>
+        <div class="mock-body">
+          <img class="mock-ph" style="--op:72% 50%" src="https://images.unsplash.com/photo-1774647001686-314f877fb9c5?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="mock-art"><span class="mock-kick">ブログ</span><p class="mock-ttl">庭木の剪定は、いつ頼むのがいい？</p><p class="mock-lead">「いつ頼めばいいですか？」と、毎年たくさんお問い合わせをいただきます。木の種類ごとに、当店がおすすめしている時期をまとめました。</p><span class="mock-more">続きを読む</span></div>
+        </div>
+      </div>
+      <div class="fl a" aria-hidden="true"><p class="fl-sub">LINEで届く確認</p><p class="fl-tx">今週の記事です。公開してよいですか？</p><div class="fl-acts"><span class="k">承認して公開</span><span>修正を伝える</span></div></div>
+      <div class="fl b" aria-hidden="true"><p class="fl-sub">月末のレポート</p><p class="fl-tx">記事の下の予約・連絡ボタンが押された回数</p><p class="fl-big">合計3回</p></div>
+    </article>
+
+  </div>
+  <div class="wrap show-foot">
+    <p class="cap">写真はイメージで、お店と記事は架空の見本です。白い札の文言は実際の画面のもので、数字は例です。</p>
+    <button type="button" class="pp" aria-pressed="false" aria-label="自動で動くのを止める"><i></i><i></i></button>
+  </div>
+</section>
+
+<div class="wrap flow">
+  <div class="sec-head rv">
+    <h2>ご契約後の流れ</h2>
+    <p>ご契約のときから順に、何が起きるかを上から並べました。</p>
+  </div>
+
+  <div class="steps">
+
+  <section class="step rv" id="plans">
+    <div class="dot">01</div>
+    <div class="step-main">
+      <p class="when">ご契約のとき</p>
+      <h2>プランを選ぶ</h2>
+      <p class="tx">プランは3つあります。違うのは、記事を載せる間隔と、記事のほかにお手伝いする範囲です。</p>
+      <div class="plans">
+        <section class="plan">
+          <div class="plan-ph"><img class="plan-img" src="https://images.unsplash.com/photo-1551829142-d9b8cf2c9232?auto=format&amp;fit=crop&amp;w=800&amp;q=70" alt="" loading="lazy" decoding="async"><h3 class="name">梅</h3><p class="freq">記事を2週に1本</p></div>
+          <div class="plan-bd">
+            <p class="price">7,500<small>円／月</small></p>
+            <p class="inc-cap">含まれるサービス</p>
+            <ul class="inc"><li>記事を2週に1本、作って載せます</li><li>公開の前にLINEで確認（修正は<b class="nb">1本につき3回まで</b>）</li><li>記事の下に、ご予約・お電話のボタン</li><li>毎月25日に、記事の材料の質問</li><li>月末に、サイトのレポート</li><li>不具合の修正</li></ul>
+            <p class="note"><span>初月無料でお試しいただけます。</span><span>無料の期間のあと3か月は続けていただきます。</span></p>
+          </div>
+        </section>
+        <section class="plan main">
+          <div class="plan-ph"><img class="plan-img" src="https://images.unsplash.com/photo-1761623418974-c1288110d084?auto=format&amp;fit=crop&amp;w=800&amp;q=70" alt="" loading="lazy" decoding="async"><span class="tag">基本のプラン</span><h3 class="name">竹</h3><p class="freq">記事を毎週1本</p></div>
+          <div class="plan-bd">
+            <p class="price">15,000<small>円／月</small></p>
+            <p class="inc-cap">含まれるサービス</p>
+            <ul class="inc"><li>記事を毎週1本、作って載せます</li><li>公開の前にLINEで確認・修正のご依頼</li><li>記事の下に、ご予約・お電話のボタン</li><li>毎月25日に、記事の材料の質問</li><li>月末に、サイトのレポート</li><li>不具合の修正</li></ul>
+            <p class="note"><span>オートサイトの基本の形です。</span><span>迷われたら、こちらをおすすめしています。</span></p>
+          </div>
+        </section>
+        <section class="plan">
+          <div class="plan-ph"><img class="plan-img" src="https://images.unsplash.com/photo-1641289024540-33a21ded701c?auto=format&amp;fit=crop&amp;w=800&amp;q=70" alt="" loading="lazy" decoding="async"><span class="tag">いちばん手厚いプラン</span><h3 class="name">松</h3><p class="freq">記事を毎週1本＋マップ＋アプリ</p></div>
+          <div class="plan-bd">
+            <p class="price">30,000<small>円／月</small></p>
+            <p class="inc-cap">含まれるサービス</p>
+            <ul class="inc"><li class="all">竹プランのすべて</li><li class="plus">Googleマップの更新</li><li class="plus">お店の困りごとを解決するアプリを1つ（作って、運用まで）</li></ul>
+            <p class="note">記事のほかの集客まで、まとめてお任せいただくプランです。</p>
+          </div>
+        </section>
+      </div>
+      <p class="aside">プランとは別に、アプリだけを足すこともできます（<a href="#app">あわせて頼めること</a>）。</p>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">02</div>
+    <div class="step-main">
+      <p class="when">はじめに1回だけ</p>
+      <h2>はじめの準備</h2>
+      <p class="tx">ご契約が決まったら、お店にお願いする準備を、絵つきの手順でまとめてお送りします。どれも最初に一度だけの作業です。</p>
+      <ol class="prep">
+        <li>
+          <div class="prep-vis" style="--t:#e6e8df" aria-hidden="true"><span class="mini"><b>友だち追加</b><em>リンク1</em></span><span class="mini"><b>登録</b><em>リンク2</em></span></div>
+          <div class="prep-tx"><span class="k">その1</span><h3>LINEの友だち追加と登録</h3><p>お送りする2つのリンクから、友だち追加と登録をしていただきます。記事の確認も毎月のご報告も、このLINEに届きます。</p></div>
+        </li>
+        <li>
+          <div class="prep-vis" style="--t:#f1ece4" aria-hidden="true"><span class="mini"><b>autosite</b><em>投稿者</em></span></div>
+          <div class="prep-tx"><span class="k">その2</span><h3>ホームページの準備</h3><p>ホームページの管理画面で、記事を載せる担当（投稿者）を1人追加していただきます。記事を書くためだけの権限なので、サイトの大事な設定には触れません。</p></div>
+        </li>
+        <li>
+          <div class="prep-vis" style="--t:#efe8e4" aria-hidden="true"><span class="mini"><b>Googleアナリティクス</b><em>閲覧者</em></span><span class="mini"><b>サーチコンソール</b><em>制限付き</em></span></div>
+          <div class="prep-tx"><span class="k">その3</span><h3>レポートの数字の準備</h3><p>Googleアナリティクスとサーチコンソールに、数字を読み取るためだけのアドレスを追加していただきます。</p></div>
+        </li>
+      </ol>
+      <p class="aside">松プランでは、Googleマップの準備もお願いします。分からないところは、埼玉・東京のお店には伺い、ほかの地域のお店とは通話で画面を見ながら一緒に進めます。</p>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">03</div>
+    <div class="step-main">
+      <p class="when">始める日</p>
+      <h2>規約への同意とお支払い</h2>
+      <div class="split">
+        <div>
+          <p>準備がそろったら、LINEに利用規約をお送りします。お読みいただいて「同意して始める」を押し、クレジットカードでのお支払いの手続きをしていただくと、お申し込みの完了です。この日から始まります。</p>
+          <dl class="terms">
+            <div><dt>初期費用</dt><dd>初期費用はありません。アプリの製作費もいただきません。</dd></div>
+            <div><dt>お支払い方法</dt><dd>クレジットカード（毎月1日にお支払い）</dd></div>
+            <div><dt>最初のお支払い</dt><dd>お申し込みの日に、最初の月の分として月額と同じ額をお支払いいただきます（日割りはありません）。月末の3日間のお申し込みは、翌月末までの分となります。</dd></div>
+          </dl>
+        </div>
+        <figure>
+          <div class="panel" style="--t:#f1ece4" aria-hidden="true"><div class="chip">
+            <p class="chip-sub">LINEに届くボタン</p>
+            <div class="chip-acts"><span>規約を読む</span><span class="k">同意して始める</span></div>
+          </div></div>
+          <figcaption>見本です。ボタンの文言は実際の画面のものです。</figcaption>
+        </figure>
+      </div>
+      <div class="trial">
+        <h3>梅プランの初月無料</h3>
+        <p>梅プランは、初月無料でお試しいただけます。お申し込みの月と、その翌月が無料で、無料の期間が明けた月の1日が最初のお支払いです。その代わり、無料の期間のあと3か月は続けていただく形にしています。</p>
+        <p class="tl-cap">11月にお申し込みの場合（続けていただく3か月は1月から3月）</p>
+        <div class="tl" role="img" aria-label="11月と12月は無料、1月から3月は月額">
+          <div><b>11月</b>無料</div><div><b>12月</b>無料</div><div class="paid"><b>1月</b>月額</div><div class="paid"><b>2月</b>月額</div><div class="paid"><b>3月</b>月額</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">04</div>
+    <div class="step-main">
+      <p class="when">毎週（梅は2週に1回）</p>
+      <h2>記事の確認と公開</h2>
+      <div class="split">
+        <div>
+          <p>記事は、公開の前にLINEでお届けします。お読みいただいて、よければ「承認して公開」を押すだけです。</p>
+          <p>直してほしいところは、LINEでそのままお伝えください。梅プランの修正は、1本につき3回までです。</p>
+        </div>
+        <figure>
+          <div class="shot" aria-hidden="true"><div class="ph s2"></div><div class="chip">
+            <p class="chip-sub">LINEで届く確認</p>
+            <p class="chip-tx">今週の記事です。公開してよいですか？</p>
+            <div class="chip-acts"><span class="k">承認して公開</span><span>修正を伝える</span></div>
+          </div></div>
+          <figcaption>写真はイメージです。白い札の文言は実際の画面のものです。</figcaption>
+        </figure>
+      </div>
+      <div class="split sub">
+        <div>
+          <h3>記事の下のボタン</h3>
+          <p>公開した記事の下には、お電話やご予約につながるボタンを付けて、押された回数を数えます。</p>
+        </div>
+        <figure>
+          <div class="panel" style="--t:#e6e8df" aria-hidden="true"><div class="chip">
+            <p class="chip-sub">記事の下に付くボタン</p>
+            <div class="chip-acts"><span class="k">ネットで予約する</span><span>電話する</span></div>
+          </div></div>
+          <figcaption>見本です。ボタンの行き先はお店に合わせます。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">05</div>
+    <div class="step-main">
+      <p class="when">毎月25日</p>
+      <h2>来月の記事の材料の質問</h2>
+      <div class="split">
+        <div>
+          <p>毎月25日に、来月の記事の材料になることを、LINEで3つお聞きします。1つ答えていただくごとに、次の質問が届きます。</p>
+          <p>思いつかないときは「なし」と送っていただければ大丈夫です。</p>
+        </div>
+        <figure>
+          <div class="panel" style="--t:#efe8e4" aria-hidden="true"><div class="chip">
+            <p class="chip-sub">LINEで届く質問</p>
+            <p class="chip-tx">（1/3）最近、お客さまからよく聞かれること・相談されることは何ですか？そのときの答えも一緒に教えてください。</p>
+          </div></div>
+          <figcaption>実際に届く質問の1つめです。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">06</div>
+    <div class="step-main">
+      <p class="when">毎月の終わり</p>
+      <h2>月末のレポート</h2>
+      <div class="split">
+        <div>
+          <p>月の終わりに、その月の記事が見られた回数や、記事の下のボタンが押された回数などを、レポートにしてLINEでお届けします。来月の方針も一緒にお伝えします。</p>
+        </div>
+        <figure>
+          <div class="shot" aria-hidden="true"><div class="ph s3"></div><div class="chip">
+            <p class="chip-sub">11月のサイトレポート</p>
+            <p class="chip-row"><span>記事が見られた回数</span><b>合計72回</b></p>
+            <p class="chip-row"><span>記事の下の予約・連絡ボタンが押された回数</span><b>合計3回</b></p>
+          </div></div>
+          <figcaption>写真はイメージです。白い札の文言は実際のレポートのもので、数字は例です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="step rv">
+    <div class="dot">07</div>
+    <div class="step-main">
+      <p class="when">やめたいとき</p>
+      <h2>解約</h2>
+      <div class="split">
+        <div>
+          <p>LINEで「解約」と送っていただくだけです。違約金はありません。解約された月は月末まで記事を載せ続け、翌月からのご請求はありません。</p>
+          <p>梅プランを初月無料でお申し込みいただいた場合は、無料の期間のあと<b class="nb">3か月</b>は続けていただきます。無料の期間中や、その<b class="nb">3か月</b>の間にご連絡いただいた解約は、<b class="nb">3か月目</b>の月末に終わります。</p>
+          <p><a href="../terms/">利用規約・プライバシーポリシー</a></p>
+        </div>
+        <figure>
+          <div class="panel" style="--t:#e6e8df" aria-hidden="true"><div class="talk"><small>LINEで送るのは、この一言だけ</small><span class="bubble">解約</span></div></div>
+          <figcaption>見本です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="extra rv" id="app">
+    <h2>あわせて頼めること</h2>
+    <div class="split">
+      <figure class="row-ph"><img src="https://images.unsplash.com/photo-1728044849291-69f90d443aea?auto=format&amp;fit=crop&amp;w=900&amp;q=70" srcset="https://images.unsplash.com/photo-1728044849291-69f90d443aea?auto=format&amp;fit=crop&amp;w=600&amp;q=70 600w, https://images.unsplash.com/photo-1728044849291-69f90d443aea?auto=format&amp;fit=crop&amp;w=900&amp;q=70 900w, https://images.unsplash.com/photo-1728044849291-69f90d443aea?auto=format&amp;fit=crop&amp;w=1400&amp;q=70 1400w" sizes="(max-width:899px) 100vw, 50vw" width="900" height="675" alt="お店でタブレットのアプリを操作する手元" loading="lazy" decoding="async"><figcaption>写真はイメージです</figcaption></figure>
+      <div>
+        <h3>お店のアプリ</h3>
+        <p>プランとは別にアプリを作りたい場合は、製作費はいただきません。月額8,000円です。梅プランと合わせる場合は、7,500円に8,000円を足して、月15,500円になります。</p>
+        <p>アプリは、先にデモをお送りして、ご確認いただいてから作ります。ご契約をやめられた場合は、アプリもお使いいただけなくなります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="same rv">
+    <h2>どのプランも同じこと</h2>
+    <dl>
+      <div><dt>不具合の修正</dt><dd>記事の公開の仕組みに不具合があれば、いつでも修正します。</dd></div>
+      <div><dt>含まれないもの</dt><dd>ホームページのデザインや構成の変更、写真の撮影</dd></div>
+    </dl>
+  </section>
+</div>
+
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="rv">気になるところがあれば、<br>なんでもお聞きください。</h2>
+    <p>これまでのLINEやDM、またはメールでどうぞ。</p>
+    <a class="btn" href="mailto:nexusguild.aiharu@gmail.com">メールで聞く</a>
+    <p><a class="mail" href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
+    <div class="foot">
+      <span>© 2026 NexusGuild ／ オートサイト</span>
+      <a href="../terms/">利用規約・プライバシーポリシー</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var d=document;
+  var reduce=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* 画面に入ったら、ふわっと出す */
+  var rv=[].slice.call(d.querySelectorAll(".rv"));
+  if("IntersectionObserver" in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+    },{threshold:.08,rootMargin:"0px 0px -5% 0px"});
+    rv.forEach(function(el){io.observe(el);});
+  }else{
+    rv.forEach(function(el){el.classList.add("in");});
+  }
+
+  /* 右から流れるカード。輪になって回る：右端まで行ったら、最初のカードがまた右から来る。
+     切り替わりは時計どおり（一定の間隔）。指やマウスで触っても、時計は止めないし巻き戻さない */
+  var show=d.getElementById("show");
+  if(!show)return;
+  var rail=show.querySelector(".rail");
+  var real=[].slice.call(rail.querySelectorAll(".card"));
+  var n=real.length;
+  var tabsBox=show.querySelector(".tabs");
+  var tabs=[].slice.call(tabsBox.querySelectorAll(".tab"));
+  var pp=show.querySelector(".pp");
+  var T=parseInt(show.getAttribute("data-interval"),10)||3000;
+  show.style.setProperty("--T",T+"ms");
+
+  /* 同じ並びを前と後ろに1組ずつ足す（写しは飾りなので、読み上げからは外す） */
+  function copy(c){var x=c.cloneNode(true);x.setAttribute("aria-hidden","true");x.classList.remove("is-on");return x;}
+  var first=real[0];
+  real.forEach(function(c){rail.insertBefore(copy(c),first);});
+  real.forEach(function(c){rail.appendChild(copy(c));});
+  var cards=[].slice.call(rail.querySelectorAll(".card"));
+  var pos=n,busy=false,deb=0,raf=0,visible=false,userPaused=reduce,timer=0,last=0,touching=false,pending=false;
+
+  function pad(){return parseFloat(getComputedStyle(rail).paddingLeft)||0;}
+  function left(i){return cards[i].offsetLeft-pad();}
+  function jump(x){rail.style.scrollSnapType="none";rail.scrollLeft=x;rail.style.scrollSnapType="";}
+  function setActive(k){
+    tabs.forEach(function(t,i){
+      var on=i===k,b=t.querySelector(".bar");
+      t.classList.toggle("is-on",on);
+      t.setAttribute("aria-selected",on?"true":"false");
+      /* 上の見出しの塗りは、次に切り替わるまでの残り時間に合わせる */
+      b.style.animation="none";
+      if(on){void b.offsetWidth;b.style.animation="";b.style.animationDelay=(timer?-(Date.now()-last):0)+"ms";}
+    });
+    cards.forEach(function(c,i){c.classList.toggle("is-on",i%n===k);});
+    var t=tabs[k];
+    tabsBox.scrollTo({left:t.offsetLeft-(tabsBox.clientWidth-t.offsetWidth)/2,behavior:reduce?"auto":"smooth"});
+  }
+  /* 真ん中の組からはみ出たら、見た目が同じ真ん中の位置へ、動きなしで戻す */
+  function recenter(){
+    var shift=pos<n?n:(pos>=2*n?-n:0);
+    if(!shift)return;
+    var w=left(n)-left(0);
+    pos+=shift;
+    jump(rail.scrollLeft+(shift>0?w:-w));
+  }
+  /* 横にすべらせる（ゆっくり動き出して、ゆっくり止まる） */
+  function stopSlide(){cancelAnimationFrame(raf);raf=0;rail.style.scrollSnapType="";busy=false;}
+  function slideTo(x){
+    cancelAnimationFrame(raf);
+    if(reduce){jump(x);busy=false;recenter();return;}
+    var from=rail.scrollLeft,dist=x-from,t0=null,dur=Math.min(910,455+Math.abs(dist)*.18);
+    rail.style.scrollSnapType="none";
+    function step(t){
+      if(t0===null)t0=t;
+      var q=Math.min(1,(t-t0)/dur),e=q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2;
+      rail.scrollLeft=from+dist*e;
+      if(q<1){raf=requestAnimationFrame(step);}else{raf=0;rail.style.scrollSnapType="";busy=false;recenter();}
+    }
+    raf=requestAnimationFrame(step);
+  }
+  function go(i){
+    busy=true;pos=i;
+    setActive(((i%n)+n)%n);
+    slideTo(left(i));
+  }
+  /* いま見えているカードはどれか（指で動かしたあとの位置から数え直す） */
+  function nearest(){
+    var x=rail.scrollLeft,pd=pad(),best=pos,bd=1e9;
+    cards.forEach(function(c,i){var dd=Math.abs(c.offsetLeft-pd-x);if(dd<bd){bd=dd;best=i;}});
+    return best;
+  }
+  /* タブを押したら、今いる場所からいちばん近い同じカードへ */
+  function goTab(k){
+    var best=k+n,bd=1e9;
+    [k,k+n,k+2*n].forEach(function(c){var dd=Math.abs(c-pos);if(dd<bd){bd=dd;best=c;}});
+    go(best);
+  }
+  tabs.forEach(function(t,k){t.addEventListener("click",function(){goTab(k);});});
+
+  /* 時計：T ミリ秒ごとに次へ。触っている最中に時刻が来たら、指を離した瞬間に進める */
+  function advance(){if(!busy){pos=nearest();recenter();}go(pos+1);}
+  function tick(){last=Date.now();if(touching){pending=true;return;}advance();}
+  function start(){if(timer)return;last=Date.now();timer=setInterval(tick,T);show.classList.add("playing");setActive(pos%n);}
+  function stop(){if(!timer)return;clearInterval(timer);timer=0;pending=false;show.classList.remove("playing");}
+  function sync(){if(visible&&!userPaused)start();else stop();}
+
+  /* 指やマウスで動かして止まったら、いちばん近いカードに上の見出しを合わせる */
+  rail.addEventListener("scroll",function(){
+    clearTimeout(deb);
+    deb=setTimeout(function(){
+      if(busy||touching)return;
+      pos=nearest();
+      recenter();
+      if(!tabs[pos%n].classList.contains("is-on"))setActive(pos%n);
+    },160);
+  },{passive:true});
+  function down(){touching=true;stopSlide();}
+  function up(){
+    if(!touching)return;
+    touching=false;
+    if(pending&&timer){pending=false;advance();}
+  }
+  ["pointerdown","touchstart"].forEach(function(ev){rail.addEventListener(ev,down,{passive:true});});
+  ["pointerup","pointercancel","touchend","touchcancel"].forEach(function(ev){window.addEventListener(ev,up,{passive:true});});
+  rail.addEventListener("keydown",stopSlide);
+  window.addEventListener("resize",function(){if(!busy)jump(left(pos));});
+  pp.addEventListener("click",function(){
+    userPaused=!userPaused;
+    pp.setAttribute("aria-pressed",userPaused?"true":"false");
+    pp.setAttribute("aria-label",userPaused?"自動で動かす":"自動で動くのを止める");
+    sync();
+  });
+  if(reduce){pp.hidden=true;}
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){visible=es[0].isIntersecting;sync();},{threshold:.2}).observe(rail);
+  }else{visible=true;sync();}
+  jump(left(pos));
+  setActive(0);
+})();
+</script>
+</body>
+</html>

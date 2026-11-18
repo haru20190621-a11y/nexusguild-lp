@@ -18,353 +18,589 @@ if (/[?&](code|error)=/.test(location.search)) { location.replace("ig-callback/"
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ffffff'/%3E%3Ctext x='32' y='46' font-family='serif' font-size='40' fill='%231b1b1b' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#ffffff; --bg2:#f6f5f2;
-  --ink:#1b1b1b; --soft:#55524d;
-  --line:#dcd9d3; --line2:#1b1b1b;
-  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
-  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
-  --rail:96px;
-  --gutter:clamp(24px,7vw,120px);
-}
+:root{--ink:#000;--bg:#fff;--mute:#595959;--line:#d9d9d9;--soft:#f3f3f3;--pill:#ececec;--pill-fill:#d2d2d2;
+--dline:#333;--dmute:#bdbdbd;
+--sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+--serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+--pad:clamp(20px,4vw,40px);--r:6px;--ease:cubic-bezier(.2,.7,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:2;font-weight:400;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--ink);color:#fff}
-
-/* ---------- 左のレール（縦書きナビ） ---------- */
-.rail{position:fixed;left:0;top:0;width:var(--rail);height:100vh;height:100dvh;border-right:1px solid var(--line);background:var(--bg);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 0}
-.rail-logo{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.08em;writing-mode:vertical-rl;text-orientation:mixed}
-.rail-nav{display:flex;flex-direction:row;gap:34px;writing-mode:vertical-rl}
-.rail-nav a{font-family:var(--serif);font-size:14px;letter-spacing:.32em;color:var(--ink);position:relative;padding:0 13px;opacity:.78;transition:opacity .3s}
-.rail-nav a:hover{opacity:1}
-.rail-year{font-family:var(--serif);font-size:12px;letter-spacing:.3em;writing-mode:vertical-rl;color:var(--soft)}
-main{margin-left:var(--rail)}
-
-/* ---------- 共通 ---------- */
-.sec{padding:clamp(88px,12vw,168px) var(--gutter)}
-.sec-head{display:flex;align-items:baseline;gap:22px}
-.sec-head .num{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--soft)}
-.sec-head .label{font-family:var(--serif);font-size:15px;letter-spacing:.32em}
-.sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.6vw,48px);line-height:1.6;letter-spacing:.12em;margin-top:28px}
-.lead{max-width:640px;margin-top:28px;font-size:16px;line-height:2.2;color:var(--ink)}
-.phone{width:clamp(220px,22vw,300px);aspect-ratio:375/808;border:1px solid var(--line);border-radius:26px;padding:8px;background:#fff;flex:none}
-.phone .screen{width:100%;height:100%;border-radius:18px;overflow:hidden;background:#fff}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
-.cap{font-size:13px;letter-spacing:.12em;color:var(--soft);margin-top:14px;line-height:1.8}
-
-/* ---------- ヒーロー ---------- */
-.hero{min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(24px,5vw,80px);padding:120px var(--gutter) 96px;position:relative}
-.hero-vert{writing-mode:vertical-rl;text-orientation:mixed;font-family:var(--serif);font-size:14px;letter-spacing:.34em;line-height:1;color:var(--ink);height:min(60vh,520px);display:flex;align-items:flex-start}
-.hero-main{max-width:760px}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(42px,5.4vw,92px);line-height:1.42;letter-spacing:.1em;text-wrap:balance}
-.hero-sub{margin-top:34px;font-family:var(--serif);font-size:clamp(15px,1.3vw,18px);letter-spacing:.2em;line-height:2.4}
-.hero-cta{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap}
-.hero-side{display:flex;flex-direction:column;align-items:center}
-.scroll-hint{position:absolute;right:var(--gutter);bottom:36px;font-family:var(--serif);font-size:11px;letter-spacing:.34em;color:var(--soft);display:flex;align-items:center;gap:12px}
-.scroll-hint::after{content:"";width:40px;height:1px;background:var(--line2);opacity:.5}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.8;-webkit-font-smoothing:antialiased;word-break:auto-phrase}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+.season{text-align:center;font-size:14px;line-height:1.6;padding:6px 12px}
 
 /* ---------- ボタン ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 34px;border:1px solid var(--ink);font-family:var(--serif);font-size:14px;letter-spacing:.22em;color:var(--ink);background:transparent;transition:background .3s,color .3s}
-.btn:hover{background:var(--ink);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border:1px solid #fff;border-radius:4px;background:#fff;color:#000;font-size:14px;font-weight:500;text-decoration:none;transition:opacity .2s}
+.btn:hover{opacity:.82}
+.btn.ghost{background:transparent;color:#fff}
+
+/* ---------- いちばん上（写真の上に見出し） ---------- */
+.hero-wrap{position:relative;isolation:isolate;overflow:hidden;background:#111;color:#fff}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-wrap::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.46) 55%,rgba(0,0,0,.82))}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:76px}
+.logo{display:inline-flex;align-items:center;min-height:44px;font-size:18px;font-weight:500;letter-spacing:.02em;text-decoration:none}
+.nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-size:14px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.nav a:hover{text-decoration:underline;text-underline-offset:6px}
+.nav .btn{min-height:44px;padding:0 22px}
+.nav .btn:hover{text-decoration:none}
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:min(78vh,760px);padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(72px,10vw,128px)}
+.kicker{font-size:13px;font-weight:500;letter-spacing:.14em}
+h1{font-weight:300;font-size:clamp(42px,7vw,92px);letter-spacing:-.05em;line-height:1.14;margin-top:14px;text-wrap:balance}
+.lead{max-width:33em;margin-top:22px}
+.lead span{display:block}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.photo-cap{position:absolute;right:var(--pad);bottom:12px;font-size:12px;color:rgba(255,255,255,.75)}
+
+/* ---------- 黒い帯（3つの約束） ---------- */
+.facts{background:#000;color:#fff;padding:clamp(40px,6vw,72px) 0}
+.facts ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px;list-style:none;text-align:center}
+.facts b{display:block;font-weight:300;font-size:clamp(26px,3.4vw,42px);letter-spacing:-.04em;line-height:1.3}
+.facts span{display:block;margin-top:8px;font-size:13px;color:var(--dmute)}
+
+/* ---------- 区切りの見出し ---------- */
+.sec{padding:clamp(72px,9vw,128px) 0}
+.sec-head{text-align:center}
+.sec-no{font-size:13px;font-weight:500;letter-spacing:.14em;color:var(--mute)}
+h2{font-weight:400;letter-spacing:-.04em;line-height:1.3;text-wrap:balance}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px);margin-top:10px}
+.sec-head p{max-width:36em;margin:14px auto 0}
 
 /* ---------- 01 コンセプト ---------- */
-.concept{text-align:center}
-.concept .sec-head{justify-content:center}
-.concept .sec-title{margin-top:40px}
-.concept-text{margin:56px auto 0;max-width:680px;font-family:var(--serif);font-size:clamp(16px,1.3vw,19px);letter-spacing:.14em;line-height:2.8}
-.concept-text p+p{margin-top:2.2em}
+.concept-text{max-width:34em;margin:clamp(28px,4vw,44px) auto 0;text-align:center;font-size:clamp(16px,1.4vw,19px);line-height:2.2}
+.concept-text p+p{margin-top:1.6em}
+.concept-text span{display:block}
 
-/* ---------- 02 できること ---------- */
-.services{background:var(--bg2)}
-.svc-list{margin-top:72px;border-top:1px solid var(--line)}
-.svc{display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(32px,6vw,96px);padding:clamp(56px,7vw,88px) 0;border-bottom:1px solid var(--line)}
-.svc:nth-child(even) .svc-text{order:2}
-.svc:nth-child(even) .svc-shot{order:1}
-.svc-text{max-width:560px}
-.svc-no{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--soft)}
-.svc h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);letter-spacing:.12em;line-height:1.6;margin-top:14px}
-.svc-en{display:block;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--soft);margin-top:8px}
-.svc p{margin-top:26px;font-size:16px;line-height:2.2}
-.svc p+p{margin-top:14px}
-.svc-shot{display:flex;flex-direction:column;align-items:center}
+/* ---------- 02 できること（右から流れるカード） ---------- */
+.show{padding:clamp(72px,9vw,128px) 0 clamp(40px,5vw,64px);background:var(--soft);overflow:hidden}
+@supports (overflow:clip){.show{overflow:clip}}
+.tabs{display:flex;gap:4px;margin-top:28px;padding:0 var(--pad);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;flex:0 0 auto;min-height:40px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:#000;font:inherit;font-size:15px;white-space:nowrap;cursor:pointer;overflow:hidden}
+.tab:first-child{margin-left:auto}
+.tab:last-child{margin-right:auto}
+.tab .bar{position:absolute;inset:0;background:var(--pill-fill);transform:scaleX(0);transform-origin:left center}
+.tab span{position:relative}
+.tab.is-on{background:#e2e2e2}
+.show.playing .tab.is-on .bar{animation:fill var(--T,3s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.rail{position:relative;display:flex;gap:clamp(12px,2vw,26px);margin-top:28px;padding:0 var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--pad);scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.card{position:relative;isolation:isolate;flex:0 0 min(900px,84vw);min-height:clamp(480px,50vw,620px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,3vw,44px);align-items:center;padding:clamp(22px,3vw,38px);border-radius:var(--r);overflow:hidden;scroll-snap-align:start;background:#1a1a1a;color:#fff}
+.card-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.5) 55%,rgba(0,0,0,.3))}
+.card-tx{align-self:start;max-width:26em}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,38px);letter-spacing:-.02em;line-height:1.3}
+.card-tx p{margin-top:14px;font-size:15px;line-height:1.9}
+.card-tx p+p{margin-top:10px}
+.sum{display:none}
+.vis{position:relative;--sw:clamp(204px,20vw,250px);width:clamp(330px,38vw,430px);padding:10px 20px 10px 0}
+.scr{position:relative;width:var(--sw);margin-left:auto;border-radius:26px;overflow:hidden;background:var(--m,#f6f1ea);color:#1a1a1a;box-shadow:0 22px 60px rgba(0,0,0,.5);font-size:11px;line-height:1.55}
+.scr-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 15px 9px;font-size:10px;letter-spacing:.06em}
+.scr-top b{font-weight:500;white-space:nowrap}
+.scr-top i{font-style:normal;color:#555;white-space:nowrap}
+.scr-ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.scr-bd{display:flex;flex-direction:column;gap:9px;padding:13px 15px 17px}
+.scr-kick{font-size:9.5px;letter-spacing:.1em;color:#555}
+.scr-ttl{font-family:var(--serif);font-size:15px;line-height:1.5;letter-spacing:-.01em}
+.scr-row{display:flex;justify-content:space-between;gap:8px;padding-top:7px;border-top:1px solid rgba(0,0,0,.13);font-size:10.5px}
+.scr-row span{color:#555}
+.scr-btn{display:block;padding:9px 6px;border:1px solid #111;border-radius:4px;background:#111;color:#fff;text-align:center;font-size:11px;font-weight:700}
+.scr-btn.line{background:transparent;color:#111}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.days span{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:6px;background:rgba(0,0,0,.06);font-size:10px}
+.days .wd{background:none;color:#555;font-size:9px;aspect-ratio:auto;padding-bottom:1px}
+.days .on{background:#111;color:#fff;font-weight:700}
+.days .st{border-radius:50%;background:#111;color:#fff}
+.days .no{opacity:.35}
+.pills{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pills span{padding:7px 2px;border:1px solid rgba(0,0,0,.3);border-radius:4px;text-align:center;font-size:10.5px;white-space:nowrap}
+.pills .on{border-color:#111;background:#111;color:#fff;font-weight:700}
+.item{display:grid;grid-template-columns:46px minmax(0,1fr);gap:10px;align-items:center}
+.item img{display:block;width:46px;height:46px;border-radius:6px;object-fit:cover}
+.item b{display:block;font-weight:500;font-size:11px}
+.item span{color:#555;font-size:10px}
+.stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;text-align:center}
+.stat b{display:block;font-weight:300;font-size:21px;letter-spacing:-.03em;line-height:1.2}
+.stat span{font-size:9.5px;color:#555}
+.fl{position:absolute;z-index:1;width:max-content;max-width:180px;padding:11px 13px;border-radius:8px;background:#fff;color:#111;font-size:12px;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.32)}
+.fl.a{right:calc(var(--sw) + 7px);top:16%}
+.fl.b{right:calc(var(--sw) + 7px);bottom:14%}
+.fl-sub{font-size:10.5px;font-weight:700;color:#666}
+.fl-tx{margin-top:2px;font-weight:500}
+.fl-acts{display:grid;grid-template-columns:1fr;gap:5px;margin-top:8px}
+.fl-acts span{padding:6px 10px;border:1px solid #111;border-radius:4px;background:#111;color:#fff;text-align:center;font-size:11px;font-weight:700;white-space:nowrap}
+.show-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-top:16px}
+.cap{font-size:13px;color:var(--mute)}
+.pp{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:4px;width:40px;height:40px;border:1px solid #000;border-radius:50%;background:#fff;cursor:pointer}
+.pp[hidden]{display:none}
+.pp i{display:block;width:3px;height:12px;background:#000}
+.pp[aria-pressed="true"] i:first-child{width:0;height:0;margin-left:3px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #000;background:none}
+.pp[aria-pressed="true"] i:last-child{display:none}
 
 /* ---------- 03 進め方 ---------- */
-.steps{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.step{padding:40px 28px 48px 0;border-top:1px solid var(--line2);margin-top:-1px}
-.step+.step{margin-left:0}
-.step-no{font-family:var(--serif);font-size:30px;letter-spacing:.1em;line-height:1}
-.step h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.1em;margin-top:22px;line-height:1.7}
-.step p{margin-top:14px;font-size:16px;line-height:2.1}
-.steps-note{margin-top:40px;font-size:16px;line-height:2.1;max-width:640px}
+.steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px);list-style:none}
+.steps4 li{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.st-vis{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:128px;padding:18px;background:var(--t,#f1ece4)}
+.mini{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#fff;font-size:13px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.mini b{font-weight:500}
+.mini em{flex:0 0 auto;padding:4px 8px;border-radius:4px;background:#111;color:#fff;font-style:normal;font-size:12px;font-weight:700;white-space:nowrap}
+.st-tx{padding:20px 20px 24px}
+.st-no{display:block;font-weight:300;font-size:34px;letter-spacing:-.04em;line-height:1.1}
+h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
+.st-tx h3{margin-top:10px}
+.st-tx p{margin-top:8px;font-size:15px}
 
 /* ---------- 04 運営 ---------- */
-.about{background:var(--bg2)}
-.about-grid{margin-top:64px;display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(40px,8vw,120px);align-items:start}
-.about dl{display:grid;grid-template-columns:auto 1fr;gap:0 28px;border-top:1px solid var(--line)}
-.about dt{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);padding:18px 0;border-bottom:1px solid var(--line);white-space:nowrap}
-.about dd{font-size:16px;line-height:2;padding:14px 0;border-bottom:1px solid var(--line)}
-.about-text{max-width:560px}
-.about-text p{font-size:16px;line-height:2.3}
-.about-text p+p{margin-top:1.4em}
+.about{background:var(--soft)}
+.about-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,88px);align-items:start;margin-top:clamp(36px,5vw,56px)}
+.about dl{border-top:1px solid var(--line)}
+.about dl div{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.about dt{font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--mute);padding-top:3px}
+.about-text p+p{margin-top:1.2em}
 
-/* ---------- 05 お問い合わせ ---------- */
-.contact{text-align:center;padding-bottom:clamp(96px,12vw,180px)}
-.contact .sec-head{justify-content:center}
-.contact .sec-title{margin-top:40px}
-.contact .lead{margin:36px auto 0;text-align:center}
-.contact-cta{margin-top:48px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-.contact-mail{margin-top:40px;font-family:var(--serif);font-size:15px;letter-spacing:.14em}
-.contact-mail a{display:inline-block;padding:8px 0 2px;border-bottom:1px solid var(--line2)}
-.contact-note{margin-top:16px;font-size:14px;letter-spacing:.08em;color:var(--soft)}
+/* ---------- 05 お問い合わせ・フッター（黒） ---------- */
+.contact{background:#000;color:#fff;padding:clamp(72px,10vw,128px) 0 28px;text-align:center}
+.contact .sec-no{color:var(--dmute)}
+.contact h2{font-weight:300;font-size:clamp(32px,4.8vw,62px);letter-spacing:-.05em;line-height:1.25;margin-top:10px}
+.contact p{margin-top:18px;text-wrap:balance}
+.contact-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.contact-cta .btn{min-height:54px;padding:0 30px}
+.mail{display:inline-flex;align-items:center;min-height:40px}
+.contact-note{font-size:13px;color:var(--dmute)}
+.foot{margin-top:clamp(64px,9vw,112px);padding-top:16px;border-top:1px solid var(--dline);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--dmute);text-align:left}
+.foot nav{display:flex;flex-wrap:wrap;gap:4px 22px}
+.foot a{display:inline-flex;align-items:center;min-height:40px}
 
-/* ---------- フッター ---------- */
-footer{border-top:1px solid var(--line);padding:40px var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.f-logo{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.08em}
-.f-links{display:flex;gap:28px;flex-wrap:wrap}
-.f-links a{display:inline-block;padding:8px 0;font-size:13px;letter-spacing:.14em;color:var(--soft)}
-.f-copy{font-size:12px;letter-spacing:.14em;color:var(--soft);width:100%}
-
-/* ---------- 出現 ---------- */
-.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
-.js .reveal.on{opacity:1;transform:none}
+/* ---------- 動き ---------- */
+.js .hero-img{animation:zoom 16s var(--ease) both}
+@keyframes zoom{from{transform:scale(1.14)}to{transform:scale(1)}}
+.js .up{opacity:0;transform:translateY(18px);animation:up .9s var(--ease) forwards}
+.js .up.d1{animation-delay:.15s}
+.js .up.d2{animation-delay:.3s}
+.js .up.d3{animation-delay:.45s}
+@keyframes up{to{opacity:1;transform:none}}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rail.rv{transform:translateX(110px)}
+.js .rv.in,.js .rail.rv.in{opacity:1;transform:none}
+.js .scr{transform:translateY(22px);transition:transform .8s var(--ease)}
+.js .card.is-on .scr{transform:none;transition-delay:.15s}
+.js .fl{opacity:0;transform:translateY(12px) scale(.96);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.js .card.is-on .fl{opacity:1;transform:none;transition-delay:.4s}
+.js .card.is-on .fl.b{transition-delay:.6s}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .reveal{opacity:1;transform:none;transition:none}
-  .btn{transition:none}
+  .js .hero-img,.js .up{animation:none;opacity:1;transform:none}
+  .js .rv,.js .rail.rv,.js .scr,.js .fl{opacity:1;transform:none;transition:none}
 }
 
-/* ---------- モバイル ---------- */
 @media (max-width:979px){
-  :root{--rail:0px}
-  .rail{position:sticky;top:0;width:100%;height:56px;flex-direction:row;justify-content:space-between;padding:0 20px;border-right:0;border-bottom:1px solid var(--line)}
-  .rail-logo{writing-mode:horizontal-tb}
-  .rail-nav{writing-mode:horizontal-tb;flex-direction:row;gap:22px}
-  .rail-nav a{font-size:13px;letter-spacing:.16em;padding:12px 4px}
-  .rail-nav a.hide-m{display:none}
-  .rail-year{display:none}
-  main{margin-left:0}
-  .hero{grid-template-columns:1fr;min-height:0;padding:64px var(--gutter) 88px;gap:40px}
-  .hero-vert{writing-mode:horizontal-tb;height:auto;font-size:13px;letter-spacing:.26em;line-height:1.8}
-  .hero-side{align-items:flex-start}
-  .scroll-hint{display:none}
-  .svc{grid-template-columns:1fr}
-  .svc:nth-child(even) .svc-text{order:1}
-  .svc:nth-child(even) .svc-shot{order:2}
-  .svc-shot{align-items:flex-start}
-  .phone{width:min(260px,70vw)}
-  .steps{grid-template-columns:1fr 1fr}
-  .step{padding-right:20px}
-  .about-grid{grid-template-columns:1fr}
+  .nav a.hide-m{display:none}
+  .steps4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
 }
-@media (max-width:560px){
-  .hero-sub{letter-spacing:.1em}
-  .hero-sub br{display:none}
-  .concept-text{text-align:left;letter-spacing:.04em;line-height:2.4}
-  .concept-text br,.contact .lead br{display:none}
-  .steps{grid-template-columns:1fr}
-  .step{padding-right:0}
+@media (max-width:899px){
+  /* 幅が狭いときは、カードの中を上から 文 → 画面の見本 → 白い札 の順に積む（重ねない＝隠れない。高さは中身に合わせる） */
+  .card{min-height:0;grid-template-columns:minmax(0,1fr);align-items:start}
+  .card::before{background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.5))}
+  .card-tx{max-width:none}
+  .vis{width:100%;padding:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scr{width:min(78%,250px);margin:0}
+  .fl{position:static;max-width:100%;width:min(78%,250px)}
+}
+@media (max-width:639px){
+  .top{min-height:64px}
+  .lead span{display:inline}
   .hero-cta .btn,.contact-cta .btn{width:100%}
-  footer{flex-direction:column;align-items:flex-start}
+  .facts ul{grid-template-columns:minmax(0,1fr)}
+  .concept-text{text-align:left;line-height:2}
+  .concept-text span{display:inline}
+  /* スマホ：1枚がスマホの画面の高さに収まるくらいに詰める。
+     説明は短いほうだけ出し、画面の見本を小さくして、白い札は下に2つ横並び */
+  .card{flex-basis:86vw;display:flex;flex-direction:column;padding:20px 18px 18px}
+  .card h3{font-size:24px}
+  .card-tx .long{display:none}
+  .card-tx .sum{display:block;margin-top:6px;font-size:14px;line-height:1.7}
+  .vis{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;justify-items:center;align-content:center;align-items:stretch;margin-top:14px}
+  .scr{grid-column:1 / -1;width:min(66%,200px);border-radius:20px;font-size:10px}
+  .scr-top{padding:10px 12px 7px;font-size:9.5px}
+  .scr-top .nav{display:none}
+  .scr-ph{aspect-ratio:16/10}
+  .scr-bd{gap:7px;padding:10px 12px 13px}
+  .scr-kick{display:none}
+  .scr-ttl{font-size:13px}
+  .scr-row{padding-top:6px;font-size:10px}
+  .scr-btn{padding:7px 4px;font-size:10.5px}
+  .days{gap:3px}
+  .days span{font-size:9.5px}
+  .pills span{padding:6px 2px;font-size:10px}
+  .item{grid-template-columns:38px minmax(0,1fr);gap:8px}
+  .item img{width:38px;height:38px}
+  .stat b{font-size:18px}
+  .fl{width:100%;max-width:none;padding:8px 10px;font-size:11px;line-height:1.5}
+  .fl-sub{font-size:10px}
+  .fl-acts{margin-top:6px}
+  .fl-acts span{padding:5px 4px;font-size:10px}
+  .steps4{grid-template-columns:minmax(0,1fr)}
 }
-.season{text-align:center;font-size:14px;line-height:1.6;padding:6px 12px}
 </style>
 </head>
 <body>
 
-<header class="rail">
-  <a class="rail-logo" href="#top">NexusGuild</a>
-  <nav class="rail-nav" aria-label="ページ内">
-    <a class="hide-m" href="#concept">コンセプト</a>
-    <a href="#services">できること</a>
-    <a class="hide-m" href="#method">進め方</a>
-    <a class="hide-m" href="blog/">記事</a>
-    <a href="#contact">お問い合わせ</a>
-  </nav>
-  <span class="rail-year">2026</span>
-</header>
-
 <main id="top">
 
-<section class="hero">
-  <p class="hero-vert">埼玉・上福岡の、小さなスタジオ</p>
-  <div class="hero-main">
-    <h1>先に作って、<br>お見せする。</h1>
-    <p class="hero-sub">Webサイト、予約サイト、アプリ。<br>提案書のかわりに、動くものを持っていきます。</p>
-    <div class="hero-cta">
-      <a class="btn" href="#services">できることを見る</a>
+<div class="hero-wrap">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1770515853604-4487b6370bc1?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" srcset="https://images.unsplash.com/photo-1770515853604-4487b6370bc1?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w, https://images.unsplash.com/photo-1770515853604-4487b6370bc1?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w, https://images.unsplash.com/photo-1770515853604-4487b6370bc1?auto=format&amp;fit=crop&amp;w=2400&amp;q=70 2400w" sizes="100vw" alt="">
+  <header class="wrap top">
+    <a class="logo" href="#top">NexusGuild</a>
+    <nav class="nav" aria-label="ページ内">
+      <a class="hide-m" href="#concept">コンセプト</a>
+      <a class="hide-m" href="#services">できること</a>
+      <a class="hide-m" href="#method">進め方</a>
+      <a class="hide-m" href="blog/">記事</a>
       <a class="btn" href="#contact">相談する</a>
+    </nav>
+  </header>
+  <section class="wrap hero">
+    <p class="kicker up">埼玉・上福岡の、小さなスタジオ</p>
+    <h1 class="up d1">先に作って、<br>お見せする。</h1>
+    <p class="lead up d2"><span>Webサイト、予約サイト、アプリ。</span><span>提案書のかわりに、動くものを持っていきます。</span></p>
+    <div class="hero-cta up d3">
+      <a class="btn" href="#services">できることを見る</a>
+      <a class="btn ghost" href="#contact">相談する</a>
     </div>
+  </section>
+  <p class="photo-cap">写真はイメージです</p>
+</div>
+
+<section class="facts">
+  <div class="wrap">
+    <ul>
+      <li class="rv"><b>ご相談は無料</b><span>メールか、InstagramのDMで</span></li>
+      <li class="rv"><b>先に作って、お見せします</b><span>見ていただくところまでは、費用をいただきません</span></li>
+      <li class="rv"><b>24時間以内にご返信</b><span>「うちの店でもできるだろうか」の段階で構いません</span></li>
+    </ul>
   </div>
-  <div class="hero-side">
-    <div class="phone">
-      <div class="screen"><img src="assets/shot-reserve.png?v=1" width="375" height="808" alt="ケーキ屋さん向け予約サイトの画面。受け取り日と時間を選ぶところ" decoding="async"></div>
-    </div>
-    <p class="cap">ケーキ屋さん向けの予約サイト（見本）</p>
-  </div>
-  <p class="scroll-hint">SCROLL</p>
 </section>
 
 <section class="sec concept" id="concept">
-  <div class="reveal">
-    <div class="sec-head"><span class="num">01</span><span class="label">コンセプト</span></div>
-    <h2 class="sec-title">動くものを、先に。</h2>
-  </div>
-  <div class="concept-text reveal">
-    <p>「こんなことができます」と説明するより、<br>実際に動くものを見ていただくほうが早い。</p>
-    <p>そう思って、お店のサイトも、予約の仕組みも、<br>先に作ってからお見せしています。</p>
-    <p>気に入っていただけたら、そこから一緒に直していく。<br>合わなければ、そこで終わりで構いません。</p>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-no">01　コンセプト</p>
+      <h2>動くものを、先に。</h2>
+    </div>
+    <div class="concept-text rv">
+      <p><span>「こんなことができます」と説明するより、</span><span>実際に動くものを見ていただくほうが早い。</span></p>
+      <p><span>そう思って、お店のサイトも、予約の仕組みも、</span><span>先に作ってからお見せしています。</span></p>
+      <p><span>気に入っていただけたら、そこから一緒に直していく。</span><span>合わなければ、そこで終わりで構いません。</span></p>
+    </div>
   </div>
 </section>
 
-<section class="sec services" id="services">
-  <div class="reveal">
-    <div class="sec-head"><span class="num">02</span><span class="label">できること</span></div>
-    <h2 class="sec-title">できることは、3つ。</h2>
+<section class="show" id="show" data-interval="3000">
+  <div class="wrap sec-head rv" id="services">
+    <p class="sec-no">02　できること</p>
+    <h2>できることは、3つ。</h2>
+    <p>画面は、実際に作ったものをもとにした見本です。</p>
   </div>
-  <div class="svc-list">
+  <div class="tabs" role="tablist" aria-label="できること">
+    <button type="button" class="tab is-on" role="tab" aria-selected="true"><i class="bar"></i><span>Webサイト</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>予約サイト</span></button>
+    <button type="button" class="tab" role="tab" aria-selected="false"><i class="bar"></i><span>アプリ</span></button>
+  </div>
+  <div class="rail rv" tabindex="0" aria-label="できること。左右に動かせます">
 
-    <article class="svc reveal">
-      <div class="svc-text">
-        <p class="svc-no">01</p>
+    <article class="card is-on">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1729556744916-9e684b7abdd1?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx">
         <h3>Webサイト制作</h3>
-        <span class="svc-en">Website</span>
-        <p>お店の公式サイトを、スマホで見やすい形で作ります。営業時間、場所、メニュー、写真。検索して見つけたときに、知りたいことがすぐ分かるページにします。</p>
-        <p>公開して終わりではなく、そのあとの修正や更新のご相談も受けています。</p>
+        <p class="sum">検索して見つけた方が、知りたいことをすぐ見つけられるサイトを作ります。</p>
+        <p class="long">お店の公式サイトを、スマホで見やすい形で作ります。営業時間、場所、メニュー、写真。検索して見つけたときに、知りたいことがすぐ分かるページにします。</p>
+        <p class="long">公開して終わりではなく、そのあとの修正や更新のご相談も受けています。</p>
       </div>
-      <div class="svc-shot">
-        <div class="phone"><div class="screen"><img src="assets/shot-web.png?v=1" width="375" height="808" alt="お店のサイトのトップページの画面" loading="lazy" decoding="async"></div></div>
-        <p class="cap">お店のサイト（見本）</p>
+      <div class="vis" aria-hidden="true">
+        <div class="scr" style="--m:#f6f1ea">
+          <div class="scr-top"><b>サンプル洋菓子店</b><i class="nav">メニュー　予約</i></div>
+          <img class="scr-ph" src="https://images.unsplash.com/photo-1640403413914-a112e78e4803?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="" decoding="async">
+          <div class="scr-bd">
+            <span class="scr-kick">PATISSERIE</span>
+            <p class="scr-ttl">お祝いのケーキを、前もって予約できます。</p>
+            <p class="scr-row"><span>営業時間</span>10:00〜18:00</p>
+            <p class="scr-row"><span>定休日</span>毎週水曜日</p>
+            <span class="scr-btn">ケーキを予約する</span>
+          </div>
+        </div>
+        <div class="fl a"><p class="fl-sub">検索して見つけた方へ</p><p class="fl-tx">営業時間・場所・メニューが、すぐ分かる</p></div>
+        <div class="fl b"><p class="fl-sub">公開のあとも</p><p class="fl-tx">修正や更新のご相談を受けます</p></div>
       </div>
     </article>
 
-    <article class="svc reveal">
-      <div class="svc-text">
-        <p class="svc-no">02</p>
+    <article class="card">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1671057078047-53e81101b0a5?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx">
         <h3>予約サイト制作</h3>
-        <span class="svc-en">Reservation</span>
-        <p>お客さんがスマホで日にちと時間を選んで予約できる仕組みです。お店側は管理画面で予約の一覧を見て、商品の写真や説明を自分で直せます。</p>
-        <p>電話と紙の予約票で受けていたものを、ひとつの画面にまとめます。</p>
+        <p class="sum">お客さんはスマホで日にちと時間を選ぶだけ。お店は、予約を一覧で確かめられます。</p>
+        <p class="long">お客さんがスマホで日にちと時間を選んで予約できる仕組みです。お店側は管理画面で予約の一覧を見て、商品の写真や説明を自分で直せます。</p>
+        <p class="long">電話と紙の予約票で受けていたものを、ひとつの画面にまとめます。</p>
       </div>
-      <div class="svc-shot">
-        <div class="phone"><div class="screen"><img src="assets/shot-reserve-list.png?v=1" width="375" height="808" alt="予約サイトの管理画面。予約の一覧" loading="lazy" decoding="async"></div></div>
-        <p class="cap">お店側の管理画面（見本・予約は架空のものです）</p>
+      <div class="vis" aria-hidden="true">
+        <div class="scr" style="--m:#f4ece8">
+          <div class="scr-top"><b>受け取り日時を選ぶ</b><i>2/4</i></div>
+          <div class="scr-bd">
+            <div class="item"><img class="" src="https://images.unsplash.com/photo-1557020333-3a6ac2a018ba?auto=format&amp;fit=crop&amp;w=200&amp;q=70" alt="" decoding="async"><div><b>苺のショートケーキ 5号</b><span>ご予約の品</span></div></div>
+            <div class="days"><span class="wd">日</span><span class="wd">月</span><span class="wd">火</span><span class="wd">水</span><span class="wd">木</span><span class="wd">金</span><span class="wd">土</span><span>11</span><span>12</span><span>13</span><span class="no">14</span><span class="no">15</span><span>16</span><span class="on">17</span><span>18</span><span>19</span><span>20</span><span class="no">21</span><span>22</span><span>23</span><span>24</span></div>
+            <div class="pills"><span class="on">10:00〜12:00</span><span>14:00〜16:00</span></div>
+            <span class="scr-btn">この日時で予約する</span>
+          </div>
+        </div>
+        <div class="fl a"><p class="fl-sub">お店側の管理画面</p><p class="fl-tx">今日・明日のお渡し　のこり1件</p><div class="fl-acts"><span>お渡し済みにする</span></div></div>
+        <div class="fl b"><p class="fl-sub">お客さんの画面</p><p class="fl-tx">スマホで日にちと時間を選ぶだけ</p></div>
       </div>
     </article>
 
-    <article class="svc reveal">
-      <div class="svc-text">
-        <p class="svc-no">03</p>
+    <article class="card">
+      <img class="card-bg" src="https://images.unsplash.com/photo-1763582529302-8da669b691cb?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" decoding="async">
+      <div class="card-tx">
         <h3>アプリ制作</h3>
-        <span class="svc-en">Application</span>
-        <p>お店や教室の毎日の記録を、専用の小さなアプリにします。たとえばジムの会員さん向けの来館記録。受付のQRを読むだけでその日の記録が残り、しばらく来ていない方が一覧で分かります。</p>
-        <p>大きな仕組みではなく、その場所でほんとうに使う機能だけを作ります。</p>
+        <p class="sum">お店や教室の毎日の記録を、その場所で使う機能だけの小さなアプリにします。</p>
+        <p class="long">お店や教室の毎日の記録を、専用の小さなアプリにします。たとえばジムの会員さん向けの来館記録。受付のQRを読むだけでその日の記録が残り、しばらく来ていない方が一覧で分かります。</p>
+        <p class="long">大きな仕組みではなく、その場所でほんとうに使う機能だけを作ります。</p>
       </div>
-      <div class="svc-shot">
-        <div class="phone"><div class="screen"><img src="assets/shot-app.png?v=3" width="375" height="808" alt="ジム会員向けアプリの来館カレンダーの画面" loading="lazy" decoding="async"></div></div>
-        <p class="cap">ジム会員向けアプリ（試用版）</p>
+      <div class="vis" aria-hidden="true">
+        <div class="scr" style="--m:#eef0ea">
+          <div class="scr-top"><b>来館カレンダー</b><i>11月</i></div>
+          <div class="scr-bd">
+            <span class="scr-btn">来館（受付のQRを読む）</span>
+            <div class="days"><span class="wd">月</span><span class="wd">火</span><span class="wd">水</span><span class="wd">木</span><span class="wd">金</span><span class="wd">土</span><span class="wd">日</span><span>2</span><span class="st">3</span><span>4</span><span class="st">5</span><span>6</span><span>7</span><span>8</span><span>9</span><span class="st">10</span><span>11</span><span class="st">12</span><span>13</span><span>14</span><span>15</span><span>16</span><span class="st">17</span><span>18</span><span class="st">19</span><span>20</span><span>21</span><span>22</span></div>
+            <div class="stat"><div><b>3</b><span>連続（週）</span></div><div><b>6</b><span>今月の来館</span></div><div><b>42</b><span>通算</span></div></div>
+          </div>
+        </div>
+        <div class="fl a"><p class="fl-sub">受付で</p><p class="fl-tx">QRを読むだけで、その日の記録が残る</p></div>
+        <div class="fl b"><p class="fl-sub">トレーナーの画面</p><p class="fl-tx">しばらく来ていない方が、一覧で分かる</p></div>
       </div>
     </article>
 
+  </div>
+  <div class="wrap show-foot">
+    <p class="cap">写真はイメージです。スマホの中の画面は、実際に作ったものをもとにした見本で、数字や日付は例です。</p>
+    <button type="button" class="pp" aria-pressed="false" aria-label="自動で動くのを止める"><i></i><i></i></button>
   </div>
 </section>
 
 <section class="sec method" id="method">
-  <div class="reveal">
-    <div class="sec-head"><span class="num">03</span><span class="label">進め方</span></div>
-    <h2 class="sec-title">進め方は、4つ。</h2>
-  </div>
-  <div class="steps reveal">
-    <div class="step">
-      <p class="step-no">01</p>
-      <h3>お話を伺う</h3>
-      <p>どんなお店で、いま何に時間を取られているか。メールかInstagramのDMで、まずお聞かせください。ご相談は無料です。</p>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-no">03　進め方</p>
+      <h2>進め方は、4つ。</h2>
     </div>
-    <div class="step">
-      <p class="step-no">02</p>
-      <h3>作って、お見せする</h3>
-      <p>動くものを先に作って、実際にスマホで触っていただきます。見ていただくところまでは、費用をいただきません。</p>
-    </div>
-    <div class="step">
-      <p class="step-no">03</p>
-      <h3>直す</h3>
-      <p>気になるところを伺って直します。費用は、公開に進む前にお伝えします。納得いただけたところで、公開へ。</p>
-    </div>
-    <div class="step">
-      <p class="step-no">04</p>
-      <h3>公開と、その後</h3>
-      <p>公開したあとも、更新や修正のご相談を受けます。お店の作業が増えないように、こちらで引き取れるところは引き取ります。</p>
-    </div>
+    <ol class="steps4">
+      <li class="rv">
+        <div class="st-vis" style="--t:#e6e8df" aria-hidden="true"><span class="mini"><b>メール</b><em>ご相談は無料</em></span><span class="mini"><b>InstagramのDM</b><em>ご相談は無料</em></span></div>
+        <div class="st-tx"><span class="st-no">01</span><h3>お話を伺う</h3><p>どんなお店で、いま何に時間を取られているか。メールかInstagramのDMで、まずお聞かせください。ご相談は無料です。</p></div>
+      </li>
+      <li class="rv">
+        <div class="st-vis" style="--t:#f1ece4" aria-hidden="true"><span class="mini"><b>動くものを、スマホで</b><em>費用なし</em></span></div>
+        <div class="st-tx"><span class="st-no">02</span><h3>作って、お見せする</h3><p>動くものを先に作って、実際にスマホで触っていただきます。見ていただくところまでは、費用をいただきません。</p></div>
+      </li>
+      <li class="rv">
+        <div class="st-vis" style="--t:#efe8e4" aria-hidden="true"><span class="mini"><b>費用のご案内</b><em>公開の前に</em></span></div>
+        <div class="st-tx"><span class="st-no">03</span><h3>直す</h3><p>気になるところを伺って直します。費用は、公開に進む前にお伝えします。納得いただけたところで、公開へ。</p></div>
+      </li>
+      <li class="rv">
+        <div class="st-vis" style="--t:#e6e8df" aria-hidden="true"><span class="mini"><b>更新・修正のご相談</b><em>公開のあとも</em></span></div>
+        <div class="st-tx"><span class="st-no">04</span><h3>公開と、その後</h3><p>公開したあとも、更新や修正のご相談を受けます。お店の作業が増えないように、こちらで引き取れるところは引き取ります。</p></div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <section class="sec about" id="about">
-  <div class="reveal">
-    <div class="sec-head"><span class="num">04</span><span class="label">運営</span></div>
-    <h2 class="sec-title">運営について。</h2>
-  </div>
-  <div class="about-grid">
-    <dl class="reveal">
-      <dt>Studio</dt><dd>NexusGuild（個人事業・2026年開業）</dd>
-      <dt>Base</dt><dd>埼玉・上福岡</dd>
-      <dt>Member</dt><dd>尚美学園大学の学生が運営</dd>
-      <dt>Works</dt><dd>福井の惣菜店（母の店）で、Instagram投稿の仕組みを運用中</dd>
-    </dl>
-    <div class="about-text reveal">
-      <p>大学に通いながら、個人で運営しています。大きな会社には頼みにくい、小さな単位の仕事を引き受けるのが役目だと思っています。</p>
-      <p>お店の手から離してはいけない仕事と、本当は誰がやってもいい作業がある。サイトも予約も記録も、後者のほうを静かに引き取るための道具として作っています。</p>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-no">04　運営</p>
+      <h2>運営について。</h2>
+    </div>
+    <div class="about-grid">
+      <dl class="rv">
+        <div><dt>スタジオ</dt><dd>NexusGuild（個人事業・2026年開業）</dd></div>
+        <div><dt>拠点</dt><dd>埼玉・上福岡</dd></div>
+        <div><dt>運営</dt><dd>尚美学園大学の学生が運営</dd></div>
+        <div><dt>実績</dt><dd>福井の惣菜店（母の店）で、Instagram投稿の仕組みを運用中</dd></div>
+      </dl>
+      <div class="about-text rv">
+        <p>大学に通いながら、個人で運営しています。大きな会社には頼みにくい、小さな単位の仕事を引き受けるのが役目だと思っています。</p>
+        <p>お店の手から離してはいけない仕事と、本当は誰がやってもいい作業がある。サイトも予約も記録も、後者のほうを静かに引き取るための道具として作っています。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec contact" id="contact">
-  <div class="reveal">
-    <div class="sec-head"><span class="num">05</span><span class="label">お問い合わせ</span></div>
-    <h2 class="sec-title">まず、現物から。</h2>
-  </div>
-  <p class="lead reveal">「うちの店でもできるだろうか」という段階のご相談で構いません。<br>メールか、InstagramのDMでどうぞ。</p>
-  <div class="contact-cta reveal">
-    <a class="btn" href="mailto:nexusguild.aiharu@gmail.com?subject=NexusGuild%20%E3%81%B8%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a>
-    <a class="btn" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">Instagramで相談する</a>
-  </div>
-  <p class="contact-mail reveal"><a href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
-  <p class="contact-note reveal">24時間以内にご返信します。</p>
-</section>
-
 </main>
 
-<footer>
-  <span class="f-logo">NexusGuild</span>
-  <nav class="f-links" aria-label="フッター">
-    <a href="#concept">コンセプト</a>
-    <a href="#services">できること</a>
-    <a href="#method">進め方</a>
-    <a href="blog/">記事</a>
-    <a href="#contact">お問い合わせ</a>
-    <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
-  </nav>
-  <p class="f-copy">© 2026 NexusGuild — Saitama, Japan</p>
-</footer>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="sec-no">05　お問い合わせ</p>
+    <h2 class="rv">まず、現物から。</h2>
+    <p>「うちの店でもできるだろうか」という段階のご相談で構いません。メールか、InstagramのDMでどうぞ。</p>
+    <div class="contact-cta">
+      <a class="btn" href="mailto:nexusguild.aiharu@gmail.com?subject=NexusGuild%20%E3%81%B8%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a>
+      <a class="btn ghost" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">Instagramで相談する</a>
+    </div>
+    <p><a class="mail" href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
+    <p class="contact-note">24時間以内にご返信します。</p>
+    <footer class="foot">
+      <span>© 2026 NexusGuild — Saitama, Japan</span>
+      <nav aria-label="フッター">
+        <a href="#concept">コンセプト</a>
+        <a href="#services">できること</a>
+        <a href="#method">進め方</a>
+        <a href="blog/">記事</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
+      </nav>
+    </footer>
+  </div>
+</section>
 
 <script>
 (function(){
-  var els=document.querySelectorAll('.reveal');
-  var review=/[?&]review=1/.test(location.search);
-  if(review||!('IntersectionObserver' in window)){
-    els.forEach(function(el){el.classList.add('on')});
-    if(review){document.querySelectorAll('img[loading="lazy"]').forEach(function(im){im.loading='eager'})}
-    return;
+  var d=document;
+  var reduce=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* 画面に入ったら、ふわっと出す */
+  var rv=[].slice.call(d.querySelectorAll(".rv"));
+  if("IntersectionObserver" in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+    },{threshold:.08,rootMargin:"0px 0px -5% 0px"});
+    rv.forEach(function(el){io.observe(el);});
+  }else{
+    rv.forEach(function(el){el.classList.add("in");});
   }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
+
+  /* 右から流れるカード。輪になって回る：右端まで行ったら、最初のカードがまた右から来る。
+     切り替わりは時計どおり（一定の間隔）。指やマウスで触っても、時計は止めないし巻き戻さない */
+  var show=d.getElementById("show");
+  if(!show)return;
+  var rail=show.querySelector(".rail");
+  var real=[].slice.call(rail.querySelectorAll(".card"));
+  var n=real.length;
+  var tabsBox=show.querySelector(".tabs");
+  var tabs=[].slice.call(tabsBox.querySelectorAll(".tab"));
+  var pp=show.querySelector(".pp");
+  var T=parseInt(show.getAttribute("data-interval"),10)||3000;
+  show.style.setProperty("--T",T+"ms");
+
+  /* 同じ並びを前と後ろに1組ずつ足す（写しは飾りなので、読み上げからは外す） */
+  function copy(c){var x=c.cloneNode(true);x.setAttribute("aria-hidden","true");x.classList.remove("is-on");return x;}
+  var first=real[0];
+  real.forEach(function(c){rail.insertBefore(copy(c),first);});
+  real.forEach(function(c){rail.appendChild(copy(c));});
+  var cards=[].slice.call(rail.querySelectorAll(".card"));
+  var pos=n,busy=false,deb=0,raf=0,visible=false,userPaused=reduce,timer=0,last=0,touching=false,pending=false;
+
+  function pad(){return parseFloat(getComputedStyle(rail).paddingLeft)||0;}
+  function left(i){return cards[i].offsetLeft-pad();}
+  function jump(x){rail.style.scrollSnapType="none";rail.scrollLeft=x;rail.style.scrollSnapType="";}
+  function setActive(k){
+    tabs.forEach(function(t,i){
+      var on=i===k,b=t.querySelector(".bar");
+      t.classList.toggle("is-on",on);
+      t.setAttribute("aria-selected",on?"true":"false");
+      /* 上の見出しの塗りは、次に切り替わるまでの残り時間に合わせる */
+      b.style.animation="none";
+      if(on){void b.offsetWidth;b.style.animation="";b.style.animationDelay=(timer?-(Date.now()-last):0)+"ms";}
     });
-  },{rootMargin:'0px 0px -10% 0px'});
-  els.forEach(function(el){io.observe(el)});
+    cards.forEach(function(c,i){c.classList.toggle("is-on",i%n===k);});
+    var t=tabs[k];
+    tabsBox.scrollTo({left:t.offsetLeft-(tabsBox.clientWidth-t.offsetWidth)/2,behavior:reduce?"auto":"smooth"});
+  }
+  /* 真ん中の組からはみ出たら、見た目が同じ真ん中の位置へ、動きなしで戻す */
+  function recenter(){
+    var shift=pos<n?n:(pos>=2*n?-n:0);
+    if(!shift)return;
+    var w=left(n)-left(0);
+    pos+=shift;
+    jump(rail.scrollLeft+(shift>0?w:-w));
+  }
+  /* 横にすべらせる（ゆっくり動き出して、ゆっくり止まる） */
+  function stopSlide(){cancelAnimationFrame(raf);raf=0;rail.style.scrollSnapType="";busy=false;}
+  function slideTo(x){
+    cancelAnimationFrame(raf);
+    if(reduce){jump(x);busy=false;recenter();return;}
+    var from=rail.scrollLeft,dist=x-from,t0=null,dur=Math.min(910,455+Math.abs(dist)*.18);
+    rail.style.scrollSnapType="none";
+    function step(t){
+      if(t0===null)t0=t;
+      var q=Math.min(1,(t-t0)/dur),e=q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2;
+      rail.scrollLeft=from+dist*e;
+      if(q<1){raf=requestAnimationFrame(step);}else{raf=0;rail.style.scrollSnapType="";busy=false;recenter();}
+    }
+    raf=requestAnimationFrame(step);
+  }
+  function go(i){
+    busy=true;pos=i;
+    setActive(((i%n)+n)%n);
+    slideTo(left(i));
+  }
+  /* いま見えているカードはどれか（指で動かしたあとの位置から数え直す） */
+  function nearest(){
+    var x=rail.scrollLeft,pd=pad(),best=pos,bd=1e9;
+    cards.forEach(function(c,i){var dd=Math.abs(c.offsetLeft-pd-x);if(dd<bd){bd=dd;best=i;}});
+    return best;
+  }
+  /* タブを押したら、今いる場所からいちばん近い同じカードへ */
+  function goTab(k){
+    var best=k+n,bd=1e9;
+    [k,k+n,k+2*n].forEach(function(c){var dd=Math.abs(c-pos);if(dd<bd){bd=dd;best=c;}});
+    go(best);
+  }
+  tabs.forEach(function(t,k){t.addEventListener("click",function(){goTab(k);});});
+
+  /* 時計：T ミリ秒ごとに次へ。触っている最中に時刻が来たら、指を離した瞬間に進める */
+  function advance(){if(!busy){pos=nearest();recenter();}go(pos+1);}
+  function tick(){last=Date.now();if(touching){pending=true;return;}advance();}
+  function start(){if(timer)return;last=Date.now();timer=setInterval(tick,T);show.classList.add("playing");setActive(pos%n);}
+  function stop(){if(!timer)return;clearInterval(timer);timer=0;pending=false;show.classList.remove("playing");}
+  function sync(){if(visible&&!userPaused)start();else stop();}
+
+  /* 指やマウスで動かして止まったら、いちばん近いカードに上の見出しを合わせる */
+  rail.addEventListener("scroll",function(){
+    clearTimeout(deb);
+    deb=setTimeout(function(){
+      if(busy||touching)return;
+      pos=nearest();
+      recenter();
+      if(!tabs[pos%n].classList.contains("is-on"))setActive(pos%n);
+    },160);
+  },{passive:true});
+  function down(){touching=true;stopSlide();}
+  function up(){
+    if(!touching)return;
+    touching=false;
+    if(pending&&timer){pending=false;advance();}
+  }
+  ["pointerdown","touchstart"].forEach(function(ev){rail.addEventListener(ev,down,{passive:true});});
+  ["pointerup","pointercancel","touchend","touchcancel"].forEach(function(ev){window.addEventListener(ev,up,{passive:true});});
+  rail.addEventListener("keydown",stopSlide);
+  window.addEventListener("resize",function(){if(!busy)jump(left(pos));});
+  pp.addEventListener("click",function(){
+    userPaused=!userPaused;
+    pp.setAttribute("aria-pressed",userPaused?"true":"false");
+    pp.setAttribute("aria-label",userPaused?"自動で動かす":"自動で動くのを止める");
+    sync();
+  });
+  if(reduce){pp.hidden=true;}
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){visible=es[0].isIntersecting;sync();},{threshold:.2}).observe(rail);
+  }else{visible=true;sync();}
+  jump(left(pos));
+  setActive(0);
 })();
 </script>
 <script>
