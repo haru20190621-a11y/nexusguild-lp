@@ -143,6 +143,17 @@ h2{font-weight:400;letter-spacing:-.04em;line-height:1.3;text-wrap:balance}
 .pp[aria-pressed="true"] i:first-child{width:0;height:0;margin-left:3px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #000;background:none}
 .pp[aria-pressed="true"] i:last-child{display:none}
 
+/* ---------- オートサイト（料金プランのページへの入口） ---------- */
+.as-sec{padding:clamp(72px,9vw,128px) 0 0}
+.as{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(20px,4vw,56px);padding:clamp(28px,5vw,64px);border-radius:var(--r);overflow:hidden;background:#1a1a1a;color:#fff}
+.as-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.as::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.55) 60%,rgba(0,0,0,.4))}
+.as .sec-no{color:#fff}
+.as h2{font-weight:300;font-size:clamp(26px,3.4vw,42px);letter-spacing:-.04em;line-height:1.3;margin-top:10px}
+.as p.tx{max-width:32em;margin-top:14px;font-size:15px;line-height:1.9}
+.as .btn{min-height:54px;padding:0 30px;white-space:nowrap}
+.as-cap{margin-top:8px;font-size:13px;color:var(--mute)}
+
 /* ---------- 03 進め方 ---------- */
 .steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px);list-style:none}
 .steps4 li{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
@@ -216,7 +227,8 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
 @media (max-width:639px){
   .top{min-height:64px}
   .lead span{display:inline}
-  .hero-cta .btn,.contact-cta .btn{width:100%}
+  .hero-cta .btn,.contact-cta .btn,.as .btn{width:100%}
+  .as{grid-template-columns:minmax(0,1fr)}
   .facts ul{grid-template-columns:minmax(0,1fr)}
   .concept-text{text-align:left;line-height:2}
   .concept-text span{display:inline}
@@ -262,6 +274,7 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
       <a class="hide-m" href="#concept">コンセプト</a>
       <a class="hide-m" href="#services">できること</a>
       <a class="hide-m" href="#method">進め方</a>
+      <a class="hide-m" href="autosite/plans/">料金</a>
       <a class="hide-m" href="blog/">記事</a>
       <a class="btn" href="#contact">相談する</a>
     </nav>
@@ -392,6 +405,21 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
   </div>
 </section>
 
+<section class="as-sec" id="autosite">
+  <div class="wrap">
+    <div class="as rv">
+      <img class="as-bg" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" decoding="async">
+      <div>
+        <p class="sec-no">オートサイト</p>
+        <h2>ホームページの記事を、<br>作って載せ続けます。</h2>
+        <p class="tx">お店のホームページに載せる記事を作り、途切れずに載せ続けるサービスです。記事は、公開の前にLINEでお届けします。</p>
+      </div>
+      <a class="btn" href="autosite/plans/">料金プランを見る</a>
+    </div>
+    <p class="as-cap">写真はイメージです</p>
+  </div>
+</section>
+
 <section class="sec method" id="method">
   <div class="wrap">
     <div class="sec-head rv">
@@ -459,6 +487,7 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
         <a href="#concept">コンセプト</a>
         <a href="#services">できること</a>
         <a href="#method">進め方</a>
+        <a href="autosite/plans/">料金プラン</a>
         <a href="blog/">記事</a>
         <a href="#contact">お問い合わせ</a>
         <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
