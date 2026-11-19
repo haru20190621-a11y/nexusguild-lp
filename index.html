@@ -9,7 +9,7 @@ if (/[?&](code|error)=/.test(location.search)) { location.replace("ig-callback/"
 <meta name="description" content="NexusGuild — 埼玉・上福岡の小さなスタジオ。お店のWebサイト、予約サイト、業務用の小さなアプリを、先に作ってお見せしています。">
 <title>NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）</title>
 <meta property="og:title" content="NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）">
-<meta property="og:description" content="提案書のかわりに、動くものを持っていきます。お店のWebサイト、予約サイト、アプリ。先に作って、お見せする。">
+<meta property="og:description" content="提案書のかわりに、動くものを持っていきます。お店のWebサイト、予約サイト、アプリ。先に作ってお見せする。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://haru20190621-a11y.github.io/nexusguild-lp/">
 <meta property="og:image" content="https://haru20190621-a11y.github.io/nexusguild-lp/og-image.png?v=2">
@@ -188,6 +188,7 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
 .foot{margin-top:clamp(64px,9vw,112px);padding-top:16px;border-top:1px solid var(--dline);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--dmute);text-align:left}
 .foot nav{display:flex;flex-wrap:wrap;gap:4px 22px}
 .foot a{display:inline-flex;align-items:center;min-height:40px}
+.foot-note{width:100%;margin-top:4px;font-size:12px;line-height:1.7;color:var(--dmute)}
 
 /* ---------- 動き ---------- */
 .js .hero-img{animation:zoom 16s var(--ease) both}
@@ -282,21 +283,20 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
   </header>
   <section class="wrap hero">
     <p class="kicker up">埼玉・上福岡の、小さなスタジオ</p>
-    <h1 class="up d1">先に作って、<br>お見せする。</h1>
+    <h1 class="up d1">先に作って<br>お見せする。</h1>
     <p class="lead up d2"><span>Webサイト、予約サイト、アプリ。</span><span>提案書のかわりに、動くものを持っていきます。</span></p>
     <div class="hero-cta up d3">
       <a class="btn" href="#services">できることを見る</a>
       <a class="btn ghost" href="#contact">相談する</a>
     </div>
   </section>
-  <p class="photo-cap">写真はイメージです</p>
 </div>
 
 <section class="facts">
   <div class="wrap">
     <ul>
       <li class="rv"><b>ご相談は無料</b><span>メールか、InstagramのDMで</span></li>
-      <li class="rv"><b>先に作って、お見せします</b><span>見ていただくところまでは、費用をいただきません</span></li>
+      <li class="rv"><b>先に作ってお見せします</b><span>見ていただくところまでは、費用をいただきません</span></li>
       <li class="rv"><b>24時間以内にご返信</b><span>「うちの店でもできるだろうか」の段階で構いません</span></li>
     </ul>
   </div>
@@ -320,7 +320,6 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
   <div class="wrap sec-head rv" id="services">
     <p class="sec-no">02　できること</p>
     <h2>できることは、3つ。</h2>
-    <p>画面は、実際に作ったものをもとにした見本です。</p>
   </div>
   <div class="tabs" role="tablist" aria-label="できること">
     <button type="button" class="tab is-on" role="tab" aria-selected="true"><i class="bar"></i><span>Webサイト</span></button>
@@ -401,7 +400,7 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
 
   </div>
   <div class="wrap show-foot">
-    <p class="cap">写真はイメージです。スマホの中の画面は、実際に作ったものをもとにした見本で、数字や日付は例です。</p>
+    <span></span>
     <button type="button" class="pp" aria-pressed="false" aria-label="自動で動くのを止める"><i></i><i></i></button>
   </div>
 </section>
@@ -417,7 +416,6 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
       </div>
       <a class="btn" href="autosite/plans/">料金プランを見る</a>
     </div>
-    <p class="as-cap">写真はイメージです</p>
   </div>
 </section>
 
@@ -493,6 +491,7 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
         <a href="#contact">お問い合わせ</a>
         <a href="https://x.com/aiharu_ng" target="_blank" rel="noopener">X — @aiharu_ng</a>
       </nav>
+      <p class="foot-note">写真はイメージです。「できること」のスマホの画面は、実際に作ったものをもとにした見本で、数字や日付は例です。</p>
     </footer>
   </div>
 </section>
@@ -631,6 +630,25 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
   }else{visible=true;sync();}
   jump(left(pos));
   setActive(0);
+})();
+</script>
+<script>
+/* 料金プランのページへ飛ぶときに、短い音を鳴らしてから移る（音の聞こえる部分は約0.6秒） */
+(function(){
+  var links=document.querySelectorAll('a[href="autosite/plans/"]');
+  if(!links.length||!window.Audio)return;
+  var snd=new Audio("assets/sound/menu-open.mp3");
+  snd.preload="auto";
+  [].forEach.call(links,function(a){
+    a.addEventListener("click",function(e){
+      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+      e.preventDefault();
+      var href=a.href,done=false;
+      function go(){if(done)return;done=true;location.href=href;}
+      try{snd.currentTime=0;var p=snd.play();if(p&&p.catch)p.catch(go);}catch(err){go();return;}
+      setTimeout(go,600);
+    });
+  });
 })();
 </script>
 <script>
