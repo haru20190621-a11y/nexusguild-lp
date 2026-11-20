@@ -206,7 +206,9 @@ figcaption{margin-top:8px;font-size:13px;color:var(--mute)}
 .contact{margin-top:clamp(80px,10vw,128px);background:#000;color:#fff;padding:clamp(72px,10vw,128px) 0 28px;text-align:center}
 .contact h2{font-weight:300;font-size:clamp(30px,4.4vw,56px);letter-spacing:-.05em;line-height:1.25}
 .contact p{margin-top:18px;text-wrap:balance}
-.contact .btn{margin-top:30px;min-height:54px;padding:0 34px}
+.contact-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.contact .btn{min-height:54px;padding:0 34px}
+.btn.ghost{background:transparent;color:#fff}
 .mail{display:inline-flex;align-items:center;min-height:40px}
 .foot{margin-top:clamp(64px,9vw,112px);padding-top:16px;border-top:1px solid var(--dline);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--dmute);text-align:left}
 .foot a{display:inline-flex;align-items:center;min-height:40px}
@@ -620,7 +622,10 @@ figcaption{margin-top:8px;font-size:13px;color:var(--mute)}
   <div class="wrap">
     <h2 class="rv">気になるところがあれば、<br>なんでもお聞きください。</h2>
     <p>これまでのLINEやDM、またはメールでどうぞ。</p>
-    <a class="btn" href="mailto:nexusguild.aiharu@gmail.com">メールで聞く</a>
+    <div class="contact-cta">
+      <a class="btn" href="mailto:nexusguild.aiharu@gmail.com">メールで聞く</a>
+      <a class="btn ghost" href="https://www.instagram.com/nexusguild.aiharu/" target="_blank" rel="noopener">Instagramで聞く</a>
+    </div>
     <p><a class="mail" href="mailto:nexusguild.aiharu@gmail.com">nexusguild.aiharu@gmail.com</a></p>
     <div class="foot">
       <span>© 2026 NexusGuild ／ オートサイト</span>
