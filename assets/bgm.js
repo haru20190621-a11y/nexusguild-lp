@@ -147,7 +147,7 @@
       ".ng-intro{position:fixed;inset:0;z-index:2147483000;visibility:visible;color:#fff;font-family:\"Noto Sans JP\",\"Hiragino Sans\",\"Yu Gothic\",sans-serif;-webkit-font-smoothing:antialiased}" +
       ".ng-half{position:absolute;left:0;right:0;height:50.5%;background:#000;transition:transform 1.05s cubic-bezier(.77,0,.18,1)}" +
       ".ng-half.a{top:0}.ng-half.b{bottom:0}" +
-      ".ng-intro.open .ng-half.a{transform:translateY(-101%)}.ng-intro.open .ng-half.b{transform:translateY(101%)}" +
+      ".ng-intro.open{pointer-events:none}.ng-intro.open .ng-half.a{transform:translateY(-101%)}.ng-intro.open .ng-half.b{transform:translateY(101%)}" +
       ".ng-box{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;transition:opacity .35s ease,transform .35s ease}" +
       ".ng-logo{display:flex;align-items:center;gap:12px;font-weight:300;font-size:clamp(30px,6vw,44px);letter-spacing:-.02em;line-height:1;opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .1s forwards}" +
       ".ng-mark{display:inline-flex;align-items:center;justify-content:center;width:1.05em;height:1.05em;border:1px solid currentColor;border-radius:.18em;font-family:\"Noto Serif JP\",\"Hiragino Mincho ProN\",\"Yu Mincho\",serif;font-weight:500;font-size:.8em}" +
