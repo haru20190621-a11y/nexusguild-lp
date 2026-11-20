@@ -6,7 +6,8 @@
      鳴らせなかったときは、最初にどこかを押した・キーを押した瞬間から流す
    - ページを移っても続きから流れるように、再生位置を sessionStorage に残す
    - 右下のボタンで止められる。止めたことは localStorage に残し、次からは流さない
-   - タブを裏に回したら止め、戻ったら続きから流す */
+   - タブを裏に回したら止め、戻ったら続きから流す
+   - 音楽つきのページどうしを移るときは、ページを読み直さずに中身だけ入れ替えるので、音楽が途切れない（下の「ページを移っても音楽を止めない」） */
 (function () {
   "use strict";
   var me = document.currentScript;
@@ -45,10 +46,12 @@
     ".bgm-btn[aria-pressed=false] .w{opacity:0}" +
     ".bgm-btn[aria-pressed=true] .x{opacity:0}" +
     "@media print{.bgm-btn{display:none}}";
+  css.setAttribute("data-ng-keep", "");   // ページの中身を入れ替えるときも残すもの
   document.head.appendChild(css);
   var btn = document.createElement("button");
   btn.type = "button";
   btn.className = "bgm-btn";
+  btn.setAttribute("data-ng-keep", "");
   btn.innerHTML =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none"/>' +
@@ -169,6 +172,7 @@
       "@keyframes ngUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}" +
       "@keyframes ngGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}50%{box-shadow:0 0 22px 2px rgba(255,255,255,.22)}}" +
       "@media (prefers-reduced-motion:reduce){.ng-logo,.ng-sub,.ng-enter,.ng-note,.ng-quiet{animation:none;opacity:1}}";
+    gcss.setAttribute("data-ng-keep", "");
     document.head.appendChild(gcss);
 
     var g = document.createElement("div");
@@ -240,6 +244,151 @@
     enterBtn.addEventListener("click", function () { enter(true); });
     g.querySelector(".ng-quiet").addEventListener("click", function () { enter(false); });
   }
+
+  /* ---------- ページを移っても音楽を止めない（ハル 2026-11-21「料金タブへのクリックをボタンとして音楽が自動で流れるようにできないかな。
+     サイトの音をうざったいと感じた人が止めるのはいいんだけど、自分から付けるのは違うからさ」）
+     iPhone などは、新しく開いたページでは、もう一度タップするまで音を出させない。だから普通にページを移ると、料金ページで音楽が止まる。
+     そこで、音楽つきのページ（この bgm.js を読んでいるページ）どうしを移るときは、ページを読み直さず、
+     白い幕を一瞬かけて、その裏で中身だけを新しいページに入れ替える。音楽は同じページで鳴り続けるので途切れない。
+     戻る・進むボタンにも対応する。うまくいかないとき・音楽の無いページへは、今までどおり普通に移る。 */
+  var siteRoot = new URL("../", me.src);
+  var veil = null, navBusy = false;
+  function keyOf(u) { return u.pathname.replace(/index\.html$/, ""); }
+  var curKey = keyOf(location);
+  function ours(u) {
+    return u.origin === location.origin && !u.search && u.pathname.indexOf(siteRoot.pathname) === 0 &&
+      /(\/|\.html)$/.test(u.pathname);
+  }
+  function veilOn(on) {
+    if (!veil) {
+      var vcss = document.createElement("style");
+      vcss.setAttribute("data-ng-keep", "");
+      vcss.textContent =
+        ".ng-veil{position:fixed;inset:0;z-index:2147482000;background:#fff;opacity:0;pointer-events:none;transition:opacity .28s ease}" +
+        ".ng-veil.on{opacity:1;pointer-events:auto}" +
+        "@media (prefers-reduced-motion:reduce){.ng-veil{transition:none}}";
+      document.head.appendChild(vcss);
+      veil = document.createElement("div");
+      veil.className = "ng-veil";
+      veil.setAttribute("data-ng-keep", "");
+      veil.setAttribute("aria-hidden", "true");
+      document.body.appendChild(veil);
+      void veil.offsetWidth;   // 幕がふわっと出るように、透明な状態をいったん確定させる
+    }
+    veil.classList.toggle("on", on);
+  }
+  function scrollNow(y, el) {
+    var b = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";   // ページの「なめらかに動く」設定を、入れ替えの瞬間だけ外す
+    if (el) el.scrollIntoView(); else window.scrollTo(0, y || 0);
+    root.style.scrollBehavior = b;
+  }
+  function swap(doc, href, push, y) {
+    if (push) history.pushState({ ngY: 0 }, "", href);   // 先に住所を変える（新しい中身の写真などが、新しい住所から読み込まれるように）
+    curKey = keyOf(location);
+
+    /* <head>：同じものは残し、違うもの（題名・説明・ページの見た目）だけ入れ替える。script は動かし直さない */
+    var head = document.head, keepAt = head.querySelector("[data-ng-keep]");
+    var next = [].filter.call(doc.head.children, function (n) { return n.tagName !== "SCRIPT"; });
+    var nextHtml = next.map(function (n) { return n.outerHTML; });
+    [].slice.call(head.children).forEach(function (n) {
+      if (n.tagName === "SCRIPT" || n.hasAttribute("data-ng-keep")) return;
+      var i = nextHtml.indexOf(n.outerHTML);
+      if (i >= 0) nextHtml[i] = null; else head.removeChild(n);
+    });
+    next.forEach(function (n, i) { if (nextHtml[i] !== null) head.insertBefore(document.importNode(n, true), keepAt); });
+
+    /* <body>：音楽のボタンと幕だけ残して、中身を入れ替える。ページの script は、最初に開いたときと同じ順に動かす */
+    var body = document.body, nb = doc.body;
+    [].slice.call(body.attributes).forEach(function (a) { body.removeAttribute(a.name); });
+    [].forEach.call(nb.attributes, function (a) { body.setAttribute(a.name, a.value); });
+    [].slice.call(body.childNodes).forEach(function (n) {
+      if (!(n.nodeType === 1 && n.hasAttribute("data-ng-keep"))) body.removeChild(n);
+    });
+    var at = body.firstChild;
+    [].slice.call(nb.childNodes).forEach(function (n) {
+      if (n.nodeName !== "SCRIPT") { body.insertBefore(document.importNode(n, true), at); return; }
+      if (/assets\/bgm\.js/.test(n.getAttribute("src") || "")) return;   // この仕組み自体は動かし直さない
+      var s = document.createElement("script");
+      [].forEach.call(n.attributes, function (a) { s.setAttribute(a.name, a.value); });
+      if (s.src) s.async = false; else s.text = n.text;
+      body.insertBefore(s, at);
+    });
+
+    var hash = new URL(href, location.href).hash, el = null;
+    if (hash) { try { el = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) {} }
+    scrollNow(y, el);
+    requestAnimationFrame(function () { scrollNow(y, el); });   // 前のページでなめらかに動いている途中に押されたときの、動きの残りを打ち消す
+  }
+  /* 戻る・進むで、そのページを見ていた高さへ戻す。ブラウザ任せにすると、入れ替える前の中身の上で勝手に動いて高さがずれるので、
+     一度入れ替えたら、高さはこちらで覚えて戻す（止まって0.2秒たった高さを、その履歴に書いておく） */
+  var taken = false, trackT = 0;
+  function rememberNow() {
+    try {
+      var s = history.state && typeof history.state === "object" ? history.state : {}, o = {};
+      for (var k in s) o[k] = s[k];
+      o.ngY = window.scrollY;
+      history.replaceState(o, "");
+    } catch (e) {}
+  }
+  window.addEventListener("scroll", function () {
+    clearTimeout(trackT);
+    trackT = setTimeout(function () { if (!navBusy) rememberNow(); }, 200);
+  }, { passive: true });
+  try {
+    if (history.scrollRestoration === "manual" && history.state && typeof history.state.ngY === "number") {
+      window.addEventListener("load", function () { scrollNow(history.state.ngY); });   // 入れ替えたあとのページを読み直したとき
+    }
+  } catch (e) {}
+  function go(href, push, y) {
+    if (navBusy) return true;
+    navBusy = true;
+    clearTimeout(trackT);
+    if (push) rememberNow();   // 戻ったときに、同じ高さへ戻すため
+    if (!taken) { taken = true; try { history.scrollRestoration = "manual"; } catch (e) {} }
+    var t0 = Date.now();
+    function fallback() {
+      if (!push || keyOf(location) === keyOf(new URL(href, location.href))) location.reload(); else location.href = href;
+    }
+    veilOn(true);
+    fetch(href, { credentials: "same-origin" })
+      .then(function (r) { if (!r.ok) throw new Error("status"); return r.text(); })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        if (!doc.querySelector('script[src*="assets/bgm.js"]')) throw new Error("no-bgm");   // 音楽の無いページは普通に移る
+        setTimeout(function () {
+          try { swap(doc, href, push, y); } catch (e) { fallback(); return; }
+          requestAnimationFrame(function () { veilOn(false); });
+          navBusy = false;
+          if (keyOf(location) !== curKey) go(location.href, false, 0);   // 入れ替えの最中に「戻る」が押されていたら、そちらへ
+        }, Math.max(0, 300 - (Date.now() - t0)));
+      })
+      .catch(fallback);
+    return true;
+  }
+  /* トップの「料金」の効果音の仕組みからも呼ぶ。引き受けたら true を返す */
+  window.__ngNav = function (href) {
+    var u;
+    try { u = new URL(href, location.href); } catch (e) { return false; }
+    if (!window.fetch || !window.DOMParser || !history.pushState || !ours(u) || keyOf(u) === curKey) return false;
+    return go(u.href, true, 0);
+  };
+  document.addEventListener("click", function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a || (a.target && a.target !== "_self") || a.hasAttribute("download")) return;
+    if (window.__ngNav(a.href)) e.preventDefault();
+  });
+  window.addEventListener("popstate", function (e) {
+    if (navBusy) return;
+    var y = e.state && typeof e.state.ngY === "number" ? e.state.ngY : null;
+    if (keyOf(location) !== curKey) { go(location.href, false, y || 0); return; }
+    /* 同じページの中の移動（#contact など）。高さをこちらで預かっているときだけ、こちらで戻す */
+    if (!taken) return;
+    var el = null;
+    if (y === null && location.hash) { try { el = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (er) {} }
+    if (y !== null || el) scrollNow(y, el);
+  });
 
   if (root.classList.contains("ng-gate")) {
     if (document.body) buildGate(); else document.addEventListener("DOMContentLoaded", buildGate);
