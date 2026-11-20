@@ -1,5 +1,6 @@
 /* サイト全体のBGM（ハル 2026-11-20「サイトに来るとこの音源が小さく流れるようにしてほしい。どのページでも」）
-   曲: BGMer「角砂糖をもうひとつ」（https://bgmer.net/ 商用利用可・クレジット任意）
+   曲: BGMer「受け継がれゆく心」ロング版（https://bgmer.net/ 商用利用可・クレジット任意）
+   ハル 2026-11-20「やっぱこっちに変更でお願い」で「角砂糖をもうひとつ」から差し替え。約11分・64kbps モノラル
    - ブラウザは、見ている人がまだ何も操作していないページで音を鳴らすのを止めるので、
      鳴らせなかったときは、最初にどこかを押した・キーを押した瞬間から流す
    - ページを移っても続きから流れるように、再生位置を sessionStorage に残す
@@ -9,7 +10,7 @@
   "use strict";
   var me = document.currentScript;
   if (!me || !window.Audio) return;
-  var SRC = new URL("sound/bgm.mp3", me.src).href;
+  var SRC = new URL("sound/bgm-2.mp3", me.src).href;
   var VOL = 0.12;            // 小さく
   var KEY_OFF = "ng-bgm-off";
   var KEY_POS = "ng-bgm-pos";
@@ -21,7 +22,7 @@
   var audio = new Audio();
   audio.src = SRC;
   audio.loop = true;
-  audio.preload = "auto";
+  audio.preload = "metadata";   // 長い曲なので、流し始めるまで全部は読み込まない
   audio.volume = 0;
 
   var off = get("localStorage", KEY_OFF) === "1";
