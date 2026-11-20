@@ -15,6 +15,7 @@
   var VOL = 1;               // 曲そのものを小さく作ってあるので、仕組みでは下げない
   var KEY_OFF = "ng-bgm-off";
   var KEY_POS = "ng-bgm-pos";
+  var KEY_ENTERED = "ng-entered";   // 入口の「サイトに入る」を押したか（同じタブのあいだ）
 
   function get(store, k) { try { return window[store].getItem(k); } catch (e) { return null; } }
   function set(store, k, v) { try { window[store].setItem(k, v); } catch (e) {} }
@@ -105,7 +106,7 @@
 
   /* 最初の操作で流す（ボタン自体を押したときは、ボタンの処理に任せる） */
   function firstTouch(e) {
-    if (e && e.target && e.target.closest && e.target.closest(".bgm-btn")) return;
+    if (e && e.target && e.target.closest && e.target.closest(".bgm-btn, .ng-intro")) return;
     if (!off && audio.paused) play();
   }
   var FIRST = ["pointerdown", "pointerup", "keydown", "touchend", "click"];
@@ -133,5 +134,116 @@
   });
   setInterval(savePos, 2000);
 
-  if (!off) play();
+  /* ---------- 入口（ハル 2026-11-20「サイトへ飛んだらボタンをクリック。充電ゲージがたまる感じにして、溜まったらおしゃれなエフェクトで今のサイトが現れる感じにしてみて」）
+     ブラウザは、見ている人が一度タップするまで音を出させないので、最初に「サイトに入る」を押してもらい、その押した瞬間に音楽を流し始める。
+     押すと、細い充電のゲージが 0→100% までたまり、たまったゲージが横いっぱいに伸びて、その線から上下に黒い幕が開いてサイトが現れる。
+     同じタブで一度入ったら、ほかのページへ移っても出さない（sessionStorage）。
+     ページの <head> の小さな仕掛けが、入る前はページを隠しておく（html.ng-gate）。 */
+  window.__ngGateReady = true;
+  var root = document.documentElement;
+  function buildGate() {
+    var gcss = document.createElement("style");
+    gcss.textContent =
+      ".ng-intro{position:fixed;inset:0;z-index:2147483000;visibility:visible;color:#fff;font-family:\"Noto Sans JP\",\"Hiragino Sans\",\"Yu Gothic\",sans-serif;-webkit-font-smoothing:antialiased}" +
+      ".ng-half{position:absolute;left:0;right:0;height:50.5%;background:#000;transition:transform 1.05s cubic-bezier(.77,0,.18,1)}" +
+      ".ng-half.a{top:0}.ng-half.b{bottom:0}" +
+      ".ng-intro.open .ng-half.a{transform:translateY(-101%)}.ng-intro.open .ng-half.b{transform:translateY(101%)}" +
+      ".ng-box{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;transition:opacity .35s ease,transform .35s ease}" +
+      ".ng-logo{display:flex;align-items:center;gap:12px;font-weight:300;font-size:clamp(30px,6vw,44px);letter-spacing:-.02em;line-height:1;opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .1s forwards}" +
+      ".ng-mark{display:inline-flex;align-items:center;justify-content:center;width:1.05em;height:1.05em;border:1px solid currentColor;border-radius:.18em;font-family:\"Noto Serif JP\",\"Hiragino Mincho ProN\",\"Yu Mincho\",serif;font-weight:500;font-size:.8em}" +
+      ".ng-sub{font-size:13px;font-weight:500;letter-spacing:.14em;color:rgba(255,255,255,.75);opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .25s forwards}" +
+      ".ng-enter{position:relative;margin-top:14px;min-height:54px;min-width:220px;padding:0 34px;border:1px solid rgba(255,255,255,.85);border-radius:4px;background:transparent;color:#fff;font:500 15px/1 \"Noto Sans JP\",\"Hiragino Sans\",sans-serif;letter-spacing:.12em;cursor:pointer;opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .45s forwards,ngGlow 2.4s ease-in-out 1.4s infinite;transition:background .25s,color .25s}" +
+      ".ng-enter:hover,.ng-enter:focus-visible{background:#fff;color:#000;outline:none}" +
+      ".ng-note{font-size:12px;color:rgba(255,255,255,.6);opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .6s forwards}" +
+      ".ng-quiet{min-height:40px;padding:0 10px;border:0;background:none;color:rgba(255,255,255,.6);font:400 12px/1 \"Noto Sans JP\",\"Hiragino Sans\",sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer;opacity:0;animation:ngUp .9s cubic-bezier(.2,.7,.2,1) .7s forwards}" +
+      ".ng-quiet:hover,.ng-quiet:focus-visible{color:#fff;outline:none}" +
+      ".ng-intro.charging .ng-box{opacity:0;transform:scale(.97);pointer-events:none}" +
+      ".ng-charge{position:absolute;left:50%;top:50%;width:min(320px,70vw);transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .3s ease .15s,width .5s cubic-bezier(.7,0,.2,1)}" +
+      ".ng-intro.charging .ng-charge{opacity:1}" +
+      ".ng-intro.full .ng-charge{width:100vw;transition:width .5s cubic-bezier(.7,0,.2,1)}" +
+      ".ng-intro.open .ng-charge{opacity:0;transition:opacity .4s ease}" +
+      ".ng-gauge{position:relative;height:2px;background:rgba(255,255,255,.16);overflow:hidden}" +
+      ".ng-fill{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left center;box-shadow:0 0 12px rgba(255,255,255,.9)}" +
+      ".ng-pct{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;font-weight:300;letter-spacing:.22em;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums;transition:opacity .25s}" +
+      ".ng-intro.full .ng-pct{opacity:0}" +
+      "@keyframes ngUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}" +
+      "@keyframes ngGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}50%{box-shadow:0 0 22px 2px rgba(255,255,255,.22)}}" +
+      "@media (prefers-reduced-motion:reduce){.ng-logo,.ng-sub,.ng-enter,.ng-note,.ng-quiet{animation:none;opacity:1}}";
+    document.head.appendChild(gcss);
+
+    var g = document.createElement("div");
+    g.className = "ng-intro";
+    g.setAttribute("role", "dialog");
+    g.setAttribute("aria-modal", "true");
+    g.setAttribute("aria-label", "NexusGuild の入口");
+    g.innerHTML =
+      '<div class="ng-half a"></div><div class="ng-half b"></div>' +
+      '<div class="ng-box">' +
+      '<p class="ng-logo"><span class="ng-mark" aria-hidden="true">N</span>NexusGuild</p>' +
+      '<p class="ng-sub">埼玉・上福岡の、小さなスタジオ</p>' +
+      '<button type="button" class="ng-enter">サイトに入る</button>' +
+      '<p class="ng-note">音楽が小さく流れます</p>' +
+      '<button type="button" class="ng-quiet">音を出さずに入る</button>' +
+      '</div>' +
+      '<div class="ng-charge" aria-hidden="true"><div class="ng-gauge"><i class="ng-fill"></i></div><p class="ng-pct"><span>CHARGING</span><span class="n">0%</span></p></div>';
+    document.body.appendChild(g);
+    var enterBtn = g.querySelector(".ng-enter");
+    try { enterBtn.focus({ preventScroll: true }); } catch (e) {}
+
+    var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    var going = false;
+    function finish() {
+      root.classList.remove("ng-gate");
+      if (g.parentNode) g.parentNode.removeChild(g);
+    }
+    function reveal() {
+      g.classList.add("full");
+      setTimeout(function () {
+        root.classList.remove("ng-gate");   // 幕の向こうでページを見せ、止めていた最初の動きを動かす
+        g.classList.add("open");
+        setTimeout(finish, 1150);
+      }, 520);
+    }
+    /* たまり方：少しずつ・途中で一息ついて・最後は一気に（約1.8秒） */
+    function curve(t) {
+      if (t < 0.5) return 0.62 * (1 - Math.pow(1 - t / 0.5, 2));
+      if (t < 0.68) return 0.62 + 0.08 * ((t - 0.5) / 0.18);
+      var u = (t - 0.68) / 0.32;
+      return 0.70 + 0.30 * (u * u * (3 - 2 * u));
+    }
+    function charge() {
+      var fill = g.querySelector(".ng-fill"), num = g.querySelector(".ng-pct .n");
+      var t0 = null, DUR = 1800;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var t = Math.min(1, (ts - t0) / DUR), v = curve(t);
+        fill.style.transform = "scaleX(" + v.toFixed(4) + ")";
+        num.textContent = Math.round(v * 100) + "%";
+        if (t < 1) requestAnimationFrame(step); else reveal();
+      }
+      requestAnimationFrame(step);
+    }
+    function enter(withSound) {
+      if (going) return;
+      going = true;
+      set("sessionStorage", KEY_ENTERED, "1");
+      if (withSound) {
+        if (off) { off = false; del("localStorage", KEY_OFF); }
+        play();                                   // 押した瞬間なので、どのブラウザでも鳴らせる
+      } else {
+        off = true; set("localStorage", KEY_OFF, "1"); show(false);
+      }
+      if (reduce) { finish(); return; }
+      g.classList.add("charging");
+      charge();
+    }
+    enterBtn.addEventListener("click", function () { enter(true); });
+    g.querySelector(".ng-quiet").addEventListener("click", function () { enter(false); });
+  }
+
+  if (root.classList.contains("ng-gate")) {
+    if (document.body) buildGate(); else document.addEventListener("DOMContentLoaded", buildGate);
+  } else if (!off) {
+    play();
+  }
 })();

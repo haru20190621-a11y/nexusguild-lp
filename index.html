@@ -6,6 +6,8 @@
 if (/[?&](code|error)=/.test(location.search)) { location.replace("ig-callback/" + location.search); }</script>
 <script>document.documentElement.className+=' js';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(!sessionStorage.getItem("ng-entered")){document.documentElement.classList.add("ng-gate");setTimeout(function(){if(!window.__ngGateReady)document.documentElement.classList.remove("ng-gate")},6000)}}catch(e){}</script>
+<style>html.ng-gate{background:#000;overflow:hidden}html.ng-gate body{visibility:hidden}html.ng-gate .up,html.ng-gate .hero-img{animation-play-state:paused}</style>
 <meta name="description" content="NexusGuild — 埼玉・上福岡の小さなスタジオ。お店のWebサイト、予約サイト、業務用の小さなアプリを、先に作ってお見せしています。">
 <title>NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）</title>
 <meta property="og:title" content="NexusGuild｜Webサイト・予約サイト・アプリの制作（埼玉・上福岡）">
@@ -667,6 +669,6 @@ h3{font-size:19px;font-weight:500;line-height:1.5;letter-spacing:-.02em}
   }).catch(function(){});
 })();
 </script>
-<script src="assets/bgm.js?v=3" defer></script>
+<script src="assets/bgm.js?v=4" defer></script>
 </body>
 </html>
