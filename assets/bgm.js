@@ -1,6 +1,7 @@
 /* サイト全体のBGM（ハル 2026-11-20「サイトに来るとこの音源が小さく流れるようにしてほしい。どのページでも」）
    曲: BGMer「受け継がれゆく心」ロング版（https://bgmer.net/ 商用利用可・クレジット任意）
    ハル 2026-11-20「やっぱこっちに変更でお願い」で「角砂糖をもうひとつ」から差し替え。約11分・64kbps モノラル
+   iPhone は音量を仕組みから下げられない（いつも最大）ので、曲そのものを 0.12 倍の小さい音で作ってある（bgm-3.mp3）
    - ブラウザは、見ている人がまだ何も操作していないページで音を鳴らすのを止めるので、
      鳴らせなかったときは、最初にどこかを押した・キーを押した瞬間から流す
    - ページを移っても続きから流れるように、再生位置を sessionStorage に残す
@@ -10,8 +11,8 @@
   "use strict";
   var me = document.currentScript;
   if (!me || !window.Audio) return;
-  var SRC = new URL("sound/bgm-2.mp3", me.src).href;
-  var VOL = 0.12;            // 小さく
+  var SRC = new URL("sound/bgm-3.mp3", me.src).href;
+  var VOL = 1;               // 曲そのものを小さく作ってあるので、仕組みでは下げない
   var KEY_OFF = "ng-bgm-off";
   var KEY_POS = "ng-bgm-pos";
 
@@ -35,7 +36,10 @@
     ".bgm-btn{position:fixed;z-index:60;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));" +
     "display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(0,0,0,.18);border-radius:50%;" +
     "background:rgba(255,255,255,.92);color:#111;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}" +
-    ".bgm-btn svg{width:20px;height:20px;display:block}" +
+    ".bgm-btn svg{width:20px;height:20px;display:block;flex:0 0 auto}" +
+    ".bgm-btn .tx{display:none;font:500 13px/1 \"Noto Sans JP\",\"Hiragino Sans\",\"Yu Gothic\",sans-serif;letter-spacing:.02em;white-space:nowrap}" +
+    ".bgm-btn.wait{width:auto;gap:8px;padding:0 16px 0 14px;border-radius:22px}" +
+    ".bgm-btn.wait .tx{display:inline}" +
     ".bgm-btn .w{transition:opacity .2s}" +
     ".bgm-btn[aria-pressed=false] .w{opacity:0}" +
     ".bgm-btn[aria-pressed=true] .x{opacity:0}" +
@@ -48,8 +52,10 @@
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="none"/>' +
     '<path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>' +
-    '<path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
+    '<path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg><span class="tx">音楽を流す</span>';
   function show(playing) {
+    /* 流したいのに、まだタップが無くて鳴らせないときだけ「音楽を流す」と出す（自分で止めた人には出さない） */
+    btn.classList.toggle("wait", !playing && !off);
     btn.setAttribute("aria-pressed", playing ? "true" : "false");
     btn.setAttribute("aria-label", playing ? "音楽を止める" : "音楽を流す");
     btn.title = playing ? "音楽を止める" : "音楽を流す";
@@ -102,11 +108,12 @@
     if (e && e.target && e.target.closest && e.target.closest(".bgm-btn")) return;
     if (!off && audio.paused) play();
   }
-  ["pointerdown", "keydown", "touchend"].forEach(function (ev) {
+  var FIRST = ["pointerdown", "pointerup", "keydown", "touchend", "click"];
+  FIRST.forEach(function (ev) {
     document.addEventListener(ev, firstTouch, { capture: true, passive: true });
   });
   audio.addEventListener("playing", function () {
-    ["pointerdown", "keydown", "touchend"].forEach(function (ev) {
+    FIRST.forEach(function (ev) {
       document.removeEventListener(ev, firstTouch, { capture: true });
     });
   });
@@ -118,6 +125,12 @@
     else if (wasPlaying && !off) { audio.play().catch(function () { show(false); }); }
   });
   window.addEventListener("pagehide", savePos);
+  window.addEventListener("pageshow", function (e) {
+    if (!e.persisted || off) return;
+    var p = parseFloat(get("sessionStorage", KEY_POS));
+    if (p > 0 && isFinite(p)) { try { audio.currentTime = audio.duration ? p % audio.duration : p; } catch (er) {} }
+    if (audio.paused) play();
+  });
   setInterval(savePos, 2000);
 
   if (!off) play();
