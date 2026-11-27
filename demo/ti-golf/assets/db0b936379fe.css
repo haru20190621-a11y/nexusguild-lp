@@ -1,0 +1,314 @@
+@charset "UTF-8";
+/*-- wp_default_css ビジュアルエディターで使用するものをサイト内ページに反映させる --*/
+/*--
+2分割横並びレイアウト
+3分割横並びレイアウト
+テキストを左に、画像を右に配置するレイアウト
+テキストを右に、画像を左に配置するレイアウト
+Wordドキュメントの貼付けエリア
+--*/
+dl.wp-caption {display: inline-block !important;}
+p {word-break: break-all;}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img.alignleft {
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+img.alignright {
+  float: right;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+ul.listStyleNone,
+ol.listStyleNone {
+   list-style:none;
+   margin: 0;
+   padding: 0;
+}
+ul.listStyleNone li,
+ol.listStyleNone li {
+   list-style:none;
+}
+/*-- クライアントが使用するリスト --*/
+
+ul.client_custom,
+ol.client_custom {
+  list-style: inherit;
+  padding-left: 20px;
+}
+
+ul.client_custom li,
+ol.client_custom li{
+  list-style: inherit;
+}
+p, div, td {vertical-align: middle;}
+/*-- 2分割横並びレイアウト --*/
+table.clientTable.table2Clm {
+  table-layout: fixed;
+  width: 100%;
+  max-width: 722px;
+}
+table.clientTable.table2Clm td {text-align: center;}
+table.clientTable.table2Clm td.clm1,
+table.clientTable.table2Clm td.clm2 {
+  padding: 5px 5px 0;
+  vertical-align: bottom;
+  width: 50%;
+}
+table.clientTable.table2Clm td.clm3,
+table.clientTable.table2Clm td.clm4 {
+  padding: 0 5px;
+  text-align: left;
+  vertical-align: top;
+  width: 50%;
+}
+table.clientTable.table2Clm td.clm1 img,
+table.clientTable.table2Clm td.clm2 img {
+  display: inline-block;
+  height: auto;
+  margin: 0 0 20px;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+@media only screen and (max-width: 768px) {
+  table.clientTable.table2Clm td.clm2{margin-top: 50px !important;}
+}
+@media only screen and (max-width: 640px) {
+  table.clientTable.table2Clm td.clm1,
+  table.clientTable.table2Clm td.clm2,
+  table.clientTable.table2Clm td.clm3,
+  table.clientTable.table2Clm td.clm4 {
+    display: block;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+  }
+  
+  table.clientTable.table2Clm td.clm1 img,
+  table.clientTable.table2Clm td.clm2 img {
+    height: auto;
+    width: 90%;
+    max-width: 90%;
+  }
+  
+  table.clientTable.table2Clm img {
+    height: auto;
+    margin: 0 !important;
+  }
+  
+  table.clientTable.table2Clm td.clm3,
+  table.clientTable.table2Clm td.clm4 {margin-top: 20px;}
+}
+/*-- （旧）3分割横並びレイアウト --*/
+table.clientTable.table3Clm {table-layout: fixed;}
+table.clientTable.table3Clm td.clm1,
+table.clientTable.table3Clm td.clm2,
+table.clientTable.table3Clm td.clm3 {
+  padding: 0 5px;
+  vertical-align: bottom;
+  width: 33%;
+}
+table.clientTable.table3Clm td.clm2 p,
+table.clientTable.table3Clm td.clm3 a {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+table.clientTable.table3Clm td.clm1 img,
+table.clientTable.table3Clm td.clm2 img,
+table.clientTable.table3Clm td.clm3 img {
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+@media only screen and (max-width: 640px) {
+  table.clientTable.table3Clm {
+    width: 100%;
+  }
+  
+  table.clientTable.table3Clm td.clm1,
+  table.clientTable.table3Clm td.clm2,
+  table.clientTable.table3Clm td.clm3 {
+    display: block;
+    margin: auto;
+    padding: 0  0 20px ;
+    text-align: center;
+    width: 100%;
+  }
+  
+  table.clientTable.table3Clm td img {
+    height: auto;
+    margin: 0  auto !important;
+    width: 90%;
+    max-width: 100%;
+  }
+}
+/*-- （旧）テキストを左に、画像を右に配置するレイアウト, テキストを右に、画像を左に配置するレイアウト --*/
+table.clientTable td.imgCell,
+table.clientTable td.textCell {vertical-align: top;}
+table.textLeftImgRight td.textCell {
+  margin: 0;
+  padding-right: 20px;
+}
+table.textRightImgLeft td.textCell {
+  margin: 0;
+  padding-left: 20px;
+}
+table.clientTable.textRightImgLeft td.imgCell,
+table.clientTable.textLeftImgRight td.imgCell {min-width: 40px;}
+table.clientTable.textRightImgLeft td.imgCell img,
+table.clientTable.textLeftImgRight td.imgCell img {
+  max-width: 320px;
+  height: auto;
+}
+@media only screen and (max-width: 970px) {
+    table.clientTable.textRightImgLeft td.imgCell img,
+    table.clientTable.textLeftImgRight td.imgCell img {
+    max-width: 270px;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 640px) {
+  table.clientTable {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  table.clientTable td.imgCell,
+  table.clientTable td.textCell {display: block;}
+  table.clientTable td.imgCell a {
+    max-width: 100%;
+    height: auto;
+  }
+  
+    table.clientTable.textRightImgLeft td.imgCell img,
+    table.clientTable.textLeftImgRight td.imgCell img {
+      height: auto;
+      width: 90%;
+      max-width: 90%;
+  }
+  
+  table.textRightImgLeft td.imgCell {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    min-width: 100px;
+  }
+ 
+   table.textRightImgLeft td.textCell {
+    margin: 20px 0 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  table.textLeftImgRight td.imgCell {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    min-width: 100px;
+  }
+  
+  table.textLeftImgRight td.textCell {
+    margin: 20px 0 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+}
+/*-- Wordドキュメントの貼付けエリア --*/
+table.clientTable.wordDocArea table {
+  border-right: 1px solid #888;
+  border-top: 1px solid #888;
+  border-collapse: separate;
+  border-spacing: 0;  
+}
+table.clientTable.wordDocArea table td{
+  border-bottom: 1px solid #888;
+  border-left: 1px solid #888;
+}
+.tmpl img {max-width: 96% !important;}
+.tmpl .wp-caption {max-width: 100% !important;}
+#mceTemplatePreview {
+  border: none;
+  margin: 0
+}
+.tmpl {
+  border-spacing: 3px;
+  table-layout: fixed; 
+  width: 100%;
+}
+/*-- （新）テキストを左に、画像を右に配置するレイアウト, テキストを右に、画像を左に配置するレイアウト --*/
+.tmpl.clm2-1 .clm,
+.tmpl.clm2-2 .clm {
+  padding: 15px 18px;
+  width: 50%
+}
+.tmpl.clm2-1 .clm.textCell,
+.tmpl.clm2-2 .clm.textCell {vertical-align: top;}
+@media screen and (max-width: 640px) {
+  .tmpl {
+    border-spacing: 1px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .tmpl.clm2-1,
+  .tmpl.clm2-2 {direction: inherit;}
+  
+  .tmpl.clm2-1 .clm,
+	.tmpl.clm2-2 .clm {
+    display: block;
+    margin-top: 10px;
+    padding: 2px;
+    width: 100%;
+  }
+  
+  .tmpl.clm2-1 .clm:first-child,
+	.tmpl.clm2-2 .clm:first-child {margin-top: 0;}
+}
+/*-- （新）3分割横並びレイアウト --*/
+.tmpl.clm3-1 .clm {
+  padding: 10px;
+  vertical-align: baseline;
+  width: 33%;
+  max-width: 33%;
+}
+@media screen and (max-width: 640px) {
+  .tmpl.clm3-1 {border-spacing: 1px;}
+  
+  .tmpl.clm3-1 .clm {
+    display: block;
+    margin-top: 10px;
+    padding: 2px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .tmpl.clm3-1 .clm:first-child {margin-top: 0;}
+  
+  .tmpl.clm3-1 .clm img{width: 96%;}
+}
+/*携帯投稿時(Ktai Entry)の画像サイズ指定*/
+.ke-photo {max-width: 500px;}
+.ke-photo img{max-width: 100%; height: auto; display: block; margin-bottom: 20px;}
+/*-- 動画貼り付けプラグイン Advanced Responsive Video Embedder --*/
+.arve-wrapper {
+  margin-left: auto;
+	margin-right: auto;
+}
+/*-- #wp-admin-bar-root-default ログイン時サイト上部に表示される管理者メニュー -- */
+#wpadminbar #wp-admin-bar-new-tinymcetemplates {display: none;}

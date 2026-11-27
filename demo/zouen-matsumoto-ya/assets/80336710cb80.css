@@ -1,0 +1,3263 @@
+@charset "UTF-8";
+/*
+Theme Name: zouen-matsumoto-ya.com
+Version: 1.0.0
+Author: ICC Co.Ltd.
+License: ICC Co.Ltd.
+*/
+/* Concept about us ブロック */
+/* --------------------------------------------------------------
+// Reset
+// @font-face
+// framework && common
+//// site_title site_tel
+//// common
+// col f_size
+// back_to_top
+// breadcrumb
+// Pager
+// single_pager
+// post_style
+// contact_form
+// Base Styles
+-------------------------------------------------------------- */
+/* -- Reset --
+--------------------------------------------------------------　*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section {
+  display: block;
+}
+
+ol, ul, li {
+  list-style-type: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table caption, table th, table td {
+  font-weight: normal;
+  text-align: left;
+}
+
+/* -- @font-face --
+--------------------------------------------------------------　*/
+@font-face {
+  font-family: 'icomoon';
+  src: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/1885cb00da7f.eot);
+  src: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/7898d9f17e98.eot) format("embedded-opentype"), url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/7589909cc825.ttf) format("truetype"), url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/79f8d64947e4.woff) format("woff"), url() format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\e849";
+}
+
+.icon-twitter:before {
+  content: "\e84d";
+}
+
+.icon-phone:before {
+  content: "\e81b";
+}
+
+.icon-mail2:before {
+  content: "\e844";
+}
+
+/* -- framework && common --
+--------------------------------------------------------------　*/
+/* framework ---------------------------------*/
+body {
+  background: #fff;
+  font-size: 16px;
+  font-family: "Hiragino Maru Gothic W4 JIS2004", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #323232;
+  line-height: 1em;
+}
+
+h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+}
+
+#main {
+  line-height: 1.7;
+  letter-spacing: 1px;
+}
+
+header, #site_navigation, #mainvisualarea, #breadcrumb, #pagetitlearea, #content, footer {
+  width: 100%;
+}
+
+a {
+  color: #323232;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  outline: 0;
+  opacity: 0.7;
+  transition: opacity .2s ease-out;
+}
+
+a img {
+  border: 0;
+}
+
+a img:hover, a img:active {
+  outline: 0;
+  opacity: 0.7;
+  transition: opacity .2s ease-out;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.mainwrap {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 980px) {
+  .mainwrap {
+    max-width: 98%;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .mainwrap {
+    max-width: 970px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mainwrap.mw_max {
+    width: 100%;
+    margin: 0 0;
+  }
+}
+
+.widewrap {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 980px) {
+  .widewrap {
+    max-width: 98%;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .widewrap {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .widewrap.mw_max {
+    width: 100%;
+    margin: 0 0;
+  }
+}
+
+.inner_10 {
+  padding: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    font: 14px "メイリオ","Meiryo","Lucida Sans Unicode", "Lucida Grande","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+  }
+  .content_dir {
+    margin-bottom: 30px;
+  }
+  .content_inner {
+    padding: 10px;
+  }
+  .inner_50 {
+    padding: 30px 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /*    #main{
+     width: 72.5%;
+     float: right;
+   }
+   #sidebar{
+     width: 24.5%;
+     float: left;
+   } */
+  .content_dir {
+    margin-bottom: 30px;
+  }
+  .content_inner {
+    padding: 20px;
+  }
+  .inner_30 {
+    padding: 30px 0;
+  }
+  .inner_50 {
+    padding: 50px 0;
+  }
+}
+
+/* common ---------------------------------*/
+.clear:after {
+  display: block;
+  content: "";
+  clear: both;
+  overflow: hidden;
+}
+
+.break_word {
+  word-wrap: break-word;
+}
+
+.mb7 {
+  margin-bottom: 7px;
+}
+
+.mb15 {
+  margin-bottom: 15px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mb60 {
+  margin-bottom: 60px;
+}
+
+.mb120 {
+  margin-bottom: 120px;
+}
+
+.pt5 {
+  padding-top: 5px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.pb30 {
+  padding-bottom: 30px;
+}
+
+.lh14 {
+  line-height: 1.4em;
+}
+
+.lh17 {
+  line-height: 1.7em;
+}
+
+.lh2 {
+  line-height: 2em;
+}
+
+.lh25 {
+  line-height: 2.5em;
+}
+
+/* switch */
+.switch {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .spview, .sp_taview, .sp_pcview {
+    display: block;
+  }
+  .taview, .ta_pcview, .pcview {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  .sp_taview, .taview, .ta_pcview {
+    display: block;
+  }
+  .spview, .sp_pcview, .pcview {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .sp_pcview, .ta_pcview, .pcview {
+    display: block;
+  }
+  .spview, .sp_taview, .taview {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .spview_inline, .sp_taview_inline, .sp_pcview_inline {
+    display: inline;
+  }
+  .taview_inline, .ta_pcview_inline, .pcview_inline {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  .sp_taview_inline, .taview_inline, .ta_pcview_inline {
+    display: inline;
+  }
+  .spview_inline, .sp_pcview_inline, .pcview_inline {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .sp_pcview_inline, .ta_pcview_inline, .pcview_inline {
+    display: inline;
+  }
+  .spview_inline, .sp_taview_inline, .taview_inline {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .leftdir {
+    float: left;
+  }
+  .rightdir {
+    float: right;
+  }
+  .withimg {
+    clear: both;
+    overflow: hidden;
+  }
+  .withimg img {
+    float: left;
+    margin-right: 15px;
+  }
+  .withimg.right img {
+    float: right;
+    margin-right: 0;
+    margin-left: 15px;
+  }
+}
+
+/* -- original common --
+--------------------------------------------------------------　*/
+strong, b, .bold {
+  font-weight: bold;
+}
+
+small, .small {
+  font-size: 14px;
+}
+
+.img img {
+  width: 100%;
+}
+
+.bg_w {
+  background: #fff;
+}
+
+.bg_g {
+  background: #F2F2F2;
+}
+
+.bg_gr {
+  background: #E5F4F4;
+}
+
+.ta_c {
+  text-align: center;
+}
+
+.ta_l {
+  text-align: left;
+}
+
+/* -- col f_size --
+--------------------------------------------------------------　*/
+@media screen and (max-width: 767px) {
+  .col2_wrap .col2_item, .col3_wrap .col3_item, .col4_wrap .col4_item {
+    margin-bottom: 15px;
+  }
+  .col2_wrap .col2_item a, .col3_wrap .col3_item a, .col4_wrap .col4_item a {
+    display: block;
+  }
+  .col2_wrap .col2_item:nth-child(2n), .col2_wrap .col2_item:last-child {
+    margin-right: 0;
+  }
+  .col3_wrap .col3_item:nth-child(3n), .col3_wrap .col3_item:last-child {
+    margin-right: 0;
+  }
+  .col4_item .col4_item:nth-child(4n), .col5_item .col4_item:nth-child(5n) {
+    margin-right: 0;
+  }
+  .f_size55 .leftdir, .f_size55 .rightdir, .f_size64 .leftdir, .f_size64 .rightdir, .f_size46 .leftdir, .f_size46 .rightdir, .f_size73 .leftdir, .f_size73 .rightdir, .f_size37 .leftdir, .f_size37 .rightdir, .f_size82 .leftdir, .f_size82 .rightdir, .f_size28 .leftdir, .f_size28 .rightdir, .f_size91 .leftdir, .f_size91 .rightdir, .f_size19 .leftdir, .f_size19 .rightdir {
+    float: none;
+    width: auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* col2_wrap */
+  .col2_wrap:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .col2_wrap .col2_item {
+    width: 49%;
+    float: left;
+    margin-right: 2%;
+  }
+  .col2_wrap .col2_item:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+  }
+  /* col3_wrap */
+  .col3_wrap:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .col3_item {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+  }
+  .col3_item:nth-child(3n) {
+    margin-right: 0;
+  }
+  .col3_item:nth-child(3n+1) {
+    clear: left;
+  }
+  /* col4_item */
+  .col4_wrap:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .col4_wrap .col4_item {
+    width: 23.5%;
+    float: left;
+    margin-right: 2%;
+  }
+  .col4_wrap .col4_item:nth-child(4n) {
+    margin-right: 0;
+  }
+  .col4_wrap .col4_item:nth-child(4n+1) {
+    clear: left;
+  }
+  /* col5_item */
+  .col5_wrap:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .col5_wrap .col5_item {
+    width: 19.2%;
+    float: left;
+    margin-right: 1%;
+  }
+  .col5_wrap .col5_item:nth-child(5n) {
+    margin-right: 0;
+  }
+  .col5_wrap .col5_item:nth-child(5n+1) {
+    clear: left;
+  }
+  .f_size55 > .leftdir {
+    width: 49%;
+  }
+  .f_size55 > .rightdir {
+    width: 49%;
+  }
+  .f_size64 > .leftdir {
+    width: 59%;
+  }
+  .f_size64 > .rightdir {
+    width: 39%;
+  }
+  .f_size46:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .f_size46 > .leftdir {
+    width: 39%;
+  }
+  .f_size46 > .rightdir {
+    width: 59%;
+  }
+  .f_size73 > .leftdir {
+    width: 69%;
+  }
+  .f_size73 > .rightdir {
+    width: 29%;
+  }
+  .f_size37:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+  }
+  .f_size37 > .leftdir {
+    width: 29%;
+  }
+  .f_size37 > .rightdir {
+    width: 69%;
+  }
+  .f_size37 > .rightdir.noimg {
+    width: 100%;
+  }
+  .f_size82 > .leftdir {
+    width: 79%;
+  }
+  .f_size82 > .rightdir {
+    width: 19%;
+  }
+  .f_size28 > .leftdir {
+    width: 19%;
+  }
+  .f_size28 > .rightdir {
+    width: 79%;
+  }
+  .f_size91 > .leftdir {
+    width: 89%;
+  }
+  .f_size91 > .rightdir {
+    width: 9%;
+  }
+  .f_size19 > .leftdir {
+    width: 9%;
+  }
+  .f_size19 > .rightdir {
+    width: 89%;
+  }
+}
+
+/* -- back_to_top --
+--------------------------------------------------------------　*/
+#back_to_top_menu {
+  width: 45px;
+}
+
+#back_to_top {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  #back_to_top.scrBtn {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    right: 5px;
+    bottom: 5px;
+    width: 45px;
+  }
+}
+
+/* -- breadcrumb --
+--------------------------------------------------------------　*/
+#breadcrumb ul {
+  overflow: hidden;
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+#breadcrumb li {
+  float: left;
+  padding: 5px 5px 5px 0;
+  font-size: 12px;
+  color: #808080;
+}
+
+#breadcrumb a {
+  display: block;
+  color: #808080;
+}
+
+@media screen and (max-width: 767px) {
+  #breadcrumb li {
+    font-size: 10px;
+  }
+  #breadcrumb li a {
+    font-size: 10px;
+  }
+}
+
+/* Pager --
+--------------------------------------------------------------　*/
+.pagination {
+  display: inline-block;
+  overflow: hidden;
+  clear: both;
+  position: relative;
+}
+
+.pagination span {
+  display: block;
+  float: left;
+  margin: 2px 5px 2px 0;
+  padding: 6px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  text-decoration: none;
+  width: auto;
+  color: #fff;
+  background: #002864;
+  font-weight: bold;
+}
+
+.pagination a {
+  display: block;
+  float: left;
+  font-weight: bold;
+  margin: 2px 5px 2px 0;
+  padding: 6px;
+  text-decoration: none;
+  width: 38px;
+  color: #002864;
+  background: #fff;
+  text-align: center;
+}
+
+.pagination a:hover {
+  background: #002864;
+  color: #fff;
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.pagination .current {
+  background: #002864;
+  color: #fff;
+  padding: 6px;
+  text-align: center;
+  width: 38px;
+  border-radius: 50%;
+}
+
+/* single_pager --
+--------------------------------------------------------------　*/
+.single_pager {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.single_pager a {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #323232;
+  background: #323232;
+  color: #fff;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  transition: all .3s;
+}
+
+.single_pager a:hover {
+  border: 1px solid #323232;
+  background: #fff;
+  color: #323232;
+  opacity: 1;
+}
+
+.single_pager .left, .single_pager .right {
+  display: inline-block;
+}
+
+.single_pager .left {
+  float: left;
+}
+
+.single_pager .right {
+  float: right;
+  text-align: right;
+}
+
+/* -- post_style --
+--------------------------------------------------------------　*/
+.post_nimg li {
+  margin-bottom: 30px;
+}
+
+.post_nimg li:last-child {
+  margin-bottom: 0;
+}
+
+.post_nimg .posttxt p {
+  font-size: 12px;
+}
+
+.post_nimg .posttxt p.day {
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+.post_nimg .posttxt p.title {
+  float: left;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.post_nimg .posttxt p.title a {
+  color: #323232;
+}
+
+.post_nimg .posttxt .post_link {
+  display: block;
+  float: right;
+  padding: 3px 15px;
+  background: #FF0000;
+  text-decoration: none;
+  color: #fff;
+}
+
+.post_flimg:after {
+  display: block;
+  content: "";
+  clear: both;
+  overflow: hidden;
+}
+
+.post_flimg .img {
+  width: 44%;
+  margin: 0 auto;
+  float: left;
+}
+
+@media screen and (max-width: 767px) {
+  .post_flimg .img {
+    margin-bottom: 10px;
+  }
+}
+
+.post_flimg .img img {
+  width: 100%;
+  border: solid 1px #fff;
+}
+
+.post_flimg .posttxt {
+  width: 54%;
+  margin: 0 auto;
+  float: right;
+}
+
+.post_flimg .posttxt p {
+  font-size: 12px;
+}
+
+.post_flimg .posttxt p.title {
+  font-size: 18px;
+  line-height: 1.2em;
+  padding-bottom: 5px;
+}
+
+.post_flimg .posttxt p.day {
+  border-bottom: dashed 1px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.post_flimg .posttxt p.des {
+  font-size: 16px;
+  line-height: 1.7em;
+}
+
+.post_flimg .posttxt p.more {
+  float: right;
+  font-size: 14px;
+  text-align: center;
+  background: linear-gradient(#c1272d, #f40040);
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border: solid 1px #323232;
+}
+
+.post_flimg .posttxt p.more a {
+  display: block;
+  padding: 0 7px;
+  color: #fff;
+}
+
+.post_flimg .posttxt p.top_tag {
+  display: inline-block;
+  line-height: 1.75;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: #002864;
+  color: #fff;
+}
+
+.post_pagelink {
+  display: block;
+  float: right;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .post_nimg li {
+    margin-bottom: 15px;
+  }
+  .post_nimg li:last-child {
+    margin-bottom: 0;
+  }
+  .post_nimg .posttxt p {
+    font-size: 12px;
+  }
+  .post_nimg .posttxt p.day {
+    float: none;
+  }
+  .post_nimg .posttxt p.title {
+    float: none;
+    font-size: 14px;
+  }
+  .post_nimg .posttxt .post_link {
+    display: none;
+  }
+  .post_flimg {
+    margin-bottom: 30px;
+  }
+  .post_flimg .img {
+    float: none;
+    width: 100%;
+  }
+  .post_flimg .posttxt {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------------------- *
+*  Base Styles
+/* ------------------------------------------------------------------------- */
+.single .entry_content {
+  /*  base : img
+  /* ------------------------------------ */
+  /*  base : clear
+  /* ------------------------------------ */
+}
+
+.single .entry_content p {
+  display: block;
+  margin: 1em 0;
+}
+
+.single .entry_content h1, .single .entry_content h2, .single .entry_content h3, .single .entry_content h4, .single .entry_content h5, .single .entry_content h6, .single .entry_content ul, .single .entry_content li, .single .entry_content img, .single .entry_content table, .single .entry_content tr, .single .entry_content th, .single .entry_content td, .single .entry_content dl, .single .entry_content dt, .single .entry_content dd {
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  list-style-type: none;
+}
+
+.single .entry_content strong {
+  font-weight: bold;
+}
+
+.single .entry_content em {
+  font-style: italic;
+}
+
+.single .entry_content blockquote {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 40px;
+  -webkit-margin-end: 40px;
+}
+
+.single .entry_content .aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.single .entry_content .alignright {
+  float: right;
+}
+
+.single .entry_content .alignleft {
+  float: left;
+}
+
+.single .entry_content img[class*="wp-image-"],
+.single .entry_content img[class*="attachment-"] {
+  max-width: 100%;
+  height: auto;
+}
+
+.single .entry_content .clearfix {
+  overflow: hidden;
+  zoom: 1;
+}
+
+.single .entry_content .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+/*  title : wrap
+  /* ------------------------------------ */
+@media screen and (min-width: 768px) {
+  .title.nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+  }
+}
+
+/* -- contact_form --
+--------------------------------------------------------------　*/
+.contact_form {
+  background-color: #fff;
+}
+
+.contact_form p {
+  display: none;
+}
+
+.contact_form .requiredmark {
+  margin: 5px 10px 5px 5px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 12px;
+  vertical-align: middle;
+  background: #b3b3b3;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form .requiredmark {
+    font-size: 11px;
+  }
+}
+
+.contact_form .no-requiredmark {
+  padding-left: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form .no-requiredmark {
+    padding-left: 0;
+  }
+}
+
+.contact_form div.wpcf7-mail-sent-ok, .contact_form div.wpcf7-validation-errors {
+  border: double 4px #002864;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form div.wpcf7-mail-sent-ok, .contact_form div.wpcf7-validation-errors {
+    font-size: 15px;
+  }
+}
+
+.contact_form form.sent table, .contact_form form.sent .acceptance, .contact_form form.sent .submit {
+  display: none;
+}
+
+.contact_form form {
+  border: 1px dotted #F2F2F2;
+  margin: 10px;
+  padding: 0 15px 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form {
+    margin: 5px;
+    padding: 0 5px 20px;
+  }
+}
+
+.contact_form form table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+.contact_form form table th, .contact_form form table td {
+  vertical-align: top;
+  border-bottom: 1px dotted #CCCCCC;
+}
+
+.contact_form form table th {
+  width: 35%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 7px 10px 7px 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form table th {
+    font-size: 16px;
+    border-bottom: none;
+  }
+}
+
+.contact_form form table td {
+  padding: 7px 10px;
+}
+
+.contact_form form table .wpcf7-form-control {
+  margin: 5px;
+}
+
+.contact_form form input {
+  background-color: #F2F2F2;
+}
+
+.contact_form form input[type=tel], .contact_form form input[type=number], .contact_form form input[type=number], .contact_form form input[type=text], .contact_form form input[type=email] {
+  padding: 5px;
+  border: 1px solid #CCCCCC;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form input[type=tel], .contact_form form input[type=number], .contact_form form input[type=number], .contact_form form input[type=text], .contact_form form input[type=email] {
+    font-size: 14px;
+  }
+}
+
+.contact_form form input[type=tel] {
+  width: 16em;
+}
+
+.contact_form form input[type=number] {
+  width: 3em;
+}
+
+.contact_form form input[type=text] {
+  width: 98%;
+}
+
+.contact_form form input[type=text]#zip, .contact_form form input[type=text]#pref {
+  width: 16em;
+}
+
+.contact_form form input[type=email] {
+  width: 98%;
+}
+
+.contact_form form input[type="radio"] {
+  margin: 0 0 4px 0 !important;
+}
+
+.contact_form form input[type=submit] {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background: #006837;
+  border: 1px solid #006837;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form input[type=submit] {
+    font-size: 20px;
+    width: 200px;
+    font-size: 15px;
+  }
+}
+
+.contact_form form input[type=submit]:hover {
+  color: #006837;
+  background: #fff;
+  border: 1px solid #006837;
+}
+
+.contact_form form input[type="submit"][disabled] {
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form input[type="submit"][disabled] {
+    width: 200px;
+  }
+}
+
+.contact_form form input[type="submit"][disabled]:hover {
+  color: #323232;
+}
+
+.contact_form form .acceptance {
+  padding: 10px 0;
+  margin: 10px auto;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact_form form .acceptance input[type="checkbox"] {
+  margin: 0;
+}
+
+.contact_form form .acceptance span {
+  vertical-align: middle;
+}
+
+.contact_form form textarea {
+  width: 98%;
+  padding: 5px;
+  background-color: #F2F2F2;
+  border: 1px solid #CCCCCC;
+}
+
+.contact_form form span.wpcf7-list-item {
+  display: inline-block;
+}
+
+.contact_note li {
+  margin-left: 1em;
+  text-indent: -1em;
+}
+
+.contact_note li:before {
+  display: inline;
+  content: '＊';
+}
+
+@media screen and (max-width: 767px) {
+  .contact_form form table th, .contact_form form table td {
+    display: block;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .contact_form form table td {
+    padding-bottom: 15px;
+  }
+  .contact_form form input[type=tel] {
+    width: 16em;
+  }
+  .contact_form form input[type=text]#zip, .contact_form form input[type=text]#pref {
+    width: 16em;
+  }
+  .contact_form form span.wpcf7-list-item {
+    display: block;
+  }
+  .contact_form .acceptance span.notice {
+    font-size: 11px;
+  }
+}
+
+/* Concept about us ブロック */
+/* original common --
+--------------------------------------------------------------　*/
+.hd_frame_1 {
+  display: block;
+  overflow: hidden;
+  width: 50%;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  border-radius: 10px 0 0 0;
+  color: #fff;
+  background-color: #002864;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .hd_frame_1 {
+    padding-top: 1em !important;
+  }
+}
+
+.hd_frame_1 .hdTitle {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.hd_frame_1 .hdTitle:first-letter {
+  font-size: 30px;
+}
+
+.hd_frame_1 .hdTitle .hdTitle_subtxt {
+  font-size: 14px;
+}
+
+.hd_frame_1 .hdSub {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.hd_frame_1 .hdSub::after {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  content: '';
+  width: 1000%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.hd_frame_1 .hdSubTxt {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .hd_frame_1 {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+    border-radius: 10px 0 0 0;
+    color: #fff;
+    background-color: #002864;
+  }
+}
+
+.hd_frame_2 {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  border-radius: 10px 0 0 0;
+  color: #fff;
+  background-color: #002864;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .hd_frame_2 {
+    padding-top: 1em !important;
+  }
+}
+
+.hd_frame_2 .hdTitle {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.hd_frame_2 .hdTitle:first-letter {
+  font-size: 30px;
+}
+
+.hd_frame_2 .hdTitle .hdTitle_subtxt {
+  font-size: 14px;
+}
+
+.hd_frame_2 .hdSub {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.hd_frame_2 .hdSub::after {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  content: '';
+  width: 1000%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.hd_frame_2 .hdSubTxt {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.hd_frame_3, .hd_frame_4, .hd_frame_5 {
+  background-color: #E6E6E6;
+  border-radius: 10px 0 0 0;
+  text-align: left;
+}
+
+.hd_frame_3 .hd_frame_inner, .hd_frame_4 .hd_frame_inner, .hd_frame_5 .hd_frame_inner {
+  display: block;
+  overflow: hidden;
+  width: 50%;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  border-radius: 10px 0 0 0;
+  color: #fff;
+  background-color: #002864;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .hd_frame_3 .hd_frame_inner, .hd_frame_4 .hd_frame_inner, .hd_frame_5 .hd_frame_inner {
+    padding-top: 1em !important;
+  }
+}
+
+.hd_frame_3 .hd_frame_inner .hdTitle, .hd_frame_4 .hd_frame_inner .hdTitle, .hd_frame_5 .hd_frame_inner .hdTitle {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.hd_frame_3 .hd_frame_inner .hdTitle:first-letter, .hd_frame_4 .hd_frame_inner .hdTitle:first-letter, .hd_frame_5 .hd_frame_inner .hdTitle:first-letter {
+  font-size: 30px;
+}
+
+.hd_frame_3 .hd_frame_inner .hdTitle .hdTitle_subtxt, .hd_frame_4 .hd_frame_inner .hdTitle .hdTitle_subtxt, .hd_frame_5 .hd_frame_inner .hdTitle .hdTitle_subtxt {
+  font-size: 14px;
+}
+
+.hd_frame_3 .hd_frame_inner .hdSub, .hd_frame_4 .hd_frame_inner .hdSub, .hd_frame_5 .hd_frame_inner .hdSub {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.hd_frame_3 .hd_frame_inner .hdSub::after, .hd_frame_4 .hd_frame_inner .hdSub::after, .hd_frame_5 .hd_frame_inner .hdSub::after {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  content: '';
+  width: 1000%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.hd_frame_3 .hd_frame_inner .hdSubTxt, .hd_frame_4 .hd_frame_inner .hdSubTxt, .hd_frame_5 .hd_frame_inner .hdSubTxt {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .hd_frame_3 .hd_frame_inner, .hd_frame_4 .hd_frame_inner, .hd_frame_5 .hd_frame_inner {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+    border-radius: 10px 0 0 0;
+    color: #fff;
+    background-color: #002864;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hd_frame_4 .hd_frame_inner .hdTitle {
+    font-size: 18px;
+  }
+  .hd_frame_4 .hd_frame_inner .hdTitle:first-letter {
+    font-size: 25px;
+  }
+  .hd_frame_4 .hd_frame_inner .hdTitle .hdTitle_subtxt {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hd_frame_5 .hd_frame_inner .hdTitle {
+    font-size: 15px;
+    padding: 5px 0;
+  }
+  .hd_frame_5 .hd_frame_inner .hdTitle:first-letter {
+    font-size: 18px;
+  }
+  .hd_frame_5 .hd_frame_inner .hdTitle .hdTitle_subtxt {
+    font-size: 10px;
+  }
+  .hd_frame_5 .hd_frame_inner .hdSubTxt {
+    font-size: 10px;
+  }
+}
+
+.hd_bgimg {
+  text-align: center;
+}
+
+.hd_bgimg span {
+  display: inline-block;
+  min-width: 300px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-image: url();
+  background-position: 50% 50%;
+  background-repeat: repeat;
+  border: double #fff 4px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px 20px;
+  margin: 30px auto 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .hd_bgimg {
+    background-size: contain;
+    background-position: 50% 50%;
+  }
+}
+
+.btn_img a, .btn_img a:hover {
+  opacity: 1;
+}
+
+.btn_img a img, .btn_img a img:hover, .btn_img a:hover img, .btn_img a:hover img:hover {
+  opacity: 1;
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: bold;
+  color: #323232;
+  text-align: left;
+  padding-right: 5px;
+}
+
+.heading::before {
+  display: inline-block;
+  content: url();
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .heading {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.heading.hd_line {
+  font-size: 25px;
+  font-weight: bold;
+  color: #323232;
+  text-align: left;
+  border-bottom: solid 1px #323232;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.heading.hd_line::before {
+  display: inline-block;
+  content: url();
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .heading.hd_line {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.heading2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  overflow: hidden;
+  color: #323232;
+}
+
+.heading2 span {
+  position: relative;
+  display: inline-block;
+  margin: 0 2.5em 0 0;
+  padding: 0 1em 0 0;
+  text-align: left;
+}
+
+.heading2 span::after {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  content: '';
+  width: 1000%;
+  height: 1px;
+  background-color: #323232;
+}
+
+@media screen and (max-width: 767px) {
+  .heading2 {
+    font-size: 20px;
+  }
+  .heading2 span {
+    position: static;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+  }
+  .heading2 span::after {
+    position: static;
+    width: 0;
+  }
+}
+
+.read_more_btn {
+  line-height: 30px;
+}
+
+.read_more_btn a {
+  display: inline-block;
+  color: #323232;
+}
+
+.read_more_btn a i {
+  margin-right: 0.5em;
+  font-size: 30px;
+  color: #002864;
+  transition: all .3s ease 0s;
+}
+
+.read_more_btn a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.read_more_btn a:hover i {
+  transform: rotate(90deg);
+}
+
+.read_more_btn span {
+  line-height: 30px;
+  vertical-align: top;
+}
+
+/* -- header --
+--------------------------------------------------------------　*/
+.header_top {
+  padding: 30px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .header_top .leftdir, .header_top .rightdir {
+    float: none;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header_top:after {
+    display: block;
+    content: "";
+    clear: both;
+    overflow: hidden;
+    margin: 0 auto 0;
+  }
+  .header_top > .leftdir {
+    width: 49%;
+  }
+  .header_top > .rightdir {
+    width: 49%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header_top {
+    display: block;
+    padding: 5px 35px 5px 0;
+  }
+}
+
+.header_top .site_title {
+  width: 272px;
+  height: 96px;
+  margin: 0 auto;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.header_top .site_title a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/945c504be3c4.png) 50% 50% no-repeat;
+  background-size: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .header_top .site_title {
+    width: 100%;
+    margin: 0 auto 15px;
+  }
+  .header_top .site_title a {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #header #site_description_area {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #header #site_description_area {
+    text-indent: -9999px;
+  }
+  #header #site_description_area h1 {
+    line-height: 0;
+  }
+}
+
+/* -- fixed_button
+--------------------------------------------------------------　*/
+.fixed_button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: #CCCCCC;
+}
+
+.fixed_button .fixBtn_tel {
+  display: inline-block;
+  vertical-align: top;
+  height: 60px;
+  text-align: center;
+  padding: 10px;
+}
+
+.fixed_button .fixBtn_tel span {
+  display: block;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 12px;
+  color: #002864;
+}
+
+.fixed_button .fixBtn_tel a {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.75;
+  color: #002864;
+}
+
+.fixed_button .fixBtn_mail {
+  display: inline-block;
+  vertical-align: top;
+  height: 60px;
+  background-color: #002864;
+  color: #fff;
+  padding: 12px;
+}
+
+.fixed_button .fixBtn_mail a {
+  display: block;
+  text-align: center;
+}
+
+.fixed_button .fixBtn_mail p {
+  font-size: 10px;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .fixed_button {
+    display: none;
+  }
+}
+
+/* -- mainvisualarea ---- pagetitlearea --
+--------------------------------------------------------------　*/
+/* -- mainvisualarea --
+--------------------------------------------------------------　*/
+#mainvisualarea {
+  background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/badc3682da74.jpg) repeat;
+  background-color: #fff;
+  border-top: 4px solid #002864;
+  border-bottom: 4px solid #002864;
+}
+
+@media screen and (max-width: 980px) {
+  #mainvisualarea .widewrap {
+    max-width: 100%;
+  }
+}
+
+#mainvisualarea .mvWrap {
+  position: relative;
+}
+
+#mainvisualarea .mvWrap::before {
+  content: '';
+  display: block;
+  padding-top: 33.33%;
+  /* 1:1 */
+}
+
+#mainvisualarea .mvWrap .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  #mainvisualarea .mvWrap {
+    position: relative;
+  }
+  #mainvisualarea .mvWrap::before {
+    content: '';
+    display: block;
+    padding-top: 53.33%;
+    /* 1:1 */
+  }
+  #mainvisualarea .mvWrap .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#mainvisualarea .mvInner {
+  display: table;
+}
+
+#mainvisualarea .mvInner .mvdes {
+  display: table-cell;
+  width: 30.25%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+#mainvisualarea .mvInner .mvdes img {
+  width: 100%;
+}
+
+#mainvisualarea .mvInner .mvslide {
+  display: table-cell;
+  width: 69.75%;
+  vertical-align: top;
+}
+
+#mainvisualarea .mvInner .mvslide ul {
+  width: 100%;
+}
+
+#mainvisualarea .mvInner .mvslide ul li {
+  width: 100%;
+}
+
+#mainvisualarea .mvInner .mvslide ul li img {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  #mainvisualarea .mvInner .mvdes {
+    width: 42.13%;
+  }
+  #mainvisualarea .mvInner .mvslide {
+    width: 57.87%;
+  }
+}
+
+/* -- bxslider -------------------- */
+#bxslider li:not(:first-child) {
+  display: none;
+}
+
+.bx-viewport .bxslider li {
+  display: block !important;
+}
+
+/* -- pagetitlearea --
+--------------------------------------------------------------　*/
+#pagetitlearea {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/73ab4577d78d.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 200px;
+}
+
+@media screen and (max-width: 767px) {
+  #pagetitlearea {
+    height: 100px;
+  }
+}
+
+#pagetitlearea .mainwrap {
+  position: relative;
+  height: 100%;
+}
+
+#pagetitlearea .mainwrap .title_stamp {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  width: 31px;
+  height: 59px;
+}
+
+#pagetitlearea .mainwrap .pagetitle_heading {
+  display: inline-block;
+  color: #fff;
+}
+
+#pagetitlearea .mainwrap .pagetitle_heading h2 {
+  display: inline-block;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 26px;
+  text-align: left;
+  padding-top: 25px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+#pagetitlearea .mainwrap .pagetitle_heading p {
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 18px;
+  text-align: left;
+  padding-top: 15px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+@media screen and (max-width: 767px) {
+  #pagetitlearea .mainwrap .pagetitle_heading p {
+    padding-top: 0;
+  }
+}
+
+@keyframes hdb {
+  0% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hda {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #pagetitlearea .mainwrap .pagetitle_heading {
+    display: block;
+    text-align: center;
+  }
+  #pagetitlearea .mainwrap .pagetitle_heading h2 {
+    font-size: 20px;
+  }
+  #pagetitlearea .mainwrap .pagetitle_heading h2::before {
+    padding-right: 15px;
+  }
+  #pagetitlearea .mainwrap .pagetitle_heading h2::after {
+    padding-left: 15px;
+  }
+  #pagetitlearea .mainwrap .pagetitle_heading p {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+/* -- breadcrumb --
+--------------------------------------------------------------　*/
+.bgimg #breadcrumb {
+  background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/badc3682da74.jpg) repeat;
+}
+
+/* -- page_description_area --
+--------------------------------------------------------------　*/
+.button_tel, .button_mail {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .button_tel, .button_mail {
+    display: block;
+    width: 40px;
+    height: 40px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+    background: #7d7e7d;
+    /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTBlMGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+    /* IE6-8 */
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    top: 3px;
+  }
+  .button_tel {
+    right: 46px;
+  }
+  .button_mail {
+    right: 89px;
+  }
+  .icon-phone:before {
+    color: #fff;
+    font-size: 28px;
+  }
+  .icon-mail2:before {
+    color: #fff;
+    font-size: 30px;
+  }
+}
+
+/* -- globalnaviarea_wrap --
+--------------------------------------------------------------¡¡*/
+@media screen and (max-width: 767px) {
+  #globalnaviarea_wrap {
+    /* toggle (SP)---------------------------------*/
+    /* menu (SP)-----------------------------------*/
+  }
+  #globalnaviarea_wrap #site_navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+  }
+  #globalnaviarea_wrap #toggle {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background: #323232;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  #globalnaviarea_wrap #toggle.active {
+    background: #323232;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger,
+  #globalnaviarea_wrap #toggle .menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger {
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger span:nth-of-type(1) {
+    top: 0;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger span:nth-of-type(2) {
+    top: 13px;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger.triggeractive span:nth-of-type(1) {
+    -webkit-transform: translateY(20px) rotate(-45deg);
+    transform: translateY(20px) rotate(-45deg);
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger.triggeractive span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #globalnaviarea_wrap #toggle .menu-trigger.triggeractive span:nth-of-type(3) {
+    -webkit-transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-20px) rotate(45deg);
+  }
+  #globalnaviarea_wrap #menu {
+    display: none;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+    padding-top: 46px;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap.mainwrap {
+    max-width: 100%;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li {
+    float: left;
+    width: 50%;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li ul {
+    width: 100%;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li ul li {
+    float: left;
+    width: 100%;
+    background: #002864;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li.long {
+    border-top: solid 1px #fff;
+    width: 100%;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li.spsns {
+    display: block;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin-top: -1px;
+    padding: 10px 0 10px;
+    border: solid 1px #002864;
+    font-size: 10px;
+    font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+    color: #002864;
+    background: #fff;
+    text-align: center;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li a .menuTxt1 {
+    display: block;
+    font-size: 10px;
+    padding-bottom: 2px;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li a.pc_tab {
+    display: none;
+  }
+  #globalnaviarea_wrap #menu .menu_wrap li.selected a {
+    color: #fff;
+    background: #002864;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #globalnaviarea_wrap {
+    background: white;
+    /* toggle (PC,Tablet)---------------------------------*/
+    /* menu (PC,Tablet)-----------------------------------*/
+  }
+  #globalnaviarea_wrap.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    opacity: 0.9;
+  }
+  #globalnaviarea_wrap #toggle, #globalnaviarea_wrap #menu li.spsns {
+    display: none;
+  }
+  #globalnaviarea_wrap .menu_wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  #globalnaviarea_wrap .menu_wrap li {
+    text-align: center;
+    font-size: 14px;
+  }
+  #globalnaviarea_wrap .menu_wrap li.f_item {
+    flex-grow: 1;
+  }
+  #globalnaviarea_wrap .menu_wrap li a {
+    display: inline-block;
+    margin: 10px 0 5px;
+    color: #002864;
+    font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    padding: 12px 25px 10px;
+  }
+  #globalnaviarea_wrap .menu_wrap li:hover a, #globalnaviarea_wrap .menu_wrap li.selected a {
+    border: 1px solid #3B5998;
+    color: #0B3C5D;
+    opacity: 1;
+  }
+}
+
+/* -- footer --
+--------------------------------------------------------------　*/
+#footer {
+  /* copyright ------------------------------*/
+}
+
+#footer .foot_btn_Area {
+  clear: both;
+  margin: 65px auto 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #666666;
+  height: 40px;
+}
+
+#footer .foot_btn_Area .foot_snsArea {
+  display: inline-block;
+  float: left;
+}
+
+#footer .foot_btn_Area .foot_snsArea a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+#footer .foot_btn_Area .foot_contactArea {
+  display: inline-block;
+  float: right;
+}
+
+#footer .foot_btn_Area .foot_contactArea a {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#footer .foot_btn_Area .foot_contactArea a.foot_contact_mail {
+  width: 30px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_btn_Area {
+    margin: 20px auto 15px;
+  }
+}
+
+#footer .foot_coverarea {
+  overflow: hidden;
+  width: 100%;
+  padding: 35px 0 95px;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea {
+    padding: 20px 0 35px;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea {
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea .foot_infoArea {
+    display: block;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_areaTitle {
+  display: inline-block;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 16px;
+  color: #323232;
+  padding: 15px 70px;
+  border: 4px double #323232;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_infoAreaInner {
+  border: 1px solid #999999;
+  padding: 20px 50px 30px;
+  margin-top: -30px;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea .foot_infoArea .foot_infoAreaInner {
+    padding: 20px 5px 30px;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea h5 {
+  display: inline-block;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #323232;
+  margin: 25px auto 10px;
+}
+
+#footer .foot_coverarea .foot_infoArea p {
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #323232;
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area1 {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 980px) {
+  #footer .foot_coverarea .foot_infoArea .foot_area1 p {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea .foot_infoArea .foot_area2 {
+    margin-bottom: 25px;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area3 {
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea .foot_infoArea .foot_area3 {
+    display: block;
+    margin-bottom: 25px;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area3 h5 {
+  margin: 0 auto;
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area3 p {
+  display: inline-block;
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area4 {
+  display: inline-block;
+  padding-left: 10em;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_coverarea .foot_infoArea .foot_area4 {
+    display: block;
+    padding-left: 0;
+    margin-bottom: 25px;
+  }
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area4 h5 {
+  margin: 10px auto;
+}
+
+#footer .foot_coverarea .foot_infoArea .foot_area4 p {
+  display: inline-block;
+}
+
+#footer .foot_info {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/d16fd5947e53.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding-top: 20px;
+  height: 250px;
+}
+
+#footer .foot_info .site_title {
+  width: 272px;
+  height: 96px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 25px auto 35px;
+}
+
+#footer .foot_info .site_title a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/7d55dd9235b8.png) 50% 50% no-repeat;
+  background-size: contain;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_info .site_title {
+    width: 100%;
+    margin: 30px auto;
+  }
+}
+
+#footer .foot_info .foot_adr {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_info .foot_adr {
+    text-align: center;
+  }
+}
+
+#footer .foot_navi {
+  background-color: #002864;
+}
+
+#footer .foot_navi .menu_wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+#footer .foot_navi .menu_wrap li {
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+}
+
+#footer .foot_navi .menu_wrap li.f_item {
+  flex-grow: 1;
+}
+
+#footer .foot_navi .menu_wrap li a {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 60px;
+  text-decoration: underline;
+}
+
+#footer .foot_navi .menu_wrap li:hover a, #footer .foot_navi .menu_wrap li.selected a {
+  font-weight: bold;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  #footer .foot_navi {
+    display: none;
+  }
+}
+
+#footer #copyright {
+  background-color: #0D336C;
+  color: #fff;
+  padding: 5px 0;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1;
+}
+
+#footer #copyright a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  #footer #copyright {
+    /* copyright ------------------------------*/
+    text-align: center;
+    font-size: 10px;
+  }
+}
+
+/* -- JavaScript CSS --
+--------------------------------------------------------------　*/
+/* -- framework && common --
+--------------------------------------------------------------　*/
+.g_frames {
+  border: solid 1px #002864;
+}
+
+/* -- main site-main --------------------------------------　*/
+#main-inner.bgimg {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/badc3682da74.jpg);
+  z-index: -1;
+}
+
+#main-inner .content_dir.none {
+  border: none;
+  background: none;
+}
+
+#main-inner .content_dir.none .content_inner {
+  background: none;
+  box-shadow: none;
+}
+
+/* -- heading common --
+--------------------------------------------------------------　*/
+.arrow_h3 {
+  background: url() bottom center no-repeat;
+}
+
+.arrow_h3 h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002864;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.arrow_h3.arrow_w {
+  background: url() bottom center no-repeat;
+}
+
+.arrow_h3.arrow_w h3 {
+  color: #fff;
+}
+
+/* -- index.php --
+--------------------------------------------------------------　*/
+#top_greeting {
+  background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/788947a810c1.png) no-repeat;
+  background-size: cover;
+  padding: 95px 0 60px;
+  text-align: center;
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  #top_greeting {
+    padding: 20px 0 20px;
+  }
+}
+
+#top_greeting .grtTitle {
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #002864;
+  line-height: 1.75;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  #top_greeting .grtTitle {
+    font-size: 18px;
+  }
+}
+
+#top_greeting .grtTxt {
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 2.5;
+  text-shadow: 1px 1px 3px #fff;
+}
+
+@media screen and (max-width: 767px) {
+  #top_greeting .grtTxt {
+    text-align: left;
+  }
+}
+
+.top_works {
+  padding: 55px 0 40px;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .top_works {
+    padding: 30px 0 60px;
+  }
+}
+
+.top_works .top_works_block {
+  margin: 20px auto;
+}
+
+.top_works .top_works_block .top_works_item {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/badc3682da74.jpg);
+  border-radius: 0 10px 0 0;
+  padding: 10px;
+}
+
+.top_works .top_img .inner {
+  display: block;
+}
+
+.top_works .top_img .inner img {
+  border-radius: 10px;
+}
+
+.top_works .day {
+  font-size: 12px;
+  color: #808080;
+  margin-top: 5px;
+}
+
+.top_works .title {
+  margin-bottom: 5px;
+}
+
+.top_works .title a {
+  font-size: 14px;
+  color: #323232;
+}
+
+.top_works .title a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.top_works .nopost {
+  text-align: center;
+  color: #000;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.top_about {
+  background-color: #002864;
+  text-align: left;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+}
+
+.top_about .top_about_inner {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/8169476b8ff8.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: 116% 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  .top_about .top_about_inner {
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top_about .top_about_inner {
+    padding-bottom: 50%;
+    background-size: 100% auto;
+    background-position: 0 100%;
+  }
+}
+
+.top_about .top_about_box {
+  width: 30%;
+  background-color: #fff;
+  padding: 30px 20px 55px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_about .top_about_box {
+    width: 100%;
+    padding: 20px 10px;
+  }
+}
+
+.top_about .top_about_box .top_about_title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #323232;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_about .top_about_box .top_about_title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}
+
+.top_about .top_about_box .top_about_subtitle {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.top_about .top_about_box .top_about_subtitle::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background-color: #323232;
+  height: 1px;
+  width: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_about .top_about_box .top_about_subtitle {
+    text-align: center;
+  }
+  .top_about .top_about_box .top_about_subtitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.top_about .top_about_box .top_about_txt {
+  font-size: 16px;
+  color: #323232;
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_about .top_about_box .top_about_txt {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+.hd_top_title {
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #002864;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .hd_top_title {
+    font-size: 25px;
+    text-align: center;
+  }
+}
+
+#top_category.top_category {
+  background-image: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/zouen-matsumoto-ya/assets/badc3682da74.jpg);
+  padding: 40px 0 65px;
+}
+
+@media screen and (max-width: 767px) {
+  #top_category.top_category {
+    padding: 40px 0 0;
+  }
+}
+
+#top_category.top_category .category_itemWrap {
+  padding: 40px 0 70px;
+}
+
+@media screen and (max-width: 767px) {
+  #top_category.top_category .category_itemWrap {
+    padding: 20px 0 0;
+  }
+}
+
+#top_category.top_category .category_item {
+  border-top: 4px solid #002864;
+  border-bottom: 4px solid #002864;
+  background-color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  #top_category.top_category .category_item {
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 10px;
+  }
+}
+
+#top_category.top_category .category_parts {
+  border-radius: 20px;
+  max-width: 250px;
+  padding: 20px 5px;
+  color: #002864;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  #top_category.top_category .category_parts {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #top_category.top_category .category_parts {
+    max-width: auto;
+    font-size: 12px;
+  }
+}
+
+#top_category.top_category .category_parts dt {
+  padding: 5px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+#top_category.top_category .category_parts dd {
+  font-size: 14px;
+}
+
+.top_info {
+  background-color: #E5E9EF;
+  padding-top: 70px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info {
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.top_info .top_infoArea {
+  display: table;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoArea {
+    display: block;
+  }
+}
+
+.top_info .top_infoBlock {
+  display: table-cell;
+  width: 48.5%;
+  color: #323232;
+  vertical-align: top;
+  padding: 15px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  .top_info .top_infoBlock {
+    margin-left: 0;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock {
+    display: block;
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 10px 5px;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont {
+  width: 100%;
+  min-height: 230px;
+  border-radius: 20px;
+  padding: 25px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont {
+    min-height: 0;
+    padding: 0 0 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top_info .top_infoBlock .top_infoCont table {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table td {
+    width: 100%;
+    display: list-item;
+    list-style-type: none;
+    padding: 5px 0 0;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont table .top_news_img {
+  width: 47%;
+  vertical-align: top;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table .top_news_img {
+    display: inline-block;
+    width: 30%;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont table .top_news_img a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.top_info .top_infoBlock .top_infoCont table .top_news_img a img {
+  width: 100%;
+}
+
+.top_info .top_infoBlock .top_infoCont table .top_infoContTxt {
+  vertical-align: top;
+  padding: 10px 0 10px 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table .top_infoContTxt {
+    display: inline-block;
+    width: 70%;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont table .day {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .top_info .top_infoBlock .top_infoCont table .day {
+    width: 100px;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont table .title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.top_info .top_infoBlock .top_infoCont table .title a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table .title {
+    text-decoration: underline;
+    font-size: 14px;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont table .des {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.top_info .top_infoBlock .top_infoCont table .more {
+  text-align: right;
+}
+
+.top_info .top_infoBlock .top_infoCont table .more .more_btn {
+  width: 50px;
+  display: inline-block;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #FF931E;
+}
+
+.top_info .top_infoBlock .top_infoCont table .more .more_btn:hover {
+  color: #323232;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .top_infoBlock .top_infoCont table .more .more_btn {
+    padding: 1px 0;
+  }
+}
+
+.top_info .top_infoBlock .top_infoCont .nopost td {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.top_info .top_infoBlock .page_more_info {
+  max-width: 110px;
+  margin: 10px 0 0 auto;
+}
+
+.top_info .top_infoBlock .page_more_info p {
+  padding: 1px;
+  border-radius: 7px;
+}
+
+.top_info .top_infoBlock .page_more_info p span {
+  font-size: 12px;
+  padding: 0 5px;
+  border-radius: 7px;
+}
+
+.top_info .foot_info_blog {
+  padding-left: 3%;
+}
+
+@media screen and (max-width: 767px) {
+  .top_info .foot_info_blog {
+    padding-left: 0;
+  }
+}
+
+.top_info a:hover, .top_info a img:hover {
+  opacity: 1;
+}
+
+.top_concept {
+  padding: 50px 0 40px;
+  background: url() repeat;
+  background-size: cover;
+  text-align: center;
+  z-index: 1;
+}
+
+.top_concept .top_conceptInner {
+  position: relative;
+}
+
+.top_concept .top_conceptInner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 127px;
+  height: 154px;
+  background: url();
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.top_concept .top_conceptInner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 127px;
+  height: 154px;
+  background: url();
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) {
+  .top_concept .top_conceptInner::before {
+    top: -10%;
+    left: 0;
+    width: 63.5px;
+    height: 77px;
+  }
+  .top_concept .top_conceptInner::after {
+    top: 8%;
+    right: 0;
+    width: 63.5px;
+    height: 77px;
+  }
+}
+
+.top_concept .top_conceptTitle {
+  font-size: 30px;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_concept .top_conceptTitle {
+    margin-bottom: 20px;
+  }
+}
+
+.top_concept .top_conceptImg {
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_concept .top_conceptImg {
+    margin-bottom: 20px;
+  }
+}
+
+.top_concept .top_conceptSubtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #002864;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_concept .top_conceptSubtitle {
+    margin-bottom: 25px;
+  }
+}
+
+.top_concept .top_conceptTxt {
+  font-size: 14px;
+  line-height: 35px;
+  color: #1D2731;
+  text-shadow: 1px 1px 3px #fff;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .top_concept .top_conceptTxt {
+    text-align: left;
+  }
+}
+
+.more_btn_wrap {
+  text-align: center;
+}
+
+.more_btn {
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  background: #E6E6E6;
+  border: 1px solid #002864;
+  border-radius: 5px;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #002864;
+}
+
+.more_btn:hover {
+  background-color: #002864;
+  border: 1px solid #002864;
+  color: #fff;
+  opacity: 1;
+}
+
+.top_hd_news {
+  position: relative;
+  height: 40px;
+}
+
+.top_hd_news .hd_frame_news {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  border-radius: 10px 0 0 0;
+  color: #fff;
+  background-color: #002864;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .top_hd_news .hd_frame_news {
+    padding-top: 1em !important;
+  }
+}
+
+.top_hd_news .hd_frame_news .hdTitle {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.top_hd_news .hd_frame_news .hdTitle:first-letter {
+  font-size: 30px;
+}
+
+.top_hd_news .hd_frame_news .hdTitle .hdTitle_subtxt {
+  font-size: 14px;
+}
+
+.top_hd_news .hd_frame_news .hdSub {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.top_hd_news .hd_frame_news .hdSub::after {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  content: '';
+  width: 1000%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.top_hd_news .hd_frame_news .hdSubTxt {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.top_hd_news .more_btn_news {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  display: inline-block;
+  width: 48px;
+  line-height: 16px;
+  font-size: 12px;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  text-align: center;
+  color: #002864;
+  vertical-align: top;
+}
+
+.top_hd_news .more_btn_news:hover {
+  background-color: #002864;
+  border: 1px solid #fff;
+  color: #fff;
+  opacity: 1;
+}
+
+.top_menu {
+  padding: 50px 0;
+}
+
+.top_menu .top_menu_item {
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.top_news {
+  background: url() repeat;
+  padding: 40px 0 85px;
+  text-align: center;
+}
+
+.top_news .top_newsTitle {
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  display: block;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: #0B3C5D;
+  font-family: "Kozuka Mincho Pro", "Kozuka Mincho Std", "小塚明朝 Pro R", "小塚明朝 Std R", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "ＭＳ Ｐ明朝", "Times", "Times New Roman", serif;
+}
+
+.top_news .top_newsTitle::before, .top_news .top_newsTitle::after {
+  vertical-align: top;
+}
+
+.top_news .top_newsTitle .top_newsTitleInner {
+  display: inline-block;
+}
+
+.top_news .top_newsTitle span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: #0B3C5D;
+}
+
+@media screen and (max-width: 767px) {
+  .top_news .top_newsTitle {
+    font-size: 25px;
+  }
+  .top_news .top_newsTitle::before {
+    padding-right: 0;
+  }
+  .top_news .top_newsTitle::after {
+    padding-left: 0;
+  }
+}
+
+.top_news .top_news_block {
+  margin: 20px auto;
+  text-align: left;
+}
+
+.top_news .title a {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #323232;
+}
+
+.top_news .title a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.top_news .day {
+  font-size: 12px;
+  line-height: 20px;
+  color: #999999;
+}
+
+.top_news .nopost {
+  text-align: center;
+  color: #000;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=style.css.map */

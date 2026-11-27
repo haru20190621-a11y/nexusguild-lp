@@ -1,0 +1,1349 @@
+@charset "utf-8";
+
+/* Table Of Contents
+----------------------------------------
+
+# General Elements
+# body
+# wrapper
+# layout
+# header
+# gNavi
+# visual
+# content
+# sidebar
+# pageTop
+# footer
+
+----------------------------------------*/
+
+
+/* # General Elements
+---------------------------------------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+	.telnum {
+		pointer-events:none;
+		cursor:default;
+	}
+	
+}
+
+.table td{
+	padding-right:20px;	
+}
+
+a    { text-decoration: none;  }
+a:hover   { text-decoration: none; }
+
+
+/* # body
+---------------------------------------------------------------------------- */
+
+body {
+	color: #333;
+	font-size: 75%;
+	font-family: "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "Hiragino Kaku Gothic ProN", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+	line-height: 1.7;
+	text-align: left;
+}
+
+
+/* # wrapper
+---------------------------------------------------------------------------- */
+
+#wrapper {
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/ec7f0fcee7f2.png) 0% 0% repeat;
+	position: relative;
+	width: 100%;
+}
+@media only screen and (max-width:768px) {
+	/*#wrapper {
+		padding-top: 80px;
+	}*/
+	#wpadminbar {
+    position: fixed !important;
+}
+header#gHeader {
+    height: 80px;
+}
+div.breadcrumbs{
+	display:none;	
+}
+}
+
+/* # layout
+---------------------------------------------------------------------------- */
+
+#layout {
+	background: 0;
+	margin: 0 auto;
+	padding-bottom: 100px;
+	position: relative;
+	width: 1200px;
+}
+@media only screen and (max-width:1200px) {
+	#layout {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 640px) {
+	#layout {
+		padding-bottom: 0;
+	}
+}
+
+
+/* header
+---------------------------------------------------------------------------- */
+
+header#gHeader {
+	background: #077d20;
+	height: 100px;
+	width: 100%;
+}
+@media only screen and (max-width:768px) {
+	header#gHeader  {
+	display: none;
+	}
+}
+
+header#gHeader #headerIn {
+	height: 100%;
+	padding: 0 3.75%;
+	position: relative;
+	width: 92.5%;
+}
+
+header#gHeader #headerIn h1#headerTit {
+	color: #fff;
+	display: none;
+	font-size: 10px;
+	left: 70px;
+	position: absolute;
+	top: 10px;
+	z-index: 1;
+}
+
+header#gHeader #headerIn #headerLogo {
+	left: 0;
+	position: absolute;
+	top: 11px;
+}
+@media only screen and (max-width:768px) {
+	header#gHeader #headerIn #headerLogo {
+		left: 10px;
+		top: 50%;
+	}
+}
+header#gHeader #headerIn #headerLogo img {
+	display: block;
+	margin-top: -30px;
+	vertical-align: 0;
+}
+header#gHeader #headerIn #headerLogo img.pc {
+	display: none;
+}
+header#gHeader #headerIn #headerLogo img.tb {
+	display: none;
+}
+header#gHeader #headerIn #headerLogo img.sp {
+	display: block;
+}
+
+header#gHeader #headerIn #headerPhone {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 37px;
+}
+
+
+/* # gNavi
+---------------------------------------------------------------------------- */
+
+nav#gNaviPc {
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/27d232f0e745.png) 0% 0% repeat-x;
+	display: none;
+	position: relative;
+	z-index: 11;
+}
+
+nav#gNaviSp span.gNaviToggle {
+	background: #fff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: none;
+	cursor: pointer;
+	padding: 6px;
+	height: 30px;
+	float: right;
+	position:absolute;
+	top:21px;
+	right: 3.75%;
+	width: 30px;
+}
+
+nav#gNaviSp span.spHover {
+	background: #0C9;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: block;
+	cursor: pointer;
+	padding: 6px;
+	height: 30px;
+	float: right;
+	position:absolute;
+	top: 21px;
+	right: 3.75%;
+	width: 30px;
+}
+
+nav#gNaviSp span.gNaviToggle img {
+	height: 28px;
+}
+
+nav#gNaviSp ul.gNaviSpIn {
+	display: none;
+	position: relative;
+	z-index: 100;
+}
+
+nav#gNaviSp ul.gNaviSpIn li {
+	background: #05691A;
+	margin: 0 0 1px;
+	height:50px;
+	text-align: center;
+	width: 100%;
+}
+@media only screen and (max-width:768px) {
+	nav#gNaviSp ul.gNaviSpIn li {
+		border-bottom: 1px solid #fff;
+		margin: 0;
+	}
+}
+
+nav#gNaviSp ul.gNaviSpIn li a {
+	background-color:transparent;
+	-webkit-touch-callout:none;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+	color: #FFF;
+	display: block;
+	height:50px;
+	line-height:50px;
+	width: 100%;
+}
+
+nav#gNaviSp ul.gNaviSpIn li a.spHover {
+	background: #fff;
+	color: #0b78ff;
+	display: block;
+	height:50px;
+	line-height:50px;
+	width: 100%;
+}
+
+
+/* # visual
+---------------------------------------------------------------------------- */
+
+#visual {
+	display: none;
+}
+
+#lowerVisual {
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/3617f117bd3e.png) 50% 0% no-repeat;
+	height: 140px;
+	line-height: 1.0;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+}
+#lowerVisual span {
+	color: #077d20;
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+	left: 50%;
+	margin: -0.5em 0 0 -485px;
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+}
+@media only screen and (max-width: 1200px) {
+	#lowerVisual {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 970px) {
+	#lowerVisual span {
+		left: 20px;
+		margin: -0.5em 0 0 0;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#lowerVisual {
+		display: none;
+	}
+}
+
+
+/* # content
+---------------------------------------------------------------------------- */
+
+#contents {
+	padding: 20px 0 0;
+}
+
+#contents #main {
+	width: 100%;
+}
+
+#contents #main .secCont01 {
+	margin: 0 0 30px;
+}
+@media only screen and (max-width: 640px) {
+	#contents #main .secCont01 {
+		margin: 0 0 0;
+	}
+}
+
+/*-- h --*/
+
+h1,h2,h3,h4 {
+	font-weight:100;
+}
+
+.h1_tit01,
+.h2_tit01,
+.h3_tit01,
+.h4_tit01,
+.h5_tit01,
+.h6_tit01 {
+	font-size: 117%;
+	font-weight: bold;
+}
+
+.h1_tit01 {
+	background: #077d20 url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/82ffe6c5552a.png) 20px 10px no-repeat;
+	border: 1px solid #077d20;
+	color: #fff;
+	font-size: 117%;
+}
+.h1_tit01 span {
+	display: block;
+	padding: 10px 10px 10px 50px;
+}
+
+.h2_tit01 {
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/f3a6328d89d7.png) 0% 0% no-repeat;
+	border-bottom: 1px solid #077d20;
+	color: #077d20;
+	padding: 0 0 8px 30px;
+}
+
+.h3_tit01 {
+	background: #6bc33c;
+	color: #fff;
+	font-size: 117%;
+	padding: 4px 10px 4px 20px;
+}
+
+.h4_tit01 {
+	background: url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/6bbd29fbcadb.png) 0% 0% repeat;
+	color: #077d20;
+	font-size: 117%;
+	padding: 4px 10px 4px 20px;
+}
+
+.h5_tit01 {
+	border-bottom: 1px solid #6bc33c;
+	color: #6bc33c;
+	padding: 0 0 4px 0;
+}
+
+.h6_tit01 {
+	border-bottom: 1px solid #ffb44a;
+	color: #ffb44a;
+	padding: 0 0 4px 0;
+}
+
+
+/*--.box_01--*/
+
+#contents #main .box_01 {
+	background: #fff;
+	border: 1px solid #077d20;
+	border-top: 0;
+	padding: 20px 20px 20px;
+	text-align: left;
+	margin: 0 0 20px 0;
+}
+@media only screen and (max-width: 970px) {
+	#contents #main .box_01 {
+		padding: 20px 2.77% 20px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#contents #main .box_01 {
+		padding: 20px 2.77% 20px;
+	}
+}
+@media only screen and (max-width: 640px) {
+	#contents #main .box_01 {
+		border: 0;
+		padding: 20px 3.75% 20px;
+	}
+}
+
+
+/*--.textbox_01--*/
+
+#contents #main .textbox_01 {
+	background: #fff url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/fcd2335b2215.png) 100% 100% no-repeat;
+}
+
+
+/*--.textbox_02--*/
+
+#contents #main .textbox_02 {
+	background: #fff url(https://haru20190621-a11y.github.io/nexusguild-lp/demo/ti-golf/assets/979628e46b27.png) 100% 100% no-repeat;
+}
+
+/*--.btnMain01--*/
+
+.btnMain01 {
+	background: -moz-linear-gradient(top, #439C4D 0%, #077D20 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#439C4D), color-stop(100%,#077D20));
+	background: -webkit-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -o-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -ms-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: linear-gradient(to bottom, #439C4D 0%,#077D20 100%);
+	border: 1px solid #077d20;
+	font-size: 117%;
+}
+
+a.btnMain01,
+button.btnMain01 {
+	color: #fff!important;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 20px;
+	text-align: center;
+}
+@media only screen and (max-width: 768px) {
+	a.btnMain01,
+	button.btnMain01 {
+		box-sizing: border-box;
+		height: 50px;
+		line-height: 50px;
+		padding: 0;
+		width: 100%;
+	}
+}
+
+a.btnMain01 {
+	-webkit-touch-callout:none;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+	display: inline-block;
+	text-decoration: none;
+}
+a.btnMain01:hover {
+	text-decoration: none;
+}
+
+button.btnMain01 {
+	cursor: pointer;
+}
+
+a.btnMain01.spHover,
+button.btnMain01:hover,
+a.btnMain01:hover {
+	opacity: 0.7;
+}
+
+
+/* # sidebar
+---------------------------------------------------------------------------- */
+
+aside#sidebar {
+	display: none;
+}
+
+aside#sidebar section {
+	margin: 0 0 25px;
+}
+
+p.btnSide01 {
+	background: -moz-linear-gradient(top, #439C4D 0%, #077D20 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#439C4D), color-stop(100%,#077D20));
+	background: -webkit-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -o-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -ms-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: linear-gradient(to bottom, #439C4D 0%,#077D20 100%);
+	border: 1px solid #077d20;
+	float: right;
+	width: 81px;
+}
+
+p.btnSide01 a {
+	color: #fff;
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
+
+p.btnSide01:hover {
+	opacity: 0.7;
+}
+
+
+/*--.sideBnr--*/
+
+#sideBnr ul li {
+	margin: 0 0 20px;
+}
+#sideBnr ul li a:hover {
+	opacity: 0.7;
+}
+
+#sideBnr ul li img {
+	width: 100%;
+}
+
+
+/*--btnLNavi--*/
+
+nav.lNavi ul.btnLNavi {
+	margin: 0 0 15px;
+}
+
+nav.lNavi ul.btnLNavi li {
+	background: -moz-linear-gradient(top, #439C4D 0%, #077D20 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#439C4D), color-stop(100%,#077D20));
+	background: -webkit-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -o-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: -ms-linear-gradient(top, #439C4D 0%,#077D20 100%);
+	background: linear-gradient(to bottom, #439C4D 0%,#077D20 100%);
+	border: 1px solid #077d20;
+	margin: 0 0 5px;
+	width: 100%;
+}
+
+nav.lNavi ul.btnLNavi li a {
+	color: #fff;
+	display: block;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
+
+nav.lNavi ul.btnLNavi li:hover {
+	opacity: 0.7;
+}
+
+
+/*--txtLNavi--*/
+
+nav.lNavi ul.txtLNavi li {
+	margin: 0 0 15px;
+	text-align: center;
+}
+
+nav.lNavi ul.txtLNavi li a {
+	color: #077d20;
+	font-weight: bold;
+}
+
+nav.lNavi ul.txtLNavi li a:hover {
+	text-decoration: underline;
+}
+
+
+/*--sideSerch--*/
+
+#sideSearch {
+	margin-bottom: 20px;
+	height: 26px;
+	position: relative;
+}
+#sideSearch p.input input {
+	border: 1px solid #077d20;
+	box-sizing: border-box;
+	font-size: 100%;
+	height: 26px;
+	padding: 0 31px 0 5px;
+	width: 100%;
+}
+#sideSearch p.btn input {
+	background: #077d20;
+	border: 0;
+	height: 26px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 26px;
+}
+
+
+/*--sideCompany--*/
+
+#sideCompany {
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+#sideCompany .bh {
+	border-bottom: 1px solid #FE6D6D;
+	font-size: 117%;
+	font-weight: bold;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+}
+#sideCompany dl {
+	margin-bottom: 10px;
+}
+#sideCompany dd {
+	margin: -1.5em 0 0 6em;
+}
+#sideCompany div.gmap {
+	margin-top: 15px;
+}
+#sideCompany iframe {
+	border: 0;
+	height: 222px;
+	width: 100%;
+}
+
+
+/*--sidebar_contents--*/
+
+aside#sidebar .sidebar_contents .bh {
+	background: #079725;
+	border: 1px solid #077d20;
+	border-bottom: 0;
+	color: #fff;
+	font-size: 117%;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+aside#sidebar .sidebar_contents .mh {
+	background: #079725;
+	color: #fff;
+	font-size: 100%;
+	font-weight: bold;
+	padding: 8px 10px;
+	text-align: center;
+}
+aside#sidebar .sidebar_contents .sc_inner {
+	background: #077D20;
+	border: 1px solid #077d20;
+	border-top: 0;
+	padding: 10px;
+}
+aside#sidebar .sidebar_contents .sc_layer {
+	background: #fff;
+	border-top: 0;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+aside#sidebar .sidebar_contents dl,
+aside#sidebar .sidebar_contents li {
+	border-bottom: 1px solid #069725;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+aside#sidebar .sidebar_contents li:last-child {
+	border-bottom: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+aside#sidebar .sidebar_contents dt {
+}
+aside#sidebar .sidebar_contents dd {
+}
+aside#sidebar .sidebar_contents dd a,
+aside#sidebar .sidebar_contents li a {
+	color: #333;
+	text-decoration: none;
+}
+aside#sidebar .sidebar_contents dd a:hover,
+aside#sidebar .sidebar_contents li a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+
+/*--#spSns--*/
+
+#spSns {
+	display: block;
+}
+
+#spSns {
+	padding: 20px 3.75% 20px;
+	width: 92.5%;
+}
+
+#spSns ul {
+	margin:0 auto;
+	width: 224px;
+}
+
+#spSns ul li {
+	float: left;
+	margin: 0 40px 0 0;
+	width: 48px;
+}
+
+#spSns ul li a {
+	background-color:transparent;
+	-webkit-touch-callout:none;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+#spSns ul li a.spHover {
+	opacity: 0.7;
+}
+
+
+/* # pageTop
+---------------------------------------------------------------------------- */
+
+p#pcPageTop {
+	position: absolute;
+	right: 0;
+	top: -50px;
+}
+p#pcPageTop a:hover {
+	opacity: 0.7;
+}
+@media only screen and (max-width: 970px) {
+	p#pcPageTop {
+		right: 25px;
+	}
+}
+
+p#spPageTop {
+	display: none;
+}
+@media only screen and (max-width: 640px) {
+	p#pcPageTop {
+		display: none;
+	}
+	
+	p#spPageTop {
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	p#spPageTop a {
+		background-color:transparent;
+		-webkit-touch-callout:none;
+		-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+		color: #fff;
+		display: block;
+		padding: 10px 0;
+		width: 100%;
+	}
+	p#spPageTop a.spHover {
+		opacity: 0.7;
+	}
+}
+
+
+/* footer
+---------------------------------------------------------------------------- */
+
+footer#gFooter {
+	background: #077d20;
+	color: #fff;
+	width: 100%;
+}
+
+footer#gFooter #footerIn {
+	padding: 0 0 10px;
+	position: relative;
+}
+
+
+/*--#fNavi--*/
+
+footer#gFooter nav#fNavi li {
+	display: inline-block;
+	margin: 0 50px 0 0;
+}
+footer#gFooter nav#fNavi a {
+	color: #fff;
+}
+@media only screen and (max-width: 640px) {
+	footer#gFooter nav#fNavi ul {
+		border-top: #FFF 1px solid;
+	}
+	footer#gFooter nav#fNavi li {
+		border-bottom: #FFF 1px solid;
+		box-sizing: border-box;
+		display: block;
+		float: left;
+		margin: 0;
+		width: 50%;
+	}
+	footer#gFooter nav#fNavi li:nth-child(2n-1) {
+		border-right: #FFF 1px solid;
+	}
+	footer#gFooter nav#fNavi a {
+		background-color:transparent;
+		-webkit-touch-callout:none;
+		-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+		color: #FFF;
+		display: block;
+		line-height: 50px;
+		height: 50px;
+		text-align: center;
+		width: 100%;
+	}
+	
+	footer#gFooter nav#fNavi a.spHover {
+		opacity: 0.7;
+	}
+}
+
+
+footer#gFooter #footerInfo {
+	padding: 20px 3.75%;
+	text-align: center;
+	width: 92.5%;
+}
+
+footer#gFooter #footerInfo figure {
+	margin: 0 0 20px;
+}
+
+footer#gFooter #footerInfo div.address {
+	margin: 0 0 20px;
+}
+footer#gFooter #footerInfo div.address dd {
+	margin: -1.7em 0 0 5em;
+}
+@media only screen and (max-width: 768px) {
+	footer#gFooter #footerInfo div.address dt {
+		display: inline;
+		margin-right: 1em;
+	}
+	footer#gFooter #footerInfo div.address dd {
+		display: inline;
+		margin: 0;
+	}
+}
+
+#footerInfo #spFooterPhone {
+	display: block;
+}
+
+#footerInfo #pcFooterPhone {
+	display: none;
+}
+
+footer#gFooter #copyright {
+	text-align: center;
+}
+
+span.tagNew {
+	color: #FFF;
+	font-size: 10px;
+	font-weight: normal!important;
+	background: #FFA200;
+	letter-spacing: 2px;
+	padding: 3px 4px 2px 6px;
+}
+
+
+/* --
+============================================================================
+
+タブレット向けのスタイル：641px ～ 768px
+
+============================================================================
+-- */
+
+@media only screen and (min-width: 641px) and (max-width: 768px){
+
+/* # gNavi
+---------------------------------------------------------------------------- */
+
+nav#gNaviPc {
+	diplay: none;
+}
+
+nav#gNaviSp {
+	diplay: block;
+}
+
+nav#gNaviSp ul.gNaviSpIn li {
+	box-sizing:border-box;
+	float:left;
+	width: 50%;
+}
+
+nav#gNaviSp ul.gNaviSpIn li:nth-child(2n-1) {
+	border-right: #FFF solid 1px;
+}
+
+
+/* # visual
+---------------------------------------------------------------------------- */
+
+#visual {
+	display: none;
+}
+
+
+/* # content
+---------------------------------------------------------------------------- */
+
+#contents {
+	padding: 40px 3.125% 30px;
+	width: 93.75%;
+}
+
+#contents #main {
+	margin: 0 0 30px;
+	width: 100%;
+}
+
+
+/* # sidebar
+---------------------------------------------------------------------------- */
+
+aside#sidebar {
+	display: none;
+}
+
+/*--#spSns--*/
+
+#spSns {
+	display: block;
+	background: none;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	width: 500px;
+}
+
+#spSns ul li {
+	float: left;
+	margin: 0 40px 0 0;
+	width: 48px;
+}
+
+/* footer
+---------------------------------------------------------------------------- */
+
+footer#gFooter #footerIn {
+	padding: 10px;
+}
+
+/*--footerInfo--*/
+
+footer#gFooter #footerInfo {
+	padding: 30px 3.125%;
+	text-align: center;
+	width: 93.75%;
+}
+
+#footerInfo p span {
+	font-size: 150%;
+}
+
+#footerInfo #spFooterPhone {
+	display: block;
+}
+
+#footerInfo #pcFooterPhone {
+	display: none;
+}
+
+}
+
+
+
+
+/* --
+============================================================================
+
+大きめタブレット向けのスタイル：769px ～ 970px
+
+============================================================================
+-- */
+
+
+@media only screen and (min-width: 769px) and (max-width: 970px){
+
+
+/* # General Elements
+---------------------------------------------------------------------------- */
+
+a    { text-decoration: none;  }
+a:hover   { text-decoration: underline; }
+
+
+/* header
+---------------------------------------------------------------------------- */
+
+header#gHeader #headerIn {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	max-width: 970px;
+}
+
+header#gHeader #headerIn h1#headerTit {
+	display: block;
+}
+
+header#gHeader #headerIn #headerLogo img {
+	margin-top: 0;
+	vertical-align: 0;
+}
+header#gHeader #headerIn #headerLogo img.pc {
+	display: none;
+}
+header#gHeader #headerIn #headerLogo img.tb {
+	display: block;
+}
+header#gHeader #headerIn #headerLogo img.sp {
+	display: none;
+}
+
+header#gHeader #headerIn #headerPhone {
+	display: block;
+}
+
+	
+/* # gNavi
+---------------------------------------------------------------------------- */
+
+nav#gNaviSp {
+	display: none;
+}
+
+nav#gNaviPc {
+	display: block;
+}
+
+nav#gNaviPc ul.gNaviPcIn {
+	max-width: 970px;
+}
+
+nav#gNaviPc ul.gNaviPcIn li {
+	float: left;
+	width: 16.666%;
+}
+
+nav#gNaviPc ul.gNaviPcIn li img {
+	display: block;
+	vertical-align: 0;
+	width: 100%;
+}
+
+nav#gNaviPc ul.gNaviPcIn li a {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+nav#gNavi ul.gNaviIn > li {
+	
+}
+
+
+/* # visual
+---------------------------------------------------------------------------- */
+
+#visual {
+	display: block;
+	width: 100%;
+}
+
+#visual #visualIn {
+	background: url() top center no-repeat;
+}
+
+
+/* # content
+---------------------------------------------------------------------------- */
+
+#contents {
+	padding: 50px 2.47% 70px;
+	width: 95.06%;
+	text-align: left;
+}
+
+#contents #main {
+	float: left;
+	width: 73%;
+}
+
+
+/* # sidebar
+---------------------------------------------------------------------------- */
+
+aside#sidebar {
+	float: right;
+	font-size: 100%;
+	line-height:1.5;
+	display: block;
+	width: 24.5%;
+}
+
+/*--#spSns--*/
+
+#spSns {
+	display: none;
+}
+
+/*--sideSns--*/
+
+#sideSns ul li {
+	float: left;
+	margin: 0 10px 0 0;
+	width: 48px;
+}
+
+
+/* footer
+---------------------------------------------------------------------------- */
+
+footer#gFooter #footerIn {
+	padding: 20px 2.47% 10px;
+	margin: 0 auto;
+	width: 95.06%;
+}
+
+/*--footerInfo--*/
+
+footer#gFooter #footerInfo {
+	padding: 45px 0;
+	width: 100%;
+}
+
+footer#gFooter #footerInfo figure {
+	float: left;
+	margin: 0 10% 0 0;
+	width: 30%;
+}
+footer#gFooter #footerInfo figure img {
+	width: 100%;
+}
+
+footer#gFooter #footerInfo div.address {
+	float: left;
+	margin: 0;
+	text-align: left;
+	width: 30%;
+}
+footer#gFooter #footerInfo div.address span {
+	font-size: 150%;
+}
+
+#footerInfo #spFooterPhone {
+	display: none;
+}
+
+#footerInfo #pcFooterPhone {
+	display: block;
+	margin: 20px 0 0 0;
+	float: right;
+	width: 30%;
+}
+#footerInfo #pcFooterPhone img {
+	width: 100%;
+}
+}
+
+
+
+/* --
+============================================================================
+
+PC向けのスタイル：971px ～
+
+============================================================================
+-- */
+
+
+@media only screen and (min-width: 971px){
+
+
+/* # General Elements
+---------------------------------------------------------------------------- */
+
+a    { text-decoration: none;  }
+a:hover   { text-decoration: underline; }
+
+
+/* header
+---------------------------------------------------------------------------- */
+
+header#gHeader #headerIn {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	max-width: 970px;
+}
+
+header#gHeader #headerIn h1#headerTit {
+	display: block;
+}
+
+header#gHeader #headerIn #headerLogo img {
+	margin-top: 0;
+	vertical-align: 0;
+}
+header#gHeader #headerIn #headerLogo img.pc {
+	display: block;
+}
+header#gHeader #headerIn #headerLogo img.tb {
+	display: none;
+}
+header#gHeader #headerIn #headerLogo img.sp {
+	display: none;
+}
+
+header#gHeader #headerIn #headerPhone {
+	display: block;
+}
+	
+/* # gNavi
+---------------------------------------------------------------------------- */
+
+nav#gNaviSp {
+	display: none;
+}
+
+nav#gNaviPc { 
+	display: block;
+}
+
+nav#gNaviPc ul.gNaviPcIn {
+	margin: 0 auto;
+	width: 970px;
+}
+
+nav#gNaviPc ul.gNaviPcIn li {
+	float: left;
+}
+
+nav#gNaviPc ul.gNaviPcIn li img {
+	display: block;
+	vertical-align: 0;
+}
+
+
+/* # visual
+---------------------------------------------------------------------------- */
+
+#visual {
+	display: block;
+	width: 100%;
+}
+
+#visual #visualIn {
+	background: url() top center no-repeat;
+}
+
+
+/* # content
+---------------------------------------------------------------------------- */
+
+#contents {
+	padding: 50px 0 70px;
+	margin: 0 auto;
+	max-width: 970px;
+	text-align: left;
+}
+
+#contents #main {
+	float: left;
+	width: 722px;
+}
+
+
+/* # sidebar
+---------------------------------------------------------------------------- */
+
+aside#sidebar {
+	float: right;
+	font-size: 100%;
+	line-height:1.5;
+	display: block;
+	width: 222px;
+}
+
+/*--#spSns--*/
+
+#spSns {
+	display: none;
+}
+
+/*--sideSns--*/
+
+#sideSns ul li {
+	float: left;
+	margin: 0 10px 0 0;
+	width: 48px;
+}
+
+
+/* footer
+---------------------------------------------------------------------------- */
+
+footer#gFooter #footerIn {
+	padding: 20px 0 10px;
+	margin: 0 auto;
+	width: 970px;
+}
+
+/*--footerInfo--*/
+
+footer#gFooter #footerInfo {
+	padding: 45px 0 20px;
+	width: 970px;
+}
+
+footer#gFooter #footerInfo figure {
+	float: left;
+	margin: 20px 160px 0 0;
+}
+
+footer#gFooter #footerInfo div.address {
+	float: left;
+	margin: 0;
+	text-align: left;
+}
+footer#gFooter #footerInfo div.address span {
+	font-size: 150%;
+}
+
+#footerInfo #spFooterPhone {
+	display: none;
+}
+
+#footerInfo #pcFooterPhone {
+	display: block;
+	float: right;
+	margin: 20px 0 0 0;
+}
+
+}

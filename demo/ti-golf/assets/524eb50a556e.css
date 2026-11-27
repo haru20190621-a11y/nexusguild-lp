@@ -1,0 +1,320 @@
+aa@charset "utf-8";
+
+/* Table Of Contents
+----------------------------------------
+
+# post_header
+# post_header2
+# related_posts
+# comments_area
+# adjacent_pagination
+
+----------------------------------------*/
+
+
+/* # post_header
+---------------------------------------------------------------------------- */
+
+div#main .post_header {
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	margin-bottom: 10px;
+	padding: 5px 0;
+}
+div#main .post_header .post_title {
+	font-size: 150%;
+	font-weight: bold;
+	margin-top: -30px;
+	padding-right: 6em;
+	position: relative;
+	z-index: 1;
+}
+div#main .post_header .post_title a {
+	color: #333;
+	text-decoration: none;
+}
+div#main .post_header .post_title a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+div#main .post_header .post_date {
+	font-size: 100%;
+	text-align: right;
+}
+@media only screen and (max-width:768px) {
+	div#main .post_header .post_title {
+		font-size: 117%;
+		margin-top: 0;
+		padding-right: 0;
+	}
+	div#main .post_header .post_date {
+		text-align: left;
+	}
+}
+
+
+/* # post_header2
+---------------------------------------------------------------------------- */
+
+div#main .post_header2 {
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0;
+}
+div#main .post_header2 .post_title {
+	font-size: 100%;
+	line-height: 1.2;
+	margin: -1.2em 0 0 8em;
+}
+div#main .post_header2 .post_title a {
+	color: #333;
+	text-decoration: none;
+}
+div#main .post_header2 .post_title a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+div#main .post_header2 .post_date {
+	font-size: 100%;
+	line-height: 1.2;
+}
+@media only screen and (max-width:768px) {
+	div#main .post_header2 .post_title {
+		margin: 0;
+	}
+	div#main .post_header2 .post_date {
+		margin-bottom: 10px;
+	}
+}
+
+
+/* # related_posts
+---------------------------------------------------------------------------- */
+
+div.yarpp-related {
+	margin: 0!important;
+}
+div#main .related_posts .box_01 {
+	border-top: 1px solid #077d20!important;
+}
+div#main .related_posts ul {
+	margin: 20px -10px 0;
+}
+	div#main .related_posts ul:before,
+	div#main .related_posts ul:after {
+		content: "";
+		display: table;
+	}
+	div#main .related_posts ul:after {
+		clear: both;
+	}
+	div#main .related_posts ul {
+		zoom: 1;
+	}
+div#main .related_posts li {
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+}
+div#main .related_posts li .inner {
+	padding: 0 10px;
+}
+div#main .related_posts li p.post_thumbnail {
+	margin-bottom: 5px;
+}
+div#main .related_posts li p.post_thumbnail img {
+	width: 100%;
+}
+div#main .related_posts li a {
+	color: #333;
+	font-weight: normal!important;
+	text-decoration: none;
+}
+div#main .related_posts li a:hover {
+	color: #333;
+	text-decoration: underline!important;
+}
+
+/* CSS Document */
+
+div.yarpp-related{
+	margin:0 !important;
+}
+
+div#main .related_posts ul{
+	margin-top:20px;
+}
+
+div#main .related_posts li {
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+	float: left;
+}
+
+@media only screen and (max-width: 640px){
+div#main .related_posts li {
+	display: inline-block;
+	vertical-align: top;
+	width: 100% !important;
+	float: left;
+	margin-bottom:20px;
+}
+	
+}
+
+div#main .related_posts li .inner {
+	padding: 0 10px;
+}
+
+div#main .related_posts li p.post_thumbnail {
+	margin-bottom: 5px;
+}
+
+div#main .related_posts li a {
+	font-weight: normal!important;
+}
+
+div#main .related_posts li p.post_thumbnail img{
+	width:100%;
+	margin-bottom:5px;
+}
+
+div#main .post_thumbnail a:hover img {
+	opacity: 0.8;
+	background: #fff;
+}
+
+
+
+
+/* # comments_area
+---------------------------------------------------------------------------- */
+
+div#main .comments_area .box_01 {
+	border-top: 1px solid #077d20!important;
+}
+div#main .comments_area ul.sns {
+	margin: -20px 0 10px;
+	text-align: right;
+}
+div#main .comments_area ul.sns li {
+	display: inline;
+}
+div#main .comments_area form p {
+	margin-bottom: 10px;
+}
+div#main .comments_area form input,
+div#main .comments_area form textarea {
+	border: 1px solid #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 100%;
+	margin: 0;
+	padding: 5px 10px;
+	width: 100%;
+}
+div#main .comments_area form textarea {
+	height: 150px;
+}
+div#main .comments_area article {
+	border-bottom: 1px solid #069725;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+div#main .comments_area article.last {
+	border-bottom: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+div#main .comments_area article header {
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+div#main .comments_area article .post_title {
+	font-size: 117%;
+	font-weight: bold;
+}
+div#main .comments_area article .post_author {
+	font-size: 83%;
+}
+div#main .comments_area article .post_content {
+	font-size: 100%;
+}
+
+
+/* # adjacent_pagination
+---------------------------------------------------------------------------- */
+
+div#main nav.adjacent_pagination {
+	margin-top: 30px;
+}
+div#main nav.adjacent_pagination .ap_inner {
+	margin: 0 auto;
+	width: 300px;
+}
+	div#main nav.adjacent_pagination .ap_inner:before,
+	div#main nav.adjacent_pagination .ap_inner:after {
+		content: "";
+		display: table;
+	}
+	div#main nav.adjacent_pagination .ap_inner:after {
+		clear: both;
+	}
+	div#main nav.adjacent_pagination .ap_inner {
+		zoom: 1;
+	}
+div#main nav.adjacent_pagination .prev {
+	float: left;
+	text-align: left;
+	width: 50%;
+}
+div#main nav.adjacent_pagination .next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+div#main nav.adjacent_pagination img {
+	vertical-align: -7px;
+}
+div#main nav.adjacent_pagination .prev img {
+	margin-right: 10px;
+}
+div#main nav.adjacent_pagination .next img {
+	margin-left: 10px;
+}
+div#main nav.adjacent_pagination a {
+	color: #333;
+}
+div#main nav.adjacent_pagination span {
+	color: #ccc;
+}
+
+/* --- form focus 150224 --- */
+
+@media only screen and (max-width:768px) {
+	div#main form th {
+		font-size: 14px;
+	}
+
+	div#main form td p,
+	div#main form input,
+	div#main form select,
+	div#main form textarea {
+		font-size: 16px!important;
+	}
+}
+
+/* --- valid overflow 150224 --- */
+
+@media only screen and (max-width:640px) {
+	span.wpcf7-not-valid-tip {
+		left: 0%!important;
+		width: 100%!important;
+	}
+}
+
